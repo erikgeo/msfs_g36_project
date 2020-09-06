@@ -1,6 +1,6 @@
 # MSFS G36 Project
 
-This is the improvement project for the MSFS default G36. At this moment, the modificatiom mainly focuses on flight performance fixes. This was made possible with the help of the community consisting of enthousiast and G/A36 (ex-)pilots.
+This is the improvement project for the MSFS default G36. At this moment, the modificatiom mainly focuses on flight performance fixes. This was made possible with the help of the community consisting of both enthousiasts and G/A36 (ex-)pilots.
 
 Current features of this modification are:
 
