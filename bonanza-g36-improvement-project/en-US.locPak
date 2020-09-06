@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "en-US",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "At the end of World War II, Beech Aircraft Company introduced the first Beechcraft Bonanza into the postwar civil-aviation market. At a time when most light aircraft were still made of wood and fabric, the all-metal Model 35 Bonanza was a relatively fast, low-wing monoplane designed like war-time fighters -- with an easy-to-manage, horizontally opposed, six-cylinder engine, a rakishly streamlined shape, retractable undercarriage and low-wing configuration.<\/br><\/br>Since the first prototype Model 35 in 1945, continuing to the recent G36, more than 18,000 Bonanzas have been built -- and while it may not hold the record for most-produced light airplane of all time, the Beechcraft legacy workhorse has been in continuous production longer than any other plane in history.<\/br><\/br>When the G36 joined the family line in 2006, the six-seater single-engine craft carried forward a legacy of design known for reliable performance and heavy-duty construction, as well as exceptional handling and control feel. But from spinner to tail, the model also benefits from decades of production and constant improvement.<\/br><\/br>Most notable amongst its advances, the G36 updates the technology suite of its predecessor, the A36. With integrated flat-panel avionics in the form of the Garmin G1000 NXi, managing the flight deck has never been easier. Add to that an upgraded interior, with a host of creature comforts, and the G36 Bonanza offers bizjet levels of fit and finish in a rugged utility craft form -- a powerful combination, and a testament to the line's enduring appeal.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}
