@@ -8,6 +8,7 @@ Current features of this modification are:
 * Redone flap and gear drag
 * Continental IO550-B is now a six-cylinder
 * Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
+* Fixed erroneous engine efficiency increase around 2000 rpm
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
 * Removed Pitot Heat caution
 * Added low fuel cautions and warnings
