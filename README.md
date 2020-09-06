@@ -12,7 +12,7 @@ Current features of this modification are:
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
 * Removed Pitot Heat caution
 * Added low fuel cautions and warnings
-* Added BUSES TIED advisory (WIP) (note the electrical system is not actually modelled int this way, it is just the advisory text)
+* Added BUSES TIED advisory (WIP) (note the electrical system is not actually modelled in this way, it is just the advisory text)
 * Added alternator warnings
 * Airco switch activated (Other switches WIP)
 
