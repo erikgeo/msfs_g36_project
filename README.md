@@ -4,7 +4,7 @@ This is the improvement project for the MSFS default G36. At this moment, the mo
 
 Current features of this modification are:
 
-* Adjusted climb and cruise performance to match the Bonanza A36 POH charts. This is a work-in-progress.
+* Adjusted climb and cruise performance to match the Bonanza A36 POH charts. (WIP)
 * Redone flap and gear drag
 * Continental IO550-B is now a six-cylinder
 * Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
@@ -12,8 +12,9 @@ Current features of this modification are:
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
 * Removed Pitot Heat caution
 * Added low fuel cautions and warnings
-* Added BUSES TIED advisory (note the electrical system is not actually modelled int this way, it is just the advisory text)
-* Added warnings for alternators offline
+* Added BUSES TIED advisory (WIP) (note the electrical system is not actually modelled int this way, it is just the advisory text)
+* Added alternator warnings
+* Airco switch activated (Other switches WIP)
 
 To install:
  
