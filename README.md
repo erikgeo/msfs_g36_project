@@ -13,6 +13,7 @@ Current features of this modification are:
 * Removed Pitot Heat caution
 * Added low fuel cautions and warnings
 * Added BUSES TIED advisory (note the electrical system is not actually modelled int this way, it is just the advisory text)
+* Added warnings for alternators offline
 
 To install:
  
