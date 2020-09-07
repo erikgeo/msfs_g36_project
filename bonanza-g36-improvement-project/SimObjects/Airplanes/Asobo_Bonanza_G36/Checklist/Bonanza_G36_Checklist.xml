@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<SimBase.Document Type="Checklist" version="1,0">
+  <Checklist.Checklist>
+    <IncludeCheckpointLibrary FileName="CheckpointsLibrary\\Asobo_DefaultCheckpointLibrary.xml"/>
+	<IncludeCheckpointLibrary FileName="SimObjects\\Airplanes\\Asobo_Bonanza_G36\\Checklist\\Library.xml"/> <!-- odifier cette r�f�rence l� -->
+
+    <Step ChecklistStepId="PREFLIGHT_GATE">
+
+      <Page SubjectTT="Normal Procedures - Pre-flight Inspection">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+        <Checkpoint ReferenceId="ALL_ELECTRICAL_EQUIPMENT_OFF_G36">	<!-- All switches off @TODO flood & Panel light switches added to the ASOBO default or bring whole process into this file	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+        <Checkpoint Id="Landing_Gear_Down"> 	<!-- Check gear handle in the down position	-->
+          <Clue name="TT:CLUE.LANDING_GEAR_DOWN"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_GEAR" ExpectationTT="TT:GAME.CHECKLIST_DOWN"/>
+          <Test>
+            <TestValue>
+              <Val SimVarName="GEAR HANDLE POSITION" Units="Boolean"/>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="GEAR_TOGGLE"/>
+            <Instrument Id="LANDING_GEAR_Lever_Gear"/>
+          </Test>
+        </Checkpoint>
+        <Checkpoint Id="Elevator_Trim_Neutral"> 	<!-- Check elevator trim is in neutral position	-->
+          <Clue name="TT:CLUE.ELEVATOR_TRIM_NEUTRAL"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELEVATOR_TRIM" ExpectationTT="TT:GAME.CHECKLIST_NEUTRAL"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="EQUAL" Tolerance="1500">
+                <Val SimVarName="ELEVATOR TRIM INDICATOR" Units="Position 16k"/>
+                <Val Value="0"/>
+              </Operator>
+            </TestValue>
+            <Instrument Id="HANDLING_Wheel_ElevatorTrim"/>
+            <Instrument Id="HANDLING_Indicator_ElevatorTrim"/>
+            <!-- TEST -->
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="ELEVATOR_TRIM_SET" EventParam="0"/>
+          </Test>
+        </Checkpoint>
+      </Page>
+
+
+      <Page SubjectTT="Normal Procedures - Before Engine Start">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Engine Starting (Battery)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Engine Starting (Cold Start)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Engine Starting (Flooded Engine)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Before Taxi">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Before Takeoff (Run up)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Normal Procedures - Before Takeoff (Final Items)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+
+      <!-- Preflight inspection - cockpit 1/2 -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_PREFLIGHT_INSPECTION_COCKPIT_1">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+    			<ForceCamera name="Switches"/>
+    		</Checkpoint>
+      </Page>
+
+      <!-- Before starting engine -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_STARTING_ENGINE">
+		<Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="Avionics_Bus_Switch_Off"> <!-- All avionics : OFF	-->
+			<SetTemplateValue Id="Circuit Avionics">
+				<Val SimVarName="CIRCUIT AVIONICS ON" Units="Boolean"/>
+			</SetTemplateValue>
+			<SetTemplateValue Id="Circuit Avionics">
+				<Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
+			</SetTemplateValue>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ALL_AVIONICS" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
+			<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="24 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="FUEL_SELECTOR_FULLEST_TANK_G36"> <!-- Fuel Selector Valve - Check OPERATION ; SELECT TANK MORE NEARLY FULL // simplified by "select fullest tank	-->
+<!--			<SetTemplateValue Id="LeftTankSelectedEnum">
+				<Val Value="2" />
+			</SetTemplateValue>
+			<SetTemplateValue Id="RightTankSelectedEnum">
+				<Val Value="0" />
+			</SetTemplateValue> 		-->
+			<ForceCamera name="FuelValve"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="BATTERY_AND_ALTERNATOR_SWITCHES_ON">	<!-- Battery and Alternator Switches - ON - If external power is used, turn Alternator Switch - OFF) // Simplified : battery and alternator switches ON  BATTERY_AND_ALTERNATOR_SWITCHES_ON -->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+
+      </Page>
+
+
+
+
+      <!-- Starting Engine -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_STARTING_ENGINE">
+		<Checkpoint ReferenceId="Mixture_Rich">		<!-- Mixture - FULL RICH	-->
+			<ForceCamera name="Pedestal"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="PROP_RPM_LEVER_MAX">	<!-- Propeller - HIGH RPM	-->
+			<ForceCamera name="Pedestal"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="Throttle_Full">		<!-- Throttle - FULL OPEN	-->
+			<ForceCamera name="Pedestal"/>
+		</Checkpoint>
+			<Checkpoint ReferenceId="FUEL_BOOST_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF">		<!-- Auxiliary Fuel Pump - On until flow peaks then OFF /// AUX_FUEL_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF-->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="Throttle_Open_1/2">		<!-- Throttle - Approximately 1/2 inch open	-->
+			<ForceCamera name="Pedestal"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="CHECKLIST_MAGNETO_START_POS_RELEASE_TO_BOTH">	<!-- Magneto/Start Switch - START position; release to BOTH position when engine fires	-->
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_MAGNETO_START_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_MAGNETO_START_POS_RELEASE_TO_BOTH"/>
+			<Clue name="TT:CLUE.MAGNETO_START_POS_RELEASE_TO_BOTH"/>
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="Throttle_Adjust_DESIRED_RPM"> 		<!-- Throttle - 1000 to 1200 RPM	-->
+			<Clue name="TT:CLUE.THROTTLE_ADJUST_1000_TO_1200_RPM"/>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_THROTTLE" ExpectationTT="TT:GAME.CHECKLIST_ADJUST_1000_TO_1200_RPM"/>
+			<ForceCamera name="PFD"/>
+			<SetTemplateValue Id="DesiredRPM_MIN">
+				<Val Value="990" />
+			</SetTemplateValue>
+			<SetTemplateValue Id="DesiredRPM_MAX">	<!-- Determine maximal RPM to validate CP -->
+				<Val Value="1220" />
+			</SetTemplateValue>
+    	</Checkpoint>
+		<Checkpoint ReferenceId="Oil_Pressure_In_Green_Sector">		<!-- Oil Pressure - check	-->
+			<ForceCamera name="MFD">
+        <OnlyIf>
+          <Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
+        </OnlyIf>
+      </ForceCamera >
+      <ForceCamera name="PFD">
+        <OnlyIf>
+          <Operator OpType="NOT">
+            <Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
+          </Operator>
+        </OnlyIf>
+      </ForceCamera >
+        <Clue name="TT:CLUE.OIL_PRESSURE_CHECK_CORRECT"/>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_OIL_PRESSURE" ExpectationTT="TT:GAME.CHECKLIST_CHECK"/>
+		</Checkpoint>
+		<!-- Not MVP // Alternator switch - ON; CHECK FOR CHARGING	-->
+	   </Page>
+
+
+
+
+      <!-- After starting engine 1/2 -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_AFTER_STARTING_ENGINE_1">
+		<Checkpoint ReferenceId="Avionics_Bus_Switch_On">
+		<!-- Avionics Equipment - ON, AS REQUIRED	-->
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
+			<Clue name="TT:CLUE.AVIONICS_MASTER_SWITCH_ON"/>
+			<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="24 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="LIGHTS_AS_REQUIRED_G36">			<!-- Lights - AS REQUIRED	-->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<Checkpoint ReferenceId="FUEL_BOOST_PUMP_OFF">			<!-- Auxiliary Fuel Pump - CHECK OFF	-->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+		<!-- Not MVP // Throttle - 1700 RPM	-->
+		<!-- Not MVP // Mixture - FULL RICH (or as required by field elevation) -->
+		<Checkpoint ReferenceId="Parking_Brake_Release">	<!-- Brakes - RELEASED	-->
+			<ForceCamera name="Switches"/>
+		</Checkpoint>
+      </Page>
+    </Step>
+
+
+
+
+
+
+    <Step ChecklistStepId="PREFLIGHT_TAXI_OUT">
+      <!-- Taxi -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_TAXI">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="FLIGHT_RUNWAY">
+      <!-- Run-up 1/3 -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_RUN_UP_1">
+
+      </Page>
+
+      <!-- Before take-off -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_TAKE_OFF">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="FLIGHT_TAKEOFF">
+      <!-- Normal take-off -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_TAKE_OFF"> <!-- -->
+
+      </Page>
+
+      <!-- Enroute climb -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_ENROUTE_CLIMB">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="FLIGHT_CRUISE">
+      <!-- Cruise -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_CRUISE">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="FLIGHT_DESCENT">
+      <!-- Descent -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_DESCENT">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="LANDING_APPROACH">
+      <!-- Before landing -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_LANDING">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="LANDING_TOUCHDOWN">
+      <!-- Normal landing -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_LANDING">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="LANDING_GROUNDROLL">
+      <!-- After landing -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_AFTER_LANDING">
+
+      </Page>
+    </Step>
+
+    <Step ChecklistStepId="LANDING_TAXI_IN">
+    </Step>
+
+    <Step ChecklistStepId="LANDING_GATE">
+      <!-- Parking -->
+      <Page SubjectTT="TT:GAME.CHECKLIST_PARKING">
+
+      </Page>
+
+      <!-- Securing-->
+      <Page SubjectTT="TT:GAME.CHECKLIST_SECURING">
+
+      </Page>
+    </Step>
+
+  </Checklist.Checklist>
+</SimBase.Document>
