@@ -259,18 +259,31 @@
 				</Or>
 			</Condition>
 		</Annunciation>
-
+		
 		<Annunciation>
 			<Type>Advisory</Type>
 			<Text>BUSES TIED</Text>
 			<Condition>
-				<Lower>
-					<Simvar name="PROP RPM:1" unit="rpm"/>
-					<Constant>1700</Constant>
-				</Lower>
-		</Condition>
+				<StateMachine>
+					<State id="Off" value="0">
+						<Transition to="On">
+							<LowerEqual>
+								<Simvar name="PROP RPM:1" unit="rpm"/>
+								<Constant>1700</Constant>
+							</LowerEqual>
+						</Transition>
+					</State>
+					<State id="On" value="1">
+						<Transition to="Off">
+							<GreaterEqual>
+								<Simvar name="PROP RPM:1" unit="rpm"/>
+								<Constant>2000</Constant>
+							</GreaterEqual>
+						</Transition>
+					</State>
+				</StateMachine>
+			</Condition>
 		</Annunciation>
-
 	</Annunciations>
 
 	  <!-- Voices Alerts -->
