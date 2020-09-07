@@ -78,7 +78,7 @@
 
 		<Annunciation>
 			<Type>Warning</Type>
-			<Text>GEAR UP</Text>		
+			<Text>GEAR UP</Text>
 			<Condition>
 				<And>
 					<Simvar name="IS GEAR RETRACTABLE" unit="Boolean"/>
@@ -121,7 +121,7 @@
 				</And>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>BUS1 VOLT HI</Text>
@@ -132,7 +132,7 @@
 			</Greater>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>BUS2 VOLT HI</Text>
@@ -143,7 +143,7 @@
 			</Greater>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Warning</Type>
 			<Text>ALT 1 INOP</Text>
@@ -156,7 +156,7 @@
 				</And>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Warning</Type>
 			<Text>ALT 2 INOP</Text>
@@ -169,7 +169,7 @@
 				</And>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Warning</Type>
 			<Text>ALT 1-2 INOP</Text>
@@ -185,7 +185,17 @@
 			</Condition>
 		</Annunciation>
 
-		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>STARTER ENGD</Text>
+			<Condition>
+				<And>
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
+					<Simvar name="GENERAL ENG STARTER:1" unit="Boolean"/>
+				</And>
+			</Condition>
+		</Annunciation>
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>PITOT FAIL</Text>
@@ -204,7 +214,7 @@
 			</Condition>
 		</Annunciation>
 		-->
-		
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>CHECK GEAR</Text>
@@ -250,7 +260,7 @@
 			</Condition>
 		</Annunciation>
 		
-		 <Annunciation>
+		<Annunciation>
 			<Type>Advisory</Type>
 			<Text>BUSES TIED</Text>
 			<Condition>
@@ -275,11 +285,11 @@
 			</Condition>
 		</Annunciation>
 	</Annunciations>
-	
+
 	  <!-- Voices Alerts -->
-  
+
   <VoicesAlerts>
-  
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_500ft</SoundEvent>
@@ -309,7 +319,7 @@
 			</StateMachine>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_stall</SoundEvent>
@@ -317,7 +327,7 @@
 			<Simvar name="STALL WARNING" unit="Bool"/>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Warning</Type>
 		<ShortText>PULL UP</ShortText>
@@ -346,7 +356,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_overspeed</SoundEvent>
@@ -354,7 +364,7 @@
 			<Simvar name="OVERSPEED WARNING" unit="bool"/>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Caution</Type>
 		<ShortText>TERRAIN</ShortText>
@@ -384,7 +394,7 @@
 				</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Caution</Type>
 		<ShortText>TERRAIN</ShortText>
@@ -439,7 +449,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_landing_gear</SoundEvent>
@@ -462,7 +472,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Test</Type>
 		<ShortText>TAWS TEST</ShortText>
@@ -476,7 +486,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_taws_system_test_ok</SoundEvent>
@@ -493,11 +503,11 @@
 	</Alert>
 
   </VoicesAlerts>
-	
+
 	<!-- Engine Display -->
 
   <EngineDisplay>
-  
+
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>MANIN_Gauge</ID>
@@ -518,7 +528,7 @@
 			<End>29.6</End>
 		</ColorZone>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>Piston_RPMGauge</ID>
@@ -554,7 +564,7 @@
 			</Greater>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_FFlowGauge</ID>
@@ -578,7 +588,7 @@
 		<GraduationLength>2</GraduationLength>
 		<GraduationTextLength>30</GraduationTextLength>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_ChtGauge</ID>
@@ -603,7 +613,7 @@
 			<End>250</End>
 		</ColorZone>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_OilTempGauge</ID>
@@ -638,7 +648,7 @@
 			</Greater>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_OilPressGauge</ID>
@@ -684,7 +694,7 @@
 			</Or>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_AltLoad</ID>
@@ -713,7 +723,7 @@
 		<BeginText></BeginText>
 		<EndText></EndText>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_VoltsGauge</ID>
@@ -747,7 +757,7 @@
 		<BeginText></BeginText>
 		<EndText></EndText>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_FuelGauge</ID>
@@ -781,7 +791,7 @@
 		<GraduationLength text="True">10</GraduationLength>
 		<EndText>F</EndText>
 	  </Gauge>
-	 
+
   </EngineDisplay>
 
 </PlaneHTMLConfig>
