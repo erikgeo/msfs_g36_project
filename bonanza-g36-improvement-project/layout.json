@@ -69,6 +69,21 @@
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
       "size": 19994,
       "date": 132395419480000000
-    }
+    },
+	{
+	  "path": "effects/LIGHT_ASOBO_Landing.fx",
+	  "size": 1230,
+	  "date": 1599490606610
+	},
+	{
+	  "path": "effects/LIGHT_ASOBO_StrobeSimple.fx",
+	  "size": 1227,
+	  "date": 1599428275459
+	},
+	{
+	  "path": "effects/LIGHT_ASOBO_Taxi.fx",
+	  "size": 1279,
+	  "date": 1599407386268
+	}
   ]
 }
