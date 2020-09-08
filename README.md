@@ -15,6 +15,7 @@ Current features of this modification are:
 * Added BUSES TIED advisory (WIP) (note the electrical system is not actually modelled in this way, it is just the advisory text)
 * Added alternator warnings
 * Airco switch activated (Other switches WIP)
+* Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
 To install:
  
