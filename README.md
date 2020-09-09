@@ -4,11 +4,18 @@ This is the improvement project for the MSFS default G36. At this moment, the mo
 
 Current features of this modification are:
 
+**Flight dynamics/performance**
 * Adjusted climb and cruise performance to match the Bonanza G36 POH charts. (WIP)
-* Redone flap and gear drag
-* Continental IO550-B is now a six-cylinder
-* Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
+* Adjusted flap and gear drag
+* Reduced pitch effect due to elevator deflection + propwash (Check with SME)
+* Increased nosewheel steering angle (Check with SME)
+
+**Engine**
+* Fixed Continental IO550-B defined as four-cylinder (should be a six-cylinder)
 * Fixed erroneous engine efficiency increase around 2000 rpm
+* Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
+
+**Systems**
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
@@ -23,7 +30,10 @@ Current features of this modification are:
   - ALT INOP (Alt 1, 2 or both, Warning)
   - BUS1/2 VOLT HI (Caution)
   - ALT 1/2 LOAD (Caution)
+* Corrected fuel gauge indications
 * Airco switch activated (Other switches WIP)
+
+**Effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
 To install:
