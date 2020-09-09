@@ -223,10 +223,7 @@
 						<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
 					</Not>
 					<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
-					<Greater>
-						<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
-						<Constant>0</Constant>
-					</Greater>				
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
 				</And>
 			</Condition>
 		</Annunciation>
@@ -240,10 +237,7 @@
 						<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
 					</Not>
 					<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
-					<Greater>
-						<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
-						<Constant>0</Constant>
-					</Greater>			
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
 				</And>
 			</Condition>
 		</Annunciation>
@@ -259,10 +253,7 @@
 					<Not>
 						<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
 					</Not>
-					<Greater>
-						<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
-						<Constant>0</Constant>
-					</Greater>			
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
 				</And>
 			</Condition>
 		</Annunciation>
