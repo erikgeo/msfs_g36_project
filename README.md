@@ -13,14 +13,16 @@ Current features of this modification are:
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
-* Added many new annunciators from the G36 POH: 
+* Added many new annunciators based on the G36 POH: 
   - BUSES TIED (Advisory) 
   - FUEL QTY LOW (Warning/Caution)
   - FUEL FLOW HI (Warning)
   - OIL PRES HI/LO (Warning/Caution)
   - OIL TEMP HI (Warning)
+  - CHT HI (Warning)
   - ALT INOP (Alt 1, 2 or both, Warning)
   - BUS1/2 VOLT HI (Caution)
+  - ALT 1/2 LOAD (Caution)
 * Airco switch activated (Other switches WIP)
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
