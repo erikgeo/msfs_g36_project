@@ -71,17 +71,17 @@
       "date": 132395419480000000
     },
 	{
-	  "path": "effects/LIGHT_ASOBO_Landing.fx",
+	  "path": "effects/LIGHT_ASOBO_Landing_G36.fx",
 	  "size": 1230,
 	  "date": 1599490606610
 	},
 	{
-	  "path": "effects/LIGHT_ASOBO_StrobeSimple.fx",
+	  "path": "effects/LIGHT_ASOBO_StrobeSimple_G36.fx",
 	  "size": 1227,
 	  "date": 1599428275459
 	},
 	{
-	  "path": "effects/LIGHT_ASOBO_Taxi.fx",
+	  "path": "effects/LIGHT_ASOBO_Taxi_G36.fx",
 	  "size": 1279,
 	  "date": 1599407386268
 	}
