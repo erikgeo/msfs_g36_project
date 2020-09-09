@@ -25,56 +25,92 @@
 	<Annunciations>
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>FUEL L QTY LO</Text>
+			<Text>FUEL QTY LO</Text>
 			<Condition>
 				<And>
 					<Lower>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
-					</Lower>
+						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+						<Constant>13</Constant>
+					</Lower>					
 					<Greater>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
+						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+						<Constant>3.1</Constant>
 					</Greater>
 				</And>
 			</Condition>
 		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>FUEL QTY LO</Text>
+			<Condition>			
+				<LowerEqual>
+					<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+					<Constant>3.1</Constant>
+				</LowerEqual>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>FUEL FLOW HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
+					<Constant>27.4</Constant>
+				</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>OIL PRESS HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+					<Constant>100</Constant>
+				</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>OIL PRESS LO</Text>
+			<Condition>			
+				<Lower>
+					<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+					<Constant>10</Constant>
+				</Lower>
+			</Condition>
+		</Annunciation>
+		
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
+			<Text>OIL PRESS LO</Text>
+			<Condition>	
 				<And>
 					<Lower>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
+						<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+						<Constant>30</Constant>
 					</Lower>
 					<Greater>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
+						<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+						<Constant>10</Constant>
 					</Greater>
 				</And>
 			</Condition>
 		</Annunciation>
+		
 		<Annunciation>
 			<Type>Warning</Type>
-			<Text>FUEL L QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
+			<Text>OIL TEMP HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="ENG OIL TEMPERATURE" unit="rankine"/>
+					<Constant>700</Constant>
+				</Greater>
 			</Condition>
-		</Annunciation>
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
-			</Condition>
-		</Annunciation>
+		</Annunciation>	
 
 		<Annunciation>
 			<Type>Warning</Type>
@@ -99,6 +135,7 @@
 			</Condition>
 		</Annunciation>
 
+		<!--
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>LOW VOLTS</Text>
@@ -121,6 +158,7 @@
 				</And>
 			</Condition>
 		</Annunciation>
+		-->
 
 		<Annunciation>
 			<Type>Caution</Type>
@@ -132,6 +170,17 @@
 			</Greater>
 			</Condition>
 		</Annunciation>
+		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>BUS1 VOLT LO</Text>
+			<Condition>
+			<Lower>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Constant>24</Constant>
+			</Lower>
+			</Condition>
+		</Annunciation>
 
 		<Annunciation>
 			<Type>Caution</Type>
@@ -141,6 +190,17 @@
 				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>BUS2 VOLT LO</Text>
+			<Condition>
+			<Lower>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Constant>24</Constant>
+			</Lower>
 			</Condition>
 		</Annunciation>
 
@@ -184,6 +244,19 @@
 			</And>
 			</Condition>
 		</Annunciation>
+		
+		<!--
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>ALT 1 LOAD</Text>
+			<Condition>
+			<Greater>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Constant>100</Constant>
+			</Greater>
+			</Condition>
+		</Annunciation>
+		-->
 
 		<Annunciation>
 			<Type>Caution</Type>
@@ -285,6 +358,14 @@
 			</Condition>
 		</Annunciation>
 	</Annunciations>
+	
+	<Annunciation>
+			<Type>Caution</Type>
+			<Text>PITOT FAIL</Text>
+			<Condition>
+				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
+			</Condition>
+	</Annunciation>
 
 	  <!-- Voices Alerts -->
 
@@ -395,6 +476,7 @@
 		</Condition>
 	</Alert>
 
+	<!--
 	<Alert>
 		<Type>Caution</Type>
 		<ShortText>TERRAIN</ShortText>
@@ -449,6 +531,7 @@
 			</And>
 		</Condition>
 	</Alert>
+	-->
 
 	<Alert>
 		<Type>SoundOnly</Type>
