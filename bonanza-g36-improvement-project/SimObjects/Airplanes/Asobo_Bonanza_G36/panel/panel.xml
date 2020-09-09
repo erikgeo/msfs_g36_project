@@ -838,7 +838,7 @@
 		<CursorText>R</CursorText>
 		<CursorText2>L</CursorText2>
 		<Minimum>0</Minimum>
-		<Maximum>30</Maximum>
+		<Maximum>40</Maximum>
 		<Value>
 			<Simvar name="FUEL RIGHT QUANTITY" unit="gallons"/>
 		</Value>
@@ -848,17 +848,17 @@
 		<ColorZone>
 			<Color>red</Color>
 			<Begin>0</Begin>
-			<End>1.5</End>
+			<End>3</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>yellow</Color>
-			<Begin>1.5</Begin>
-			<End>5</End>
+			<Begin>3</Begin>
+			<End>13</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>green</Color>
-			<Begin>5</Begin>
-			<End>24</End>
+			<Begin>13</Begin>
+			<End>40</End>
 		</ColorZone>
 		<GraduationLength text="True">10</GraduationLength>
 		<EndText>F</EndText>
