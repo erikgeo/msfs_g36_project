@@ -9,6 +9,7 @@ Current features of this modification are:
 * Adjusted flap and gear drag
 * Reduced pitch effect due to elevator deflection + propwash (Check with SME)
 * Increased nosewheel steering angle (Check with SME)
+* Added drag due to cowl flap (To be tuned)
 
 **Engine**
 * Fixed Continental IO550-B defined as four-cylinder (should be a six-cylinder)
