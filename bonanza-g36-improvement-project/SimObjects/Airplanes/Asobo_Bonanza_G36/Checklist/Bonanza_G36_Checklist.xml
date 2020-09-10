@@ -251,6 +251,7 @@
 
         <!-- Exterior Lights-->
         <Checkpoint Id="Beacon_Check_And_Off">
+          <ForceCamera name="Switches"/>
           <Clue name="TT:CLUE.BEACON_CHECK_AND_OFF"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_BEACON" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
           <Sequence SeqType="Ordered">
@@ -285,6 +286,7 @@
         </Checkpoint>
 
         <Checkpoint Id="Strobs_Check_And_Off">
+          <ForceCamera name="Switches"/>
           <Clue name="TT:CLUE.STROBE_LIGHTS_OFF"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_STROBS" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
           <Sequence SeqType="Ordered">
@@ -319,6 +321,7 @@
         </Checkpoint>
 
         <Checkpoint Id="Landing_Light_Check_And_Off">
+          <ForceCamera name="Switches"/>
           <Clue name="TT:CLUE.LANDING_LIGHTS_OFF"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
           <Sequence SeqType="Ordered">
@@ -353,6 +356,7 @@
         </Checkpoint>
 
         <Checkpoint Id="Taxi_Light_Check_And_Off">
+          <ForceCamera name="Switches"/>
           <Clue name="TT:CLUE.TAXI_LIGHTS_OFF"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TAXI_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
           <Sequence SeqType="Ordered">
@@ -387,6 +391,7 @@
         </Checkpoint>
 
         <Checkpoint Id="Navigation_Light_Check_And_Off">
+          <ForceCamera name="Switches"/>
           <Clue name="TT:CLUE.NAVIGATION_LIGHTS_OFF"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_NAVIGATION_LIGHTS" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
           <Sequence SeqType="Ordered">
@@ -418,6 +423,97 @@
               <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_NAV_LIGHTS"/>
             </Test>
           </Sequence>
+        </Checkpoint>
+
+        <Checkpoint Id="Flight_Control_Free_And_Correct">
+          <Clue name="TT:CLUE.FLIGHT_CONTROL_FREE_AND_CORRECT"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FLIGHT_CONTROLS" ExpectationTT="TT:GAME.CHECKLIST_FREE_AND_CORRECT"/>
+          <Feedback name="TT:FEEDBACK.CHECKING_FLIGHT_CONTROLS_PLEASE_WAIT"/>
+          <Sequence SeqType="Unordered">
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="LESS">
+                  <Val SimVarName="YOKE X POSITION" Units="percent"/>
+                  <Val Value="-80"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="AILERON_SET" EventParam="16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+              <Instrument Id="HANDLING_Yoke_X"/>
+              <Instrument Id="HANDLING_Yoke"/>
+            </Test>
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="GREATER">
+                  <Val SimVarName="YOKE X POSITION" Units="percent"/>
+                  <Val Value="80"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="AILERON_SET" EventParam="-16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+              <Instrument Id="HANDLING_Yoke_X"/>
+              <Instrument Id="HANDLING_Yoke"/>
+            </Test>
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="LESS">
+                  <Val SimVarName="YOKE Y POSITION" Units="percent"/>
+                  <Val Value="-80"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="Any" Once="true" EventID="AILERON_SET" EventParam="0"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="ELEVATOR_SET" EventParam="16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+              <Instrument Id="HANDLING_Yoke_Y"/>
+              <Instrument Id="HANDLING_Yoke"/>
+            </Test>
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="GREATER">
+                  <Val SimVarName="YOKE Y POSITION" Units="percent"/>
+                  <Val Value="80"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="ELEVATOR_SET" EventParam="-16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+              <Instrument Id="HANDLING_Yoke_Y"/>
+              <Instrument Id="HANDLING_Yoke"/>
+            </Test>
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="LESS">
+                  <Val SimVarName="RUDDER POSITION" Units="percent"/>
+                  <Val Value="-66"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="HANDLING_RudderPedals"/>
+              <Instrument Id="HANDLING_RudderPedals1"/>
+              <Instrument Id="HANDLING_RudderPedals2"/>
+              <Action Copilot="True" Condition="Any" Once="true" EventID="ELEVATOR_SET" EventParam="0"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="RUDDER_SET" EventParam="16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+            </Test>
+            <Test>
+              <Once>True</Once>
+              <TestValue>
+                <Operator OpType="GREATER">
+                  <Val SimVarName="RUDDER POSITION" Units="percent"/>
+                  <Val Value="66"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="HANDLING_RudderPedals"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="false" EventID="RUDDER_SET" EventParam="-16383"/>
+              <Action Copilot="True" Condition="TestValueTrue" Once="true" SpecialAction="WaitForDuration" Value="1.0"/>
+            </Test>
+          </Sequence>
+          <Action Copilot="True" Condition="End" EventID="AILERON_SET" EventParam="0"/>
+          <Action Copilot="True" Condition="End" EventID="ELEVATOR_SET" EventParam="0"/>
+          <Action Copilot="True" Condition="End" EventID="RUDDER_SET" EventParam="0"/>
         </Checkpoint>
 
 

@@ -38,6 +38,7 @@ Current features of this modification are:
 
 **Checklists**
 * Initial Pre-Flight checklist changed to reflect the POH (Pages 162-167) & Definitely WIP
+* Not checked against AI autopilot completing each item yet
 
 To install:
 
