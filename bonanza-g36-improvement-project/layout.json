@@ -47,9 +47,9 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
-      "size": 15860,
+      "size": 15842,
       "date": 132411047970000000
-    },
+    }, 
 	{
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
       "size": 11399,
@@ -62,18 +62,28 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
-      "size": 16314,
+      "size": 20039,
       "date": 132387741250000000
     },
-	  {
+	{
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
       "size": 19994,
       "date": 132395419480000000
     },
-    {
-      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
-      "size": 7944,
-      "date": 159949331300000000
-    }
+	{
+	  "path": "effects/LIGHT_ASOBO_Landing_G36.fx",
+	  "size": 1230,
+	  "date": 1599490606610
+	},
+	{
+	  "path": "effects/LIGHT_ASOBO_StrobeSimple_G36.fx",
+	  "size": 1227,
+	  "date": 1599428275459
+	},
+	{
+	  "path": "effects/LIGHT_ASOBO_Taxi_G36.fx",
+	  "size": 1279,
+	  "date": 1599407386268
+	}
   ]
 }
