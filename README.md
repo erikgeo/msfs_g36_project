@@ -20,8 +20,8 @@ Current features of this modification are:
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
-* Added many new annunciators based on the G36 POH: 
-  - BUSES TIED (Advisory) 
+* Added many new annunciators based on the G36 POH:
+  - BUSES TIED (Advisory)
   - FUEL QTY LOW (Warning/Caution)
   - FUEL FLOW HI (Warning)
   - OIL PRES HI/LO (Warning/Caution)
@@ -36,8 +36,11 @@ Current features of this modification are:
 **Effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
+**Checklists**
+* Initial Pre-Flight checklist changed to reflect the POH (Pages 162-167) & Definitely WIP
+
 To install:
- 
+
 1: Click on the green button in the top right corner that sais 'code' and download as zip
 
 2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder

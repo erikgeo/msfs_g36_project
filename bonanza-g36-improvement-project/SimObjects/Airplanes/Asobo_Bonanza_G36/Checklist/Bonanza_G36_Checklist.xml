@@ -2,20 +2,30 @@
 
 <SimBase.Document Type="Checklist" version="1,0">
   <Checklist.Checklist>
-    <IncludeCheckpointLibrary FileName="CheckpointsLibrary\\Asobo_DefaultCheckpointLibrary.xml"/>
-	<IncludeCheckpointLibrary FileName="SimObjects\\Airplanes\\Asobo_Bonanza_G36\\Checklist\\Library.xml"/> <!-- odifier cette r�f�rence l� -->
+    <IncludeCheckpointLibrary FileName="CheckpointsLibrary\\Asobo_DefaultCheckpointLibrary.xml"/> <!-- Found in...  /OneStore/fs-base-aircraft-common/CheckpointsLibrary -->
+	<IncludeCheckpointLibrary FileName="SimObjects\\Airplanes\\Asobo_Bonanza_G36\\Checklist\\Library.xml"/> <!-- Found in...  /OneStore/fs-base-aircraft-common/CheckpointsLibrary -->
+
 
     <Step ChecklistStepId="PREFLIGHT_GATE">
+      <!--
+      * Normal Procedures from POH Manual Bonanza-g36-POH-compressed.pdf
+      * Section 4 - Pages 159-206
+      *
+    -->
+      <Page SubjectTT="Pre-flight Inspection (Normal Procedures)">
+        <!-- Covers pages 162-167 in POH -->
 
-      <Page SubjectTT="Normal Procedures - Pre-flight Inspection">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+        <!-- Parking Brake - SET	-->
+        <Checkpoint ReferenceId="Parking_Brake_Set">
           <ForceCamera name="Switches"/>
         </Checkpoint>
         <Checkpoint ReferenceId="ALL_ELECTRICAL_EQUIPMENT_OFF_G36">	<!-- All switches off @TODO flood & Panel light switches added to the ASOBO default or bring whole process into this file	-->
           <ForceCamera name="Switches"/>
         </Checkpoint>
-        <Checkpoint Id="Landing_Gear_Down"> 	<!-- Check gear handle in the down position	-->
-          <Clue name="TT:CLUE.LANDING_GEAR_DOWN"/>
+
+        <!-- Check gear handle in the down position	-->
+        <Checkpoint Id="Landing_Gear_Down">
+          <Clue name="Check Landing Gear Handle in down position"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_GEAR" ExpectationTT="TT:GAME.CHECKLIST_DOWN"/>
           <Test>
             <TestValue>
@@ -25,8 +35,11 @@
             <Instrument Id="LANDING_GEAR_Lever_Gear"/>
           </Test>
         </Checkpoint>
-        <Checkpoint Id="Elevator_Trim_Neutral"> 	<!-- Check elevator trim is in neutral position	-->
-          <Clue name="TT:CLUE.ELEVATOR_TRIM_NEUTRAL"/>
+
+        <!-- Check elevator trim is in neutral position	-->
+        <Checkpoint Id="Elevator_Trim_Neutral">
+          <ForceCamera name="Pedestal"/>
+          <Clue name="Trim tabs should be set to 0 or Neutral"/>
           <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ELEVATOR_TRIM" ExpectationTT="TT:GAME.CHECKLIST_NEUTRAL"/>
           <Test>
             <TestValue>
@@ -37,185 +50,426 @@
             </TestValue>
             <Instrument Id="HANDLING_Wheel_ElevatorTrim"/>
             <Instrument Id="HANDLING_Indicator_ElevatorTrim"/>
-            <!-- TEST -->
             <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="ELEVATOR_TRIM_SET" EventParam="0"/>
           </Test>
         </Checkpoint>
+
+        <!--
+        * Battery Systems check
+        * Turn on Battery 1
+        * PFD verfiy reversionary mode
+        * Soft keys select engine & systems page
+        * Bus 1 & 2 Voltages check
+            Bus 1 = not less than 23 volts
+            Bus 2 = approx 2 volts less than Bus 1
+        * Turn on Battery 2
+        * Turn off Battery 1
+        * Bus 1 & Bus 2 Voltages check
+            Bus 1 = 0 Volts
+            Bus 2 = 20 volts min
+        * Turn on Battery 1
+      -->
+
+        <!-- Turn on battery 1 -->
+        <Checkpoint Id="Battery_1_on">
+          <Clue name="Turn on Battery 1"/>
+          <CheckpointDesc SubjectTT="Battery 1" ExpectationTT="ON"/>
+          <Test>
+            <TestValue>
+              <Operator>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY:1" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY1" EventParam="1"/>
+  					<Instrument Id="ELECTRICAL_Switch_Battery_Master1"/>
+          </Test>
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+
+        <!-- UNABLE check reversionary mode -->
+
+        <!-- UNABLE Soft keys select engine & systems page -->
+
+        <!-- BUS 1 Voltages check -->
+        <!-- Possible bug as getting voltage to the bus with the battery master off -->
+        <Checkpoint Id="Battery_Voltages_Bus_1">
+          <Clue name="Bus 1 should be not less than 23 volts"/>
+          <CheckpointDesc SubjectTT="Battery 1 volts" ExpectationTT="Not less 23v"/>
+          <ForceCamera name="PFD"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="LESS">
+                <Val SimVarName="ELECTRICAL MAIN BUS VOLTAGE:1" Units="volts"/>
+    						<Val Value="23" />
+              </Operator>
+            </TestValue>
+            <Instrument Id="HTML:AS1000_PFD"/>
+    				<Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+          </Test>
+        </Checkpoint>
+
+        <Checkpoint Id="Battery_Voltages_Bus_2">
+          <Clue name="Bus 2 should be approximately 2 volts less than Bus 1"/>
+          <CheckpointDesc SubjectTT="Battery 2 volts" ExpectationTT="2v less Bus 1"/>
+          <ForceCamera name="PFD"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="LESS">
+                <Val SimVarName="ELECTRICAL MAIN BUS VOLTAGE:2" Units="volts"/>
+                <Val Value="21" />
+              </Operator>
+            </TestValue>
+            <Instrument Id="HTML:AS1000_PFD:Piston_Bus_E"/>
+            <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- Turn on battery 2 -->
+        <Checkpoint Id="Battery_2_on">
+          <Clue name="Turn on Battery 2"/>
+          <CheckpointDesc SubjectTT="Battery 2" ExpectationTT="ON"/>
+          <Test>
+            <TestValue>
+              <Operator >
+                <Val SimVarName="ELECTRICAL MASTER BATTERY:2" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY2" EventParam="1"/>
+  					<Instrument Id="ELECTRICAL_Switch_Battery_Master2"/>
+          </Test>
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+
+        <!-- Turn off battery 1 -->
+        <Checkpoint Id="Battery_1_off">
+          <Clue name="Turn off Battery 1"/>
+          <CheckpointDesc SubjectTT="Battery 1" ExpectationTT="OFF"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="NOT">
+                <Val SimVarName="ELECTRICAL MASTER BATTERY:1" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY1" EventParam="1"/>
+            <Instrument Id="ELECTRICAL_Switch_Battery_Master1"/>
+          </Test>
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+
+        <!-- BUS 1 Voltages check -->
+        <!-- @TODO Check voltages that the SimVar is recieving, not sure this works? -->
+        <Checkpoint Id="Battery_Voltages_Bus_1">
+          <Clue name="Bus 1 should read 0 volts"/>
+          <CheckpointDesc SubjectTT="Battery 1 volts" ExpectationTT="0v"/>
+          <ForceCamera name="PFD"/>
+          <Test>
+            <TestValue>
+              <Operator>
+                <Val SimVarName="ELECTRICAL MAIN BUS VOLTAGE:1" Units="volts"/>
+                <Val Value="0" />
+              </Operator>
+            </TestValue>
+            <Instrument Id="HTML:AS1000_PFD"/>
+            <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+          </Test>
+        </Checkpoint>
+
+        <Checkpoint Id="Battery_Voltages_Bus_2">
+          <Clue name="Bus 2 should be should be not less than 20 volts"/>
+          <CheckpointDesc SubjectTT="Battery 2 volts" ExpectationTT="20V"/>
+          <ForceCamera name="PFD"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="LESS">
+                <Val SimVarName="ELECTRICAL MAIN BUS VOLTAGE:2" Units="volts"/>
+                <Val Value="21" />
+              </Operator>
+            </TestValue>
+            <Instrument Id="HTML:AS1000_PFD:Piston_Bus_E"/>
+            <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- Turn on battery 1 -->
+        <Checkpoint Id="Battery_1_on">
+          <Clue name="Turn on Battery 1"/>
+          <CheckpointDesc SubjectTT="Battery 1" ExpectationTT="ON"/>
+          <Test>
+            <TestValue>
+              <Operator>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY:1" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY1" EventParam="1"/>
+            <Instrument Id="ELECTRICAL_Switch_Battery_Master1"/>
+          </Test>
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+
+        <!-- Landing gear, check three green -->
+        <Checkpoint Id="LANDING_GEAR_DN_3_GREEN">
+          <ForceCamera name="Switches"/>
+          <Clue name="TT:CLUE.LANDING_GEAR_DN_3_GREEN"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_GEAR" ExpectationTT="3 Green"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="EQUAL">
+                <Val SimVarName="GEAR POSITION" Units="Enum"/>
+                <Val Value="1"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="GEAR_TOGGLE"/>
+            <Instrument Id="LANDING_GEAR_Lever_Gear"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- UNABLE Annunciator Test Button -->
+
+        <!-- Standby Attitude Indicator -->
+        <Checkpoint Id="Standby_Attitude_Indicator">
+          <Clue name="Check the Standby Attitude Indicator flag removed"/>
+          <CheckpointDesc SubjectTT="Standby Attitude Indicator" ExpectationTT="Flag Pulled"/>
+          <ForceCamera name="MFD"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="AND">
+                <Operator OpType="EQUAL" Tolerance="30">
+                  <Val Code="(A:ATTITUDE INDICATOR PITCH DEGREES, degrees)"/>
+                  <Val Value="0"/>
+                </Operator>
+                <Operator OpType="EQUAL" Tolerance="5">
+                  <Val Code="(A:ATTITUDE BARS POSITION, percent)"/>
+                  <Val Value="0"/>
+                </Operator>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" Code="0 (&gt;K:ATTITUDE_BARS_POSITION_SET)"/>
+            <Instrument Id="KNOB_ATTITUDE"/>
+            <Instrument Id="INSTRUMENT_AttitudeIndicator"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- Exterior Lights-->
+        <Checkpoint Id="Beacon_Check_And_Off">
+          <Clue name="TT:CLUE.BEACON_CHECK_AND_OFF"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_BEACON" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
+          <Sequence SeqType="Ordered">
+            <Test>
+              <TestValue>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+            </Test>
+            <Test>
+              <Duration Value="0.5" Cumulative="False"/>
+              <Once>TRUE</Once>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="LIGHT BEACON ON" Units="Boolean"/>
+                  <Val SimVarName="LIGHT BEACON" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Beacon"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_BEACON_LIGHTS"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="NOT">
+                  <Val SimVarName="LIGHT BEACON" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Beacon"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_BEACON_LIGHTS"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+        <Checkpoint Id="Strobs_Check_And_Off">
+          <Clue name="TT:CLUE.STROBE_LIGHTS_OFF"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_STROBS" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
+          <Sequence SeqType="Ordered">
+            <Test>
+              <TestValue>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+            </Test>
+            <Test>
+              <Duration Value="0.5" Cumulative="False"/>
+              <Once>TRUE</Once>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="LIGHT STROBE ON" Units="Boolean"/>
+                  <Val SimVarName="LIGHT STROBE" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Strobe"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="STROBES_TOGGLE"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="NOT">
+                  <Val SimVarName="LIGHT STROBE" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Strobe"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="STROBES_TOGGLE"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+        <Checkpoint Id="Landing_Light_Check_And_Off">
+          <Clue name="TT:CLUE.LANDING_LIGHTS_OFF"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LANDING_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
+          <Sequence SeqType="Ordered">
+            <Test>
+              <TestValue>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+            </Test>
+            <Test>
+              <Duration Value="0.5" Cumulative="False"/>
+              <Once>TRUE</Once>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="LIGHT LANDING ON" Units="Boolean"/>
+                  <Val SimVarName="LIGHT LANDING" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Landing"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="LANDING_LIGHTS_TOGGLE"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="NOT">
+                  <Val SimVarName="LIGHT LANDING" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Landing"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="LANDING_LIGHTS_TOGGLE"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+        <Checkpoint Id="Taxi_Light_Check_And_Off">
+          <Clue name="TT:CLUE.TAXI_LIGHTS_OFF"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_TAXI_LIGHT" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
+          <Sequence SeqType="Ordered">
+            <Test>
+              <TestValue>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+            </Test>
+            <Test>
+              <Duration Value="0.5" Cumulative="False"/>
+              <Once>TRUE</Once>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="LIGHT TAXI ON" Units="Boolean"/>
+                  <Val SimVarName="LIGHT TAXI" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Taxi"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_TAXI_LIGHTS"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="NOT">
+                  <Val SimVarName="LIGHT TAXI" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Taxi"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_TAXI_LIGHTS"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+        <Checkpoint Id="Navigation_Light_Check_And_Off">
+          <Clue name="TT:CLUE.NAVIGATION_LIGHTS_OFF"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_NAVIGATION_LIGHTS" ExpectationTT="TT:GAME.CHECKLIST_CHECK_AND_OFF"/>
+          <Sequence SeqType="Ordered">
+            <Test>
+              <TestValue>
+                <Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+            </Test>
+            <Test>
+              <Duration Value="0.5" Cumulative="False"/>
+              <Once>TRUE</Once>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="LIGHT NAV ON" Units="Boolean"/>
+                  <Val SimVarName="LIGHT NAV" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Navigation"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_NAV_LIGHTS"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="NOT">
+                  <Val SimVarName="LIGHT NAV" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="LIGHTING_Switch_Light_Navigation"/>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_NAV_LIGHTS"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+
       </Page>
 
 
-      <Page SubjectTT="Normal Procedures - Before Engine Start">
+      <Page SubjectTT="Before Engine Start (Normal Procedures)">
         <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
           <ForceCamera name="Switches"/>
         </Checkpoint>
       </Page>
 
-      <Page SubjectTT="Normal Procedures - Engine Starting (Battery)">
+      <Page SubjectTT="Engine Starting - Battery (Normal Procedures)">
         <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
           <ForceCamera name="Switches"/>
         </Checkpoint>
       </Page>
 
-      <Page SubjectTT="Normal Procedures - Engine Starting (Cold Start)">
+      <Page SubjectTT="Engine Starting - Cold Start (Normal Procedures)">
         <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
           <ForceCamera name="Switches"/>
         </Checkpoint>
       </Page>
 
-      <Page SubjectTT="Normal Procedures - Engine Starting (Flooded Engine)">
+      <Page SubjectTT="Engine Starting - Flooded Engine (Normal Procedures)">
         <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
           <ForceCamera name="Switches"/>
         </Checkpoint>
       </Page>
 
-      <Page SubjectTT="Normal Procedures - Before Taxi">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
-      <Page SubjectTT="Normal Procedures - Before Takeoff (Run up)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
-      <Page SubjectTT="Normal Procedures - Before Takeoff (Final Items)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
-
-      <!-- Preflight inspection - cockpit 1/2 -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_PREFLIGHT_INSPECTION_COCKPIT_1">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-    			<ForceCamera name="Switches"/>
-    		</Checkpoint>
-      </Page>
-
-      <!-- Before starting engine -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_STARTING_ENGINE">
-		<Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="Avionics_Bus_Switch_Off"> <!-- All avionics : OFF	-->
-			<SetTemplateValue Id="Circuit Avionics">
-				<Val SimVarName="CIRCUIT AVIONICS ON" Units="Boolean"/>
-			</SetTemplateValue>
-			<SetTemplateValue Id="Circuit Avionics">
-				<Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
-			</SetTemplateValue>
-			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ALL_AVIONICS" ExpectationTT="TT:GAME.CHECKLIST_OFF"/>
-			<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="24 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="FUEL_SELECTOR_FULLEST_TANK_G36"> <!-- Fuel Selector Valve - Check OPERATION ; SELECT TANK MORE NEARLY FULL // simplified by "select fullest tank	-->
-<!--			<SetTemplateValue Id="LeftTankSelectedEnum">
-				<Val Value="2" />
-			</SetTemplateValue>
-			<SetTemplateValue Id="RightTankSelectedEnum">
-				<Val Value="0" />
-			</SetTemplateValue> 		-->
-			<ForceCamera name="FuelValve"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="BATTERY_AND_ALTERNATOR_SWITCHES_ON">	<!-- Battery and Alternator Switches - ON - If external power is used, turn Alternator Switch - OFF) // Simplified : battery and alternator switches ON  BATTERY_AND_ALTERNATOR_SWITCHES_ON -->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-
-      </Page>
-
-
-
-
-      <!-- Starting Engine -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_STARTING_ENGINE">
-		<Checkpoint ReferenceId="Mixture_Rich">		<!-- Mixture - FULL RICH	-->
-			<ForceCamera name="Pedestal"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="PROP_RPM_LEVER_MAX">	<!-- Propeller - HIGH RPM	-->
-			<ForceCamera name="Pedestal"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="Throttle_Full">		<!-- Throttle - FULL OPEN	-->
-			<ForceCamera name="Pedestal"/>
-		</Checkpoint>
-			<Checkpoint ReferenceId="FUEL_BOOST_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF">		<!-- Auxiliary Fuel Pump - On until flow peaks then OFF /// AUX_FUEL_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF-->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="Throttle_Open_1/2">		<!-- Throttle - Approximately 1/2 inch open	-->
-			<ForceCamera name="Pedestal"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="CHECKLIST_MAGNETO_START_POS_RELEASE_TO_BOTH">	<!-- Magneto/Start Switch - START position; release to BOTH position when engine fires	-->
-			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_MAGNETO_START_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_MAGNETO_START_POS_RELEASE_TO_BOTH"/>
-			<Clue name="TT:CLUE.MAGNETO_START_POS_RELEASE_TO_BOTH"/>
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="Throttle_Adjust_DESIRED_RPM"> 		<!-- Throttle - 1000 to 1200 RPM	-->
-			<Clue name="TT:CLUE.THROTTLE_ADJUST_1000_TO_1200_RPM"/>
-			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_THROTTLE" ExpectationTT="TT:GAME.CHECKLIST_ADJUST_1000_TO_1200_RPM"/>
-			<ForceCamera name="PFD"/>
-			<SetTemplateValue Id="DesiredRPM_MIN">
-				<Val Value="990" />
-			</SetTemplateValue>
-			<SetTemplateValue Id="DesiredRPM_MAX">	<!-- Determine maximal RPM to validate CP -->
-				<Val Value="1220" />
-			</SetTemplateValue>
-    	</Checkpoint>
-		<Checkpoint ReferenceId="Oil_Pressure_In_Green_Sector">		<!-- Oil Pressure - check	-->
-			<ForceCamera name="MFD">
-        <OnlyIf>
-          <Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
-        </OnlyIf>
-      </ForceCamera >
-      <ForceCamera name="PFD">
-        <OnlyIf>
-          <Operator OpType="NOT">
-            <Val SimVarName="CIRCUIT SWITCH ON:24" Units="Boolean"/>
-          </Operator>
-        </OnlyIf>
-      </ForceCamera >
-        <Clue name="TT:CLUE.OIL_PRESSURE_CHECK_CORRECT"/>
-			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_OIL_PRESSURE" ExpectationTT="TT:GAME.CHECKLIST_CHECK"/>
-		</Checkpoint>
-		<!-- Not MVP // Alternator switch - ON; CHECK FOR CHARGING	-->
-	   </Page>
-
-
-
-
-      <!-- After starting engine 1/2 -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_AFTER_STARTING_ENGINE_1">
-		<Checkpoint ReferenceId="Avionics_Bus_Switch_On">
-		<!-- Avionics Equipment - ON, AS REQUIRED	-->
-			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_AVIONICS_MASTER_SWITCH" ExpectationTT="TT:GAME.CHECKLIST_ON"/>
-			<Clue name="TT:CLUE.AVIONICS_MASTER_SWITCH_ON"/>
-			<SetTemplateAction Id="Toggle Avionics Bus" Copilot="True" Condition="TestValueFalse" Once="true" Code="24 (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)"/>
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="LIGHTS_AS_REQUIRED_G36">			<!-- Lights - AS REQUIRED	-->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<Checkpoint ReferenceId="FUEL_BOOST_PUMP_OFF">			<!-- Auxiliary Fuel Pump - CHECK OFF	-->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-		<!-- Not MVP // Throttle - 1700 RPM	-->
-		<!-- Not MVP // Mixture - FULL RICH (or as required by field elevation) -->
-		<Checkpoint ReferenceId="Parking_Brake_Release">	<!-- Brakes - RELEASED	-->
-			<ForceCamera name="Switches"/>
-		</Checkpoint>
-      </Page>
     </Step>
 
-
-
-
-
-
     <Step ChecklistStepId="PREFLIGHT_TAXI_OUT">
-      <!-- Taxi -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_TAXI">
 
+      <Page SubjectTT="Before Taxi (Normal Procedures)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
       </Page>
+
+      <Page SubjectTT="Before Takeoff - Run up (Normal Procedures)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
+      <Page SubjectTT="Before Takeoff - Final Items (Normal Procedures)">
+        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
+          <ForceCamera name="Switches"/>
+        </Checkpoint>
+      </Page>
+
     </Step>
 
     <Step ChecklistStepId="FLIGHT_RUNWAY">
