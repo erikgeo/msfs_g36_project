@@ -3,6 +3,7 @@
 	<Instrument>
 		<Name>AS1000_PFD</Name>
 		<SyntheticVision>True</SyntheticVision>
+		<AvionicsKnobIndex>14</AvionicsKnobIndex> <!-- Ensures compatibility with G1000 mod -->
 		<Electric>
 			<Simvar name="CIRCUIT ON:25" unit="Boolean"/>
 		</Electric>

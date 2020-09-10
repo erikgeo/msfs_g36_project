@@ -47,7 +47,7 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
-      "size": 15842,
+      "size": 15860,
       "date": 132411047970000000
     }, 
 	{
@@ -62,12 +62,12 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
-      "size": 20039,
+      "size": 20128,
       "date": 132387741250000000
     },
 	{
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 19994,
+      "size": 20248,
       "date": 132395419480000000
     },
 	{

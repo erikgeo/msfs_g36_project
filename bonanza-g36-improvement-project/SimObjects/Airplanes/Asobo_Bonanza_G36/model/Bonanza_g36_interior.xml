@@ -16,6 +16,7 @@
 	<Include Path="Asobo\Common.xml"/>
 	<Include Path="Asobo\GlassCockpit\AS1000.xml"/>
 	
+	<Macro Name="ConvertTo16k"> 163.84 * flr </Macro>
 <!-- AS1000 ############################## -->
 	<Component ID="AS1000_PFD">
 		<UseTemplate Name="ASOBO_AS1000_PFD_Template">
@@ -121,6 +122,18 @@
 			<ID>1</ID>
 			<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
 		</UseTemplate>
+		<Update Frequency="2">
+			(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
+		</Update>
+		<!--
+		<Update Frequency="30">
+			(A:RUDDER PEDAL POSITION:1, position 16k) 0 &lt; if{
+			(A:RUDDER PEDAL POSITION:1, position 16k) abs 3 / (&gt;K:AILERONS_LEFT)
+			} els {
+			(A:RUDDER PEDAL POSITION:1, position 16k) abs 3 / (&gt;K:AILERONS_RIGHT)
+			}
+		</Update>
+		-->
 	</Component>
 	
 	<!-- FUEL #######################################-->
