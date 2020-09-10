@@ -36,8 +36,12 @@ Current features of this modification are:
 **Effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
+**Checklists**
+* Initial Pre-Flight checklist changed to reflect the POH (Pages 162-167) & Definitely WIP
+* Not checked against AI autopilot completing each item yet
+
 To install:
- 
+
 1: Click on the green button in the top right corner that sais 'code' and download as zip
 
 2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
