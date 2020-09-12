@@ -3,6 +3,7 @@
 	<Instrument>
 		<Name>AS1000_PFD</Name>
 		<SyntheticVision>True</SyntheticVision>
+		<AvionicsKnobIndex>14</AvionicsKnobIndex> <!-- Ensures compatibility with G1000 mod -->
 		<Electric>
 			<Simvar name="CIRCUIT ON:25" unit="Boolean"/>
 		</Electric>
@@ -25,60 +26,107 @@
 	<Annunciations>
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>FUEL L QTY LO</Text>
+			<Text>FUEL QTY LO</Text>
 			<Condition>
 				<And>
 					<Lower>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
-					</Lower>
+						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+						<Constant>13</Constant>
+					</Lower>					
 					<Greater>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
+						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+						<Constant>3.1</Constant>
 					</Greater>
 				</And>
 			</Condition>
 		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>FUEL QTY LO</Text>
+			<Condition>			
+				<LowerEqual>
+					<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+					<Constant>3.1</Constant>
+				</LowerEqual>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>FUEL FLOW HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
+					<Constant>27.4</Constant>
+				</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>OIL PRESS HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+					<Constant>100</Constant>
+				</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>OIL PRESS LO</Text>
+			<Condition>			
+				<Lower>
+					<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+					<Constant>10</Constant>
+				</Lower>
+			</Condition>
+		</Annunciation>
+		
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
+			<Text>OIL PRESS LO</Text>
+			<Condition>	
 				<And>
 					<Lower>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
+						<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+						<Constant>30</Constant>
 					</Lower>
 					<Greater>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
+						<Simvar name="GENERAL ENG OIL PRESSURE:1" unit="psi"/>
+						<Constant>10</Constant>
 					</Greater>
 				</And>
 			</Condition>
 		</Annunciation>
+		
 		<Annunciation>
 			<Type>Warning</Type>
-			<Text>FUEL L QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
+			<Text>OIL TEMP HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="ENG OIL TEMPERATURE:1" unit="rankine"/>
+					<Constant>700</Constant>
+				</Greater>
 			</Condition>
-		</Annunciation>
+		</Annunciation>	
+		
 		<Annunciation>
 			<Type>Warning</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
+			<Text>CHT HI</Text>
+			<Condition>			
+				<Greater>
+					<Simvar name="ENG CYLINDER HEAD TEMPERATURE:1" unit="celsius"/>
+					<Constant>238</Constant>
+				</Greater>
 			</Condition>
-		</Annunciation>
+		</Annunciation>	
 
 		<Annunciation>
 			<Type>Warning</Type>
-			<Text>GEAR UP</Text>		
+			<Text>GEAR UP</Text>
 			<Condition>
 				<And>
 					<Simvar name="IS GEAR RETRACTABLE" unit="Boolean"/>
@@ -101,29 +149,6 @@
 
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>LOW VOLTS</Text>
-			<Condition>
-				<And>
-					<Lower>
-						<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
-						<Constant>25</Constant>
-					</Lower>
-					<Or>
-						<Greater>
-							<Simvar name="ELECTRICAL BATTERY LOAD:1" unit="amps"/>
-							<Constant>0</Constant>
-						</Greater>
-						<Greater>
-							<Simvar name="ELECTRICAL BATTERY LOAD:2" unit="amps"/>
-							<Constant>0</Constant>
-						</Greater>
-					</Or>
-				</And>
-			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Caution</Type>
 			<Text>BUS1 VOLT HI</Text>
 			<Condition>
 			<Greater>
@@ -133,6 +158,17 @@
 			</Condition>
 		</Annunciation>
 		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>BUS1 VOLT LO</Text>
+			<Condition>
+			<Lower>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Constant>24</Constant>
+			</Lower>
+			</Condition>
+		</Annunciation>
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>BUS2 VOLT HI</Text>
@@ -145,6 +181,41 @@
 		</Annunciation>
 		
 		<Annunciation>
+			<Type>Caution</Type>
+			<Text>BUS2 VOLT LO</Text>
+			<Condition>
+			<Lower>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Constant>24</Constant>
+			</Lower>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>ALT 1 LOAD</Text>
+			<Condition>
+			<Greater>
+				 <Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amps"/>
+				 <Constant>100</Constant>
+			</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>ALT 2 LOAD</Text>
+			<Condition>
+			<Greater>
+				 <Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amps"/>
+				 <Constant>24</Constant>
+			</Greater>
+			</Condition>
+		</Annunciation>
+		
+		<!-- ADD ALT 2 LOAD IF BETWEEN 20 AND 24 AMPS FOR 5+ MIN-->
+
+		<Annunciation>
 			<Type>Warning</Type>
 			<Text>ALT 1 INOP</Text>
 			<Condition>
@@ -153,10 +224,11 @@
 						<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
 					</Not>
 					<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
 				</And>
 			</Condition>
 		</Annunciation>
-		
+
 		<Annunciation>
 			<Type>Warning</Type>
 			<Text>ALT 2 INOP</Text>
@@ -166,26 +238,38 @@
 						<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
 					</Not>
 					<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
+				</And>
+			</Condition>
+		</Annunciation>
+
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>ALT 1-2 INOP</Text>
+			<Condition>
+				<And>
+					<Not>
+						<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
+					</Not>
+					<Not>
+						<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
+					</Not>
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
 				</And>
 			</Condition>
 		</Annunciation>
 		
 		<Annunciation>
-			<Type>Warning</Type>
-			<Text>ALT 1-2 INOP</Text>
+			<Type>Caution</Type>
+			<Text>STARTER ENGD</Text>
 			<Condition>
-			<And>
-				<Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
-				</Not>
-				<Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
-				</Not>
-			</And>
+				<And>
+					<Simvar name="ENG COMBUSTION:1" unit="Boolean"/>
+					<Simvar name="GENERAL ENG STARTER:1" unit="Boolean"/>
+				</And>
 			</Condition>
 		</Annunciation>
 
-		
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>PITOT FAIL</Text>
@@ -193,18 +277,7 @@
 				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
 			</Condition>
 		</Annunciation>
-		<!--
-		<Annunciation>
-			<Type>Caution</Type>
-			<Text>PITOT HT OFF</Text>
-			<Condition>
-				<Not>
-					<Simvar name="PITOT HEAT" unit="Boolean"/>
-				</Not>
-			</Condition>
-		</Annunciation>
-		-->
-		
+
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>CHECK GEAR</Text>
@@ -254,19 +327,40 @@
 			<Type>Advisory</Type>
 			<Text>BUSES TIED</Text>
 			<Condition>
-				<Lower>
-					<Simvar name="PROP RPM:1" unit="rpm"/>
-					<Constant>1700</Constant>
-				</Lower>
-		</Condition>
+				<StateMachine>
+					<State id="Off" value="0">
+						<Transition to="On">
+							<LowerEqual>
+								<Simvar name="PROP RPM:1" unit="rpm"/>
+								<Constant>1700</Constant>
+							</LowerEqual>
+						</Transition>
+					</State>
+					<State id="On" value="1">
+						<Transition to="Off">
+							<GreaterEqual>
+								<Simvar name="PROP RPM:1" unit="rpm"/>
+								<Constant>2000</Constant>
+							</GreaterEqual>
+						</Transition>
+					</State>
+				</StateMachine>
+			</Condition>
 		</Annunciation>
-
 	</Annunciations>
 	
+	<Annunciation>
+			<Type>Caution</Type>
+			<Text>PITOT FAIL</Text>
+			<Condition>
+				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
+			</Condition>
+	</Annunciation>
+
 	  <!-- Voices Alerts -->
-  
+
   <VoicesAlerts>
-  
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_500ft</SoundEvent>
@@ -296,7 +390,7 @@
 			</StateMachine>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_stall</SoundEvent>
@@ -304,7 +398,7 @@
 			<Simvar name="STALL WARNING" unit="Bool"/>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Warning</Type>
 		<ShortText>PULL UP</ShortText>
@@ -333,7 +427,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_overspeed</SoundEvent>
@@ -341,7 +435,7 @@
 			<Simvar name="OVERSPEED WARNING" unit="bool"/>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Caution</Type>
 		<ShortText>TERRAIN</ShortText>
@@ -371,7 +465,8 @@
 				</And>
 		</Condition>
 	</Alert>
-	
+
+	<!--
 	<Alert>
 		<Type>Caution</Type>
 		<ShortText>TERRAIN</ShortText>
@@ -426,7 +521,8 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+	-->
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_landing_gear</SoundEvent>
@@ -449,7 +545,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>Test</Type>
 		<ShortText>TAWS TEST</ShortText>
@@ -463,7 +559,7 @@
 			</And>
 		</Condition>
 	</Alert>
-	
+
 	<Alert>
 		<Type>SoundOnly</Type>
 		<SoundEvent>aural_taws_system_test_ok</SoundEvent>
@@ -480,11 +576,11 @@
 	</Alert>
 
   </VoicesAlerts>
-	
+
 	<!-- Engine Display -->
 
   <EngineDisplay>
-  
+
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>MANIN_Gauge</ID>
@@ -505,7 +601,7 @@
 			<End>29.6</End>
 		</ColorZone>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>Piston_RPMGauge</ID>
@@ -541,7 +637,7 @@
 			</Greater>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_FFlowGauge</ID>
@@ -565,7 +661,7 @@
 		<GraduationLength>2</GraduationLength>
 		<GraduationTextLength>30</GraduationTextLength>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_ChtGauge</ID>
@@ -590,7 +686,7 @@
 			<End>250</End>
 		</ColorZone>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_OilTempGauge</ID>
@@ -625,7 +721,7 @@
 			</Greater>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>Horizontal</Type>
 		<ID>Piston_OilPressGauge</ID>
@@ -671,7 +767,7 @@
 			</Or>
 		</RedBlink>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_AltLoad</ID>
@@ -700,7 +796,7 @@
 		<BeginText></BeginText>
 		<EndText></EndText>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_VoltsGauge</ID>
@@ -734,7 +830,7 @@
 		<BeginText></BeginText>
 		<EndText></EndText>
 	  </Gauge>
-	  
+
 	  <Gauge>
 		<Type>DoubleHorizontal</Type>
 		<ID>Piston_FuelGauge</ID>
@@ -743,7 +839,7 @@
 		<CursorText>R</CursorText>
 		<CursorText2>L</CursorText2>
 		<Minimum>0</Minimum>
-		<Maximum>30</Maximum>
+		<Maximum>40</Maximum>
 		<Value>
 			<Simvar name="FUEL RIGHT QUANTITY" unit="gallons"/>
 		</Value>
@@ -753,22 +849,22 @@
 		<ColorZone>
 			<Color>red</Color>
 			<Begin>0</Begin>
-			<End>1.5</End>
+			<End>3</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>yellow</Color>
-			<Begin>1.5</Begin>
-			<End>5</End>
+			<Begin>3</Begin>
+			<End>13</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>green</Color>
-			<Begin>5</Begin>
-			<End>24</End>
+			<Begin>13</Begin>
+			<End>40</End>
 		</ColorZone>
 		<GraduationLength text="True">10</GraduationLength>
 		<EndText>F</EndText>
 	  </Gauge>
-	 
+
   </EngineDisplay>
 
 </PlaneHTMLConfig>
