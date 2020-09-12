@@ -7,9 +7,9 @@ Current features of this modification are:
 **Flight dynamics/performance**
 * Adjusted climb and cruise performance to match the Bonanza G36 POH charts. (WIP)
 * Adjusted flap and gear drag
-* Reduced pitch effect due to elevator deflection + propwash (Check with SME)
-* Increased nosewheel steering angle (Check with SME)
-* Added drag due to cowl flap (To be tuned)
+* Slightly reduced pitch effect due to elevator deflection + propwash
+* Slightly increased nosewheel steering angle 
+* Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
 
 **Engine**
 * Fixed Continental IO550-B defined as four-cylinder (should be a six-cylinder)
@@ -18,6 +18,7 @@ Current features of this modification are:
 
 **Systems**
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
+* Compatible with G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
