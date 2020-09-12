@@ -1,4 +1,4 @@
-# MSFS G36 Project version 0.4 (Beta, not released, not guaranteed to be stable)
+# MSFS G36 Project version 0.4
 
 This is the improvement project for the MSFS default G36. At this moment, the modificatiom mainly focuses on flight performance fixes. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots.
 
