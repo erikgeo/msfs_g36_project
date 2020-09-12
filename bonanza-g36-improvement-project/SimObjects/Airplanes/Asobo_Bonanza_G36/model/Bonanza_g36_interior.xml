@@ -462,18 +462,12 @@
 		</Component>
 	</Component>
 	
-	<Component ID="DUMMY">
-		<UseTemplate Name="ASOBO_GT_Switch_Dummy">
-			<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
-			<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
-			<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
-			<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
-		</UseTemplate>
-	</Component>
-	
 	<Component ID="TT_INOP">
 		<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 			<NODE_ID>SAFETY_Push_Annunciator</NODE_ID>
+		</UseTemplate>
+		<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
+			<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 		</UseTemplate>
 		<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 			<NODE_ID>PASSENGER_Switch_CockpitAir</NODE_ID>

@@ -23,58 +23,26 @@
   </Logic>
 
 	<Annunciations>
-		<Annunciation>
-			<Type>Caution</Type>
-			<Text>FUEL L QTY LO</Text>
-			<Condition>
-				<And>
-					<Lower>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
-					</Lower>
-					<Greater>
-						<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
-					</Greater>
-				</And>
-			</Condition>
-		</Annunciation>
-		<Annunciation>
-			<Type>Caution</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
-				<And>
-					<Lower>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>5</Constant>
-					</Lower>
-					<Greater>
-						<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-						<Constant>3.5</Constant>
-					</Greater>
-				</And>
-			</Condition>
-		</Annunciation>
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>FUEL L QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
-			</Condition>
-		</Annunciation>
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>FUEL R QTY LO</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/>
-					<Constant>3.5</Constant>
-				</Lower>
-			</Condition>
-		</Annunciation>
+		<!-- <Annunciation> -->
+			<!-- <Type>Caution</Type> -->
+			<!-- <Text>L FUEL LOW</Text> -->
+			<!-- <Condition> -->
+				<!-- <Lower> -->
+					<!-- <Simvar name="FUEL TANK LEFT MAIN QUANTITY" unit="gallon"/> -->
+					<!-- <Constant>4</Constant> -->
+				<!-- </Lower> -->
+			<!-- </Condition> -->
+		<!-- </Annunciation> -->
+		<!-- <Annunciation> -->
+			<!-- <Type>Caution</Type> -->
+			<!-- <Text>R FUEL LOW</Text> -->
+			<!-- <Condition> -->
+				<!-- <Lower> -->
+					<!-- <Simvar name="FUEL TANK RIGHT MAIN QUANTITY" unit="gallon"/> -->
+					<!-- <Constant>4</Constant> -->
+				<!-- </Lower> -->
+			<!-- </Condition> -->
+		<!-- </Annunciation> -->
 
 		<Annunciation>
 			<Type>Warning</Type>
@@ -124,76 +92,11 @@
 		
 		<Annunciation>
 			<Type>Caution</Type>
-			<Text>BUS1 VOLT HI</Text>
-			<Condition>
-			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
-				 <Constant>30</Constant>
-			</Greater>
-			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Caution</Type>
-			<Text>BUS2 VOLT HI</Text>
-			<Condition>
-			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
-				 <Constant>30</Constant>
-			</Greater>
-			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>ALT 1 INOP</Text>
-			<Condition>
-				<And>
-					<Not>
-						<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
-					</Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
-				</And>
-			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>ALT 2 INOP</Text>
-			<Condition>
-				<And>
-					<Not>
-						<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
-					</Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
-				</And>
-			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Warning</Type>
-			<Text>ALT 1-2 INOP</Text>
-			<Condition>
-			<And>
-				<Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:1" unit="Boolean"/>
-				</Not>
-				<Not>
-					<Simvar name="GENERAL ENG MASTER ALTERNATOR:2" unit="Boolean"/>
-				</Not>
-			</And>
-			</Condition>
-		</Annunciation>
-
-		
-		<Annunciation>
-			<Type>Caution</Type>
 			<Text>PITOT FAIL</Text>
 			<Condition>
 				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
 			</Condition>
 		</Annunciation>
-		<!--
 		<Annunciation>
 			<Type>Caution</Type>
 			<Text>PITOT HT OFF</Text>
@@ -203,7 +106,6 @@
 				</Not>
 			</Condition>
 		</Annunciation>
-		-->
 		
 		<Annunciation>
 			<Type>Caution</Type>
@@ -248,17 +150,6 @@
 					</And>
 				</Or>
 			</Condition>
-		</Annunciation>
-		
-		<Annunciation>
-			<Type>Advisory</Type>
-			<Text>BUSES TIED</Text>
-			<Condition>
-				<Lower>
-					<Simvar name="PROP RPM:1" unit="rpm"/>
-					<Constant>1700</Constant>
-				</Lower>
-		</Condition>
 		</Annunciation>
 
 	</Annunciations>
@@ -527,17 +418,17 @@
 		<ColorZone>
 			<Color>green</Color>
 			<Begin>1800</Begin>
-			<End>2705</End>
+			<End>2700</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>red</Color>
-			<Begin>2705</Begin>
+			<Begin>2700</Begin>
 			<End>3000</End>
 		</ColorZone>
 		<RedBlink>
 			<Greater>
 				<Simvar name="PROP RPM:1" unit="rpm"/>
-				<Constant>2701</Constant>
+				<Constant>2700</Constant>
 			</Greater>
 		</RedBlink>
 	  </Gauge>
