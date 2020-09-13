@@ -43,19 +43,26 @@ Current features of this modification are:
 * Not checked against AI autopilot completing each item yet
 
 To install:
+
 1: Click on the green button in the top right corner that sais 'code' and download as zip
+
 2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
 
 IMPORTANT STEPS IF YOU ARE USING THE G1000 MOD
+
 3: Delete the folder 'Asobo_Bonanza_G36' in Packages\Community\workingtitle-g1000\SimObjects\Airplanes
+
 4: Open Packages\Community\workingtitle-g1000\layout.json and delete the following section:
+
                     {
                         "date":  132440608632144436,
                         "path":  "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
                         "size":  15444
                     },
+                    
 5: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
 
 
 For more liveries see this thread:
+
 https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
