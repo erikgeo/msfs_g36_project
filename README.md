@@ -20,8 +20,8 @@ Current features of this modification are:
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
-* Added many new annunciators based on the G36 POH:
-  - BUSES TIED (Advisory)
+* Added many new annunciators based on the G36 POH: 
+  - BUSES TIED (Advisory) 
   - FUEL QTY LOW (Warning/Caution)
   - FUEL FLOW HI (Warning)
   - OIL PRES HI/LO (Warning/Caution)
