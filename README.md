@@ -50,17 +50,9 @@ To install:
 
 IMPORTANT STEPS IF YOU ARE USING THE G1000 MOD
 
-3: Delete the folder 'Asobo_Bonanza_G36' in Packages\Community\workingtitle-g1000\SimObjects\Airplanes
+3: Make sure that the mod is loaded after the G1000 mod (so that it overwrites the panel.xml by the one in this mod). Mods are loaded in alphabetical order.
 
-4: Open Packages\Community\workingtitle-g1000\layout.json and delete the following section:
-
-                    {
-                        "date":  132440608632144436,
-                        "path":  "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
-                        "size":  15444
-                    },
-                    
-5: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
+4: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
 
 
 For more liveries see this thread:
