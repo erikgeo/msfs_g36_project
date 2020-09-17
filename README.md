@@ -48,5 +48,11 @@ To install:
 
 2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
 
+IMPORTANT EXTRA STEPS IF YOU ARE USING THE G1000 MOD
+
+3: Make sure that the mod is loaded after the G1000 mod (so that it overwrites the panel.xml by the one in this mod). Mods are loaded in alphabetical order.
+
+4: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
+
 For more liveries see this thread:
 https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
