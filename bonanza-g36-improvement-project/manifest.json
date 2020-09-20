@@ -8,9 +8,9 @@
   "content_type": "AIRCRAFT",
   "title": "Beechcraft Bonanza G36",
   "manufacturer": "Textron Aviation",
-  "creator": "Asobo Studio, tweaked by Erik",
-  "package_version": "0.1.47",
-  "minimum_game_version": "1.7.12",
+  "creator": "Asobo Studio, improved by the community",
+  "package_version": "0.1.49",
+  "minimum_game_version": "1.8.2",
   "release_notes": {
     "neutral": {
       "LastUpdate": "",
