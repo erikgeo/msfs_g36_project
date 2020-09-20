@@ -99,6 +99,11 @@
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
       "size": 7944,
       "date": 159949331300000000
+    },
+	{
+      "path": "SimObjects\Airplanes\Asobo_Bonanza_G36\TEXTURE\BONANZA_COCKPIT_DECALS_02_ALBD.PNG",
+      "size": 1398256,
+      "date": 159949331300000000
     }
   ]
 }
