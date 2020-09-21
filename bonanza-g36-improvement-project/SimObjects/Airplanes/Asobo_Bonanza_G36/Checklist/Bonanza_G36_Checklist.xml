@@ -747,7 +747,7 @@
         </Checkpoint>
       </Page>
 
-      <Page SubjectTT="Engine Starting - Cold Start">
+      <Page SubjectTT="Engine Starting">
         <!-- Check throttle closed	-->
         <Checkpoint>
           <ForceCamera name="Pedestal"/>
@@ -801,111 +801,684 @@
           <Clue name="TT:CLUE.MAGNETO_START_POS_RELEASE_TO_BOTH"/>
           <ForceCamera name="Switches"/>
         </Checkpoint>
-
-
       </Page>
-
-      <Page SubjectTT="Engine Starting - Flooded Engine (Normal Procedures)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
     </Step>
 
     <Step ChecklistStepId="PREFLIGHT_TAXI_OUT">
 
-      <Page SubjectTT="Before Taxi (Normal Procedures)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
+      <Page SubjectTT="Before Taxi">
+        <!-- Throttle . . . . . . . . . . . . . . . . . . . . . . . 1000 to 1200 RPM -->
+        <Checkpoint Id="Throttle_1000_1200">
+          <ForceCamera name="Pedestal"/>
+          <Clue name="Set the throttle between 1000 and 1200 RPM"/>
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="1000 to 1200 RPM"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="BETWEEN">
+                <Val SimVarName="GENERAL ENG RPM:1" Units="percent"/>
+                <Val Value="1000"/>
+                <Val Value="1200"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="THROTTLE1_SET" EventParam="1638"/>
+            <Instrument Id="ENGINE_Lever_Throttle"/>
+          </Test>
         </Checkpoint>
+
+        <!-- Check oil temps etc-->
+        <Checkpoint Id="Engine_Indicators_Check_C172_G1000">
+          <ForceCamera name="PFD"/>
+          <Clue name="TT:CLUE.ENGINE_GAUGES_CHECK"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_ENGINE_INDICATORS" ExpectationTT="TT:GAME.CHECKLIST_CHECK"/>
+          <Sequence SeqType="Unordered">
+            <Test>
+              <TestValue>
+                <Operator OpType="BETWEEN">
+                  <Val SimVarName="ENG OIL PRESSURE:1" Units="psi"/>
+                  <Val Value="50"/>
+                  <Val Value="90"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="HTML:AS1000_PFD:Display"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator OpType="BETWEEN">
+                  <Val SimVarName="ENG OIL TEMPERATURE:1" Units="farenheit"/>
+                  <Val Value="100"/>
+                  <Val Value="245"/>
+                </Operator>
+              </TestValue>
+              <Instrument Id="HTML:AS1000_PFD:Display"/>
+              <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+
+        <!-- Turn on Avionics -->
+        <Checkpoint>
+          <ForceCamera name="switches"/>
+          <Clue name="Turn on Avionics Master"/>
+          <CheckpointDesc SubjectTT="Avionics Master" ExpectationTT="On"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="NOT">
+                <Val SimVarName="AVIONICS MASTER SWITCH" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_AVIONICS_MASTER"/>
+            <Instrument Id="ELECTRICAL_Switch_Avionics_Master"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- MFD . . . . . AVIATION DATA BASE ACKNOWLEDGED -->
+        <Checkpoint Id="MFD_database">
+          <Clue name="Aviation database acknowledged"/>
+          <CheckpointDesc SubjectTT="MFD Avaition DB" ExpectationTT="Acknowledged"/>
+          <ForceCamera name="MFD"/>
+          <Test>
+            <TestValue>
+              <Operator>
+                <Val SimVarName="ELECTRICAL MAIN BUS VOLTAGE:1" Units="volts"/>
+                <Val Value="0" />
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated"/>
+            <Instrument Id="HTML:AS1000_MFD:Display"/>
+          </Test>
+        </Checkpoint>
+
+        <!-- PFD / MFD in normal mode -->
+        <Checkpoint Id="PFD_MFD_Normal">
+          <Clue name="Both MFD and PFD displayed in normal mode"/>
+          <CheckpointDesc SubjectTT="PFD and MFD" ExpectationTT="Checked"/>
+          <ForceCamera name="Pilot"/>
+          <Instrument Id="HTML:AS1000_PFD:Display"/>
+          <Instrument Id="HTML:AS1000_MFD:Display"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Alt1_positive_Load">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="ALT 1" ExpectationTT="Positive Load"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Alt2_no_load">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="ALT 2" ExpectationTT="Zero Load"/>
+        </Checkpoint>
+
+        <Checkpoint Id="MFD_BUS1_voltage_check">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="MFD BUS 1" ExpectationTT="27.5 - 29.0 Volts"/>
+        </Checkpoint>
+
+        <Checkpoint Id="MFD_BUS2_voltage_check">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="MFD BUS 2" ExpectationTT="25.5 - 27.0 Volts"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Alerts_Check1">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Alerts/Messages" ExpectationTT="BUSES TIED - ILLUMINATED"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Alerts_Check2">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Alerts/Messages" ExpectationTT="AC DOOR EXTD - ILLUMINATED IF AC ON"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Lights_asReq">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Lights" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics1">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Radio - Comm and Nav" ExpectationTT="Check and Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics2">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Altimeter" ExpectationTT="Check and Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics3">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="CDI Nav Source" ExpectationTT="Check and Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics4">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Transponder" ExpectationTT="Check and Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics5">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Altitude Preselect" ExpectationTT="Check and Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Avionics6">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flight Plan" ExpectationTT="Loaded"/>
+        </Checkpoint>
+
+        <Checkpoint Id="StandbyAttitude">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Standby Attitude Indicator" ExpectationTT="Uncaged"/>
+        </Checkpoint>
+
+        <Checkpoint Id="StandbyAltimeter">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Standby Altimeter" ExpectationTT="Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ReleaseBrakes">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Brakes" ExpectationTT="Release and check"/>
+        </Checkpoint>
+
+      </Page> <!-- End before taxi -->
+
+      <Page SubjectTT="Before Takeoff - Run up">
+
+        <!-- Parking Brake Set -->
+        <Checkpoint Id="Parking_Brake_Set">
+          <ForceCamera name="Switches"/>
+          <Clue name="TT:CLUE.PARKING_BRAKE_SET"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_PARKING_BRAKE" ExpectationTT="TT:GAME.CHECKLIST_SET"/>
+          <Test>
+            <TestValue>
+              <Val SimVarName="BRAKE PARKING POSITION" Units="Boolean"/>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="PARKING_BRAKES"/>
+            <Instrument Id="LANDING_GEAR_Switch_ParkingBrake"/>
+          </Test>
+        </Checkpoint>
+
+        <Checkpoint Id="EngInstruments">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Engine Instruments" ExpectationTT="Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="FlightInstruments">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flight Instruments" ExpectationTT="Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Throttle">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="1700 RPM"/>
+        </Checkpoint>
+
+        <Checkpoint Id="PropCheck">
+          <Clue name="To obtain 200 to 300 RPM drop"/>
+          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="Exercise"/>
+        </Checkpoint>
+
+        <Checkpoint Id="MagnetosCheck">
+          <Clue name="Drop of not more than 50rpm, max drop 150rpm"/>
+          <CheckpointDesc SubjectTT="Magnetos" ExpectationTT="Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="AltTie">
+          <Clue name="Check BUS Tied"/>
+          <CheckpointDesc SubjectTT="Alternator 2 and Bus Tie" ExpectationTT="Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="AileronTrim">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Aileron" ExpectationTT="Neutral"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ElevatorTrim">
+          <Clue name="6° nose up if only front seats are occupied"/>
+          <CheckpointDesc SubjectTT="Elevator" ExpectationTT="3° Nose Up"/>
+        </Checkpoint>
+
+        <Checkpoint Id="FlapsCheck">
+          <Clue name="CHECK OPERATION, SET FOR TAKEOFF"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="Checked"/>
+        </Checkpoint>
+
+        <Checkpoint Id="FlightControls">
+          <Clue name="CHECK FREEDOM OF MOVEMENT AND PROPER DIRECTION OF TRAVEL"/>
+          <CheckpointDesc SubjectTT="Flight Controls" ExpectationTT="Checked"/>
+        </Checkpoint>
+
+        <Checkpoint Id="FuelSelector">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Fuel Selector Valve" ExpectationTT="Check Tank"/>
+        </Checkpoint>
+
+        <Checkpoint Id="AuxFuelPump">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Aux Fuel Pump" ExpectationTT="Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Alerts">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Alerts/Messages" ExpectationTT="Extinguised / Considered"/>
+        </Checkpoint>
+
+        <Checkpoint Id="PFD">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="PFD Attitude/Heading" ExpectationTT="Normal"/>
+        </Checkpoint>
+
+        <Checkpoint Id="GPS">
+          <Clue name="LOI not annunciated on HSI"/>
+          <CheckpointDesc SubjectTT="GPS" ExpectationTT="Valid"/>
+        </Checkpoint>
+
+        <Checkpoint Id="StandbyAttitude">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Standby Attitude Indicator" ExpectationTT="Erect and normal"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ReleaseBrakes">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Brakes" ExpectationTT="Release"/>
+        </Checkpoint>
+
       </Page>
 
-      <Page SubjectTT="Before Takeoff - Run up (Normal Procedures)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
-      <Page SubjectTT="Before Takeoff - Final Items (Normal Procedures)">
-        <Checkpoint ReferenceId="Parking_Brake_Set">	<!-- Parking Brake - SET	-->
-          <ForceCamera name="Switches"/>
-        </Checkpoint>
-      </Page>
-
-    </Step>
+    </Step> <!-- End PREFLIGHT_TAXI_OUT -->
 
     <Step ChecklistStepId="FLIGHT_RUNWAY">
-      <!-- Run-up 1/3 -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_RUN_UP_1">
+
+      <Page SubjectTT="Before Takeoff - Final Items">
+
+        <Checkpoint Id="Pitot">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Pitot Heat" ExpectationTT="As required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Lights">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Lights" ExpectationTT="As required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Flaps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="Confirm Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Transponder">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Transponder Code" ExpectationTT="Confirm Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Rotation">
+          <Clue name="For 3650 lbs - Flaps UP = 73 KTS // Flaps Approach = 67 KTS"/>
+          <CheckpointDesc SubjectTT="Rotation Speed" ExpectationTT="Confirm"/>
+        </Checkpoint>
 
       </Page>
 
-      <!-- Before take-off -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_TAKE_OFF">
-
-      </Page>
-    </Step>
+    </Step> <!-- End FLIGHT_RUNWAY -->
 
     <Step ChecklistStepId="FLIGHT_TAKEOFF">
       <!-- Normal take-off -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_TAKE_OFF"> <!-- -->
+      <Page SubjectTT="Takeoff">
+
+        <Checkpoint Id="TakeoffPowerThrottle">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="Full Forward"/>
+        </Checkpoint>
+
+        <Checkpoint Id="TakeoffPropellor">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+        </Checkpoint>
+
+        <Checkpoint Id="TakeoffMixture">
+          <Clue name="SET FUEL FLOW AT CYAN CLIMB FUEL FLOW MARKER"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Busses">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Buses Tied Advisory" ExpectationTT="Extinguised"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Brakes">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Brakes" ExpectationTT="Release"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Instruments">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Instruments" ExpectationTT="Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Rotation">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Rotation Speed" ExpectationTT="Rotate"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Gear">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Landing Gear" ExpectationTT="Retract"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Flaps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="Retract"/>
+        </Checkpoint>
 
       </Page>
 
       <!-- Enroute climb -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_ENROUTE_CLIMB">
+      <Page SubjectTT="Climb">
+
+        <Checkpoint Id="ClimbPowerThrottle">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="Full Forward"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ClimbPropellor">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="MCP Climb - 2700 RPM / Cruise Climb - 2500 RPM"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ClimbMixture">
+          <Clue name="MAINTAIN FUEL FLOW AT CYAN CLIMB FUEL FLOW MARKER"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Airspeed">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Airspeed" ExpectationTT="100 KTS FOR MCP CLIMB / 110 KTS FOR CRUISE CLIMB"/>
+        </Checkpoint>
+
+        <Checkpoint Id="EngineTemps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Engine Temperatures" ExpectationTT="Monitor"/>
+        </Checkpoint>
+
+        <Checkpoint Id="AuxFuel">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Aux Fuel Pump" ExpectationTT="As Required"/>
+        </Checkpoint>
 
       </Page>
     </Step>
 
     <Step ChecklistStepId="FLIGHT_CRUISE">
       <!-- Cruise -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_CRUISE">
+      <Page SubjectTT="Cruise">
+
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="Closed"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Power">
+          <Clue name="Return the mixture control to full rich before turning the aux fuel pump off."/>
+          <CheckpointDesc SubjectTT="Power" ExpectationTT="Set"/>
+        </Checkpoint>
+
+        <Checkpoint Id="AuxFuel">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Aux Fuel Pump" ExpectationTT="Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ClimbMixture">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="LEAN USING EGT"/>
+        </Checkpoint>
 
       </Page>
     </Step>
 
     <Step ChecklistStepId="FLIGHT_DESCENT">
       <!-- Descent -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_DESCENT">
+      <Page SubjectTT="Descent">
+
+        <Checkpoint Id="Altimeters">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Altimeters" ExpectationTT="SET"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="Confirm Closed"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Power">
+          <Clue name="Avoid prolonged idle settings. Cylinder head temperature should not fall below the green band"/>
+          <CheckpointDesc SubjectTT="Power" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Mixture">
+          <Clue name="The mixture must be manually enriched as the airplane descends. An optional procedure is to retard the throttle as the airplane descends to maintain a constant manifold pressure. Then adjust the mixture to maintain the EGT within its limits."/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="EngineTemps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Engine Temperatures" ExpectationTT="Monitor"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Flaps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="WindowDefrost">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Windshield Defroster" ExpectationTT="As Required"/>
+        </Checkpoint>
 
       </Page>
     </Step>
 
     <Step ChecklistStepId="LANDING_APPROACH">
       <!-- Before landing -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_BEFORE_LANDING">
+      <Page SubjectTT="Before Landing">
+
+        <Checkpoint Id="FuelSelector">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Fuel Selector Valve" ExpectationTT="Sellect Fuller Tank"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Mixture">
+          <Clue name="or as required by field elevation"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Full Rich"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Mixture">
+          <Clue name="or as required by field elevation"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Full Rich"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Gear">
+          <Clue name="Less than 154 kts"/>
+          <CheckpointDesc SubjectTT="Landing Gear" ExpectationTT="Down and Check"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Landing Lights">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Landing Lights" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Propellor">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+        </Checkpoint>
+
+      </Page>
+
+      <Page SubjectTT="Balked Landing">
+
+        <Checkpoint Id="Power">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Throttle and Propellor" ExpectationTT="Full Forward"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Airspeed">
+          <Clue name="Until clear of obstacles, then trim to 110 KTS"/>
+          <CheckpointDesc SubjectTT="Airspeed" ExpectationTT="80kts"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Flaps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="UP"/>
+        </Checkpoint>
+
+        <Checkpoint Id="LandingGear">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Landing Gear" ExpectationTT="Retract"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="Open"/>
+        </Checkpoint>
 
       </Page>
     </Step>
 
     <Step ChecklistStepId="LANDING_TOUCHDOWN">
       <!-- Normal landing -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_NORMAL_LANDING">
+      <Page SubjectTT="Normal Landing">
 
-      </Page>
-    </Step>
+        <Checkpoint Id="Flaps">
+          <Clue name="124 kts or below"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="Down"/>
+        </Checkpoint>
 
-    <Step ChecklistStepId="LANDING_GROUNDROLL">
-      <!-- After landing -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_AFTER_LANDING">
+        <Checkpoint Id="Airspeed">
+          <Clue name="ESTABLISH NORMAL APPROACH SPEED"/>
+          <CheckpointDesc SubjectTT="Airspeed" ExpectationTT="Established"/>
+        </Checkpoint>
+
+        <Checkpoint Id="YawDamp">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Yaw Damp" ExpectationTT="Off"/>
+        </Checkpoint>
 
       </Page>
     </Step>
 
     <Step ChecklistStepId="LANDING_TAXI_IN">
+      <Page SubjectTT="After Landing">
+        <Checkpoint Id="Cowl">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Cowl Flaps" ExpectationTT="Open"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Flaps">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Flaps" ExpectationTT="Up"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Lights">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Landing, Taxi, and Strobe Lights" ExpectationTT="As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Trim">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Trim Tabs" ExpectationTT="Reset As Required"/>
+        </Checkpoint>
+
+        <Checkpoint Id="BussesAnu">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Buses Tied Advisory" ExpectationTT="Illuminated"/>
+        </Checkpoint>
+
+      </Page>
     </Step>
 
     <Step ChecklistStepId="LANDING_GATE">
-      <!-- Parking -->
-      <Page SubjectTT="TT:GAME.CHECKLIST_PARKING">
-
-      </Page>
-
       <!-- Securing-->
-      <Page SubjectTT="TT:GAME.CHECKLIST_SECURING">
+      <Page SubjectTT="Shutdown and Securing">
+        <!-- Parking Brake Set -->
+        <Checkpoint Id="Parking_Brake_Set">
+          <ForceCamera name="Switches"/>
+          <Clue name="TT:CLUE.PARKING_BRAKE_SET"/>
+          <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_PARKING_BRAKE" ExpectationTT="TT:GAME.CHECKLIST_SET"/>
+          <Test>
+            <TestValue>
+              <Val SimVarName="BRAKE PARKING POSITION" Units="Boolean"/>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="PARKING_BRAKES"/>
+            <Instrument Id="LANDING_GEAR_Switch_ParkingBrake"/>
+          </Test>
+        </Checkpoint>
 
+        <!-- Turn off Avionics -->
+        <Checkpoint>
+          <ForceCamera name="switches"/>
+          <Clue name="Turn on Avionics Master"/>
+          <CheckpointDesc SubjectTT="Avionics Master" ExpectationTT="On"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="NOT">
+                <Val SimVarName="AVIONICS MASTER SWITCH" Units="Boolean"/>
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_AVIONICS_MASTER"/>
+            <Instrument Id="ELECTRICAL_Switch_Avionics_Master"/>
+          </Test>
+        </Checkpoint>
+
+        <Checkpoint Id="ElectricsOff">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Electrical Equipment" ExpectationTT="Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="Throttle1000">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="1000rpm"/>
+        </Checkpoint>
+
+        <Checkpoint Id="MixtureOff">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Cut Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="MagsOff">
+          <Clue name="After engine stops"/>
+          <CheckpointDesc SubjectTT="Magnetos" ExpectationTT="Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="BatsOff">
+          <Clue name="After engine stops"/>
+          <CheckpointDesc SubjectTT="Battery 1 and 2, Alternator 1 and 2" ExpectationTT="Off"/>
+        </Checkpoint>
+
+        <Checkpoint Id="StandbyAtt">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Standby Attitude Indicator" ExpectationTT="Check emergency mode"/>
+        </Checkpoint>
+
+        <Checkpoint Id="ControlLocks">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Control Locks" ExpectationTT="Install"/>
+        </Checkpoint>
+
+        <Checkpoint Id="WheelChocks">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Wheel Chocks" ExpectationTT="Install"/>
+        </Checkpoint>
+
+        <Checkpoint Id="PArkingBrake">
+          <Clue name="1"/>
+          <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Release"/>
+        </Checkpoint>
+        
       </Page>
     </Step>
 
