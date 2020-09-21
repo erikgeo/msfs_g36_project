@@ -39,7 +39,7 @@ Current features of this modification are:
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
 **Checklists**
-* Initial Pre-Flight and engine start checklist changed to reflect the POH (WIP, not checked against AI autopilot completing each item yet)
+* New checklists that follow the POH. (interactive up to engine start)
 
 To install:
 
