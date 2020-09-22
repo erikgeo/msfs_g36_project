@@ -260,6 +260,14 @@
 		</Annunciation>
 		
 		<Annunciation>
+			<Type>Advisory</Type>
+			<Text>BUSES TIED</Text>
+			<Condition>
+				<Simvar name="L:XMLVAR_BUSES_TIED" unit="Boolean"/>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
 			<Type>Caution</Type>
 			<Text>STARTER ENGD</Text>
 			<Condition>
@@ -322,32 +330,6 @@
 				</Or>
 			</Condition>
 		</Annunciation>
-		
-		<Annunciation>
-			<Type>Advisory</Type>
-			<Text>BUSES TIED</Text>
-			<Condition>
-				<StateMachine>
-					<State id="Off" value="0">
-						<Transition to="On">
-							<LowerEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>1700</Constant>
-							</LowerEqual>
-						</Transition>
-					</State>
-					<State id="On" value="1">
-						<Transition to="Off">
-							<GreaterEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>2000</Constant>
-							</GreaterEqual>
-						</Transition>
-					</State>
-				</StateMachine>
-			</Condition>
-		</Annunciation>
-	</Annunciations>
 	
 	<Annunciation>
 			<Type>Caution</Type>
@@ -806,11 +788,12 @@
 		<CursorText2>2</CursorText2>
 		<Minimum>0</Minimum>
 		<Maximum>33</Maximum>
+		<!-- Use local variables defined in Bonanza_g36_interior.xml to get adjusted indications. See POH 7-41 and 7-42 -->
 		<Value>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS1_VOLT_INDICATED" unit="volts"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS2_VOLT_INDICATED" unit="volts"/>
 		</Value2>
 		<ColorZone>
 			<Color>yellow</Color>

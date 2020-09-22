@@ -60,6 +60,36 @@
 	
 	<!-- ELECTRICAL #################################-->
 	<Component ID="ELECTRICAL">
+		<!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->
+		<Update Frequency="2">
+			(A:PROP RPM:1, rpm) 1700 &lt;=
+			if{
+				1 (&gt;L:XMLVAR_BUSES_TIED, bool)
+			}
+			
+			(A:PROP RPM:1, rpm) 2000 &gt;=
+			if{
+				0 (&gt;L:XMLVAR_BUSES_TIED, bool)
+			}					
+		</Update>
+		
+		<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 -->
+		<Update Frequency="2">		
+			(L:XMLVAR_BUSES_TIED) 1 == 
+			(A:ELECTRICAL MASTER BATTERY:1, bool) 1 == and
+			if{ 
+				(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) 2 - (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+				(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts) 
+			} els{ 
+				(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+				(L:XMLVAR_BUSES_TIED) 1 == 
+				if{
+					0 (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
+				} els{
+					(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
+				}
+			}
+		</Update>
 		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
 			<ID>1</ID>
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_BAT_1_OFF</ANIMTIP_0>
@@ -122,9 +152,11 @@
 			<ID>1</ID>
 			<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
 		</UseTemplate>
+		<!--
 		<Update Frequency="1">
 			(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
 		</Update>
+		-->
 		<!--
 		<Update Frequency="30">
 			(A:RUDDER PEDAL POSITION:1, position 16k) 0 &lt; if{
