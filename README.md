@@ -17,6 +17,7 @@ Current features of this modification are:
 * Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
 
 **Systems**
+* Electrical system: bus tie logic and associated voltage indications implemented
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
 * Compatible with G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
 * Replaced/removed default annunciators
