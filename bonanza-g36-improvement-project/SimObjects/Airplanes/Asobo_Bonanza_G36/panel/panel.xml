@@ -338,6 +338,7 @@
 				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
 			</Condition>
 	</Annunciation>
+	</Annunciations>
 
 	  <!-- Voices Alerts -->
 
@@ -788,7 +789,6 @@
 		<CursorText2>2</CursorText2>
 		<Minimum>0</Minimum>
 		<Maximum>33</Maximum>
-		<!-- Use local variables defined in Bonanza_g36_interior.xml to get adjusted indications. See POH 7-41 and 7-42 -->
 		<Value>
 			<Simvar name="L:XMLVAR_BUS1_VOLT_INDICATED" unit="volts"/>
 		</Value>
