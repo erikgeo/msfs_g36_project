@@ -152,11 +152,9 @@
 			<ID>1</ID>
 			<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
 		</UseTemplate>
-		<!--
 		<Update Frequency="1">
 			(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
 		</Update>
-		-->
 		<!--
 		<Update Frequency="30">
 			(A:RUDDER PEDAL POSITION:1, position 16k) 0 &lt; if{
