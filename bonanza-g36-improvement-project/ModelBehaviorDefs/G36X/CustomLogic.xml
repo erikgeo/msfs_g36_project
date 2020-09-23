@@ -1,0 +1,50 @@
+
+<!-- Macro's -->
+<Macro Name="ConvertTo16k"> 163.84 * flr </Macro>
+
+
+
+<!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
+<Template Name = "Cowl_Flap_Drag">
+	<Update Frequency="1">
+		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
+	</Update>
+</Template>
+
+
+
+<!---------------------------------------------- ELECTRICAL SYSTEM ---------------------------------------------->
+<!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->
+<Template Name = "Bus_Tie_Logic">
+	<Update Frequency="2">
+		(A:PROP RPM:1, rpm) 1800 &lt;=
+		if{
+			1 (&gt;L:XMLVAR_BUSES_TIED, bool)
+		}
+		
+		(A:PROP RPM:1, rpm) 2000 &gt;=
+		if{
+			0 (&gt;L:XMLVAR_BUSES_TIED, bool)
+		}					
+	</Update>
+</Template>
+
+<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 -->
+<Template Name = "Voltage_Indication">
+	<Update Frequency="2">		
+		(L:XMLVAR_BUSES_TIED, bool)
+		(A:ELECTRICAL MASTER BATTERY:1, bool) 1 == and
+		if{ 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) 2 - (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts) 
+		} els{ 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+			(L:XMLVAR_BUSES_TIED, bool)
+			if{
+				0 (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
+			} els{
+				(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
+			}
+		}
+	</Update>
+</Template>
