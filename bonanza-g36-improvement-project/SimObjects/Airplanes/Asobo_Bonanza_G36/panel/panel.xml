@@ -152,7 +152,7 @@
 			<Text>BUS1 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -163,7 +163,7 @@
 			<Text>BUS1 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -174,7 +174,7 @@
 			<Text>BUS2 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -185,7 +185,7 @@
 			<Text>BUS2 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -761,10 +761,10 @@
 		<Minimum>0</Minimum>
 		<Maximum>120</Maximum>
 		<Value>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT1_LOAD_INDICATED" unit="amps"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/>
 		</Value2>
 		<ColorZone>
 			<Color>green</Color>

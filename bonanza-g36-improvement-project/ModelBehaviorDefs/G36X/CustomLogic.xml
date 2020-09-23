@@ -1,4 +1,3 @@
-
 <!-- Macro's -->
 <Macro Name="ConvertTo16k"> 163.84 * flr </Macro>
 
@@ -20,11 +19,15 @@
 		(A:PROP RPM:1, rpm) 1800 &lt;=
 		if{
 			1 (&gt;L:XMLVAR_BUSES_TIED, bool)
+			(A:ELECTRICAL GENALT BUS AMPS:1, amps) (A:ELECTRICAL GENALT BUS AMPS:2, amps) + (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
+			0 (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		}
 		
 		(A:PROP RPM:1, rpm) 2000 &gt;=
 		if{
 			0 (&gt;L:XMLVAR_BUSES_TIED, bool)
+			(A:ELECTRICAL GENALT BUS AMPS:1, amps) (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
+			(A:ELECTRICAL GENALT BUS AMPS:2, amps) (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		}					
 	</Update>
 </Template>
@@ -35,15 +38,15 @@
 		(L:XMLVAR_BUSES_TIED, bool)
 		(A:ELECTRICAL MASTER BATTERY:1, bool) 1 == and
 		if{ 
-			(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) 2 - (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
-			(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts) 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) 2 - (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:1, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts) 
 		} els{ 
-			(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
+			(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
 			(L:XMLVAR_BUSES_TIED, bool)
 			if{
 				0 (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 			} els{
-				(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
+				(A:ELECTRICAL MAIN BUS VOLTAGE:1, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 			}
 		}
 	</Update>

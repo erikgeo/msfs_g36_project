@@ -23,7 +23,7 @@
 	<Component ID="G36X_Custom_Behavior">
 		<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
 		<UseTemplate Name="Voltage_Indication"></UseTemplate>
-		<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>
+		<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>		
 	</Component>
 	<!-- End of G36X Modification -->
 	
@@ -91,8 +91,8 @@
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_ALT_2_OFF</ANIMTIP_0>
 			<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_ALT_2_ON</ANIMTIP_1>
 		</UseTemplate>
-		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Avionics_Bus_Template">
-			<AVIONICS_BUS_ID>4</AVIONICS_BUS_ID>
+		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Avionics_Bus_Template"> <!-- Needs change when customizing elec system -->
+			<AVIONICS_BUS_ID>3</AVIONICS_BUS_ID> <!-- now 3 was 4 -->
 			<SOURCE_BUS_ID>1</SOURCE_BUS_ID>
 			<AVIONICS_CIRCUIT_ID>24</AVIONICS_CIRCUIT_ID>
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.AVIONICS_MASTER_SWITCH_OFF</ANIMTIP_0>
