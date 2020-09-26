@@ -23,7 +23,8 @@
 	<Component ID="G36X_Custom_Behavior">
 		<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
 		<UseTemplate Name="Voltage_Indication"></UseTemplate>
-		<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>		
+		<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>	
+		<UseTemplate Name="Smooth_Indication"></UseTemplate>
 	</Component>
 	<!-- End of G36X Modification -->
 	
