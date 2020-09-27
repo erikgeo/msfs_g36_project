@@ -10,16 +10,24 @@ Current features of this modification are:
 * Slightly reduced pitch effect due to elevator deflection + propwash
 * Slightly increased nosewheel steering angle 
 * Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
+* Decreased yaw sensitivity by lowering deflection rate as a function of speed
 
 **Engine**
 * Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
 * Fixed erroneous engine efficiency increase around 2000 rpm
-* Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
+* Adjusted idle RPM to ~600-700. This prevents the unexpected shutdown of a warm engine when idle
 
 **Systems**
-* Electrical system: bus tie logic and associated voltage indications implemented
-* Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
-* Compatible with G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
+* Electrical system overhaul: 
+  - Completely revised electrical buses: all individual systems hooked up to the correct bus
+  - Bus tie logic added
+  - Correct voltage indications of BUS2 due to reverse current blocking diodes
+  - Corrected alternator load indications
+  - Made all indications smooth, rather than instant jumps to a new value
+* Autopilot tweaks
+  - Fixed holding the wrong altitude at non-standard atmospheric pressures
+  - Max pitch and bank angles adjusted for smoother AP behaviour
+* To be used with the G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
@@ -40,7 +48,7 @@ Current features of this modification are:
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
 
 **Checklists**
-* New checklists that follow the POH. (interactive up to engine start)
+* New interactive checklists that follow the POH (WIP)
 
 To install:
 
@@ -56,3 +64,14 @@ IMPORTANT EXTRA STEPS IF YOU ARE USING THE G1000 MOD
 
 For more liveries see this thread:
 https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
+
+**A special thanks to all contributors**
+FrettFS
+CaptMatto
+Coppersens
+Uwajimaya
+dciskey 
+Matchrocket
+JuiceBox7535
+jonasbeaver
+Exp232
