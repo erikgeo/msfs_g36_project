@@ -51,13 +51,8 @@ Face=1, 1, 1
 Blend Mode=2
 Texture=fx_0.png
 Bounce=0.0
-<<<<<<< HEAD
-Color Start=90, 90, 90, 10
-Color End=90, 90, 90, 10
-=======
 Color Start=209, 227, 255, 10
 Color End=209, 227, 255, 10
->>>>>>> dd0173f46bfc8270b1120f65ace12541ae1ff0ef
 Jitter Distance=0.0
 Jitter Time=0.0
 uv1=0.0, 0.0
