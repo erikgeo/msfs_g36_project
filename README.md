@@ -44,8 +44,9 @@ Current features of this modification are:
 * Corrected fuel gauge indications
 * Airco switch activated (Other switches WIP)
 
-**Effects**
+**Textures & effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
+* Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
 * New interactive checklists that follow the POH (WIP)
@@ -66,12 +67,5 @@ For more liveries see this thread:
 https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
 
 **A special thanks to all contributors**
-FrettFS
-CaptMatto
-Coppersens
-Uwajimaya
-dciskey 
-Matchrocket
-JuiceBox7535
-jonasbeaver
-Exp232
+FrettFS, CaptMatto, Coppersens, Uwajimaya, dciskey, Matchrocket, JuiceBox7535, jonasbeaver, Exp232, nickc95
+(please contact me if you are not in this list while you should)
