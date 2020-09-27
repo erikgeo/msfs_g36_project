@@ -3,6 +3,7 @@
 	<Instrument>
 		<Name>AS1000_PFD</Name>
 		<SyntheticVision>True</SyntheticVision>
+		<AvionicsKnobIndex>14</AvionicsKnobIndex> <!-- Ensures compatibility with G1000 mod -->
 		<Electric>
 			<Simvar name="CIRCUIT ON:25" unit="Boolean"/>
 		</Electric>
@@ -151,7 +152,7 @@
 			<Text>BUS1 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -162,7 +163,7 @@
 			<Text>BUS1 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -173,7 +174,7 @@
 			<Text>BUS2 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -184,7 +185,7 @@
 			<Text>BUS2 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -259,6 +260,14 @@
 		</Annunciation>
 		
 		<Annunciation>
+			<Type>Advisory</Type>
+			<Text>BUSES TIED</Text>
+			<Condition>
+				<Simvar name="L:XMLVAR_BUSES_TIED" unit="Boolean"/>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
 			<Type>Caution</Type>
 			<Text>STARTER ENGD</Text>
 			<Condition>
@@ -321,32 +330,6 @@
 				</Or>
 			</Condition>
 		</Annunciation>
-		
-		<Annunciation>
-			<Type>Advisory</Type>
-			<Text>BUSES TIED</Text>
-			<Condition>
-				<StateMachine>
-					<State id="Off" value="0">
-						<Transition to="On">
-							<LowerEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>1700</Constant>
-							</LowerEqual>
-						</Transition>
-					</State>
-					<State id="On" value="1">
-						<Transition to="Off">
-							<GreaterEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>2000</Constant>
-							</GreaterEqual>
-						</Transition>
-					</State>
-				</StateMachine>
-			</Condition>
-		</Annunciation>
-	</Annunciations>
 	
 	<Annunciation>
 			<Type>Caution</Type>
@@ -355,6 +338,7 @@
 				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
 			</Condition>
 	</Annunciation>
+	</Annunciations>
 
 	  <!-- Voices Alerts -->
 
@@ -777,10 +761,10 @@
 		<Minimum>0</Minimum>
 		<Maximum>120</Maximum>
 		<Value>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT1_LOAD_INDICATED" unit="amps"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/>
 		</Value2>
 		<ColorZone>
 			<Color>green</Color>
@@ -806,10 +790,10 @@
 		<Minimum>0</Minimum>
 		<Maximum>33</Maximum>
 		<Value>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS1_VOLT_INDICATED" unit="volts"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS2_VOLT_INDICATED" unit="volts"/>
 		</Value2>
 		<ColorZone>
 			<Color>yellow</Color>
