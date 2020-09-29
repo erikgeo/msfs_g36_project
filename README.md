@@ -5,8 +5,8 @@ This is the improvement project for the MSFS default G36. It all started as a si
 Current features of this modification are:
 
 **Flight dynamics/performance**
-* Adjusted climb and cruise performance to match the Bonanza G36 POH charts. 
-* Adjusted flap and gear drag
+* (Improved in v0.5) Adjusted climb and cruise performance to match the Bonanza G36 POH charts. 
+* (Improved in v0.5) Adjusted flap and gear drag
 * Slightly reduced pitch effect due to elevator deflection + propwash
 * Slightly increased nosewheel steering angle 
 * Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
