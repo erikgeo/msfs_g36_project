@@ -27,6 +27,7 @@ Current features of this modification are:
 * Autopilot tweaks
   - Fixed holding the wrong altitude at non-standard atmospheric pressures
   - Max pitch and bank angles adjusted for smoother AP behaviour
+  - Added maximum and minimum IAS_ref speeds for FLC mode
 * To be used with the G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
