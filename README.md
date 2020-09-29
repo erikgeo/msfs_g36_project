@@ -1,6 +1,6 @@
 # MSFS G36 Project version 0.5 (Beta, not released, not guaranteed to be stable)
 
-This is the improvement project for the MSFS default G36. At this moment, the modification mainly focuses on flight performance fixes. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots.
+This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves the default G36 in multiple areas. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots (for a list of contributors, see the end of this readme).
 
 Current features of this modification are:
 
@@ -28,7 +28,7 @@ Current features of this modification are:
   - Fixed holding the wrong altitude at non-standard atmospheric pressures
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
-* To be used with the G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
+* Integration with the Working Title G1000 mod, with customized DLFT, LEAN and SYSTEM pages.
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
@@ -50,19 +50,15 @@ Current features of this modification are:
 * Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
-* New interactive checklists that follow the POH (WIP)
+* New interactive checklists for every stage of your flight that follow the POH 
 
 To install:
 
-1: Click on the green button in the top right corner that sais 'code' and download as zip
+1: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
 
-2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
+2: Download and install the Working Title G1000 v0.3 mod (...)
 
-IMPORTANT EXTRA STEPS IF YOU ARE USING THE G1000 MOD
-
-3: Make sure that the mod is loaded after the G1000 mod (so that it overwrites the panel.xml by the one in this mod). Mods are loaded in alphabetical order.
-
-4: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
+3: IMPORTANT: Make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order.
 
 For more liveries see this thread:
 https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
