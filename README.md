@@ -1,6 +1,6 @@
 # MSFS G36 Project version 0.5 (Beta, not released, not guaranteed to be stable)
 
-This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves the default G36 in multiple areas. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots (for a list of contributors, see the end of this readme).
+This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots (for a list of contributors, see the end of this readme).
 
 Current features of this modification are:
 
