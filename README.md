@@ -19,6 +19,7 @@ Current features of this modification are:
 **Systems**
 * Electrical system: bus tie logic and associated voltage indications implemented
 * Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
+* Added maximum and minimum IAS_ref speeds for FLC mode.
 * Compatible with G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
