@@ -66,29 +66,39 @@
       "date": 132450933025287444
     },
     {
+      "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
+      "size": 4074,
+      "date": 132456107032813008
+    },
+    {
+      "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
+      "size": 2803,
+      "date": 132453340547800724
+    },
+    {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/engines.cfg",
-      "size": 9443,
-      "date": 132450933025257440
+      "size": 9495,
+      "date": 132456893609276248
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
-      "size": 15991,
-      "date": 132450933025267443
+      "size": 16227,
+      "date": 132457058473515417
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
-      "size": 11420,
-      "date": 132450933025267443
+      "size": 11357,
+      "date": 132457037605047729
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
-      "size": 61284,
-      "date": 132451467652394210
+      "size": 145329,
+      "date": 132457062737159748
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 21286,
-      "date": 132452702164535061
+      "size": 20994,
+      "date": 132456096502492568
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
@@ -98,12 +108,22 @@
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
       "size": 18838,
-      "date": 132452705130346205
+      "date": 132453671328783021
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/WTEngineDisplay.xml",
+      "size": 15764,
+      "date": 132457531311657577
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.dds",
       "size": 1398256,
       "date": 132450931088182443
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.DDS.json",
+      "size": 121,
+      "date": 132453398122915878
     }
   ]
 }

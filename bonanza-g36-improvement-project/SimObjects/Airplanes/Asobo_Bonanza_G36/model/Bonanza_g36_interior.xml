@@ -16,7 +16,19 @@
 	<Include Path="Asobo\Common.xml"/>
 	<Include Path="Asobo\GlassCockpit\AS1000.xml"/>
 	
-	<Macro Name="ConvertTo16k"> 163.84 * flr </Macro>
+	<!-- G36X Modification -->
+	<Include Path="G36X\CustomTemplates.xml"/>
+	<Include Path="G36X\CustomLogic.xml"/>
+	
+	<Component ID="G36X_Custom_Behavior">
+		<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
+		<UseTemplate Name="Voltage_Indication"></UseTemplate>
+		<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>	
+		<UseTemplate Name="Smooth_Indication"></UseTemplate>
+	</Component>
+	<!-- End of G36X Modification -->
+	
+	
 <!-- AS1000 ############################## -->
 	<Component ID="AS1000_PFD">
 		<UseTemplate Name="ASOBO_AS1000_PFD_Template">
@@ -60,36 +72,6 @@
 	
 	<!-- ELECTRICAL #################################-->
 	<Component ID="ELECTRICAL">
-		<!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->
-		<Update Frequency="2">
-			(A:PROP RPM:1, rpm) 1700 &lt;=
-			if{
-				1 (&gt;L:XMLVAR_BUSES_TIED, bool)
-			}
-			
-			(A:PROP RPM:1, rpm) 2000 &gt;=
-			if{
-				0 (&gt;L:XMLVAR_BUSES_TIED, bool)
-			}					
-		</Update>
-		
-		<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 -->
-		<Update Frequency="2">		
-			(L:XMLVAR_BUSES_TIED, bool)
-			(A:ELECTRICAL MASTER BATTERY:1, bool) 1 == and
-			if{ 
-				(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) 2 - (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
-				(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts) 
-			} els{ 
-				(A:ELECTRICAL MAIN BUS VOLTAGE:3, volts) (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts) 
-				(L:XMLVAR_BUSES_TIED, bool)
-				if{
-					0 (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
-				} els{
-					(A:ELECTRICAL MAIN BUS VOLTAGE:2, volts) (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
-				}
-			}
-		</Update>
 		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
 			<ID>1</ID>
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_BAT_1_OFF</ANIMTIP_0>
@@ -110,8 +92,8 @@
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_ALT_2_OFF</ANIMTIP_0>
 			<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.MASTER_SWITCH_ALT_2_ON</ANIMTIP_1>
 		</UseTemplate>
-		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Avionics_Bus_Template">
-			<AVIONICS_BUS_ID>4</AVIONICS_BUS_ID>
+		<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Avionics_Bus_Template"> <!-- Needs change when customizing elec system -->
+			<AVIONICS_BUS_ID>3</AVIONICS_BUS_ID> <!-- now 3 was 4 -->
 			<SOURCE_BUS_ID>1</SOURCE_BUS_ID>
 			<AVIONICS_CIRCUIT_ID>24</AVIONICS_CIRCUIT_ID>
 			<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.AVIONICS_MASTER_SWITCH_OFF</ANIMTIP_0>
@@ -152,9 +134,6 @@
 			<ID>1</ID>
 			<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
 		</UseTemplate>
-		<Update Frequency="1">
-			(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
-		</Update>
 		<!--
 		<Update Frequency="30">
 			(A:RUDDER PEDAL POSITION:1, position 16k) 0 &lt; if{
@@ -505,13 +484,26 @@
 		</Component>
 	</Component>
 	
-	<Component ID="DUMMY">
-		<UseTemplate Name="ASOBO_GT_Switch_Dummy">
+	<Component ID="AIRCO">
+		<UseTemplate Name="G36_Switch_Dummy">
 			<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 			<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
 			<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
 			<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
 		</UseTemplate>
+		
+<!--		
+		<UseTemplate>
+			<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
+			<ANIM_CODE>(L:XMLVAR_AIRCO_ON, bool) 100 *</ANIM_CODE>
+			<LEFT_SINGLE_CODE>5000 (&gt;K:SPOILERS_SET)</LEFT_SINGLE_CODE>
+			<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
+			<ANIMTIP_0_ON_CURSOR>Hand</ANIMTIP_0_ON_CURSOR>
+			<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
+			<ANIMTIP_1_ON_CURSOR>Hand</ANIMTIP_1_ON_CURSOR>
+		</UseTemplate>
+		-->
+		
 	</Component>
 	
 	<Component ID="TT_INOP">
