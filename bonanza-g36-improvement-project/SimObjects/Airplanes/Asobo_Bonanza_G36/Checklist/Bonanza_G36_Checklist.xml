@@ -1865,8 +1865,8 @@
 <!-- Set Takeoff Trim -->
         <Checkpoint Id="RUN_UP_ELEVATOR_TRIM">
           <ForceCamera name="Pedestal" />
-          <Clue name="Trim tabs should be set to 3° Nose Up or 6° If only front seats occupied" />
-          <CheckpointDesc SubjectTT="Trim Tabs 3° or 6°" ExpectationTT="Set" />
+          <Clue name="Trim tabs should be set to 3Â° Nose Up or 6Â° If only front seats occupied" />
+          <CheckpointDesc SubjectTT="Trim Tabs 3Â° or 6Â°" ExpectationTT="Set" />
           <Test>
             <TestValue>
               <Operator OpType="EQUAL" Tolerance="1500">
@@ -2649,7 +2649,7 @@
 <!-- Propellor High RPM	-->
         <Checkpoint Id="BEFORE_LANDING_PROP_HIGH">
           <Clue name="Ensure Prop set to High RPM"/>
-          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
           <Test>
             <TestValue>
               <Operator OpType="GREATER_OR_EQUAL">
