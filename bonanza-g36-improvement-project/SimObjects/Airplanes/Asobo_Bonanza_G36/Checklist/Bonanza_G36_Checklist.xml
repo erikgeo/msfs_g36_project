@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="Windows-1252"?>
+
 <SimBase.Document Type="Checklist" version="1,0">
   <Checklist.Checklist>
     <IncludeCheckpointLibrary FileName="CheckpointsLibrary\\Asobo_DefaultCheckpointLibrary.xml"/> <!-- Found in...  /OneStore/fs-base-aircraft-common/CheckpointsLibrary -->
@@ -2648,7 +2649,7 @@
 <!-- Propellor High RPM	-->
         <Checkpoint Id="BEFORE_LANDING_PROP_HIGH">
           <Clue name="Ensure Prop set to High RPM"/>
-          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
           <Test>
             <TestValue>
               <Operator OpType="GREATER_OR_EQUAL">
