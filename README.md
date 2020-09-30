@@ -56,7 +56,7 @@ To install:
 
 1: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
 
-2: Download and install the Working Title G1000 v0.3 mod (...)
+2: Download and install the Working Title G1000 v0.3 mod (https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.0)
 
 Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have 'z-' at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
 
