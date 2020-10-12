@@ -474,13 +474,34 @@
 		</Component>
 		
 		<Component ID="AIRCO">
-			<UseTemplate Name="G36_Switch_Dummy">
+			<UseTemplate Name="G36_Environment_Airco">
 				<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 				<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
 				<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
 				<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
+				<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+				<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
 			</UseTemplate>
 		</Component>
+		
+		<Component ID="AC_BLOWER">
+			<UseTemplate Name="G36_Environment_Blower">
+				<NODE_ID>switch_AC_blowerHI</NODE_ID>
+				<ANIM_NAME>switch_AC_blowerHI</ANIM_NAME>
+				<ANIMTIP_0>AC Blower High</ANIMTIP_0>
+				<ANIMTIP_1>AC Blower Off</ANIMTIP_1>
+				<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+				<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
+			</UseTemplate>
+		</Component>
+		
+		
+		
+		<!--
+		<Component ID="AIRCO">
+			<UseTemplate Name="G36_Airco_Template"></UseTemplate>
+		</Component>
+		-->
 		
 		<Component ID="TT_INOP">
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
@@ -492,9 +513,11 @@
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
 			</UseTemplate>
+			<!--
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 				<NODE_ID>switch_AC_blowerHI</NODE_ID>
 			</UseTemplate>
+			-->
 			
 		</Component>
 	</Behaviors>
