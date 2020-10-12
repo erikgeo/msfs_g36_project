@@ -9,10 +9,8 @@
 		<LEFT_SINGLE_CODE>
 			(L:XMLVAR_Airco) 0 == 
 			if{
-				8000 (&gt;K:SPOILERS_SET)
 				1 (&gt;L:XMLVAR_Airco)
 			} els{
-				0 (&gt;K:SPOILERS_SET)
 				0 (&gt;L:XMLVAR_Airco)
 			}
 		</LEFT_SINGLE_CODE>
