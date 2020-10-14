@@ -67,36 +67,13 @@
 	</UseTemplate>
 </Template>
 
-<Template Name = "G36_Gear_Unsafe_Light">
-	<Component ID="LANDING_GEAR_Light_Unsafe" Node="LANDING_GEAR_Light_Unsafe">
-		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-			<PART_ID>LANDING_GEAR_Light_Unsafe</PART_ID>
-			<EMISSIVE_CODE>
-				(*CONDITION 1*)
-				(L:XMLVAR_Test) 1 ==
-				
-				(*CONDITION 2*)
-				(A:CIRCUIT GEAR MOTOR ON, Bool) or
-				
-				(*CONDITION 3*)
-				(A:GEAR RIGHT POSITION, Percent) 0 &gt;
-				(A:GEAR RIGHT POSITION, Percent) 100 &lt; and
-				(A:GEAR CENTER POSITION, Percent) 0 &gt; or
-				(A:GEAR CENTER POSITION, Percent) 100 &lt; and
-				(A:GEAR LEFT POSITION, Percent) 0 &gt; or
-				(A:GEAR LEFT POSITION, Percent) 100 &lt; and or
-			</EMISSIVE_CODE>
-		</UseTemplate>
-	</Component>
-</Template>
-
 <!--
 Custom Gear indicator light logic that in addition to the Asobo templates 
 allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)
 
 Required parameters:
 
-SIMVAR (GEAR POSITION)
+SIMVAR (GEAR CENTER/LEFT/RIGHT POSITION)
 NODE_ID
 -->
 
@@ -134,19 +111,28 @@ NODE_ID
 	</UseTemplate>
 </Template>	
 
-<Template Name="G36_Flaps_Transit">
-	<Component ID="HANDLING_Light_Flaps_1" Node="HANDLING_Light_Flaps_1">
+<Template Name = "G36_Gear_Unsafe_Light">
+	<Component ID="LANDING_GEAR_Light_Unsafe" Node="LANDING_GEAR_Light_Unsafe">
 		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<PART_ID>LANDING_GEAR_Light_Unsafe</PART_ID>
 			<EMISSIVE_CODE>
-			(*CONDITION 1*)
-			(L:XMLVAR_Test) 1 ==
-			
-			(*CONDITION 2*)
-			(A:CIRCUIT FLAP MOTOR ON, Bool) or			
+				(*CONDITION 1*)
+				(L:XMLVAR_Test) 1 ==
+				
+				(*CONDITION 2*)
+				(A:CIRCUIT GEAR MOTOR ON, Bool) or
+				
+				(*CONDITION 3*)
+				(A:GEAR RIGHT POSITION, Percent) 0 &gt;
+				(A:GEAR RIGHT POSITION, Percent) 100 &lt; and
+				(A:GEAR CENTER POSITION, Percent) 0 &gt; or
+				(A:GEAR CENTER POSITION, Percent) 100 &lt; and
+				(A:GEAR LEFT POSITION, Percent) 0 &gt; or
+				(A:GEAR LEFT POSITION, Percent) 100 &lt; and or
 			</EMISSIVE_CODE>
 		</UseTemplate>
 	</Component>
-</Template>	
+</Template>
 
 <!--
 Custom Flaps indicator light logic that in addition to the Asobo templates 
@@ -188,6 +174,20 @@ TARGET
 		<ID>3</ID>
 		<TARGET>30</TARGET>
 	</UseTemplate>
+</Template>	
+
+<Template Name="G36_Flaps_Transit">
+	<Component ID="HANDLING_Light_Flaps_1" Node="HANDLING_Light_Flaps_1">
+		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<EMISSIVE_CODE>
+			(*CONDITION 1*)
+			(L:XMLVAR_Test) 1 ==
+			
+			(*CONDITION 2*)
+			(A:CIRCUIT FLAP MOTOR ON, Bool) or			
+			</EMISSIVE_CODE>
+		</UseTemplate>
+	</Component>
 </Template>	
 
 	
