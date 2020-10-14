@@ -559,7 +559,7 @@
 			<Simvar name="L:XMLVAR_ALT1_LOAD_INDICATED" unit="amps"/>
 		</Value>
 		<Value2>
-			<Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/>
+			<Multiply><Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/><Constant>5</Constant></Multiply>
 		</Value2>
 		<ColorZone>
 			<Color>green</Color>
