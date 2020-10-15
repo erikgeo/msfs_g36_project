@@ -561,27 +561,35 @@
   </VoicesAlerts>
 
 	<!-- Engine Display -->
-
+	
+	
   <EngineDisplay>
 
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>MANIN_Gauge</ID>
-		<Title>MAN IN</Title>
-		<Minimum>0</Minimum>
-		<Maximum>40</Maximum>
+		<Title></Title>
+		<Unit>MAN IN HG</Unit>
+		<Minimum>10</Minimum>
+		<Maximum>35</Maximum>
+		<Style>
+			<TextIncrement>0.1</TextIncrement>
+			<ForceTextColor>white</ForceTextColor>
+			<ValuePrecision>1</ValuePrecision>
+			<Graduations>15,20,25,30</Graduations>
+		</Style>
 		<Value>
 			<Simvar name="RECIP ENG MANIFOLD PRESSURE:1" unit="inHG"/>
 		</Value>
 		<ColorZone>
 			<Color>white</Color>
-			<Begin>0</Begin>
-			<End>40</End>
+			<Begin>10</Begin>
+			<End>35</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>green</Color>
 			<Begin>15</Begin>
-			<End>29.6</End>
+			<End>30</End>
 		</ColorZone>
 	  </Gauge>
 
@@ -594,6 +602,8 @@
 		<Maximum>3000</Maximum>
 		<Style>
 			<TextIncrement>10</TextIncrement>
+			<ForceTextColor>white</ForceTextColor>
+			<Graduations>1200,1800,2100,2300,2500,2700</Graduations>
 		</Style>
 		<Value>
 			<Simvar name="PROP RPM:1" unit="rpm"/>
@@ -606,11 +616,11 @@
 		<ColorZone>
 			<Color>green</Color>
 			<Begin>1800</Begin>
-			<End>2705</End>
+			<End>2700</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>red</Color>
-			<Begin>2705</Begin>
+			<Begin>2700</Begin>
 			<End>3000</End>
 		</ColorZone>
 		<RedBlink>
@@ -623,6 +633,12 @@
 
 	  <Gauge>
 		<Type>Horizontal</Type>
+		<Style>
+			<ValuePos>End</ValuePos>
+			<TextIncrement>0.1</TextIncrement>
+			<ValuePrecision>1</ValuePrecision>
+			<ForceTextColor>white</ForceTextColor>
+		</Style>		
 		<ID>Piston_FFlowGauge</ID>
 		<Title>FFLOW</Title>
 		<Unit>GPH</Unit>
@@ -641,8 +657,8 @@
 			<Begin>27.4</Begin>
 			<End>30</End>
 		</ColorZone>
-		<GraduationLength>2</GraduationLength>
-		<GraduationTextLength>30</GraduationTextLength>
+		<GraduationLength></GraduationLength>
+		<GraduationTextLength></GraduationTextLength>
 	  </Gauge>
 
 	  <Gauge>

@@ -14,11 +14,12 @@
 
 
 <!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
-<Template Name = "Cowl_Flap_Drag">
+<Template Name = "Drag_Components">
 	<Update Frequency="1">
-		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k (&gt;K:SPOILERS_SET)
+		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k 2 / (L:XMLVAR_Airco) 5000 * + (&gt;K:SPOILERS_SET)
 	</Update>
 </Template>
+
 
 <!---------------------------------------------- ELECTRICAL SYSTEM ---------------------------------------------->
 <!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->

@@ -22,7 +22,7 @@
 		<Component ID="G36X_Custom_Behavior">
 			<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
 			<UseTemplate Name="Voltage_Indication"></UseTemplate>
-			<UseTemplate Name="Cowl_Flap_Drag"></UseTemplate>	
+			<UseTemplate Name="Drag_Components"></UseTemplate>	
 			<UseTemplate Name="Smooth_Indication"></UseTemplate>
 		</Component>
 		<!-- End of G36X Modification -->
@@ -178,6 +178,7 @@
 				<ANIMTIP_2>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_LDG</ANIMTIP_2>
 				<ANIMTIP_2_ON_PERCENT>1</ANIMTIP_2_ON_PERCENT>
 			</UseTemplate>
+			<!--
 			<UseTemplate Name="ASOBO_HANDLING_Light_Flaps_Transit_Template">
 				<ID>1</ID>
 			</UseTemplate>
@@ -189,6 +190,7 @@
 				<ID>3</ID>
 				<TARGET_ANGLE_DEGREE>30</TARGET_ANGLE_DEGREE>
 			</UseTemplate>
+			-->
 		</Component>
 		
 		<Component ID="HANDLING_Trims">
@@ -473,29 +475,68 @@
 			</Component>
 		</Component>
 		
+		
+		<!-- G36 Improvement Project interactive elements 
+		-------------------------------------------------
+		-->
 		<Component ID="AIRCO">
-			<UseTemplate Name="G36_Switch_Dummy">
+			<UseTemplate Name="G36_Environment_Airco">
 				<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 				<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
-				<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
-				<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
 			</UseTemplate>
 		</Component>
 		
+		<Component ID="AC_BLOWER">
+			<UseTemplate Name="G36_Environment_Blower">
+				<NODE_ID>switch_AC_blowerHI</NODE_ID>
+				<ANIM_NAME>switch_AC_blowerHI</ANIM_NAME>
+			</UseTemplate>
+		</Component>
+		
+		<Component ID="AIR">
+			<UseTemplate Name="G36_Vent_Blower">
+				<NODE_ID>PASSENGER_Switch_CockpitAir</NODE_ID>
+				<ANIM_NAME>PASSENGER_Switch_CockpitAir</ANIM_NAME>
+			</UseTemplate>
+		</Component>
+		
+		<Component ID="ANNUNCIATOR_TEST">
+			<UseTemplate Name="G36_Annun_Test">
+				<NODE_ID>SAFETY_Push_Annunciator</NODE_ID>
+				<ANIM_NAME>SAFETY_Push_Annunciator</ANIM_NAME>
+			</UseTemplate>			
+		</Component>
+		
+		<!-- Custom Gear Annunciators with test capability -->
+		<Component ID="G36_Landing_Gear_Custom">
+			<UseTemplate Name="G36_Gear_Unsafe_Light"></UseTemplate>
+			<UseTemplate Name="G36_LANDING_GEAR_Light_Center_Template"></UseTemplate>
+			<UseTemplate Name="G36_LANDING_GEAR_Light_Left_Template"></UseTemplate>
+			<UseTemplate Name="G36_LANDING_GEAR_Light_Right_Template"></UseTemplate>			
+		</Component>
+		
+		<!-- Custom Flap Annunciators with test capability -->
+		<Component ID="G36_Flaps_Custom">
+			<UseTemplate Name="G36_Flaps_Transit"></UseTemplate>	
+			<UseTemplate Name="G36_Flaps_Aph_Position"></UseTemplate>	
+			<UseTemplate Name="G36_Flaps_Dn_Position"></UseTemplate>			
+		</Component>
+		
+		<Component ID="ALTERNATE_AIR">
+			<UseTemplate Name="G36_AlternateAir_Template"></UseTemplate>			
+		</Component>
+		
+		<!-- End of G36 Improvement Project interactive elements 
+		--------------------------------------------------------
+		-->
+		
+		<!--
 		<Component ID="TT_INOP">
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
-				<NODE_ID>SAFETY_Push_Annunciator</NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
-				<NODE_ID>PASSENGER_Switch_CockpitAir</NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
-				<NODE_ID>switch_AC_blowerHI</NODE_ID>
-			</UseTemplate>
-			
+			</UseTemplate>			
 		</Component>
+		-->
+		
 	</Behaviors>
 </ModelInfo>

@@ -67,38 +67,43 @@
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
-      "size": 4074,
-      "date": 132457951875932527
+      "size": 4107,
+      "date": 132469954883731824
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
-      "size": 2803,
-      "date": 132457951875942531
+      "size": 5418,
+      "date": 132471456835044390
+    },
+    {
+      "path": "ModelBehaviorDefs/G36X/Subtemplates/G36_Subtemplates.xml",
+      "size": 2436,
+      "date": 132469936030615236
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/engines.cfg",
-      "size": 9495,
-      "date": 132457951876042554
+      "size": 9507,
+      "date": 132469783385047522
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
       "size": 16227,
-      "date": 132457951876052547
+      "date": 132470046600444938
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
       "size": 11390,
-      "date": 132458398264600949
+      "date": 132468746896158813
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
-      "size": 145329,
-      "date": 132457951875952524
+      "size": 142253,
+      "date": 132459518845269356
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 20720,
-      "date": 132458710071641851
+      "size": 21904,
+      "date": 132471372506675683
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
@@ -107,13 +112,13 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
-      "size": 19690,
-      "date": 132457951876072558
+      "size": 20177,
+      "date": 132459261841741645
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/WTEngineDisplay.xml",
-      "size": 15831,
-      "date": 132458394495152867
+      "size": 15874,
+      "date": 132471503360052881
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.dds",

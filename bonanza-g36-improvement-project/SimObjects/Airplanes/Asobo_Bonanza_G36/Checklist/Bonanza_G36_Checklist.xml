@@ -24,9 +24,9 @@
     <Step ChecklistStepId="PREFLIGHT_GATE">
       <Page SubjectTT="Pre-flight">
 <!-- Parking Brake Set -->
-        <Checkpoint Id="PREFLIGHT_PARKING_BREAK">
+        <Checkpoint Id="PREFLIGHT_PARKING_BRAKE">
           <ForceCamera name="Switches" />
-          <Clue name="The parking break should be set" />
+          <Clue name="The parking brake should be set" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Set" />
           <Test>
             <TestValue>
@@ -672,7 +672,7 @@
 <!-- Parking Brake Set -->
         <Checkpoint Id="BEFORE_ENG_START_PARKING_BRAKE">
           <ForceCamera name="Switches" />
-          <Clue name="The parking break should be set" />
+          <Clue name="The parking brake should be set" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Set" />
           <Test>
             <TestValue>
@@ -730,11 +730,11 @@
             <Instrument Id="ENGINE_Lever_Throttle" />
           </Test>
         </Checkpoint>
-<!-- Propellor High RPM	-->
+<!-- Propeller High RPM	-->
         <Checkpoint Id="BEFORE_ENG_START_PROP_HIGH">
           <ForceCamera name="Pedestal"/>
           <Clue name="Ensure Prop set to High RPM"/>
-          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
           <Test>
             <TestValue>
               <Operator OpType="GREATER_OR_EQUAL">
@@ -968,11 +968,11 @@
             <Instrument Id="ENGINE_Lever_Throttle" />
           </Test>
         </Checkpoint>
-<!-- Propellor High RPM	-->
+<!-- Propeller High RPM	-->
         <Checkpoint Id="ENGINE_START_PROP_HIGH">
           <ForceCamera name="Pedestal"/>
           <Clue name="Ensure Prop set to High RPM"/>
-          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
           <Test>
             <TestValue>
               <Operator OpType="GREATER_OR_EQUAL">
@@ -1257,7 +1257,7 @@
               <Operator OpType="BETWEEN">
                 <Val Code="(L:XMLVAR_BUS2_VOLT_INDICATED)"/>
                 <Val Value="25.5" />
-                <Val Value="27.0" />
+                <Val Value="27.9" />
               </Operator>
             </TestValue>
             <Action Copilot="True" Condition="TestValueFalse" SpecialAction="WaitUntilTestValueValidated" />
@@ -1440,9 +1440,9 @@
       </Page> <!-- End before taxi -->
       <Page SubjectTT="Before Takeoff - Run up">
 <!-- Parking Brake Set -->
-        <Checkpoint Id="RUN_UP_PARKING_BREAK">
+        <Checkpoint Id="RUN_UP_PARKING_BRAKE">
           <ForceCamera name="Switches" />
-          <Clue name="The parking break should be set" />
+          <Clue name="The parking brake should be set" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Set" />
           <Test>
             <TestValue>
@@ -1865,8 +1865,8 @@
 <!-- Set Takeoff Trim -->
         <Checkpoint Id="RUN_UP_ELEVATOR_TRIM">
           <ForceCamera name="Pedestal" />
-          <Clue name="Trim tabs should be set to 3° Nose Up or 6° If only front seats occupied" />
-          <CheckpointDesc SubjectTT="Trim Tabs 3° or 6°" ExpectationTT="Set" />
+          <Clue name="Trim tabs should be set to 3Â° Nose Up or 6Â° If only front seats occupied" />
+          <CheckpointDesc SubjectTT="Trim Tabs 3Â° or 6Â°" ExpectationTT="Set" />
           <Test>
             <TestValue>
               <Operator OpType="EQUAL" Tolerance="1500">
@@ -2049,7 +2049,7 @@
           <CheckpointDesc SubjectTT="GPS Position" ExpectationTT="Correct" />
         </Checkpoint>
 <!-- Parking Brake OFF -->
-        <Checkpoint Id="RUN_UP_PARKING_BREAK_OFF">
+        <Checkpoint Id="RUN_UP_PARKING_BRAKE_OFF">
           <ForceCamera name="Pilot" />
           <Clue name="Release the Parking Brake" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Released" />
@@ -2182,7 +2182,7 @@
           </Test>
         </Checkpoint>
 <!-- Parking Brake OFF -->
-        <Checkpoint Id="TAKE_OFF_PARKING_BREAK_OFF">
+        <Checkpoint Id="TAKE_OFF_PARKING_BRAKE_OFF">
           <ForceCamera name="Pilot" />
           <Clue name="Release the Parking Brake" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Released" />
@@ -2646,10 +2646,10 @@
           <Clue name="Set the Landing Lights as required" />
           <CheckpointDesc SubjectTT="Landing Lights As Requred" ExpectationTT="Set" />
         </Checkpoint>
-<!-- Propellor High RPM	-->
+<!-- Propeller High RPM	-->
         <Checkpoint Id="BEFORE_LANDING_PROP_HIGH">
           <Clue name="Ensure Prop set to High RPM"/>
-          <CheckpointDesc SubjectTT="Propellor" ExpectationTT="High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
           <Test>
             <TestValue>
               <Operator OpType="GREATER_OR_EQUAL">
@@ -2848,9 +2848,9 @@
       <!-- Securing-->
       <Page SubjectTT="Shutdown and Securing">
 <!-- Parking Brake Set -->
-        <Checkpoint Id="SHUTDOWN_BREAK">
+        <Checkpoint Id="SHUTDOWN_BRAKE">
           <ForceCamera name="Switches" />
-          <Clue name="The parking break should be set" />
+          <Clue name="The parking brake should be set" />
           <CheckpointDesc SubjectTT="Parking Brake" ExpectationTT="Set" />
           <Test>
             <TestValue>
