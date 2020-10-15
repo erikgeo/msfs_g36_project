@@ -39,6 +39,7 @@
 		<ANIMREF_ID>0</ANIMREF_ID>
 		<ANIMTIP_0_ON_PERCENT>0</ANIMTIP_0_ON_PERCENT>
 		<ANIMTIP_1_ON_PERCENT>1</ANIMTIP_1_ON_PERCENT>
+		<PART_ID>G36_Annun_Test</PART_ID>
 	</DefaultTemplateParameters>
 	<Component ID="#NODE_ID#" Node="#NODE_ID#">
 		<Update Once="True">
@@ -65,7 +66,7 @@
 <Template Name="G36_AlternateAir_SubTemplate">
 	<DefaultTemplateParameters>
 		<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
-		<SCROLL_INCREMENT>701</SCROLL_INCREMENT>					
+		<SCROLL_INCREMENT>701</SCROLL_INCREMENT>
 	</DefaultTemplateParameters>
 	<Component ID="#NODE_ID#" Node="#NODE_ID#">
 		<UseTemplate Name="ASOBO_GT_Lever_DraggingWheelLeftDrag_Axis">
@@ -86,4 +87,3 @@
 	</Component>
 </Template>
 
-	
