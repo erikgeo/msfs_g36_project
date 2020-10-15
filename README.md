@@ -1,24 +1,34 @@
-# MSFS G36 Project version 0.4
+# MSFS G36 Project version 0.5
 
-This is the improvement project for the MSFS default G36. At this moment, the modification mainly focuses on flight performance fixes. This was made possible with the help of the community consisting of both enthusiasts and G/A36 (ex-)pilots.
+This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 Current features of this modification are:
 
 **Flight dynamics/performance**
-* Adjusted climb and cruise performance to match the Bonanza G36 POH charts. (WIP)
-* Adjusted flap and gear drag
+* (Improved in v0.5) Adjusted climb and cruise performance to match the Bonanza G36 POH charts. 
+* (Improved in v0.5) Adjusted flap and gear drag
 * Slightly reduced pitch effect due to elevator deflection + propwash
 * Slightly increased nosewheel steering angle 
 * Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
+* (New in v0.5) Decreased yaw sensitivity by lowering deflection rate as a function of speed 
 
 **Engine**
-* Fixed Continental IO550-B defined as four-cylinder (should be a six-cylinder)
+* (New in v0.5) Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
 * Fixed erroneous engine efficiency increase around 2000 rpm
-* Adjusted idle RPM to ~600. This prevents the unexpected shutdown of a warm engine when idle
+* Adjusted idle RPM to ~700. This prevents the unexpected shutdown of a warm engine when idle
 
 **Systems**
-* Fixed autopilot altitude holding the wrong altitude at non-standard atmospheric pressures
-* Compatible with G1000 mod (https://forums.flightsimulator.com/t/update-g1000-improved-v2/262603)
+* (New in v0.5) Electrical system overhaul: 
+  - Completely revised electrical buses: all individual systems hooked up to the correct bus
+  - Bus tie logic added
+  - Correct voltage indications of BUS2 due to reverse current blocking diodes
+  - Corrected alternator load indications
+  - Made all indications smooth, rather than instant jumps to a new value
+* (New in v0.5) Autopilot tweaks
+  - Fixed holding the wrong altitude at non-standard atmospheric pressures
+  - Max pitch and bank angles adjusted for smoother AP behaviour
+  - Added maximum and minimum IAS_ref speeds for FLC mode
+* (New in v0.5) Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
@@ -35,26 +45,27 @@ Current features of this modification are:
 * Corrected fuel gauge indications
 * Airco switch activated (Other switches WIP)
 
-**Effects**
+**Textures & effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
+* (New in v0.5) Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
-* Initial Pre-Flight checklist changed to reflect the POH (Pages 162-167) & Definitely WIP
-* Not checked against AI autopilot completing each item yet
+* (New in v0.5) New interactive checklists for every stage of your flight that follow the POH 
 
 To install:
 
-1: Click on the green button in the top right corner that sais 'code' and download as zip
+1: Unzip and put the folder 'z-bonanza-g36-improvement-project' in your MSFS Community folder
 
-2: Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
+2: Download and install the Working Title G1000 v0.3 mod 
 
-IMPORTANT STEPS IF YOU ARE USING THE G1000 MOD
+Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have 'z-' at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
 
-3: Make sure that the mod is loaded after the G1000 mod (so that it overwrites the panel.xml by the one in this mod). Mods are loaded in alphabetical order.
+https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5-pre1
 
-4: Load the airplane and check that you get the new annunciations. You should have BUSES TIED and OIL PRES LO on startup.
+https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.0
 
+**Our contributors**
+FrettFS, CaptMatto, Coppersens, Uwajimaya, dciskey, Matchrocket, JuiceBox7535, jonasbeaver, Exp232, nickc95
+(please contact me if you are not in this list while you should)
 
-For more liveries see this thread:
-
-https://forums.flightsimulator.com/t/props-master-livery-list/168148/12
+Special thanks to kaosfere4829 from the Working Title team for the coorperation on integrating the G1000 mod!

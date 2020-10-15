@@ -152,7 +152,7 @@
 			<Text>BUS1 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -163,7 +163,7 @@
 			<Text>BUS1 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -174,7 +174,7 @@
 			<Text>BUS2 VOLT HI</Text>
 			<Condition>
 			<Greater>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>30</Constant>
 			</Greater>
 			</Condition>
@@ -185,7 +185,7 @@
 			<Text>BUS2 VOLT LO</Text>
 			<Condition>
 			<Lower>
-				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+				 <Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
 				 <Constant>24</Constant>
 			</Lower>
 			</Condition>
@@ -260,6 +260,14 @@
 		</Annunciation>
 		
 		<Annunciation>
+			<Type>Advisory</Type>
+			<Text>BUSES TIED</Text>
+			<Condition>
+				<Simvar name="L:XMLVAR_BUSES_TIED" unit="Boolean"/>
+			</Condition>
+		</Annunciation>
+		
+		<Annunciation>
 			<Type>Caution</Type>
 			<Text>STARTER ENGD</Text>
 			<Condition>
@@ -322,32 +330,6 @@
 				</Or>
 			</Condition>
 		</Annunciation>
-		
-		<Annunciation>
-			<Type>Advisory</Type>
-			<Text>BUSES TIED</Text>
-			<Condition>
-				<StateMachine>
-					<State id="Off" value="0">
-						<Transition to="On">
-							<LowerEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>1700</Constant>
-							</LowerEqual>
-						</Transition>
-					</State>
-					<State id="On" value="1">
-						<Transition to="Off">
-							<GreaterEqual>
-								<Simvar name="PROP RPM:1" unit="rpm"/>
-								<Constant>2000</Constant>
-							</GreaterEqual>
-						</Transition>
-					</State>
-				</StateMachine>
-			</Condition>
-		</Annunciation>
-	</Annunciations>
 	
 	<Annunciation>
 			<Type>Caution</Type>
@@ -356,6 +338,7 @@
 				<Simvar name="PARTIAL PANEL PITOT" unit="Boolean"/>
 			</Condition>
 	</Annunciation>
+	</Annunciations>
 
 	  <!-- Voices Alerts -->
 
@@ -578,27 +561,35 @@
   </VoicesAlerts>
 
 	<!-- Engine Display -->
-
+	
+	
   <EngineDisplay>
 
 	  <Gauge>
 		<Type>Circular</Type>
 		<ID>MANIN_Gauge</ID>
-		<Title>MAN IN</Title>
-		<Minimum>0</Minimum>
-		<Maximum>40</Maximum>
+		<Title></Title>
+		<Unit>MAN IN HG</Unit>
+		<Minimum>10</Minimum>
+		<Maximum>35</Maximum>
+		<Style>
+			<TextIncrement>0.1</TextIncrement>
+			<ForceTextColor>white</ForceTextColor>
+			<ValuePrecision>1</ValuePrecision>
+			<Graduations>15,20,25,30</Graduations>
+		</Style>
 		<Value>
 			<Simvar name="RECIP ENG MANIFOLD PRESSURE:1" unit="inHG"/>
 		</Value>
 		<ColorZone>
 			<Color>white</Color>
-			<Begin>0</Begin>
-			<End>40</End>
+			<Begin>10</Begin>
+			<End>35</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>green</Color>
 			<Begin>15</Begin>
-			<End>29.6</End>
+			<End>30</End>
 		</ColorZone>
 	  </Gauge>
 
@@ -611,6 +602,8 @@
 		<Maximum>3000</Maximum>
 		<Style>
 			<TextIncrement>10</TextIncrement>
+			<ForceTextColor>white</ForceTextColor>
+			<Graduations>1200,1800,2100,2300,2500,2700</Graduations>
 		</Style>
 		<Value>
 			<Simvar name="PROP RPM:1" unit="rpm"/>
@@ -623,11 +616,11 @@
 		<ColorZone>
 			<Color>green</Color>
 			<Begin>1800</Begin>
-			<End>2705</End>
+			<End>2700</End>
 		</ColorZone>
 		<ColorZone>
 			<Color>red</Color>
-			<Begin>2705</Begin>
+			<Begin>2700</Begin>
 			<End>3000</End>
 		</ColorZone>
 		<RedBlink>
@@ -640,6 +633,12 @@
 
 	  <Gauge>
 		<Type>Horizontal</Type>
+		<Style>
+			<ValuePos>End</ValuePos>
+			<TextIncrement>0.1</TextIncrement>
+			<ValuePrecision>1</ValuePrecision>
+			<ForceTextColor>white</ForceTextColor>
+		</Style>		
 		<ID>Piston_FFlowGauge</ID>
 		<Title>FFLOW</Title>
 		<Unit>GPH</Unit>
@@ -658,8 +657,8 @@
 			<Begin>27.4</Begin>
 			<End>30</End>
 		</ColorZone>
-		<GraduationLength>2</GraduationLength>
-		<GraduationTextLength>30</GraduationTextLength>
+		<GraduationLength></GraduationLength>
+		<GraduationTextLength></GraduationTextLength>
 	  </Gauge>
 
 	  <Gauge>
@@ -778,10 +777,10 @@
 		<Minimum>0</Minimum>
 		<Maximum>120</Maximum>
 		<Value>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT1_LOAD_INDICATED" unit="amps"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amps"/>
+			<Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/>
 		</Value2>
 		<ColorZone>
 			<Color>green</Color>
@@ -807,10 +806,10 @@
 		<Minimum>0</Minimum>
 		<Maximum>33</Maximum>
 		<Value>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS1_VOLT_INDICATED" unit="volts"/>
 		</Value>
 		<Value2>
-			<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:3" unit="volts"/>
+			<Simvar name="L:XMLVAR_BUS2_VOLT_INDICATED" unit="volts"/>
 		</Value2>
 		<ColorZone>
 			<Color>yellow</Color>
