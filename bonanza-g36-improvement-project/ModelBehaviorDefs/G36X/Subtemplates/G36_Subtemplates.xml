@@ -61,4 +61,29 @@
 		</UseTemplate>
 	</Component>
 </Template>
+
+<Template Name="G36_AlternateAir_SubTemplate">
+	<DefaultTemplateParameters>
+		<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
+		<SCROLL_INCREMENT>701</SCROLL_INCREMENT>					
+	</DefaultTemplateParameters>
+	<Component ID="#NODE_ID#" Node="#NODE_ID#">
+		<UseTemplate Name="ASOBO_GT_Lever_DraggingWheelLeftDrag_Axis">
+			<CURSOR>Grab</CURSOR>
+			<NO_ARROWS/>
+			<DRAG_CODE>
+				16384 (M:DragPercent) *
+				16384 min 0 max (&gt;L:XMLVAR_AlternateAir)
+			</DRAG_CODE>
+			<ANIM_CODE>(L:XMLVAR_AlternateAir, position 16k) 16384 / 100 *</ANIM_CODE>
+			<DRAG_ANIM_NAME>#ANIM_NAME#</DRAG_ANIM_NAME>
+			<POSITIVE_AXIS_CODE>(L:XMLVAR_AlternateAir, position 16k) #SCROLL_INCREMENT# + 16384 min (&gt;L:XMLVAR_AlternateAir)</POSITIVE_AXIS_CODE>
+			<NEGATIVE_AXIS_CODE>(L:XMLVAR_AlternateAir, position 16k) #SCROLL_INCREMENT# - 0 max (&gt;L:XMLVAR_AlternateAir)</NEGATIVE_AXIS_CODE>
+			<TOOLTIPID>TT:COCKPIT.TOOLTIPS.ALTERNATE_AIR_LEVER</TOOLTIPID>
+			<WWISE_EVENT_1>deice_engine_lever_on</WWISE_EVENT_1>
+			<WWISE_EVENT_2>deice_engine_lever_off</WWISE_EVENT_2>
+		</UseTemplate>
+	</Component>
+</Template>
+
 	
