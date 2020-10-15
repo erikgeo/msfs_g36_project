@@ -67,6 +67,14 @@
 	</UseTemplate>
 </Template>
 
+<Template Name="G36_AlternateAir_Template">
+	<UseTemplate Name="G36_AlternateAir_SubTemplate">
+		<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
+		<ANIM_NAME>ENGINE_Lever_AlternateAir</ANIM_NAME>
+		<ID>1</ID>
+	</UseTemplate>
+</Template>	
+
 <!--
 Custom Gear indicator light logic that in addition to the Asobo templates 
 allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)

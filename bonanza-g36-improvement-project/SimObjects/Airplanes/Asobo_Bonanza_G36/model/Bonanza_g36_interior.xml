@@ -522,15 +522,21 @@
 			<UseTemplate Name="G36_Flaps_Dn_Position"></UseTemplate>			
 		</Component>
 		
+		<Component ID="ALTERNATE_AIR">
+			<UseTemplate Name="G36_AlternateAir_Template"></UseTemplate>			
+		</Component>
 		
 		<!-- End of G36 Improvement Project interactive elements 
 		--------------------------------------------------------
 		-->
-			
+		
+		<!--
 		<Component ID="TT_INOP">
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
 			</UseTemplate>			
 		</Component>
+		-->
+		
 	</Behaviors>
 </ModelInfo>
