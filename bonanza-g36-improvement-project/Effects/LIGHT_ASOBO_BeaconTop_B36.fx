@@ -63,10 +63,10 @@ MinProjSize=0.4
 
 [LightAttributes.0]
 Type=omni
-Size=0.8
-Range=22
-Intensity=1.8
-Softness=0.0
+Size=0.0
+Range=4
+Intensity=1.4
+Softness=0.1
 SpotInner=8
 SpotOuter=15
 Volumetric=1

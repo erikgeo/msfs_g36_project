@@ -364,6 +364,13 @@
             <Instrument Id="LANDING_GEAR_Lever_Gear"/>
           </Test>
         </Checkpoint>
+<!-- Annunciators -->
+        <Checkpoint Id="PREFLIGHT_ANNUCIATOR">
+          <ForceCamera name="Pilot" />
+          <Clue name="Check the Gear, Gear in Transit and Flap annuciators light up" />
+          <CheckpointDesc SubjectTT="Annunciator test" ExpectationTT="Tested" />
+            <Instrument Id="SAFETY_Push_Annunciator" />
+        </Checkpoint>
 <!-- Standby Attitude Indicator -->
         <Checkpoint Id="PREFLIGHT_STANDBY_ATTITUDE">
           <Clue name="Check the Standby Attitude Indicator flag removed"/>

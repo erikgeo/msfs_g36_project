@@ -30,7 +30,7 @@ Z Offset=0.0, 0.0
 [Particle.0]
 Lifetime=0.0, 0.0
 Type=19
-X Scale=0.21, 0.21
+X Scale=0.24, 0.24
 Y Scale=0.21, 0.21
 Z Scale=0.0, 0.0
 X Scale Rate=0.0, 0.0
@@ -65,10 +65,10 @@ MinProjSize= 0.3
 [LightAttributes.0]
 Type=spot
 Size=0.01
-Range=5
-Intensity=0.3 ; 0.12
-Softness=0.0
-SpotInner=6
+Range=4
+Intensity=0.1
+Softness=0.2
+SpotInner=4
 SpotOuter=2
 Volumetric=1
 ScatDir=0.0

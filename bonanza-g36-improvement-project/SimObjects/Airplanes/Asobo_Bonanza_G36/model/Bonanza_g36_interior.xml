@@ -504,6 +504,7 @@
 			<UseTemplate Name="G36_Annun_Test">
 				<NODE_ID>SAFETY_Push_Annunciator</NODE_ID>
 				<ANIM_NAME>SAFETY_Push_Annunciator</ANIM_NAME>
+				<PART_ID>SAFETY_Push_Annunciator</PART_ID>
 			</UseTemplate>			
 		</Component>
 		

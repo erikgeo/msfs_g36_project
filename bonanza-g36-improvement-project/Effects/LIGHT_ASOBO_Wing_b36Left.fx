@@ -23,15 +23,15 @@ Z Particle Velocity=0.0, 0.0
 X Rotation=0.0, 0.0
 Y Rotation=0.0, 0.0
 Z Rotation=0.0, 0.0
-X Offset=0.0, 0.0
+X Offset=-1.0, -1.0
 Y Offset=0.0, 0.0
 Z Offset=0.0, 0.0
 
 [Particle.0]
 Lifetime=0.0, 0.0
 Type=19
-X Scale=0.5, 0.5
-Y Scale=0.5, 0.5
+X Scale=0.0001, 0.0001
+Y Scale=0.0001, 0.0001
 Z Scale=0.0, 0.0
 X Scale Rate=0.0, 0.0
 Y Scale Rate=0.0, 0.0
@@ -70,10 +70,10 @@ MinProjSize=0.1
 [LightAttributes.0]
 Type=spot
 Size=0.0
-Range=30
-Intensity=0.3
-Softness=0.0
-SpotInner=50
-SpotOuter=50
-Volumetric=1
+Range=130
+Intensity=0.2
+Softness=0.5
+SpotInner=60
+SpotOuter=60
+Volumetric=0
 ScatDir=0.0
