@@ -1,0 +1,139 @@
+{
+  "content": [
+    {
+      "path": "de-DE.locPak",
+      "size": 2213,
+      "date": 132457951876082559
+    },
+    {
+      "path": "en-US.locPak",
+      "size": 1816,
+      "date": 132457951876102564
+    },
+    {
+      "path": "es-ES.locPak",
+      "size": 2010,
+      "date": 132457951876112565
+    },
+    {
+      "path": "fr-FR.locPak",
+      "size": 2060,
+      "date": 132457951876112565
+    },
+    {
+      "path": "it-IT.locPak",
+      "size": 2024,
+      "date": 132457951876112565
+    },
+    {
+      "path": "pl-PL.locPak",
+      "size": 2161,
+      "date": 132457951876132571
+    },
+    {
+      "path": "pt-BR.locPak",
+      "size": 1962,
+      "date": 132457951876132571
+    },
+    {
+      "path": "ru-RU.locPak",
+      "size": 2977,
+      "date": 132457951876132571
+    },
+    {
+      "path": "effects/LIGHT_ASOBO_Landing_G36.fx",
+      "size": 1229,
+      "date": 132457951876082559
+    },
+    {
+      "path": "effects/LIGHT_ASOBO_NavigationGreen_G36.fx",
+      "size": 1230,
+      "date": 132457951876092568
+    },
+    {
+      "path": "effects/LIGHT_ASOBO_NavigationRed_G36.fx",
+      "size": 1227,
+      "date": 132457951876092568
+    },
+    {
+      "path": "effects/LIGHT_ASOBO_StrobeSimple_G36.fx",
+      "size": 1233,
+      "date": 132457951876092568
+    },
+    {
+      "path": "effects/LIGHT_ASOBO_Taxi_G36.fx",
+      "size": 1282,
+      "date": 132457951876102564
+    },
+    {
+      "path": "ModelBehaviorDefs/Asobo/Exterior.xml",
+      "size": 66015,
+      "date": 132469450120000000
+    },
+    {
+      "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
+      "size": 4107,
+      "date": 132471784715632815
+    },
+    {
+      "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
+      "size": 5662,
+      "date": 132472275134802222
+    },
+    {
+      "path": "ModelBehaviorDefs/G36X/Subtemplates/G36_Subtemplates.xml",
+      "size": 3561,
+      "date": 132472278277280580
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/engines.cfg",
+      "size": 9495,
+      "date": 132471784949804116
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
+      "size": 16191,
+      "date": 132473513680818760
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
+      "size": 11390,
+      "date": 132468746896158813
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
+      "size": 142608,
+      "date": 132473081644377166
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
+      "size": 22088,
+      "date": 132473080060627571
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
+      "size": 859,
+      "date": 132457951876062553
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
+      "size": 20177,
+      "date": 132459261841741645
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/WTEngineDisplay.xml",
+      "size": 15874,
+      "date": 132471503360052881
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.dds",
+      "size": 1398256,
+      "date": 132457951876032547
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.DDS.json",
+      "size": 121,
+      "date": 132457951875962532
+    }
+  ]
+}
