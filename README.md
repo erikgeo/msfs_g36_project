@@ -16,6 +16,6 @@ https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5
 
 https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.1
 
-Our contributors FrettFS, CaptMatto, Coppersens, Uwajimaya, dciskey, Matchrocket, JuiceBox7535, jonasbeaver, Exp232, nickc95 (please contact me if you are not in this list while you should)
+Our contributors (MSFS Forum names): FrettFS, CaptMatto, Coppersens, Uwajimaya, dciskey, Matchrocket, JuiceBox7535, jonasbeaver, Exp232, nickc95 (please contact me if you are not in this list while you should)
 
 Special thanks to kaosfere4829 from the Working Title team for the coorperation on integrating the G1000 mod!
