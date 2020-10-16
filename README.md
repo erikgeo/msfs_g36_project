@@ -35,7 +35,7 @@ Current features of this modification are:
   - Fixed holding the wrong altitude at non-standard atmospheric pressures
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
-* (New in v0.5) Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
+* Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
 * Replaced/removed default annunciators
   - Removed PITOT HEAT caution
   - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
@@ -53,10 +53,10 @@ Current features of this modification are:
 
 **Textures & effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
-* (New in v0.5) Corrected decals (e.g. shoulder hardness -> harness)
+* Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
-* (New in v0.5) New interactive checklists for every stage of your flight that follow the POH 
+* Interactive checklists for every stage of your flight that follow the POH 
 
 -------------------------------------
 -------------------------------------
@@ -75,16 +75,3 @@ https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5
 
 -------------------------------------
 -------------------------------------
-
-**Our contributors**
-FrettFS, CaptMatto, Coppersens, Uwajimaya, dciskey, Matchrocket, JuiceBox7535, jonasbeaver, Exp232, nickc95
-(please contact me if you are not in this list while you should)
-
-Special thanks to kaosfere4829 from the Working Title team for the coorperation on integrating the G1000 mod!
-
--------------------------------------
--------------------------------------
-
-There is a development build that includes the latest changes that we push to the git repository. Note that this build may have issues. If you want to join in on testing or development, please conduct your tests/make pull requests using this version.
-
-https://github.com/TheFrett/msfs_g36_project/tree/dev-version
