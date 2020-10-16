@@ -1,0 +1,21 @@
+{
+  "dependencies": [
+    {
+      "name": "asobo-aircraft-bonanza-g36",
+      "package_version": "0.1.49"
+    }
+  ],
+  "content_type": "AIRCRAFT",
+  "title": "Beechcraft Bonanza G36",
+  "manufacturer": "Textron Aviation",
+  "creator": "Asobo/R Young",
+  "package_version": "1.1.0",
+  "minimum_game_version": "1.8.2",
+  "release_notes": {
+    "neutral": {
+      "LastUpdate": "",
+      "OlderHistory": ""
+    }
+  },
+  "total_package_size": "00000000000003500000"
+}

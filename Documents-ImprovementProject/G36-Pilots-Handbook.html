@@ -1,0 +1,1762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>G36 Bonanza Improvement Project - Documentation</title>
+    <!-- Bootstrap & Fontawesome core CSS & JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/custom.css" >
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/c076c66f0c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#toc">
+  <header>
+
+  </header>
+
+<main role="main">
+  <section id="header" style="position:relative" class="jumbotron mb-0 text-center border-bottom b-3 border-danger rounded-0">
+    <div class="container">
+      <img src="img/Beechcraft_logo.svg.png" class="img-fluid beech-logo" height="180"/>
+      <h1 class="mt-3"><b>Model G36 Bonanza</b></h1>
+      <p class="lead"><b>Pilot's Operating Handbook<br />and<br />Approved Airplane Flight Manual<br /></b><span class="text-danger">Microsoft Flight Simulator use only</span></p>
+      <img src="img/bonanza_flying.jpg" alt="..." class="img-thumbnail">
+      <p class="lead text-justify mt-3">
+        This pilots operating handbook is designed for use with the Bonanza G36 Improvement Project mod for Microsoft Flight Simulator. The modificatiom mainly focuses on
+        flight performance fixes, checklists and tweaks to the base aircraft. This was made possible with the help of the community consisting of both enthusiasts and G/A36 pilots.
+      </p>
+      <p class="lead text-justify mt-3">
+        Checklists are abridged from the real aircraft POH as some systems are not modelled in sim. We have developed printable checklists and documents to accompany this manual - these are identified with the <i class="fad fa-file-pdf"></i> icon
+      </p>
+      <p class="lead text-justify mt-3">
+        You can download the latest version of this mod at our Github repository, <a target="_blank" href="https://github.com/TheFrett/msfs_g36_project">https://github.com/TheFrett/msfs_g36_project</a> or can join our
+        community and discuss the mod on the official MSFS forum <a target="_blank" href="https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094">https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094</a>.
+      </p>
+      <p class="lead text-justify">
+        Thanks to you all!
+      </p>
+      <p class="lead text-justify">
+        The G36 Mod Team<br />
+        <span class="text-secondary font-italic"><small>FrettFS, CaptMatto, Coppersens, Uwajimaya, Dciskey, Matchrocket, JuiceBox7535, Jonasbeaver, Exp232 & nickc95</small></span>
+      </p>
+
+    </div>
+    <div class="tab">
+      Bonanza G36
+    </div>
+    <div class="">
+      <ul class="tabs">
+        <li class="tab-item bg-dark text-light">
+        <i class="fal fa-route fa-2x my-2"></i><br />
+        Maximum Range<br />
+        <span class="tab-item-number">920nm</span>
+        </li>
+        <li class="tab-item bg-dark text-light">
+        <i class="fal fa-tachometer-alt-fast fa-2x my-2"></i><br />
+        Maximum Speed<br />
+        <span class="tab-item-number">176ktas</span>
+        </li>
+        <li class="tab-item bg-dark text-light">
+        <i class="fal fa-plane-departure fa-2x my-2"></i><br />
+        Service Ceiling<br />
+        <span class="tab-item-number">18,500ft</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+    <nav id="toc" class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a data-id="section-1" class="nav-link text-white" href="#general">1 / General</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#limitations">2 / Limitations</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-danger" href="#emergencies">3 / Emergencies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#abnormals">3a / Abnormals</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#normals">4 / Normals</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  <section id="general" class="border-bottom border-bottom b-3 border-danger rounded-0 anchor-hack-section">
+    <div class="py-5 bg-light">
+      <div id="sticky" class="shadow-sm border d-none d-lg-block">
+        <p class="text-secondary mb-0">
+          <b>SECTION 1 - GENERAL</b>
+        </p>
+        <ul class="list-unstyled mt-0">
+          <li>
+            <a href="#intro">Introduction & Installation of the mod</a>
+          </li>
+          <li>
+            <a href="#3view">Airplane Plan</a>
+          </li>
+          <li>
+            <a href="#groundTurning">Ground Turning Clearance</a>
+          </li>
+          <li>
+            <a href="#fuelCapacity">Fuel Capacity</a>
+          </li>
+          <li>
+            <a href="#maxWeights">Maximum Certified Weights</a>
+          </li>
+          <li>
+            <a href="#serviceCeiling">Service Ceiling</a>
+          </li>
+          <li>
+            <a href="#symbols">Symbols, Abbreviations and Terminology</a>
+          </li>
+          <ul class="pl-3">
+            <li class="list-unstyled">
+              <a href="#airspeedTerms">General Airspeed Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#metTerms">Meteorological Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#powerTerms">Power Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#engControls">Engine Controls and Instrument Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#engPerf">Airplane Performance and Flight Planning Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#weightTerms">Weight and Balance Terminology</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#acronyms">Acronyms</a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="float-right">
+              <a href="#toc"><i class="fas fa-chevron-up"></i> Back to top</a>
+            </p>
+            <div class="display mb-3">
+              SECTION 1 - GENERAL
+            </div>
+            <p class="mt-5 mb-0 item-header anchor-hack" id="intro">
+              <i class="fas fa-angle-right text-danger mr-2"></i><b>Introduction</b>
+            </p>
+            <p>
+              Thanks for downloading the Beechcraft Bonanza G36 Improvement Mod. This improvement project is for the MSFS default G36. At this moment, the modificatiom mainly
+              focuses on flight performance fixes, checklists and improved documentation to make the G36 as true to life as we can get it. This was made possible with the help of the
+              community consisting of both enthusiasts and G/A36 (ex-)pilots.
+            </p>
+            <p>
+              Current features of the mod are:<br />
+              <span class="badge badge-info">Mod Version 0.5</span>
+            </p>
+            <p>
+              <b><span class="text-info">Flight dynamics/performance</span></b>
+              <ul>
+                <li>
+                  Adjusted climb and cruise performance to match the Bonanza G36 POH charts.
+                </li>
+                <li>
+                  Adjusted flap and gear drag
+                </li>
+                <li>
+                  Slightly reduced pitch effect due to elevator deflection + propwash
+                </li>
+                <li>
+                  Slightly increased nosewheel steering angle
+                </li>
+                <li>
+                  Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
+                </li>
+                <li>
+                  Decreased yaw sensitivity by lowering deflection rate as a function of speed
+                </li>
+              </ul>
+              <b><span class="text-info">Engine</span></b>
+              <ul>
+                <li>
+                  Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
+                </li>
+                <li>
+                  Fixed erroneous engine efficiency increase around 2000 rpm
+                </li>
+                <li>
+                  Adjusted idle RPM to ~600-700. This prevents the unexpected shutdown of a warm engine when idle
+                </li>
+              </ul>
+              <b><span class="text-info">Systems</span></b>
+              <ul>
+                <li>
+                  Electrical system overhaul:
+                </li>
+                  <ul>
+                    <li>
+                      Completely revised electrical buses: all individual systems hooked up to the correct bus
+                    </li>
+                    <li>
+                      Bus tie logic added
+                    </li>
+                    <li>
+                      Correct voltage indications of BUS2 due to reverse current blocking diodes
+                    </li>
+                    <li>
+                      Corrected alternator load indications
+                    </li>
+                    <li>
+                      Made all indications smooth, rather than instant jumps to a new value
+                    </li>
+                  </ul>
+                <li>
+                  Autopilot tweaks
+                </li>
+                  <ul>
+                    <li>
+                      Fixed holding the wrong altitude at non-standard atmospheric pressures
+                    </li>
+                    <li>
+                      Max pitch and bank angles adjusted for smoother AP behaviour
+                    </li>
+                    <li>
+                      Added maximum and minimum IAS_ref speeds for FLC mode
+                    </li>
+                  </ul>
+                <li>
+                  Integration with the Working Title G1000 mod, with customized DLFT, LEAN and SYSTEM pages.
+                </li>
+                <li>
+                  Replaced/removed default annunciators
+                </li>
+                  <ul>
+                    <li>
+                      Removed PITOT HEAT caution
+                    </li>
+                    <li>
+                      Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
+                    </li>
+                  </ul>
+                <li>
+                  Added many new annunciators based on the G36 POH:
+                </li>
+                  <ul>
+                    <li>
+                      BUSES TIED (Advisory)
+                    </li>
+                    <li>
+                      FUEL QTY LOW (Warning/Caution)
+                    </li>
+                    <li>
+                      FUEL FLOW HI (Warning)
+                    </li>
+                    <li>
+                      OIL PRES HI/LO (Warning/Caution)
+                    </li>
+                    <li>
+                      OIL TEMP HI (Warning)
+                    </li>
+                    <li>
+                      CHT HI (Warning)
+                    </li>
+                    <li>
+                      ALT INOP (Alt 1, 2 or both, Warning)
+                    </li>
+                    <li>
+                      BUS1/2 VOLT HI (Caution)
+                    </li>
+                    <li>
+                      ALT 1/2 LOAD (Caution)
+                    </li>
+                  </ul>
+                <li>
+                  Corrected fuel gauge indications
+                </li>
+                <li>
+                  Airco switch activated (Other switches WIP)
+                </li>
+              </ul>
+              <b><span class="text-info">Textures & Effects</span></b>
+              <ul>
+                <li>
+                  Fixed taxi, landing and strobe lights for better visibility from cockpit views
+                </li>
+                <li>
+                  Corrected decals (e.g. shoulder hardness -> harness)
+                </li>
+              </ul>
+              <b><span class="text-info">Checklists</span></b>
+              <ul>
+                <li>
+                  New interactive checklists for every stage of your flight that follow the POH
+                </li>
+              </ul>
+            </p>
+            <p class="mt-4 mb-0 item-header">
+              <b>How to Install</b>
+            </p>
+            <p>
+              <ol>
+                <li>
+                  Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
+                </li>
+                <li>
+                  Download and install the Working Title G1000 v0.3 mod (...)
+                </li>
+                <li>
+                  <span class="badge badge-danger">IMPORTANT</span> Make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order.
+                </li>
+              </ol>
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="3view">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Aircraft Plan</b>
+            </p>
+            <img src="img/Bonanza_360_01.png" class="img-fluid mb-4">
+            <img src="img/Bonanza_360_13.png" class="img-fluid mb-4">
+            <img src="img/Bonanza_360_07.png" class="img-fluid">
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="groundTurning">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Ground Turning Clearance</b>
+            </p>
+            <img src="img/turningCircle.jpg" class="img-thumbnail my-4">
+            <dl class="row">
+              <dd class="col-sm-4"><b>A</b> Radius for wing tip</dd>
+              <dd class="col-sm-8">27 ft 7 in</dd>
+              <dd class="col-sm-4"><b>B</b> Radius for nose wheel</dd>
+              <dd class="col-sm-8">13 ft 8 in</dd>
+              <dd class="col-sm-4"><b>C</b> Radius for inside gear</dd>
+              <dd class="col-sm-8">6 ft 3 in</dd>
+              <dd class="col-sm-4"><b>D</b> Radius for outside gear</dd>
+              <dd class="col-sm-8">15 ft 10 in</dd>
+            </dl>
+            <p>
+              Turning radius is calculated using full steering, one break and partial power.
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="fuelCapacity">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Fuel Capacity</b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-4">Total Capacity</dd>
+              <dd class="col-sm-8">80 Gallons, 667.63 lbs or 302.83 ltrs</dd>
+              <dd class="col-sm-4">Total Usable</dd>
+              <dd class="col-sm-4">74 Gallons, 617.56 lbs or 280.12 ltrs</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="maxWeights">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Maximum Weights</b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-4">Maximum Ramp Weight</dd>
+              <dd class="col-sm-8">3663 lbs</dd>
+              <dd class="col-sm-4">Maximum Take-off Weight</dd>
+              <dd class="col-sm-8">3650 lbs</dd>
+              <dd class="col-sm-4">Maximum Landing Weight</dd>
+              <dd class="col-sm-8">3650 lbs</dd>
+              <dd class="col-sm-4">Maximum Zero Fuel Weight</dd>
+              <dd class="col-sm-8">No Structural Limitation</dd>
+              <dd class="col-sm-4">Maximum Weight in Baggage Compartment</dd>
+              <dd class="col-sm-8">Between Spars - 200 lbs<br />Rear Spar to Sta. 170 - 400 lbs<br />Aft Compartment (Sta. 170 to Sta. 190) - 70lbs</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="serviceCeiling">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Service Ceiling</b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-4">Service Ceiling</dd>
+              <dd class="col-sm-8">18,500 ft</dd>
+            </dl>
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="symbols">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Symbols, Abbreviations and Terminology</b>
+            </p>
+            <p class="mt-4">
+              The following glossary is applicable within this documentation.
+            </p>
+            <p>
+              <b><span class="text-info anchor-hack" id="airspeedTerms">General Airspeed Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-2">CAS</dd>
+              <dd class="col-sm-10">Calibrated Airspeed is the indicated airspeed of an airplane corrected for position and instrument error. Calibrated airspeed is equal to true airspeed in
+              standard atmosphere at sea level.</dd>
+              <dd class="col-sm-2">GS</dd>
+              <dd class="col-sm-10">Ground Speed is the speed of an airplane relative to the ground.</dd>
+              <dd class="col-sm-2">IAS</dd>
+              <dd class="col-sm-10">Indicated Airspeed is the speed of an airplane as shown on the airspeed indicator. IAS values published in this handbook assume zero instrument error.</dd>
+              <dd class="col-sm-2">KCAS</dd>
+              <dd class="col-sm-10">Calibrated Airspeed expressed in knots.</dd>
+              <dd class="col-sm-2">KIAS</dd>
+              <dd class="col-sm-10">Indicated Airspeed expressed in knots.</dd>
+              <dd class="col-sm-2">TAS</dd>
+              <dd class="col-sm-10">True Airspeed is the airspeed of an airplane relative to undisturbed air, which is the CAS corrected for altitude, temperature, and compressibility.</dd>
+              <dd class="col-sm-2">V<sub>A</sub></dd>
+              <dd class="col-sm-10">Maneuvering Speed is the maximum speed at which application of full available aerodynamic control will not overstress the airplane.</dd>
+              <dd class="col-sm-2">V<sub>FE</sub></dd>
+              <dd class="col-sm-10">Maximum Flap Extended Speed is the highest speed permissible with wing flaps in a prescribed extended position.</dd>
+              <dd class="col-sm-2">V<sub>LO</sub></dd>
+              <dd class="col-sm-10">Maximum Landing Gear Operating Speed is the maximum speed at which the landing gear can be safely extended or retracted.</dd>
+              <dd class="col-sm-2">V<sub>LE</sub></dd>
+              <dd class="col-sm-10">Maximum Landing Gear Extended Speed is the maximum airspeed at which an airplane can be safely flown with the landing gear extended.</dd>
+              <dd class="col-sm-2">V<sub>NE</sub></dd>
+              <dd class="col-sm-10">Never Exceed Speed is the airspeed limit that may not be exceeded at any time.</dd>
+              <dd class="col-sm-2">V<sub>NO</sub></dd>
+              <dd class="col-sm-10">Maximum Structural Cruising Speed is the airspeed that should not be exceeded except in smooth air and then only with caution.</dd>
+              <dd class="col-sm-2">V<sub>S</sub></dd>
+              <dd class="col-sm-10">Stalling Speed or the minimum steady flight speed at which the airplane is controllable.</dd>
+              <dd class="col-sm-2">V<sub>SO</sub></dd>
+              <dd class="col-sm-10">Stalling Speed or the minimum steady flight speed at which the airplane is controllable in the landing configuration.</dd>
+              <dd class="col-sm-2">V<sub>X</sub></dd>
+              <dd class="col-sm-10">Best Angle-of-Climb Speed is the airspeed which delivers the greatest gain of altitude in the shortest possible horizontal distance.</dd>
+              <dd class="col-sm-2">V<sub>Y</sub></dd>
+              <dd class="col-sm-10">Best Rate-of-Climb Speed is the airspeed which delivers the greatest gain in altitude in the shortest possible time.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="metTerms">Meteorological Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-2">Indicated Pressure Altitude</dd>
+              <dd class="col-sm-10">The number actually read from an altimeter when the barometric subscale has been set to 29.92 inches of mercury (1013.2 millibars).</dd>
+              <dd class="col-sm-2">ISA</dd>
+              <dd class="col-sm-10">International Standard Atmosphere in which:<br />
+              1. The air is a dry, perfect gas;<br />
+              2. The temperature at sea level is 15° Celsius (59° Fahrenheit);<br />
+              3. The pressure at sea level is 29.92 inches of mercury (1013.2 millibars);<br />
+              4. The temperature gradient from sea level to the altitude at which the temperature is -56.5°C (-69.7°F) is - 0.00198°C (-0.003566°F) per foot and zero above that altitude.
+              </dd>
+              <dd class="col-sm-2">OAT</dd>
+              <dd class="col-sm-10">Outside Air Temperature is static free air temperature, displayed in the OAT Box located in the lower left corner of the PFD, or from ground meteorological sources.</dd>
+              <dd class="col-sm-2">Pressure Altitude</dd>
+              <dd class="col-sm-10">Altitude measured from standard sea-level pressure (29.92 in. Hg/1013.2 millibars) by a pressure (barometric) altimeter. It is the
+                indicated pressure altitude corrected for position and instrument error. In this handbook, altimeter instrument errors are assumed to be zero. Position errors may
+                be obtained from the Altimeter Correction graphs.
+              </dd>
+              <dd class="col-sm-2">Station Pressure</dd>
+              <dd class="col-sm-10">Actual atmospheric pressure at field elevation.</dd>
+              <dd class="col-sm-2">Wind</dd>
+              <dd class="col-sm-10">The wind velocities recorded as variables on the charts of this handbook are to be understood as the headwind or tailwind components of the reported winds.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="powerTerms">Power Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-3">Cruise Climb Power</dd>
+              <dd class="col-sm-9">Power recommended for cruise climb.</dd>
+              <dd class="col-sm-3">Economy Cruise Power</dd>
+              <dd class="col-sm-9">Minimum power setting for which specific values of fuel flow and airspeed are presented.</dd>
+              <dd class="col-sm-3">Maximum Cruise Power</dd>
+              <dd class="col-sm-9">Maximum power setting for which specific values of fuel flow and airspeed are presented.</dd>
+              <dd class="col-sm-3">Recommended Cruise Power</dd>
+              <dd class="col-sm-9">Power settings for which specific values of fuel flow and airspeed are presented.</dd>
+              <dd class="col-sm-3">Take-off and Maximum Continuous Power (MCP)</dd>
+              <dd class="col-sm-9">Highest power rating not limited by time.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="engControls">Engine Controls and Instruments Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-3">EGT</dd>
+              <dd class="col-sm-9">The Exhaust Gas Temperature display is used to identify the lean and best-power fuel flow mixtures for various power settings during cruise.</dd>
+              <dd class="col-sm-3">Manifold Pressure</dd>
+              <dd class="col-sm-9">The regulated absolute air pressure in the intake manifold of the engine located between the throttle valve and the cylinders.</dd>
+              <dd class="col-sm-3">Manifold Pressure Display</dd>
+              <dd class="col-sm-9">Displays the absolute pressure in the intake manifold of an engine, expressed in inches of mercury (in.Hg).</dd>
+              <dd class="col-sm-3">Mixture Control</dd>
+              <dd class="col-sm-9">Used to set fuel flow in all modes of operation, and to cut off fuel completely for engine shutdown.</dd>
+              <dd class="col-sm-3">Propeller Control</dd>
+              <dd class="col-sm-9">Used to control the RPM setting of the propeller governor. Movement of the control results in an increase or decrease in prop RPM.</dd>
+              <dd class="col-sm-3">Propeller Governor</dd>
+              <dd class="col-sm-9">Regulates the RPM of the engine/propeller by increasing or decreasing the propeller pitch through a pitch change mechanism in the propeller hub.</dd>
+              <dd class="col-sm-3">Tachometer</dd>
+              <dd class="col-sm-9">Displays the rotational speed of the propeller in revolutions per minute (RPM).</dd>
+              <dd class="col-sm-3">Throttle Control</dd>
+              <dd class="col-sm-9">Used to control power by introducing fuel-air mixture into the intake passages of an engine. Settings are reflected by readings on the manifold pressure display.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="engPerf">Airplane Performance and Flight Planning Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-3">Climb Gradient</dd>
+              <dd class="col-sm-9">The ratio of the change in height during a portion of a climb to the horizontal distance traversed in the same time interval.</dd>
+              <dd class="col-sm-3">Demonstrated Crosswind Velocity</dd>
+              <dd class="col-sm-9">The velocity of the crosswind component for which adequate control of the airplane during takeoff and landing was actually demonstrated during certification tests. The value shown is not limiting.</dd>
+              <dd class="col-sm-3">GPH</dd>
+              <dd class="col-sm-9">U.S. Gallons per hour.</dd>
+              <dd class="col-sm-3">Route Segment</dd>
+              <dd class="col-sm-9">A part of a route. Each end of that part is identified by:<br />1. A geographical location; or<br />2. A point at which a definite radio fix can be established.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="weightTerms">Weight and Balance Terminology</span></b>
+            </p>
+            <dl class="row mt-4">
+              <dd class="col-sm-3">Airplane Center of Gravity (CG)</dd>
+              <dd class="col-sm-9">The point at which an airplane would balance if suspended. Its distance from the reference datum is found by dividing the total moment by the total weight of the airplane.</dd>
+              <dd class="col-sm-3">Arm</dd>
+              <dd class="col-sm-9">The horizontal distance from the reference datum to the center of gravity (C.G.) of an item.</dd>
+              <dd class="col-sm-3">Basic Empty Weight</dd>
+              <dd class="col-sm-9">The weight of an empty airplane including full engine oil and unusable fuel. This equals empty weight plus the weight of unusable fuel, and the weight of
+              all the engine oil required to fill the lines and tanks. Basic empty weight is the basic configuration from which loading data is determined.
+              </dd>
+              <dd class="col-sm-3">CG Arm</dd>
+              <dd class="col-sm-9">The arm is obtained by adding the airplane’s individual moments and dividing the sum by the total weight.</dd>
+              <dd class="col-sm-3">CG Limits</dd>
+              <dd class="col-sm-9">The extreme center of gravity locations within which the airplane must be operated at a given weight.</dd>
+              <dd class="col-sm-3">Empty Weight</dd>
+              <dd class="col-sm-9">The weight of an empty airplane before any oil or fuel has been added. This includes all permanently installed equipment, fixed ballast, full hydraulic
+              fluid, full chemical toilet fluid, and all other operating fluids full, except that the engines, tanks, and lines do not contain any engine oil or fuel.
+              </dd>
+              <dd class="col-sm-3">Maximum Landing Weight</dd>
+              <dd class="col-sm-9">Maximum weight approved for the landing touchdown.</dd>
+              <dd class="col-sm-3">Maximum Ramp Weight</dd>
+              <dd class="col-sm-9">Maximum weight approved for ground maneuvering (includes weight of start, taxi, and runup fuel).</dd>
+              <dd class="col-sm-3">Maximum Takeoff Weight</dd>
+              <dd class="col-sm-9">Maximum weight approved for the start of the take-off run.</dd>
+              <dd class="col-sm-3">Maximum Zero Fuel Weight</dd>
+              <dd class="col-sm-9">Maximum weight exclusive of usable fuel.</dd>
+              <dd class="col-sm-3">Moment</dd>
+              <dd class="col-sm-9">The product of the weight of an item multiplied by its arm (moment divided by a constant is used to simplify balance calculations by reducing the number of digits).</dd>
+              <dd class="col-sm-3">Payload</dd>
+              <dd class="col-sm-9">Weight of occupants, cargo, and baggage.</dd>
+              <dd class="col-sm-3">Reference Datum</dd>
+              <dd class="col-sm-9">An imaginary vertical plane from which all horizontal distances are measured for balance purposes.</dd>
+              <dd class="col-sm-3">Station</dd>
+              <dd class="col-sm-9">A location along the airplane fuselage usually given in terms of distance from the reference datum.</dd>
+              <dd class="col-sm-3">Unusable Fuel</dd>
+              <dd class="col-sm-9">Fuel that is not available for flight planning.</dd>
+              <dd class="col-sm-3">Usable Fuel</dd>
+              <dd class="col-sm-9">Fuel available for flight planning.</dd>
+              <dd class="col-sm-3">Useful Load</dd>
+              <dd class="col-sm-9">Difference between Ramp Weight, and Basic Empty Weight.</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="acronyms">Acronyms</span></b>
+            </p>
+            <p>
+              <b><span class="text-secondary">Generic</span></b>
+            </p>
+            <dl class="row">
+              <dd class="col-sm-2">ADC</dd>
+              <dd class="col-sm-10">Air Data Computer</dd>
+              <dd class="col-sm-2">AHRS</dd>
+              <dd class="col-sm-10">Attitude and Heading Reference System</dd>
+              <dd class="col-sm-2">GPS</dd>
+              <dd class="col-sm-10">Global Positioning System</dd>
+              <dd class="col-sm-2">GPWS</dd>
+              <dd class="col-sm-10">Ground Proximity Warning System</dd>
+              <dd class="col-sm-2">LNAV</dd>
+              <dd class="col-sm-10">Lateral Navigation</dd>
+              <dd class="col-sm-2">LPV</dd>
+              <dd class="col-sm-10">Localizer Performance with Vertical Guidance</dd>
+              <dd class="col-sm-2">LRU</dd>
+              <dd class="col-sm-10">Line Replaceable Unit</dd>
+              <dd class="col-sm-2">MFD</dd>
+              <dd class="col-sm-10">Multifunction Display</dd>
+              <dd class="col-sm-2">PFD</dd>
+              <dd class="col-sm-10">Primary Flight Display</dd>
+              <dd class="col-sm-2">RNAV</dd>
+              <dd class="col-sm-10">Area Navigation</dd>
+              <dd class="col-sm-2">SBAS</dd>
+              <dd class="col-sm-10">Satellite Based Augmentation System (equivalent to WAAS in the United States)</dd>
+              <dd class="col-sm-2">TAWS</dd>
+              <dd class="col-sm-10">Terrain Awareness and Warning System</dd>
+              <dd class="col-sm-2">VNAV or (VNV)</dd>
+              <dd class="col-sm-10">Vertical Navigation</dd>
+              <dd class="col-sm-2">WAAS</dd>
+              <dd class="col-sm-10">Wide Area Augmentation System</dd>
+            </dl>
+            <p>
+              <b><span class="text-secondary">Garmin</span></b>
+            </p>
+            <dl class="row">
+              <dd class="col-sm-2">GDC</dd>
+              <dd class="col-sm-10">Garmin Air Data Computer</dd>
+              <dd class="col-sm-2">GDU</dd>
+              <dd class="col-sm-10">Garmin Display Unit</dd>
+              <dd class="col-sm-2">GEA</dd>
+              <dd class="col-sm-10">Garmin Engine Airframe Unit</dd>
+              <dd class="col-sm-2">GIA</dd>
+              <dd class="col-sm-10">Garmin Integrated Avionics Unit</dd>
+              <dd class="col-sm-2">GDL</dd>
+              <dd class="col-sm-10">Garmin Data Link</dd>
+              <dd class="col-sm-2">GMA</dd>
+              <dd class="col-sm-10">Garmin Audio Panel</dd>
+              <dd class="col-sm-2">GMU</dd>
+              <dd class="col-sm-10">Garmin Magnetometer Unit</dd>
+              <dd class="col-sm-2">GRS</dd>
+              <dd class="col-sm-10">Garmin Attitude and Heading Reference System</dd>
+              <dd class="col-sm-2">GSA</dd>
+              <dd class="col-sm-10">Garmin Autopilot Servo</dd>
+              <dd class="col-sm-2">GSM</dd>
+              <dd class="col-sm-10">Garmin Autopilot Servo Mount</dd>
+              <dd class="col-sm-2">GTX</dd>
+              <dd class="col-sm-10">Garmin Transponder</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section  class="border-bottom border-bottom b-3 border-danger rounded-0 anchor-hack-section" id="limitations">
+    <div class="py-5 bg-light">
+      <div id="sticky" class="shadow-sm border d-none d-lg-block">
+        <p class="text-secondary mb-0">
+          <b>SECTION 2 - LIMITATIONS</b>
+        </p>
+        <ul class="list-unstyled mt-0">
+          <li>
+            <a href="#limitations_airspeedLimitations">Airspeed Limitations</a>
+          </li>
+          <li>
+            <a href="#limitations_airspeedIndicatorDisplay">Airspeed Indicator Display</a>
+          </li>
+          <li>
+            <a href="#limitations_engLimits">Engine Operating Limitations</a>
+          </li>
+          <li>
+            <a href="#limitations_fuelManagement">Fuel Management</a>
+          </li>
+          <li>
+            <a href="#limitations_powerPlant">Power Plant Instrument Markings</a>
+          </li>
+          <ul class="pl-3">
+            <li class="list-unstyled">
+              <a href="#limitations_manifoldPressure">Manifold Pressure</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_tachometer">Tachometer</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_fuelFlow">Fuel Flow</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_cylinderHeadTemps">Cylinder Head Temperature</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_oilTemp">Oil Temperature</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_oilPressure">Oil Pressure</a>
+            </li>
+          </ul>
+          <li>
+            <a href="#limitations_miscInstruments">Miscellaneous Instrument Markings</a>
+          </li>
+          <ul class="pl-3">
+            <li class="list-unstyled">
+              <a href="#limitations_alternatorLoads">Alternater Load</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_busVoltage">Bus Voltage</a>
+            </li>
+            <li class="list-unstyled">
+              <a href="#limitations_fuelQuantity">Fuel Quantity</a>
+            </li>
+          </ul>
+          <li class="list-unstyled">
+            <a href="#limitations_weightLimits">Weight Limits</a>
+          </li>
+          <li>
+            <a href="#limitations_maneuverLimtits">Maneuver Limits</a>
+          </li>
+          <li>
+            <a href="#limitations_operations">Kinds of Operations</a>
+          </li>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="float-right">
+              <a href="#toc"><i class="fas fa-chevron-up"></i> Back to top</a>
+            </p>
+            <div class="display mb-3">
+              SECTION 2 - LIMITATIONS
+            </div>
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_airspeedLimitations">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Airspeed Limitations</b>
+            </p>
+            <table class="table table-bordered mt-3">
+              <thead class="thead-dark">
+                <tr>
+                  <th>
+                    Speed
+                  </th>
+                  <th style="text-align:center;">
+                    <abbr title="Calibrated Airspeed expressed in knots">KCAS</abbr>
+                  </th>
+                  <th style="text-align:center;">
+                    <abbr title="Indicated Airspeed expressed in knots">KIAS</abbr>
+                  </th>
+                  <th>
+                    Remarks
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Never Exceed (V<sub>NE</sub>)
+                  </td>
+                  <td style="text-align:center;">
+                    203
+                  </td>
+                  <td style="text-align:center;">
+                    205
+                  </td>
+                  <td>
+                    Do not exceed this speed in any operation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Maximum Structural Cruising (V<sub>NO</sub> or V<sub>C</sub>)
+                  </td>
+                  <td style="text-align:center;">
+                    165
+                  </td>
+                  <td style="text-align:center;">
+                    167
+                  </td>
+                  <td>
+                    Do not exceed this speed except in smooth air and then only with caution.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Maneuvering (V<sub>A</sub>)
+                  </td>
+                  <td style="text-align:center;">
+                    139
+                  </td>
+                  <td style="text-align:center;">
+                    141
+                  </td>
+                  <td>
+                    Do not make full or abrupt control movements above this speed.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Maximum Flap Extension / Extended (V<sub>FE</sub>)
+                  </td>
+                  <td style="text-align:center;">
+                    -
+                  </td>
+                  <td style="text-align:center;">
+                    -
+                  </td>
+                  <td rowspan="3">
+                    Do not extend flaps or operate with flaps extended above this speed.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Approach (12°)
+                  </td>
+                  <td style="text-align:center;">
+                    152
+                  </td>
+                  <td style="text-align:center;">
+                    154
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Full Down (30°)
+                  </td>
+                  <td style="text-align:center;">
+                    122
+                  </td>
+                  <td style="text-align:center;">
+                    124
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Maximum Landing Gear Operating Extended (V<sub>LO</sub> / V<sub>LE</sub>)
+                  </td>
+                  <td style="text-align:center;">
+                    152
+                  </td>
+                  <td style="text-align:center;">
+                    154
+                  </td>
+                  <td>
+                    Do not extend, retract or operate with gear extended above this speed, except in emergency.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_airspeedIndicatorDisplay">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Airspeed Indicator Display</b>
+            </p>
+            <table class="table table-bordered mt-3">
+              <thead class="thead-dark">
+                <tr>
+                  <th>
+                    Color coded speed range strip or marking
+                  </th>
+                  <th>
+                    <abbr title="Indicated Airspeed expressed in knots">KIAS</abbr>
+                  </th>
+                  <th>
+                    Significance
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Red Strip
+                  </td>
+                  <td>
+                    20 - 60
+                  </td>
+                  <td>
+                    Low Speed Awareness
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    White Strip
+                  </td>
+                  <td>
+                    61 - 124
+                  </td>
+                  <td>
+                    Full Flap Operating Range<br />Lower Limit = Stall speed with flaps down at maximum weight.<br />Upper Limit = Maximum speed permissible with flaps fully extended.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    White Triangle
+                  </td>
+                  <td>
+                    154
+                  </td>
+                  <td>
+                    Maximum Speed for approach flaps.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Green Strip
+                  </td>
+                  <td>
+                    68 - 167
+                  </td>
+                  <td>
+                    Normal Operating Range<br />Lower Limit = Stalling speed with flaps up at maximum weight.<br />Upper Limit = Maximum Structural Cruise Speed.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Yellow Strip
+                  </td>
+                  <td>
+                    167 - 205
+                  </td>
+                  <td>
+                    Caution Range. Approved for smooth air only.<br />Upper Limit = Never Exceed Speed.<br />Maximum speed for all Operations.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Red & White Strip
+                  </td>
+                  <td>
+                    > 205
+                  </td>
+                  <td>
+                    High Speed Warning
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              The airspeed pointer will turn red when the airspeed or airspeed trend vector reaches 205 KIAS.
+            </p>
+            <p>
+              An airspeed trend vector is displayed on the right side of the color-coded speed range strip during accelerations and decelerations.
+              The end of the trend vector indicates the airspeed that will be reached in 6 seconds if the current rate of acceleration is maintained.
+              The trend vector is not displayed if the airspeed is constant.
+            </p>
+            <p>
+              Reference speeds for Glide, VX, and VY are pilot programmable and selectable using the TMR/REF soft key on the PFD.
+              If one or more of these speeds is selected for display, a pointer will be positioned on the right side of the airspeed display opposite the speed that was programmed.
+              The pointers are placarded [G] for glide, [Y] for VY, and [X] for VX.
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="limitations_engLimits">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Engine Operating Limits</b>
+            </p>
+            <dl class="row mt-3">
+              <dd class="col-sm-5">Take-off and Maximum Continuous Power</dd>
+              <dd class="col-sm-7 text-right">Full Throttle, 2700 RPM</dd>
+              <dd class="col-sm-5">Cylinder Head Temperature Maximum</dd>
+              <dd class="col-sm-7 text-right">238°C / 460.4°F</dd>
+              <dd class="col-sm-5 mt-3">Oil Temperature Minimum (Take-Off)</dd>
+              <dd class="col-sm-7 mt-3 text-right">24°C / 75.2°F</dd>
+              <dd class="col-sm-5">Oil Temperature Maximum</dd>
+              <dd class="col-sm-7 text-right">116°C / 240.8°F</dd>
+              <dd class="col-sm-5">Oil Pressure Minimum (idle)</dd>
+              <dd class="col-sm-7 text-right">10 psi</dd>
+              <dd class="col-sm-5">Oil Pressure Maximum</dd>
+              <dd class="col-sm-7 text-right">100 psi</dd>
+              <dd class="col-sm-5 mt-3">Fuel Flow Maximum</dd>
+              <dd class="col-sm-7 mt-3 text-right">27.4 gph</dd>
+              <dd class="col-sm-5 mt-3">Aux Fuel Pump</dd>
+              <dd class="col-sm-7 mt-3 text-right">The HI position of the auxiliary fuel pump is not to be used during flight except when failure of the engine-driven fuel pump occurs.</dd>
+              <dd class="col-sm-5 mt-3">Starter</dd>
+              <dd class="col-sm-7 mt-3 text-right">Do not engage starter for more than 30 seconds in any 4-minute time period.</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header  anchor-hack" id="limitations_fuelManagement">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Fuel Management</b>
+            </p>
+            <p class="mt-3">
+              Do not take off when Fuel Quantity indicates in the Yellow arc or with less than 13 gallons in each main tank.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-10">Total Fuel Capacity</dd>
+              <dd class="col-sm-2 text-right">80 Gal, or 302 ltrs</dd>
+              <dd class="col-sm-10">Total Usable Fuel Capacity</dd>
+              <dd class="col-sm-2 text-right">74 Gal, or 280 ltrs</dd>
+              <dd class="col-sm-10">Maximum Slip Duration</dd>
+              <dd class="col-sm-2 text-right">30 seconds</dd>
+            </dl>
+            <p>
+              Maximum fuel imbalance with autopilot engaged is 15 GAL (approximately 90 lbs).
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_powerPlant">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Power Plant Instrument Markings</b>
+            </p>
+            <p class="mt-3">
+              Power Plant displays are found on the MFD on the Engine Default page, the Systems page, and the Lean page in both digital and analog formats.
+              When the MFD is not operable, the displays are found on the PFD.
+              <span class="text-danger">Please note - these pages are not modelled by the G36 Improvement Mod; the G1000 mod team are developing these pages.</span>
+            </p>
+            <p>
+              The pointer, digital display, and instrument placard on the bar graphs are normally white, but will change color to yellow or red if the engine
+              parameter is operating in a caution or prohibited range. If the engine parameter is operating in the prohibited range, the pointer, digits and placard will flash.
+            </p>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_manifoldPressure">Manifold Pressure</span></b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-10">Operating Range (Green Arc)</dd>
+              <dd class="col-sm-2 text-right">>15.0 to 29.6 in. Hg</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_tachometer">Tachometer</span></b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-10">Operating Range (Green Arc)</dd>
+              <dd class="col-sm-2 text-right">1800 to 2700 RPM</dd>
+              <dd class="col-sm-10">Prohibited Range (Red Arc)</dd>
+              <dd class="col-sm-2 text-right">2700 to 3000 RPM</dd>
+              <dd class="col-sm-12 mt-3"><b>Overspeed Indications</b></dd>
+              <dd class="col-sm-9">2701 RPM to 2754 RPM for 4 minutes</dd>
+              <dd class="col-sm-3 text-right">White Digits, White Needle</dd>
+              <dd class="col-sm-9">2701 RPM to 2754 RPM for > 4 minutes</dd>
+              <dd class="col-sm-3 text-right">Yellow Digits, Yellow Needle</dd>
+              <dd class="col-sm-9">2755 RPM & Above</dd>
+              <dd class="col-sm-3 text-right">Red Digits, Red Needle</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_fuelFlow">Fuel Flow</span></b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-10">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-2 text-right">>3 to 27.4 GPH</dd>
+              <dd class="col-sm-10">Prohibited Range (Red Bar)</dd>
+              <dd class="col-sm-2 text-right">>27.4 to 30.0 GPH</dd>
+            </dl>
+            <p>
+              Leaning Indicator (Cyan Pointer) - This pointer will automatically be displayed during MCP Climb and Cruise Climb power settings.
+              The pointer indicates the required fuel flow based on existing RPM, Fuel Flow, and altitude. Fuel flow must be manually set to match the pointer during climbs.
+            </p>
+            <p>
+              Note: The leaning indicator will provide the correct climb fuel flows for only two power settings:
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-12">2700 RPM and Full Throttle</dd>
+              <dd class="col-sm-12">2500 RPM and Full Throttle</dd>
+            </dl>
+            <span class="text-danger">Please note - this feature is not modelled by the G36 Improvement Mod; the G1000 mod team may be developing this feature.</span>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_cylinderHeadTemps">Cylinder Head Temperatures</span></b>
+            </p>
+            <p class="mt-3">
+              The number displayed in the pointer indicates the hottest cylinder.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-3 text-right">>116° to 238°C, or >240° to 460°F</dd>
+              <dd class="col-sm-9">Prohibited Range (Red Bar)</dd>
+              <dd class="col-sm-3 text-right">>238° to 250°C, or >460° to 482°F</dd>
+            </dl>
+            <span class="text-danger">Please note - due to a MSFS limitation only one cylinder head temperature is modelled.</span>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_oilTemp">Oil Temperature</span></b>
+            </p>
+            <p class="mt-3">
+              If engine is operating below 500 RPM, oil temperatures in the yellow bar will not cause the pointer or digits to change color.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Caution Range (Yellow Bar)</dd>
+              <dd class="col-sm-3 text-right">0° to 24°C, or 32° to 75°F</dd>
+              <dd class="col-sm-9">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-3 text-right">>24° to 116°C, or >75° to 240°F</dd>
+              <dd class="col-sm-9">Prohibited Range (Red Bar)</dd>
+              <dd class="col-sm-3 text-right">>116° to 120°C, or >240° to 248°F</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="limitations_oilPressure">Oil Pressure</span></b>
+            </p>
+            <p class="mt-3">
+              If engine is operating below 500 RPM, oil pressures in the yellow or red bar will not cause the pointer or digits to change color.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Prohibited Range (Red Bar)</dd>
+              <dd class="col-sm-3 text-right">0 to 10 psi</dd>
+              <dd class="col-sm-9">Caution Range (Yellow Bar)</dd>
+              <dd class="col-sm-3 text-right">>10 to 30 psi</dd>
+              <dd class="col-sm-9">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-3 text-right">>30 to 60 psi</dd>
+              <dd class="col-sm-9">Prohibited Range (Red Bar)</dd>
+              <dd class="col-sm-3 text-right">>100 to 105 psi</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_miscInstruments">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Miscellaneous Instrument Markings</b>
+            </p>
+            <p class="mt-3">
+              The pointer(s), digital display, and instrument placard on the bar graphs are normally white, but will change color to yellow if the parameter is operating in a caution range.
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_alternatorLoads">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Alternator Load</b>
+            </p>
+            <p class="mt-3">
+              Two pointers, placarded 1 and 2, indicate the load of each alternator.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">100% load on alternator 1</dd>
+              <dd class="col-sm-3 text-right">100 amps</dd>
+              <dd class="col-sm-9">100% load on alternator 2</dd>
+              <dd class="col-sm-3 text-right">20 amps</dd>
+              <dd class="col-sm-9 mt-3">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-3 mt-3 text-right">0 to 100%</dd>
+              <dd class="col-sm-9">Caution Range (Yellow Bar, Yellow Digits)</dd>
+              <dd class="col-sm-3 text-right">>100% to 110%</dd>
+              <dd class="col-sm-12 mt-3"><b>Alternator 2 Overload Indications</b></dd>
+              <dd class="col-sm-9">>100% to 120% for 5 minutes</dd>
+              <dd class="col-sm-3 text-right">Normal (White)</dd>
+              <dd class="col-sm-9">>100% to 120% for >5 minutes</dd>
+              <dd class="col-sm-3 text-right">Caution (Yellow)</dd>
+              <dd class="col-sm-9">>120%</dd>
+              <dd class="col-sm-3 text-right">Caution (Yellow)</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_busVoltage">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Bus Voltage</b>
+            </p>
+            <p class="mt-3">
+              Two pointers, placarded 1 and 2, indicate the voltage on Bus 1 and Bus 2.
+              If the engine is operating below 500 RPM, bus voltages in the yellow bar will not cause the pointer or digits to change color from white to yellow.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Caution Range (Yellow Bar)</dd>
+              <dd class="col-sm-3 text-right">>10 to 24 volts</dd>
+              <dd class="col-sm-9">Operating Range (Green bar)</dd>
+              <dd class="col-sm-3 text-right">>24 to 30 volts</dd>
+              <dd class="col-sm-9">Caution Range (Yellow Bar)</dd>
+              <dd class="col-sm-3 text-right">>30 to 33 volts</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_fuelQuantity">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Fuel Quantities</b>
+            </p>
+            <p class="mt-3">
+              Two pointers, placarded L and R, indicate the fuel quantity in each tank.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Warning (Red Line)</dd>
+              <dd class="col-sm-3 text-right">0 Gal</dd>
+              <dd class="col-sm-9">Caution Range (Yellow bar)</dd>
+              <dd class="col-sm-3 text-right">>0 to 13 Gal</dd>
+              <dd class="col-sm-9">Operating Range (Green Bar)</dd>
+              <dd class="col-sm-3 text-right">>13 to 37 Gal</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_weightLimits">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Weight Limits</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Maximum Ramp Weight</dd>
+              <dd class="col-sm-3 text-right">3663 lbs</dd>
+              <dd class="col-sm-9">Maximum Take-off Weight</dd>
+              <dd class="col-sm-3 text-right">3650 lbs</dd>
+              <dd class="col-sm-9">Maximum Landing Weight</dd>
+              <dd class="col-sm-3 text-right">3650 lbs</dd>
+              <dd class="col-sm-9">Maximum Zero Fuel Weight</dd>
+              <dd class="col-sm-3 text-right">No Structural Limitation</dd>
+              <dd class="col-sm-9">Maximum Weights in Baggage Compartments</dd>
+              <dd class="col-sm-3 text-right"> </dd>
+              <dd class="col-sm-9 pl-5">Between Spars</dd>
+              <dd class="col-sm-3 text-right">200 lbs</dd>
+              <dd class="col-sm-9 pl-5">Rear Spar to Sta. 170</dd>
+              <dd class="col-sm-3 text-right">400 lbs</dd>
+              <dd class="col-sm-9 pl-5">Aft Compartment (Sta. 170 to Sta. 190)</dd>
+              <dd class="col-sm-3 text-right">70 lbs</dd>
+            </dl>
+            <p>
+              Maximum combined weight of aft seat occupants is 250 lbs unless otherwise placarded.
+            </p>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_maneuverLimtits">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Maneuver Limits</b>
+            </p>
+            <p class="mt-3">
+              This is a utility category airplane. Spins are prohibited. No acrobatic maneuvers are approved except those listed under Approved Maneuvers.
+            </p>
+            <p class="font-weight-bold">
+              Approved Maneuvers
+            </p>
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th rowspan="2">
+                    Maneuver
+                  </th>
+                  <th colspan="2" class="td-list">
+                    Entry Speed
+                  </th>
+                </tr>
+                <tr>
+                  <th style="text-align:center;">
+                    <abbr title="Calibrated Airspeed expressed in knots">KCAS</abbr>
+                  </th>
+                  <th style="text-align:center;">
+                    <abbr title="Indicated Airspeed expressed in knots">KIAS</abbr>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="60%">
+                    Chandelle<br />
+                    <small>The chandelle is an aircraft control maneuver where the pilot combines a 180° turn with a climb.</small>
+                  </td>
+                  <td class="td-list">
+                    132
+                  </td>
+                  <td class="td-list">
+                    134
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Steep Turn<br />
+                    <small>A turn that involves a bank of more than 30 degrees.</small>
+                  </td>
+                  <td class="td-list">
+                    132
+                  </td>
+                  <td class="td-list">
+                    134
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Lazy Eight<br />
+                    <small>The Lazy 8 consists of two 180 degree turns, in opposite directions, while making a climb and a descent in a symmetrical pattern during each of the turns. At no time throughout the Lazy 8 is the airplane flown straight and level; instead, it is rolled directly from one bank to the other with the wings level only at the moment the turn is reversed at the completion of each 180 degree change in heading. </small>
+                  </td>
+                  <td class="td-list">
+                    132
+                  </td>
+                  <td class="td-list">
+                    134
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Stall (Except Whip)
+                  </td>
+                  <td colspan="2" class="td-list">
+                    Use Slow Deceleration
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3">
+                    <span class="badge badge-danger">WARNING</span> Minimum fuel for above maneuvers - 10 gallons each main tank
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Maximum Slip Duration</dd>
+              <dd class="col-sm-3 text-right">30 Seconds</dd>
+            </dl>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_avionicsLimtits">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Avionics</b>
+            </p>
+            <p class="mt-3">
+              Garmin G1000 Cockpit Reference Guide for the Beechcraft Bonanza A36/G36, must be immediately available to the flight crew. (available <a target="_blank" href="includes/G1000 BeechcraftBonanza_CockpitReferenceGuide_A36_G36SystemSoftwareVersion0458.05.pdf">here</a>)
+            </p>
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>
+                    Display Units
+                  </th>
+                  <th>
+                    Default Setting
+                  </th>
+                  <th>
+                    Results
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    DIS. SPD
+                  </td>
+                  <td>
+                    Nautical (NM, KT)
+                  </td>
+                  <td>
+                    Distance will be shown in nautical miles and speed in knots.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ALT. VS
+                  </td>
+                  <td>
+                    Feet (FT, FPM)
+                  </td>
+                  <td>
+                    Altitude will be shown in feet and vertical speed in feet per minute.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    POSITION
+                  </td>
+                  <td>
+                    HDDD° MM.MM’
+                  </td>
+                  <td>
+                    Latitude and longitude will be entered in degrees, minutes, and decimal minutes i.e. 45° 30’ 30” would be entered as 45° 30.5 minutes.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Map Datum
+                  </td>
+                  <td>
+                    WGS 84
+                  </td>
+                  <td>
+                    The G1000 will use the WGS 84 Datum. In some areas outside the United States, datums other than WGS 84 may be used.
+                    If the G1000 is authorized for use by the appropriate Airworthiness Authority, the required geodetic datum must be set in the G1000 prior to its use for navigation.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+            <p class="mt-5 mb-0 item-header anchor-hack" id="limitations_operations">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Kinds of Operations</b>
+            </p>
+            <p class="mt-3">
+              This airplane is approved for the following types of operations:
+            </p>
+            <ul>
+             <li>VFR day and night</li>
+             <li>IFR day and night</li>
+           </ul>
+           <p>
+             <span class="badge badge-danger">WARNING</span> Flight in icing conditions is prohibited
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="border-bottom border-bottom b-3 border-danger rounded-0 anchor-hack-section" id="emergencies">
+    <div class="py-5 bg-light">
+      <div id="sticky" class="shadow-sm border d-none d-lg-block">
+        <p class="text-danger mb-0">
+          <b>SECTION 3 - EMERGENCIES</b>
+        </p>
+        <ul class="list-unstyled mt-0">
+          <li>
+            <a href="#emergencies_airspeeds">Emergency Airspeeds</a>
+          </li>
+          <li>
+            <a href="#emergencies_abortedTakeoff">Aborted Takeoff</a>
+          </li>
+          <li>
+            <a href="#emergencies_engineFailure">Engine Failure</a>
+          </li>
+            <ul class="pl-3">
+              <li class="list-unstyled">
+                <a href="#emergencies_engineFailureTakeoff">Engine Failure During Takeoff Roll</a>
+              </li>
+              <li class="list-unstyled">
+                <a href="#emergencies_engineFailureFlight">Engine Failure in Flight</a>
+              </li>
+            </ul>
+          <li>
+            <a href="#emergencies_engineFireFlight">Engine Fire in Flight</a>
+          </li>
+          <li>
+            <a href="#emergencies_engineFireGround">Engine Fire on the Ground</a>
+          </li>
+          <li>
+            <a href="#emergencies_engineOverspeed">Propeller Overspeed</a>
+          </li>
+          <li>
+            <a href="#emergencies_emergencyDescent">Emergency Descent</a>
+          </li>
+          <li>
+            <a href="#emergencies_emergencyMaxGlide">Maximum Glide Configuration</a>
+          </li>
+          <li>
+            <a href="#emergencies_emergencyLandingNoPower">Landing Without Power</a>
+          </li>
+          <li>
+            <a href="#emergencies_emergencyLandingPower">Landing With Gear Retracted With Power</a>
+          </li>
+          <li>
+            <a href="#emergencies_Alt12failure">Alternator 1 & 2 Failure [ALT 1-2 INOP]</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="display mb-3">
+              SECTION 3 - EMERGENCIES
+            </div>
+            <p class="">
+              All airspeeds quoted in this section are indicated airspeeds (IAS) and assume zero instrument error.
+            </p>
+            <p>
+              The following information is presented to enable the pilot to form, in advance, a definite plan of action for coping with the most
+              probable emergency situations which could occur in the operation of the airplane.
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_airspeeds">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Emergency Airspeeds</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Emergency Descent</dd>
+              <dd class="col-sm-3 text-right">154 kts</dd>
+              <dd class="col-sm-9">Maximum Range Glide</dd>
+              <dd class="col-sm-3 text-right">110 kts</dd>
+              <dd class="col-sm-9">Landing Approach - Without Power</dd>
+              <dd class="col-sm-3 text-right">85 kts</dd>
+            </dl>
+            <p>
+              <span class="badge badge-danger">WARNING</span> The stall warning horn will be inoperative when power is lost to Bus 1, i.e. if BAT 1 and ALT 1 are both inoperative.
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_abortedTakeoff">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Aborted Takeoff</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Throttle</dd>
+              <dd class="col-sm-3 text-right">Closed</dd>
+              <dd class="col-sm-8">Brakes</dd>
+              <dd class="col-sm-4 text-right">As required to achieve stopping distance</dd>
+              <dd class="col-sm-9 mt-3 font-weight-bold">If airplane cannot be stopped on remaining runway:</dd>
+              <dd class="col-sm-3 mt-3 text-right"></dd>
+              <dd class="col-sm-9">Mixture</dd>
+              <dd class="col-sm-3 text-right">Cut-off</dd>
+              <dd class="col-sm-9">Ground Loop</dd>
+              <dd class="col-sm-3 text-right">If Required</dd>
+              <dd class="col-sm-9 mt-3 font-weight-bold">When airplane comes to a stop:</dd>
+              <dd class="col-sm-3 mt-3 text-right"></dd>
+              <dd class="col-sm-9">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Battery 1 & 2, Alternator 1 & 2</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+            </dl>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_engineFailure">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Engine Failure</b>
+            </p>
+            <p class="mt-3">
+              The most probable causes of engine failure are loss of fuel flow, ignition system malfunction or blockage of the induction system.
+            </p>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="emergencies_engineFailureTakeoff">Engine Failure During Take-Off Ground Roll</span></b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Throttle</dd>
+              <dd class="col-sm-3 text-right">Closed</dd>
+              <dd class="col-sm-8">Brakes</dd>
+              <dd class="col-sm-4 text-right">As required to achieve stopping distance</dd>
+              <dd class="col-sm-9 mt-3 font-weight-bold">If emergency shutdown is warranted:</dd>
+              <dd class="col-sm-3 mt-3 text-right"></dd>
+              <dd class="col-sm-9">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Battery 1 & 2, Alternator 1 & 2</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+            </dl>
+            <hr />
+            <p>
+              <b><span class="text-info anchor-hack" id="emergencies_engineFailureFlight">Engine Failure in Flight</span></b>
+            </p>
+            <p>
+              <span class="badge badge-danger mt-3">WARNING</span> If engine failure occurs immediately after takeoff, landing straight ahead is usually advisable.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9 font-weight-bold">Airpseed</dd>
+              <dd class="col-sm-3 text-right"></dd>
+              <dd class="col-sm-8 pl-5">Immediately After Takeoff</dd>
+              <dd class="col-sm-4 text-right">85 kts</dd>
+              <dd class="col-sm-9 pl-5">With Sufficient Altitude</dd>
+              <dd class="col-sm-3 text-right">110 Kts</dd>
+              <dd class="col-sm-9 mt-3 font-weight-bold">If sufficient time is available, accomplish the following:</dd>
+              <dd class="col-sm-3 mt-3 text-right"></dd>
+              <dd class="col-sm-9 pl-5">Turn toward the Most Favorable Landing Site</dd>
+              <dd class="col-sm-3 text-right"></dd>
+              <dd class="col-sm-9 pl-5">Air Conditioner</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9 pl-5">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Select Other Tank</dd>
+              <dd class="col-sm-9 pl-5">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Check Both Selected</dd>
+              <dd class="col-sm-9 pl-5">Aux Fuel Pump</dd>
+              <dd class="col-sm-3 text-right">Hi</dd>
+              <dd class="col-sm-9 pl-5">Mixture</dd>
+              <dd class="col-sm-3 text-right">Full Rich then Lean as Required</dd>
+            </dl>
+            <p>
+              <span class="badge badge-danger mt-3">WARNING</span> If power is restored when the Auxiliary Fuel Pump is selected to HI, then manual adjustment
+              of the mixture control will be required for all power changes to prevent engine roughness. Do not retard throttle to idle until landing is assured.
+            </p>
+            <p class="font-weight-bold">
+              If engine does not start:
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Aux Fuel Pump</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Mixture</dd>
+              <dd class="col-sm-4 text-right">Full Rich</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Check Left, Right, Both</dd>
+              <dd class="col-sm-9">Alternate Air T-Handle</dd>
+              <dd class="col-sm-3 text-right">Pull and Release</dd>
+            </dl>
+            <p class="font-weight-bold">
+              If engine still does not start:
+            </p>
+            <p>
+              See <a href="#emergencies_maxGlide">MAXIMUM GLIDE CONFIGURATION</a> procedure.
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_engineFireFlight">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Engine Fire in Flight</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-9">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Mixture</dd>
+              <dd class="col-sm-4 text-right">Cut Off</dd>
+              <dd class="col-sm-9">Propeller</dd>
+              <dd class="col-sm-3 text-right">Low RPM</dd>
+              <dd class="col-sm-9">Fuel Boost Pump</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Alternator 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-9">Engine</dd>
+              <dd class="col-sm-3 text-right">Do Not Attempt Restart</dd>
+            </dl>
+            <p>
+              See the following procedures as required:
+              <ol>
+                <li>
+                  <a href="#emergencies_emergDescent">EMERGENCY DESCENT</a>
+                </li>
+                <li>
+                  <a href="#emergencies_maxGlide">MAXIMUM GLIDE CONFIGURATION</a>
+                </li>
+                <li>
+                  <a href="#emergencies_landingNoPower">LANDING WITHOUT POWER</a>
+                </li>
+              </ol>
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_engineFireGround">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Engine Fire on the Ground</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Mixture</dd>
+              <dd class="col-sm-4 text-right">Cut Off</dd>
+              <dd class="col-sm-8">Starter</dd>
+              <dd class="col-sm-4 text-right">Continue to Crank</dd>
+              <dd class="col-sm-9">Fuel Selector Valve</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Battery 1 & 2, Alternator 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+            </dl>
+            <p>
+              Evacuate airplane and move to a safe distance.
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_engineOverspeed">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Propeller Overspeed</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Throttle</dd>
+              <dd class="col-sm-4 text-right">Retard</dd>
+              <dd class="col-sm-8">Airspeed</dd>
+              <dd class="col-sm-4 text-right">Reduce until RPM is at or below 2700</dd>
+              <dd class="col-sm-9">Oil Pressure</dd>
+              <dd class="col-sm-3 text-right">Check</dd>
+              <dd class="col-sm-8">Land</dd>
+              <dd class="col-sm-4 text-right">As soon as possible</dd>
+            </dl>
+            <p>
+              <span class="badge badge-danger">WARNING</span> If loss of oil pressure was the cause of overspeed, the engine will seize after a
+              short period of operation.
+            </p>
+            <p>
+              If engine seizes, see following procedures in this section, as required:
+              <ol>
+                <li>
+                  <a href="#emergencies_maxGlide">MAXIMUM GLIDE CONFIGURATION</a>
+                </li>
+                <li>
+                  <a href="#emergencies_landingNoPower">LANDING WITHOUT POWER</a>
+                </li>
+              </ol>
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_emergencyDescent">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Emergency Descent</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Power</dd>
+              <dd class="col-sm-4 text-right">Idle</dd>
+              <dd class="col-sm-8">Propeller</dd>
+              <dd class="col-sm-4 text-right">High RPM</dd>
+              <dd class="col-sm-9">Landing Gear (154 kts max)</dd>
+              <dd class="col-sm-3 text-right">Down</dd>
+              <dd class="col-sm-8">Flaps (154 kts max)</dd>
+              <dd class="col-sm-4 text-right">Approach</dd>
+              <dd class="col-sm-8">Airspeed</dd>
+              <dd class="col-sm-4 text-right">154 kts</dd>
+            </dl>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_emergencyDescent">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Maximum Glide Configuration</b>
+            </p>
+            <p>
+              <span class="badge badge-warning">CAUTION</span> The landing gear will not retract unless the throttle is in a position corresponding to
+              approximately 17 in. Hg manifold pressure or above.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Landing Gear</dd>
+              <dd class="col-sm-4 text-right">Up</dd>
+              <dd class="col-sm-8">Flaps</dd>
+              <dd class="col-sm-4 text-right">Up</dd>
+              <dd class="col-sm-9">Propeller</dd>
+              <dd class="col-sm-3 text-right">Low RPM</dd>
+              <dd class="col-sm-8">Cowl Flaps</dd>
+              <dd class="col-sm-4 text-right">Closed</dd>
+              <dd class="col-sm-8">Airspeed</dd>
+              <dd class="col-sm-4 text-right">110 kts</dd>
+              <dd class="col-sm-8">Air Conditioner</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Alternator 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">ELT</dd>
+              <dd class="col-sm-4 text-right">On</dd>
+              <dd class="col-sm-8">Glide Ratio</dd>
+              <dd class="col-sm-4 text-right">1.7 nm (2 statute miles) per 1000ft of height</dd>
+              <dd class="col-sm-8">Nearest Airport</dd>
+              <dd class="col-sm-4 text-right">Determine</dd>
+              <dd class="col-sm-8">PFD/MFD</dd>
+              <dd class="col-sm-4 text-right">Press NRST softkey</dd>
+              <dd class="col-sm-8">Large FMS knob</dd>
+              <dd class="col-sm-4 text-right">Select Desired Airport</dd>
+              <dd class="col-sm-8">Direct-To Key</dd>
+              <dd class="col-sm-4 text-right">Press</dd>
+              <dd class="col-sm-8">Ent Key</dd>
+              <dd class="col-sm-4 text-right">Press Twice</dd>
+            </dl>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_emergencyLandingNoPower">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Landing Without Power</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Fuel Selector Valve</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Mixture</dd>
+              <dd class="col-sm-4 text-right">Cut Off</dd>
+              <dd class="col-sm-9">Magnetos</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Flaps</dd>
+              <dd class="col-sm-4 text-right">Down</dd>
+              <dd class="col-sm-8">Landing Gear</dd>
+              <dd class="col-sm-4 text-right">Down or Up Depending on Terrain</dd>
+              <dd class="col-sm-8">Airspeed</dd>
+              <dd class="col-sm-4 text-right">85 KIAS Minimum</dd>
+              <dd class="col-sm-8">Alternator 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">When laning is assured and PFD is not required:</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-8">Battery 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+            </dl>
+            <p>
+              <span class="badge badge-warning">CAUTION</span> The landing gear will not retract unless the throttle is in a position corresponding to
+              approximately 17 in. Hg manifold pressure or above.
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_emergencyLandingPower">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Landing With Gear Retracted - With Power</b>
+            </p>
+            <p class="mt-3">
+              If possible, choose firm sod. Make a normal approach using flaps as necessary.
+            </p>
+            <p>
+              <span class="badge badge-warning">CAUTION</span> The landing gear will not retract unless the
+              throttle is in a position corresponding to approximately 17 in. Hg manifold pressure
+              or above.
+            </p>
+            <p class="mt-3">
+              When landing is assured:
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Throttle</dd>
+              <dd class="col-sm-4 text-right">Closed</dd>
+              <dd class="col-sm-8">Mixture</dd>
+              <dd class="col-sm-4 text-right">Cut Off</dd>
+              <dd class="col-sm-9">Alternator 1 & 2</dd>
+              <dd class="col-sm-3 text-right">Off</dd>
+              <dd class="col-sm-8">Magnetos</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Fuel Selector Valve</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Maintain wings level during landing</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-8">Battery 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+            </dl>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_Alt12failure">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Alternator 1 & 2 Failure [ALT 1-2 INOP] & [BUSES TIED]</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Alternator 1 & 2 Switches</dd>
+              <dd class="col-sm-4 text-right">Verfiy On</dd>
+              <dd class="col-sm-8">Alt Load 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Check</dd>
+              <dd class="col-sm-9">Bus Volts 1 & 2</dd>
+              <dd class="col-sm-3 text-right">Check</dd>
+              <dd class="col-sm-8">If Alt Load 1 & 2 indicate a load, a false warning is indicated.</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-12">Continue to use Alternator 1 & 2.</dd>
+              <dd class="col-sm-12">If Alt Load 1 & 2 show no load and the Bus Volts 1 & 2 gradually drop below 25 volts, alternator 1 & 2 are inoperative. Attempt to reset the alternators as follows:</dd>
+              <dd class="col-sm-8">Alternator 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Off Momentarily, Then On</dd>
+              <dd class="col-sm-12">If [ALT 1-2 INOP] Extinguishes</dd>
+              <dd class="col-sm-12">Continue to use Alternator 1 & 2.</dd>
+              <dd class="col-sm-12">If Aft Load 1 & 2 continue to show no load and Bus Volts 1 & 2 continue to indicate below 25 volts:</dd>
+              <dd class="col-sm-8">Alternator 1 & 2 Switches</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Autopilot and FLight Director</dd>
+              <dd class="col-sm-4 text-right">Disengage</dd>
+              <dd class="col-sm-8">Avionics Switch</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Bus 1 & 2</dd>
+              <dd class="col-sm-4 text-right">Load Shed as Required*</dd>
+              <dd class="col-sm-8">Land</dd>
+              <dd class="col-sm-4 text-right">As soon as possible</dd>
+            </dl>
+            <p>
+              *See ELECTRICAL LOAD SHEDDING procedures:
+              <ol>
+                <li>
+                  <a href="#emergencies_loadShed">ELECTRICAL LOAD SHEDDING</a>
+                </li>
+              </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section id="section-3a">
+
+  </section>
+  <section id="section-4">
+
+  </section>
+</main>
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="">Back to top</a>
+    </p>
+    <p class="mt-5">Reference materials for this document have been taken from various sources, including the POH and pilot testimony.</p>
+  </div>
+</footer>
+</body>
+</html>
