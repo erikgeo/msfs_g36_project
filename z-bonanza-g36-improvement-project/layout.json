@@ -41,84 +41,29 @@
       "date": 132457951876132571
     },
     {
-      "path": "Effects/LIGHT_ASOBO_BeaconTop_B36.fx",
-      "size": 1220,
-      "date": 132470250780000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Cowl_b36.fx",
-      "size": 1353,
-      "date": 132471191580000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Glareshield_B36.fx",
-      "size": 1357,
-      "date": 132471741500000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Landing_B36.fx",
-      "size": 1231,
-      "date": 132460237220000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Landing_B362.fx",
-      "size": 1324,
-      "date": 132460239840000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_NavigationGreen_B36.fx",
-      "size": 1225,
-      "date": 132471150660000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_NavigationGreen_B362.fx",
-      "size": 1223,
-      "date": 132471093720000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_NavigationRed_B36.fx",
-      "size": 1218,
-      "date": 132471150440000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_NavigationRed_B362.fx",
-      "size": 1224,
-      "date": 132471093580000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_NavigationWhite_B36.fx",
+      "path": "effects/LIGHT_ASOBO_Landing_G36.fx",
       "size": 1229,
-      "date": 132471742320000000
+      "date": 132457951876082559
     },
     {
-      "path": "Effects/LIGHT_ASOBO_Stab_b36left.fx",
-      "size": 1353,
-      "date": 132471743220000000
+      "path": "effects/LIGHT_ASOBO_NavigationGreen_G36.fx",
+      "size": 1230,
+      "date": 132457951876092568
     },
     {
-      "path": "Effects/LIGHT_ASOBO_Stab_b36Right.fx",
-      "size": 1351,
-      "date": 132471743460000000
+      "path": "effects/LIGHT_ASOBO_NavigationRed_G36.fx",
+      "size": 1227,
+      "date": 132457951876092568
     },
     {
-      "path": "Effects/LIGHT_ASOBO_StrobeSimple_B36.fx",
+      "path": "effects/LIGHT_ASOBO_StrobeSimple_G36.fx",
       "size": 1233,
-      "date": 132469408380000000
+      "date": 132457951876092568
     },
     {
-      "path": "Effects/LIGHT_ASOBO_Taxi_B36.fx",
-      "size": 1210,
-      "date": 132465485540000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Wing_b36left.fx",
-      "size": 1355,
-      "date": 132471158440000000
-    },
-    {
-      "path": "Effects/LIGHT_ASOBO_Wing_b36Right.fx",
-      "size": 1353,
-      "date": 132470217340000000
+      "path": "effects/LIGHT_ASOBO_Taxi_G36.fx",
+      "size": 1282,
+      "date": 132457951876102564
     },
     {
       "path": "ModelBehaviorDefs/Asobo/Exterior.xml",
@@ -147,13 +92,13 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
-      "size": 16197,
-      "date": 132473222248684098
+      "size": 16191,
+      "date": 132473513680818760
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
-      "size": 12531,
-      "date": 132473089004231220
+      "size": 11390,
+      "date": 132468746896158813
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
