@@ -369,7 +369,7 @@
           <ForceCamera name="Pilot" />
           <Clue name="Check the Gear, Gear in Transit and Flap annuciators light up" />
           <CheckpointDesc SubjectTT="Annunciator test" ExpectationTT="Tested" />
-            <Instrument Id="G36_Annun_Test" />
+            <Instrument Id="SAFETY_Push_Annunciator" />
         </Checkpoint>
 <!-- Standby Attitude Indicator -->
         <Checkpoint Id="PREFLIGHT_STANDBY_ATTITUDE">

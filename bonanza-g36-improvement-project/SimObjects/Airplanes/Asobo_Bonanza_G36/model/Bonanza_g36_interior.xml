@@ -14,19 +14,19 @@
 	 <Behaviors>
 		<Include ModelBehaviorFile="Asobo\Common.xml"/>
 		<Include ModelBehaviorFile="Asobo\GlassCockpit\AS1000.xml"/>
-		
+
 		<!-- G36X Modification -->
 		<Include Path="G36X\CustomTemplates.xml"/>
 		<Include Path="G36X\CustomLogic.xml"/>
-		
+
 		<Component ID="G36X_Custom_Behavior">
 			<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
 			<UseTemplate Name="Voltage_Indication"></UseTemplate>
-			<UseTemplate Name="Drag_Components"></UseTemplate>	
+			<UseTemplate Name="Drag_Components"></UseTemplate>
 			<UseTemplate Name="Smooth_Indication"></UseTemplate>
 		</Component>
 		<!-- End of G36X Modification -->
-		
+
 	<!-- AS1000 ############################## -->
 		<Component ID="AS1000_PFD">
 			<UseTemplate Name="ASOBO_AS1000_PFD_Template">
@@ -57,7 +57,7 @@
 			</UseTemplate>
 			<CameraTitle>MFD</CameraTitle>
 		</Component>
-		
+
 		<!-- DEICE ######################################-->
 		<Component ID="DEICE">
 			<UseTemplate Name="ASOBO_DEICE_Switch_Pitot_Template">
@@ -67,7 +67,7 @@
 				<NODE_ID>DEICE_Switch_Propeller</NODE_ID>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- ELECTRICAL #################################-->
 		<Component ID="ELECTRICAL">
 			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
@@ -116,11 +116,11 @@
 				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_R</ANIMTIP_1>
 				<ANIMTIP_2>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_L</ANIMTIP_2>
 				<ANIMTIP_3>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_BOTH</ANIMTIP_3>
-				<ANIMTIP_4>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_START</ANIMTIP_4>			
+				<ANIMTIP_4>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_START</ANIMTIP_4>
 			</UseTemplate>
-		</Component>	
-		
-		<!-- ENGINE #####################################-->		
+		</Component>
+
+		<!-- ENGINE #####################################-->
 		<Component ID="ENGINE_Throttle_Levers">
 			<UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
 				<ID>1</ID>
@@ -133,21 +133,21 @@
 				<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- FUEL #######################################-->
 		<Component ID="FUEL">
 			<UseTemplate Name="ASOBO_FUEL_Lever_Mixture_Template">
 				<ID>1</ID>
 			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Knob_Selector_Template"> 
+			<UseTemplate Name="ASOBO_FUEL_Knob_Selector_Template">
 				<NUM_STATES>3</NUM_STATES>
-				<FUEL_TANK_SELECTOR_POS_2>1</FUEL_TANK_SELECTOR_POS_2> 
-				<FUEL_TANK_SELECTOR_POS_3>0</FUEL_TANK_SELECTOR_POS_3> 
-				<FUEL_TANK_SELECTOR_POS_OFF>2</FUEL_TANK_SELECTOR_POS_OFF> 
+				<FUEL_TANK_SELECTOR_POS_2>1</FUEL_TANK_SELECTOR_POS_2>
+				<FUEL_TANK_SELECTOR_POS_3>0</FUEL_TANK_SELECTOR_POS_3>
+				<FUEL_TANK_SELECTOR_POS_OFF>2</FUEL_TANK_SELECTOR_POS_OFF>
 				<FUEL_SEL_ENUM_VAL_0>3</FUEL_SEL_ENUM_VAL_0>
-				<FUEL_SEL_ENUM_VAL_1>2</FUEL_SEL_ENUM_VAL_1> 
+				<FUEL_SEL_ENUM_VAL_1>2</FUEL_SEL_ENUM_VAL_1>
 				<FUEL_SEL_ENUM_VAL_2>0</FUEL_SEL_ENUM_VAL_2>
-				<DEFAULT_POS>1</DEFAULT_POS> 
+				<DEFAULT_POS>1</DEFAULT_POS>
 				<ID>1</ID>
 				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.FUEL_SHUTOFF_VALVE_ON</ANIMTIP_0>
 				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.FUEL_SELECTOR_L_TANK</ANIMTIP_1>
@@ -166,7 +166,7 @@
 				<ANIMTIP_2_3STATES>TT:COCKPIT.TOOLTIPS.AUXBP_TURN_OFF</ANIMTIP_2_3STATES>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- HANDLING ###################################-->
 		<Component ID="HANDLING_Flaps">
 			<UseTemplate Name="ASOBO_HANDLING_Lever_Flaps_Template">
@@ -192,7 +192,7 @@
 			</UseTemplate>
 			-->
 		</Component>
-		
+
 		<Component ID="HANDLING_Trims">
 			<UseTemplate Name="ASOBO_HANDLING_Wheel_ElevatorTrim_Template">
 				<WWISE_EVENT_1>elevator_trim_lever_01</WWISE_EVENT_1>
@@ -205,7 +205,7 @@
 				<NEEDLE_ANIM_NAME>HANDLING_Indicator_AileronTrim</NEEDLE_ANIM_NAME>
 			</UseTemplate>
 		</Component>
-		
+
 		<Component ID="HANDLING_RudderPedals">
 			<UseTemplate Name="ASOBO_HANDLING_RudderPedals_Template">
 				<RUDDERPEDALS_TYPE>SPLITTED</RUDDERPEDALS_TYPE>
@@ -218,7 +218,7 @@
 				<SUFFIX_RIGHT_PEDALS>_2</SUFFIX_RIGHT_PEDALS>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- HANDLING (YOKES) ########################### -->
 		<Component ID="YOKES">
 			<UseTemplate Name="ASOBO_HANDLING_Yoke_Hideable_Template">
@@ -247,7 +247,7 @@
 				<ONLY_DECORATIVE/>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- INSTRUMENTS #####################################-->
 		<Component ID="INSTRUMENTS">
 			<UseTemplate Name="ASOBO_INSTRUMENT_Dial_Compass_Template">
@@ -264,7 +264,7 @@
 				<NO_BARS_POSTION_ADJUSTEMENT/>
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_INSTRUMENT_AttitudeIndicator_Simple_Template">
-				<FAILURE>(A:CIRCUIT ON:45, Bool)</FAILURE>	
+				<FAILURE>(A:CIRCUIT ON:45, Bool)</FAILURE>
 				<USE_FLAG/>
 				<ANIM_LAG>50</ANIM_LAG>
 				<PITCH_MIN_VALUE>-24</PITCH_MIN_VALUE>
@@ -284,8 +284,8 @@
 				<EMISSIVE_NODE_ID>SAFETY_Switch_ELT_Indicator</EMISSIVE_NODE_ID>
 			</UseTemplate>
 		</Component>
-		
-		<!-- LANDING GEAR ###############################-->	
+
+		<!-- LANDING GEAR ###############################-->
 		<Component ID="LANDING_GEAR_Lever_Gear">
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Lever_Gear_Template">
 			<TOOLTIPID>%((A:GEAR HANDLE POSITION, percent) 50 &gt;)%{if}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_DN %{else}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_UP %{end}</TOOLTIPID>
@@ -302,27 +302,27 @@
 				<CHECK_GEAR_RIGHT_POSITION/>
 			</UseTemplate>
 		</Component>
-		
+
 		<Component ID="LANDING_GEAR_ParkingBrake">
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Switch_ParkingBrake_Template">
 				<ANIM_DELAY>0.25</ANIM_DELAY>
 				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.PARKBRAKE_DRAG_UP_INFO</TOOLTIPID>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- LIGHTING ###################################-->
 		<Component ID="LIGHTING_Panel">
 			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Strobe_Template">
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Beacon_Template">
 			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Panel_Template">	
+			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Panel_Template">
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Glareshield_Template">
 				<NODE_ID>LIGHTING_Switch_Flood</NODE_ID>
 				<ANIM_NAME>LIGHTING_Switch_Flood</ANIM_NAME>
 			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Navigation_Template">	
+			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Navigation_Template">
 				<!-- <ANIMTIP_0>TT:COCKPIT.TOOLTIPS.POSITION_LIGHT_OFF</ANIMTIP_0>
 				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.POSITION_LIGHT_ON</ANIMTIP_1> -->
 			</UseTemplate>
@@ -434,8 +434,8 @@
 				</UseTemplate>
 			</Component>
 		</Component>
-		
-		<!-- PASSENGER ##################-->	
+
+		<!-- PASSENGER ##################-->
 		<Component ID="PASSENGER">
 			<DefaultTemplateParameters>
 				<USE_DRAGGING_INTERACTION/>
@@ -454,7 +454,7 @@
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_PASSENGER_Switch_Cabin_Heat_Template">
 				<ID>1</ID>
-				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.INOP TT:COCKPIT.TOOLTIPS.LEVER_AFT_CABIN_HEAT</TOOLTIPID>			
+				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.INOP TT:COCKPIT.TOOLTIPS.LEVER_AFT_CABIN_HEAT</TOOLTIPID>
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_PASSENGER_Switch_Cabin_Heat_Template">
 				<ID>2</ID>
@@ -465,7 +465,7 @@
 				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.INOP TT:COCKPIT.TOOLTIPS.LEVER_FIREWALL_AIR_CONTROL</TOOLTIPID>
 			</UseTemplate>
 		</Component>
-		
+
 		<!-- HTML GAUGES TEMP ###################################-->
 		<Component ID="OAT_Indicator">
 			<Component ID="OAT_Screen" Node="OAT_Screen">
@@ -474,69 +474,66 @@
 				</UseTemplate>
 			</Component>
 		</Component>
-		
-		
-		<!-- G36 Improvement Project interactive elements 
-		-------------------------------------------------
-		-->
+
+
+
 		<Component ID="AIRCO">
 			<UseTemplate Name="G36_Environment_Airco">
 				<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 				<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
 			</UseTemplate>
 		</Component>
-		
+
 		<Component ID="AC_BLOWER">
 			<UseTemplate Name="G36_Environment_Blower">
 				<NODE_ID>switch_AC_blowerHI</NODE_ID>
 				<ANIM_NAME>switch_AC_blowerHI</ANIM_NAME>
 			</UseTemplate>
 		</Component>
-		
+
 		<Component ID="AIR">
 			<UseTemplate Name="G36_Vent_Blower">
 				<NODE_ID>PASSENGER_Switch_CockpitAir</NODE_ID>
 				<ANIM_NAME>PASSENGER_Switch_CockpitAir</ANIM_NAME>
 			</UseTemplate>
 		</Component>
-		
+
 		<Component ID="ANNUNCIATOR_TEST">
 			<UseTemplate Name="G36_Annun_Test">
 				<NODE_ID>SAFETY_Push_Annunciator</NODE_ID>
 				<ANIM_NAME>SAFETY_Push_Annunciator</ANIM_NAME>
-			</UseTemplate>			
+				<PART_ID>SAFETY_Push_Annunciator</PART_ID>      
+			</UseTemplate>
 		</Component>
-		
+
 		<!-- Custom Gear Annunciators with test capability -->
 		<Component ID="G36_Landing_Gear_Custom">
 			<UseTemplate Name="G36_Gear_Unsafe_Light"></UseTemplate>
 			<UseTemplate Name="G36_LANDING_GEAR_Light_Center_Template"></UseTemplate>
 			<UseTemplate Name="G36_LANDING_GEAR_Light_Left_Template"></UseTemplate>
-			<UseTemplate Name="G36_LANDING_GEAR_Light_Right_Template"></UseTemplate>			
+			<UseTemplate Name="G36_LANDING_GEAR_Light_Right_Template"></UseTemplate>
 		</Component>
-		
+
 		<!-- Custom Flap Annunciators with test capability -->
 		<Component ID="G36_Flaps_Custom">
-			<UseTemplate Name="G36_Flaps_Transit"></UseTemplate>	
-			<UseTemplate Name="G36_Flaps_Aph_Position"></UseTemplate>	
-			<UseTemplate Name="G36_Flaps_Dn_Position"></UseTemplate>			
+			<UseTemplate Name="G36_Flaps_Transit"></UseTemplate>
+			<UseTemplate Name="G36_Flaps_Aph_Position"></UseTemplate>
+			<UseTemplate Name="G36_Flaps_Dn_Position"></UseTemplate>
 		</Component>
-		
+
 		<Component ID="ALTERNATE_AIR">
-			<UseTemplate Name="G36_AlternateAir_Template"></UseTemplate>			
+			<UseTemplate Name="G36_AlternateAir_Template"></UseTemplate>
 		</Component>
-		
-		<!-- End of G36 Improvement Project interactive elements 
-		--------------------------------------------------------
-		-->
-		
+
+
+
 		<!--
 		<Component ID="TT_INOP">
 			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
 				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
-			</UseTemplate>			
+			</UseTemplate>
 		</Component>
 		-->
-		
+
 	</Behaviors>
 </ModelInfo>

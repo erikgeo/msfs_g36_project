@@ -39,7 +39,6 @@
 		<ANIMREF_ID>0</ANIMREF_ID>
 		<ANIMTIP_0_ON_PERCENT>0</ANIMTIP_0_ON_PERCENT>
 		<ANIMTIP_1_ON_PERCENT>1</ANIMTIP_1_ON_PERCENT>
-		<PART_ID>G36_Annun_Test</PART_ID>
 	</DefaultTemplateParameters>
 	<Component ID="#NODE_ID#" Node="#NODE_ID#">
 		<Update Once="True">
