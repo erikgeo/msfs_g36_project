@@ -1,6 +1,6 @@
 # MSFS G36 Project version 0.6 - Turbo Patch
 
-This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This is a stripped-down version that functions as a patch for Robert Young's excellent turbo-normalized Bonanza mod. With this patch you will get the added systems of the Improvement Project alongside Robert's work on effects, flight dynamics and the turbo conversion. The Improvement Project was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
+This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This is a stripped-down version that functions as a patch for Robert Young's excellent turbo-normalized Bonanza mod. It will not alter any features of the turbo-normalized mod. With this patch you will get the added systems of the Improvement Project alongside Robert's work on effects, flight dynamics and the turbo conversion. The Improvement Project was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 To install: 
 
