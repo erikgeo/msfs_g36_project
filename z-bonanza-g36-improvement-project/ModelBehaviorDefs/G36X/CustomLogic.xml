@@ -6,11 +6,15 @@
 <Macro Name="DiodesLeak_onlybat1"> @DiodesLeak_base (A:ELECTRICAL MAIN BUS VOLTAGE:1, volts) 24 / + </Macro>
 <Macro Name="DiodesLeak_alt2"> (A:GENERAL ENG MASTER ALTERNATOR:2, bool) if{ @DiodesLeak_base } els{ 0 } </Macro>
 
+<!-- Fuel System macro's -->
+<Macro Name="PumpScalar"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 / * </Macro>
+
 <!-- Smooth indication macro's: The last number can be used to change indication adjustment time (lower is faster) -->
 <Macro Name="IndicateBus2"> (L:XMLVAR_BUS2_VOLT_TARGET, volts) (L:XMLVAR_BUS2_VOLT_INDICATED, volts) - 10 / </Macro>
 <Macro Name="IndicateBus1"> (L:XMLVAR_BUS1_VOLT_TARGET, volts) (L:XMLVAR_BUS1_VOLT_INDICATED, volts) - 10 / </Macro>
 <Macro Name="IndicateLoad2"> (L:XMLVAR_ALT2_LOAD_TARGET, amps) (L:XMLVAR_ALT2_LOAD_INDICATED, amps) - 5 / </Macro>
 <Macro Name="IndicateLoad1"> (L:XMLVAR_ALT1_LOAD_TARGET, amps) (L:XMLVAR_ALT1_LOAD_INDICATED, amps) - 5 / </Macro>
+<Macro Name="IndicateFflow"> (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) (L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) - 12 / </Macro>
 
 
 <!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
@@ -22,10 +26,8 @@
 
 
 <!---------------------------------------------- ELECTRICAL SYSTEM ---------------------------------------------->
-<!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->
 <Template Name = "Bus_Tie_Logic">
-	<Update Frequency="2">
-	
+	<Update Frequency="2">	
 		(A:PROP RPM:1, rpm) 500 &gt;=
 		if{
 			(A:PROP RPM:1, rpm) 1800 &lt;=
@@ -45,12 +47,11 @@
 			1 (&gt;L:XMLVAR_BUSES_TIED, bool)
 			0 (&gt;L:XMLVAR_ALT2_LOAD_TARGET, amps)
 			0 (&gt;L:XMLVAR_ALT1_LOAD_TARGET, amps)
-		}
-		
+		}		
 	</Update>
 </Template>
 
-<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 -->
+<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 & reference video by @JuiceBox7535 -->
 <Template Name = "Voltage_Indication">
 	<Update Frequency="2">	
 		(L:XMLVAR_BUSES_TIED, bool)
@@ -80,11 +81,48 @@
 	</Update>
 </Template>
 
+<!--
+(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+(A:GENERAL ENG MIXTURE LEVER POSITION:1, percent)
+
+-->
+
+<!---------------------------------------------- FUEL SYSTEM ---------------------------------------------->
+<Template Name = "Fuel_Pump_Logic">
+	<Update Frequency="6">
+		(A:ENG COMBUSTION) !
+		if{
+			(L:XMLVAR_FUEL_Pump1_High_ON) 1 ==
+			if{
+				18.2 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+			} 
+			(L:XMLVAR_FUEL_Pump1_High_ON) 0 ==
+			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) and
+			if{
+				3 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)			
+			} 
+			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) !
+			if{
+				0 (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+			}
+		} els{
+			(A:ENG FUEL FLOW GPH:1, gallons per hour) (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+			0 (&gt;L:XMLVAR_PUMPED_FUEL, pounds)
+		}
+	</Update>
+</Template>
+
+
+<!---------------------------------------------- INDICATIONS ---------------------------------------------->
 <Template Name = "Smooth_Indication">
+	<FREQUENCY>24</FREQUENCY>
 	<Update Frequency="24">	
 		(L:XMLVAR_BUS2_VOLT_INDICATED, volts) @IndicateBus2 + (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts)
 		(L:XMLVAR_BUS1_VOLT_INDICATED, volts) @IndicateBus1 + (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 		(L:XMLVAR_ALT2_LOAD_INDICATED, amps) @IndicateLoad2 + (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		(L:XMLVAR_ALT1_LOAD_INDICATED, amps) @IndicateLoad1 + (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
+		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)
+		
+		(L:XMLVAR_PUMPED_FUEL, pounds) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 86400 / + (&gt;L:XMLVAR_PUMPED_FUEL, pounds)
 	</Update>
 </Template>
