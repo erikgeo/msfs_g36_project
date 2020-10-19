@@ -72,8 +72,8 @@
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
-      "size": 5667,
-      "date": 132475313364056630
+      "size": 7008,
+      "date": 132476193965920357
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
@@ -84,6 +84,11 @@
       "path": "ModelBehaviorDefs/G36X/Subtemplates/G36_Subtemplates.xml",
       "size": 3561,
       "date": 132472278277280580
+    },
+    {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/ai.cfg",
+      "size": 805,
+      "date": 132475860222866035
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/engines.cfg",
@@ -107,8 +112,8 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 22112,
-      "date": 132475313589524258
+      "size": 22539,
+      "date": 132476192949192493
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
