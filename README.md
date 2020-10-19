@@ -14,17 +14,19 @@ Current features of this modification are:
 * Slightly increased nosewheel steering angle 
 * Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
 * Decreased yaw sensitivity by lowering deflection rate as a function of speed 
+* Increased overall stability: less 'twitchy' feeling
 
-**Engine**
+**Engine & Fuel system**
 * Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
 * Fixed erroneous engine efficiency increase around 2000 rpm
 * Adjusted idle RPM to ~700. This prevents the unexpected shutdown of a warm engine when idle
+* Fuel pump simulated
 
 **Systems**
 * Added new working systems and switches:
   - Airco (has a negative effect on engine performance, you will see a few kts lower cruise speed)
   - Annunciator test
-  - Some other (inop.) switches are now clickable but have no function yet other than enhancing immersion.
+  - Airco and ventilator switches are functioning and part of the electrical system
 * Electrical system overhaul: 
   - Completely revised electrical buses: all individual systems hooked up to the correct bus
   - Bus tie logic added
@@ -49,7 +51,7 @@ Current features of this modification are:
   - ALT INOP (Alt 1, 2 or both, Warning)
   - BUS1/2 VOLT HI (Caution)
   - ALT 1/2 LOAD (Caution)
-* Corrected fuel gauge indications
+ * Corrected fuel gauge scale
 
 **Textures & effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
