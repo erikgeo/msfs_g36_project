@@ -8,6 +8,7 @@
 
 <!-- Fuel System macro's -->
 <Macro Name="PumpScalar"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 / * </Macro>
+<Macro Name="PumpedFuelDecayScalar"> (L:XMLVAR_PUMPED_FUEL, gallons) 0 &gt;= if{ 0.00001 } els{ 0 }</Macro>
 
 <!-- Smooth indication macro's: The last number can be used to change indication adjustment time (lower is faster) -->
 <Macro Name="IndicateBus2"> (L:XMLVAR_BUS2_VOLT_TARGET, volts) (L:XMLVAR_BUS2_VOLT_INDICATED, volts) - 10 / </Macro>
@@ -20,7 +21,7 @@
 <!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
 <Template Name = "Drag_Components">
 	<Update Frequency="1">
-		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k 2 / (L:XMLVAR_Airco) 5000 * + (&gt;K:SPOILERS_SET)
+		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k 2 / (L:XMLVAR_Engine_Condition) 1 * + (&gt;K:SPOILERS_SET)
 	</Update>
 </Template>
 
@@ -81,48 +82,75 @@
 	</Update>
 </Template>
 
-<!--
-(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-(A:GENERAL ENG MIXTURE LEVER POSITION:1, percent)
-
--->
 
 <!---------------------------------------------- FUEL SYSTEM ---------------------------------------------->
 <Template Name = "Fuel_Pump_Logic">
 	<Update Frequency="6">
-		(A:ENG COMBUSTION) !
+		(A:ENG COMBUSTION:1, bool) !
 		if{
 			(L:XMLVAR_FUEL_Pump1_High_ON) 1 ==
 			if{
 				18.2 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+				
+				(L:XMLVAR_PUMPED_FUEL, gallons) 0.025 &lt;
+				if{
+					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+				}
 			} 
 			(L:XMLVAR_FUEL_Pump1_High_ON) 0 ==
 			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) and
 			if{
-				3 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)			
+				3 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+				
+				(L:XMLVAR_PUMPED_FUEL, gallons) 0.025 &lt;
+				if{
+					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+				}
 			} 
 			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) !
 			if{
 				0 (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
-			}
+				(L:XMLVAR_PUMPED_FUEL, gallons) @PumpedFuelDecayScalar - (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+			}			
 		} els{
 			(A:ENG FUEL FLOW GPH:1, gallons per hour) (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
-			0 (&gt;L:XMLVAR_PUMPED_FUEL, pounds)
+			0.025 (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
 		}
+	</Update>
+</Template>
+
+
+<!---------------------------------------------- ENGINE START PARAMETERS ---------------------------------------------->
+
+<!-- Determine an engine start score, which can be used as threshold value for a good or bad engine start
+Factors:
+	Ambient Temperature: 			(E:AMBIENT TEMPERATURE, celsius)
+	Cylinder Head Temperature: 		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius)
+	Throttle position: 				(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+	Pumped fuel:					(L:XMLVAR_PUMPED_FUEL, gallons)
+	
+	@ThrottleCondition + @AmbientTCondition + @PrimeCondition +
+	
+-->
+
+<Template Name = "Engine_Start_Logic">
+	<Update Frequency="1">	
+		(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) } els{ 30 } 1 *
+		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1 * +
+		(A:AMBIENT TEMPERATURE, celsius) 1 * +	
+		(L:XMLVAR_PUMPED_FUEL, gallons) 1000 * 3 * +
+		(&gt;L:XMLVAR_Engine_Condition)
 	</Update>
 </Template>
 
 
 <!---------------------------------------------- INDICATIONS ---------------------------------------------->
 <Template Name = "Smooth_Indication">
-	<FREQUENCY>24</FREQUENCY>
 	<Update Frequency="24">	
 		(L:XMLVAR_BUS2_VOLT_INDICATED, volts) @IndicateBus2 + (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts)
 		(L:XMLVAR_BUS1_VOLT_INDICATED, volts) @IndicateBus1 + (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 		(L:XMLVAR_ALT2_LOAD_INDICATED, amps) @IndicateLoad2 + (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		(L:XMLVAR_ALT1_LOAD_INDICATED, amps) @IndicateLoad1 + (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
 		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)
-		
-		(L:XMLVAR_PUMPED_FUEL, pounds) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 86400 / + (&gt;L:XMLVAR_PUMPED_FUEL, pounds)
 	</Update>
 </Template>
