@@ -12,46 +12,36 @@ Current features of this modification are:
 * Adjusted flap and gear drag
 * Slightly reduced pitch effect due to elevator deflection + propwash
 * Slightly increased nosewheel steering angle 
-* Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
+* Added drag due to cowl flaps. This causes a 3-4 kts cruise speed loss.
 * Decreased yaw sensitivity by lowering deflection rate as a function of speed 
 * Increased overall stability: less 'twitchy' feeling
 
 **Engine & Fuel system**
 * Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
+* Simulation of the fuel pump system
+* More advanced simulation of engine startup: A succesful start depends on OAT, CHT, fuel pump use and throttle/mixture position (WIP).
 * Fixed erroneous engine efficiency increase around 2000 rpm
 * Adjusted idle RPM to ~700. This prevents the unexpected shutdown of a warm engine when idle
-* Fuel pump simulated
 
 **Systems**
 * Added new working systems and switches:
   - Airco (has a negative effect on engine performance, you will see a few kts lower cruise speed)
-  - Annunciator test
   - Airco and ventilator switches are functioning and part of the electrical system
+  - Annunciator test
 * Electrical system overhaul: 
   - Completely revised electrical buses: all individual systems hooked up to the correct bus
   - Bus tie logic added
   - Correct voltage indications of BUS2 due to reverse current blocking diodes
-  - Corrected alternator load indications
+  - Correct alternator loads
   - Made all indications smooth, rather than instant jumps to a new value
 * Autopilot tweaks
   - Fixed holding the wrong altitude at non-standard atmospheric pressures
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
+  - Adjusted autopilot PIDs 
 * Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
-* Replaced/removed default annunciators
-  - Removed PITOT HEAT caution
-  - Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
-* Added many new annunciators based on the G36 POH: 
-  - BUSES TIED (Advisory) 
-  - FUEL QTY LOW (Warning/Caution)
-  - FUEL FLOW HI (Warning)
-  - OIL PRES HI/LO (Warning/Caution)
-  - OIL TEMP HI (Warning)
-  - CHT HI (Warning)
-  - ALT INOP (Alt 1, 2 or both, Warning)
-  - BUS1/2 VOLT HI (Caution)
-  - ALT 1/2 LOAD (Caution)
- * Corrected fuel gauge scale
+* Completely redone G1000 annunciators: all annunciators of the real G36 were implemented (except for door open warnings)
+* Corrected fuel gauge scale
 
 **Textures & effects**
 * Fixed taxi, landing and strobe lights for better visibility from cockpit views
