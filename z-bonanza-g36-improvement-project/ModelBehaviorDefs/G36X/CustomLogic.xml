@@ -134,12 +134,19 @@ Factors:
 -->
 
 <Template Name = "Engine_Start_Logic">
-	<Update Frequency="1">	
-		(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) } els{ 30 } 1 *
-		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1 * +
-		(A:AMBIENT TEMPERATURE, celsius) 1 * +	
-		(L:XMLVAR_PUMPED_FUEL, gallons) 1000 * 3 * +
-		(&gt;L:XMLVAR_Engine_Condition)
+	<Update Frequency="2">
+		0 (L:XMLVAR_Engine_Start_Type)
+	</Update>
+	<Update Frequency="1">
+		(L:XMLVAR_Engine_Start_Type) 0 ==
+		if{
+			(* NORMAL COLD START *)
+			(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) } els{ 30 } 1 *
+			(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1 * +
+			(A:AMBIENT TEMPERATURE, celsius) 1 * +	
+			(L:XMLVAR_PUMPED_FUEL, gallons) 1000 * 3 * +
+			(&gt;L:XMLVAR_Engine_Condition)
+		}
 	</Update>
 </Template>
 
@@ -154,3 +161,18 @@ Factors:
 		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)
 	</Update>
 </Template>
+
+
+<!--
+<Template Name = "Fuel_Since_Start">
+	<Update Frequency="1">	
+		(A:ENG COMBUSTION:1, bool) !
+		if{
+			0 (&gt;L:XMLVAR_Fuel_Used_Since_Start)
+			(A:FUEL TOTAL QUANTITY:1, gallons) (&gt;L:XMLVAR_Initial_Fuel_Before_Start)
+		} els{
+			(L:XMLVAR_Initial_Fuel_Before_Start) (A:FUEL TOTAL QUANTITY:1, gallons) - (&gt;L:XMLVAR_Fuel_Used_Since_Start)
+		}		
+	</Update>
+</Template>
+-->
