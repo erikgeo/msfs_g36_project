@@ -112,13 +112,14 @@
 				<ARROW_TYPE>Curved</ARROW_TYPE>
 				<USE_STARTER/>
 				<ON_STARTER>
-					<!--(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }-->					
+					<!--(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }					
 					(L:XMLVAR_Engine_Condition) 50 &gt;= 
 					if{ 
 						(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) } 
 					} els{
 						(A:GENERAL ENG FUEL VALVE:1, Bool) if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }
-					}				
+					}		
+						-->
 				</ON_STARTER>
 				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_OFF</ANIMTIP_0>
 				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_R</ANIMTIP_1>

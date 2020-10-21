@@ -8,7 +8,8 @@
 
 <!-- Fuel System macro's -->
 <Macro Name="PumpScalar"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 / * </Macro>
-<Macro Name="PumpedFuelDecayScalar"> (L:XMLVAR_PUMPED_FUEL, gallons) 0 &gt;= if{ 0.00001 } els{ 0 }</Macro>
+<Macro Name="PumpedFuelDecayScalar"> (L:XMLVAR_PUMPED_FUEL, gallons) 0 &gt;= if{ 0.00001 } els{ 0 } </Macro>
+<Macro Name="PumpedFuelScore"> (L:XMLVAR_PUMPED_FUEL, gallons) 0.03 &lt;= if{ (L:XMLVAR_PUMPED_FUEL, gallons) 3000 * } els{ (L:XMLVAR_PUMPED_FUEL, gallons) 0.03 - 3000 * } </Macro>
 
 <!-- Smooth indication macro's: The last number can be used to change indication adjustment time (lower is faster) -->
 <Macro Name="IndicateBus2"> (L:XMLVAR_BUS2_VOLT_TARGET, volts) (L:XMLVAR_BUS2_VOLT_INDICATED, volts) - 10 / </Macro>
@@ -92,7 +93,7 @@
 			if{
 				18.2 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
 				
-				(L:XMLVAR_PUMPED_FUEL, gallons) 0.025 &lt;
+				(L:XMLVAR_PUMPED_FUEL, gallons) 0.1 &lt;
 				if{
 					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
 				}
@@ -102,7 +103,7 @@
 			if{
 				3 @PumpScalar * (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
 				
-				(L:XMLVAR_PUMPED_FUEL, gallons) 0.025 &lt;
+				(L:XMLVAR_PUMPED_FUEL, gallons) 0.1 &lt;
 				if{
 					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
 				}
@@ -114,7 +115,7 @@
 			}			
 		} els{
 			(A:ENG FUEL FLOW GPH:1, gallons per hour) (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
-			0.025 (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+			0.03 (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
 		}
 	</Update>
 </Template>
@@ -129,24 +130,33 @@ Factors:
 	Throttle position: 				(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
 	Pumped fuel:					(L:XMLVAR_PUMPED_FUEL, gallons)
 	
-	@ThrottleCondition + @AmbientTCondition + @PrimeCondition +
-	
+	Pumped fuel gives a positive contribution to the score up to 0.03 gallons pumped. Fuel pumped in excess of this amount decreases the score (engine flooding)
 -->
 
 <Template Name = "Engine_Start_Logic">
-	<Update Frequency="2">
-		0 (L:XMLVAR_Engine_Start_Type)
-	</Update>
-	<Update Frequency="1">
-		(L:XMLVAR_Engine_Start_Type) 0 ==
-		if{
-			(* NORMAL COLD START *)
-			(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) } els{ 30 } 1 *
-			(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1 * +
-			(A:AMBIENT TEMPERATURE, celsius) 1 * +	
-			(L:XMLVAR_PUMPED_FUEL, gallons) 1000 * 3 * +
-			(&gt;L:XMLVAR_Engine_Condition)
-		}
+	<Update Frequency="6">
+		<!-- Calculate and update Engine_Condition start score -->
+		(* NORMAL COLD START *)
+		(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) } els{ 30 } 1 *
+		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1 * +
+		(A:AMBIENT TEMPERATURE, celsius) 1 * +	
+		(L:XMLVAR_PUMPED_FUEL, gallons) 0.03 &lt;= if{ (L:XMLVAR_PUMPED_FUEL, gallons) 3000 * + } els{ (L:XMLVAR_PUMPED_FUEL, gallons) 3000 * - }
+		(&gt;L:XMLVAR_Engine_Condition)
+	</Update>	
+	<Update Frequency="6">
+		<!-- Open FUEL_VALVE if Engine_Condition is sufficient for a start, close if not to ensure bad start -->
+		(L:XMLVAR_Engine_Condition) 50 &gt;= 
+		if{ 
+			(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) } 
+		} els{
+			(A:GENERAL ENG STARTER ACTIVE:1, Bool)
+			(L:XMLVAR_PUMPED_FUEL, gallons) 0 &gt;= and 
+			if{
+				(L:XMLVAR_PUMPED_FUEL, gallons) 0.00046 - (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+			}
+			
+			(A:GENERAL ENG FUEL VALVE:1, Bool) if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }
+		}	
 	</Update>
 </Template>
 
