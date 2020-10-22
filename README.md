@@ -23,7 +23,7 @@ Current features of this modification are:
  - Cold starts: correct use of the fuel pump, throttle and mixture required depending on engine and ambient temperature
  - Flooded engine: pumping too much fuel to the engine may cause it to ignite slower or not at all.
  - Flooded engine start procedure (mixture low/cut, throttle halfway) may resolve this.
- - Hot starts: A hot engine running idle with little airflow may quit because the fuel evaporates.
+ - Hot starts: A hot engine running idle with little airflow may quit because the fuel evaporates. (WIP)
 * Fixed erroneous engine efficiency increase around 2000 rpm
 * Adjusted idle RPM to ~700. This prevents the unexpected shutdown of a warm engine when idle
 
