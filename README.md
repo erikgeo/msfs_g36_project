@@ -18,7 +18,7 @@ Current features of this modification are:
 
 **Engine & Fuel system**
 * Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
-* Simulation of the fuel pump system
+* Simulation of the electric fuel pump
 * More advanced simulation of engine startup:
   - Cold starts: correct use of the fuel pump, throttle and mixture required depending on engine and ambient temperature
   - Under some conditions, idling the engine too soon after start may cause it to quit.
