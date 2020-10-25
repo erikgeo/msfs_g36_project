@@ -13,7 +13,7 @@
 <Macro Name="MaxPumpedFuelStart"> 0.03 </Macro>
 <Macro Name="MinimumEngScore"> (A:AMBIENT TEMPERATURE, kelvin) 4 / </Macro>
 <Macro Name="MaximumEngScoreRough"> (A:AMBIENT TEMPERATURE, kelvin) 2.2 / </Macro>
-<Macro Name="FuelEvaporationFactor"> (A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 100 (A:AIRSPEED INDICATED, Knots) 4 * - + 300 /  </Macro>
+<Macro Name="FuelEvaporationFactor"> (A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) (A:AIRSPEED INDICATED, Knots) - 200 / 1 (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / - * </Macro>
 
 <!-- Smooth indication macro's: The last number can be used to change indication adjustment time (lower is faster) -->
 <Macro Name="IndicateBus2"> (L:XMLVAR_BUS2_VOLT_TARGET, volts) (L:XMLVAR_BUS2_VOLT_INDICATED, volts) - 10 / </Macro>
@@ -26,7 +26,7 @@
 <!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
 <Template Name = "Drag_Components">
 	<Update Frequency="1">
-		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k 2 / (L:XMLVAR_Engine_Condition) 1 * + (&gt;K:SPOILERS_SET)
+		(A:RECIP ENG COWL FLAP POSITION:1, percent) @ConvertTo16k 2 / (L:XMLVAR_Airco) 5000 * + (&gt;K:SPOILERS_SET)
 	</Update>
 </Template>
 
