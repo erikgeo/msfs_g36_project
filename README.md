@@ -24,7 +24,7 @@ Current features of this modification are:
   - Under some conditions, idling the engine too soon after start may cause it to quit.
   - Flooded engine: pumping too much fuel to the engine may cause it to ignite slower or not at all.
   - Flooded engine start procedure (mixture low/cut, throttle halfway) may resolve this.
-  - Hot starts: A hot engine running idle with little airflow may quit because the fuel evaporates. (WIP)
+  - A hot engine running idle with little airflow may quit because the fuel evaporates. (Hotstarts WIP)
 
 **Systems**
 * Added new working systems and switches:
