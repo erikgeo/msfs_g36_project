@@ -119,7 +119,7 @@
 			}			
 		} els{
 			(A:ENG FUEL FLOW GPH:1, gallons per hour) (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
-			(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuelStart 0.05 - &lt;
+			(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuelStart 0.005 - &lt;
 			if{
 				(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
 			}
@@ -193,7 +193,7 @@ Factors:
 		(L:XMLVAR_BUS1_VOLT_INDICATED, volts) @IndicateBus1 + (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 		(L:XMLVAR_ALT2_LOAD_INDICATED, amps) @IndicateLoad2 + (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		(L:XMLVAR_ALT1_LOAD_INDICATED, amps) @IndicateLoad1 + (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
-		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)
+		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)		
 	</Update>
 </Template>
 
