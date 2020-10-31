@@ -41,29 +41,79 @@
       "date": 132457951876132571
     },
     {
-      "path": "effects/LIGHT_ASOBO_Landing_G36.fx",
-      "size": 1229,
-      "date": 132457951876082559
+      "path": "effects/LIGHT_G36_BeaconTop.fx",
+      "size": 3501,
+      "date": 132486090672147584
     },
     {
-      "path": "effects/LIGHT_ASOBO_NavigationGreen_G36.fx",
+      "path": "effects/LIGHT_G36_Landing.fx",
+      "size": 1232,
+      "date": 132486090672147584
+    },
+    {
+      "path": "effects/LIGHT_G36_NavigationGreen.fx",
       "size": 1230,
-      "date": 132457951876092568
+      "date": 132486090672157583
     },
     {
-      "path": "effects/LIGHT_ASOBO_NavigationRed_G36.fx",
+      "path": "effects/LIGHT_G36_NavigationRed.fx",
       "size": 1227,
-      "date": 132457951876092568
+      "date": 132486090672157583
     },
     {
-      "path": "effects/LIGHT_ASOBO_StrobeSimple_G36.fx",
-      "size": 1233,
-      "date": 132457951876092568
+      "path": "effects/LIGHT_G36_NavigationWhite.fx",
+      "size": 1353,
+      "date": 132486090672165631
     },
     {
-      "path": "effects/LIGHT_ASOBO_Taxi_G36.fx",
-      "size": 1282,
-      "date": 132457951876102564
+      "path": "effects/LIGHT_G36_StrobeSimple.fx",
+      "size": 4696,
+      "date": 132486090672165631
+    },
+    {
+      "path": "effects/LIGHT_G36_Taxi.fx",
+      "size": 1284,
+      "date": 132486090672175639
+    },
+    {
+      "path": "effects/LIGHT_G36_vLanding.fx",
+      "size": 1229,
+      "date": 132486090672175639
+    },
+    {
+      "path": "effects/LIGHT_G36_vTaxi.fx",
+      "size": 1281,
+      "date": 132486090672175639
+    },
+    {
+      "path": "effects/texture/FX_ulm01.PNG.dds",
+      "size": 87556,
+      "date": 132486090672195644
+    },
+    {
+      "path": "effects/texture/fx_ulm01.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132486090672205646
+    },
+    {
+      "path": "effects/texture/FX_ulm01.PNG.DDS.json",
+      "size": 144,
+      "date": 132486090672185641
+    },
+    {
+      "path": "effects/texture/FX_ulm03.PNG.dds",
+      "size": 87556,
+      "date": 132486090672205646
+    },
+    {
+      "path": "effects/texture/fx_ulm03.png.DDS.FLAGS",
+      "size": 21,
+      "date": 132486090672205646
+    },
+    {
+      "path": "effects/texture/FX_ulm03.PNG.DDS.json",
+      "size": 144,
+      "date": 132486090672195644
     },
     {
       "path": "ModelBehaviorDefs/Asobo/Exterior.xml",
@@ -102,8 +152,8 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
-      "size": 11703,
-      "date": 132474143107972341
+      "size": 11987,
+      "date": 132486093881405179
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
