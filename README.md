@@ -73,7 +73,7 @@ Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are l
 
 https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.2
 
-https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5
+https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6
 
 -------------------------------------
 -------------------------------------
