@@ -93,7 +93,7 @@ FAQ's:
 
 **Q: The engine won't start?**
 
-*A: Since v0.6, the engine start is modelled. Fuel must be pumped to the engines, cold engines need to warm up and overuse of the fuel pump and throttle prior to engine start may cause it to flood.  If you correctly follow the start procedures, the engine should almost always start on the first try, unless under extreme condtions. *
+*A: Since v0.6, the engine start is modelled. Fuel must be pumped to the engines, cold engines need to warm up and overuse of the fuel pump and throttle prior to engine start may cause it to flood.  If you correctly follow the start procedures, the engine should almost always start on the first try, unless under extreme condtions.*
 
 **Q: My engine quits after landing?**
 
