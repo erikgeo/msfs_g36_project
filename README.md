@@ -77,7 +77,7 @@ https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5
 
 -------------------------------------
 -------------------------------------
-FAQ's:
+**FAQ's:**
 
 **Q: I am not seeing the engine pages in the G1000?**
 
