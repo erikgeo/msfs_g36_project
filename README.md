@@ -47,7 +47,7 @@ Current features of this modification are:
 * Corrected fuel gauge scale
 
 **Textures & effects**
-* Fixed taxi, landing and strobe lights for better visibility from cockpit views
+* Including the latest version of Uwajimaya's lighting mod (https://uwajimaya.github.io/FS2020/)
 * Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
