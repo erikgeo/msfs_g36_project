@@ -92,7 +92,7 @@
 			<Left fontsize="8">FFLOW GPH</Left>			
 			<Right fontsize="8">
 				<ToFixed precision="1">
-					<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+					<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 				</ToFixed>
 			</Right>
 		</Text>
@@ -223,7 +223,7 @@
 			<Left fontsize="8">FFLOW GPH</Left>			
 			<Right fontsize="8">
 				<ToFixed precision="1">
-					<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+					<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 				</ToFixed>
 			</Right>
 		</Text>
@@ -258,7 +258,7 @@
 					<Multiply>					
 						<Divide>
 							<Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
-							<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+							<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 						</Divide>
 						<Constant>3600</Constant>						
 					</Multiply>
@@ -272,7 +272,7 @@
                 <If>
                     <Condition>
                         <Greater>
-                            <Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+                            <Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
                             <Constant>0.1</Constant>
                         </Greater>
                     </Condition>
@@ -282,7 +282,7 @@
                                 <Simvar name="GROUND VELOCITY:1" unit="knots"/>
                                 <Divide>
                                     <Simvar name="FUEL TOTAL QUANTITY:1" unit="gallon"/>
-                                    <Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+                                    <Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
                                 </Divide>
                             </Multiply>
                         </ToFixed>
@@ -424,7 +424,7 @@
 		<Minimum>0</Minimum>
 		<Maximum>30</Maximum>
 		<Value>
-			<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+			<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 		</Value>
 		<ColorZone>
 			<Color>green</Color>
