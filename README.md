@@ -1,4 +1,4 @@
-# MSFS G36 Project version 0.6 (Beta, not released, not guaranteed to be stable)
+# MSFS G36 Project version 0.6
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
@@ -58,13 +58,13 @@ Current features of this modification are:
 
 Installation:
 
-1: Download and install the Working Title G1000 v0.3 mod
+1: Download and install the Working Title G1000 v0.3.2 mod
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
 
 Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have ‘z-’ at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
 
-https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.1
+https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.2
 
 https://github.com/TheFrett/msfs_g36_project/releases/tag/0.5
 
