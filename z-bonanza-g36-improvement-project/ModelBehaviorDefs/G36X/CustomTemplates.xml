@@ -1,6 +1,9 @@
 <Include RelativeFile="Subtemplates\\G36_Subtemplates.xml"/>
 
 <Template Name = "G36_Environment_Airco">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
 	<UseTemplate Name = "G36_2way_switch_xml">
 		<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
 		<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
@@ -10,15 +13,19 @@
 			(L:XMLVAR_Airco) 0 == 
 			if{
 				1 (&gt;L:XMLVAR_Airco)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			} els{
 				0 (&gt;L:XMLVAR_Airco)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			}
-		</LEFT_SINGLE_CODE>
-		
+		</LEFT_SINGLE_CODE>		
 	</UseTemplate>
 </Template>
 
 <Template Name = "G36_Environment_Blower">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
 	<UseTemplate Name = "G36_2way_switch_xml">
 		<ANIMTIP_0>AC Blower High</ANIMTIP_0>
 		<ANIMTIP_1>AC Blower Off</ANIMTIP_1>
@@ -28,14 +35,19 @@
 			(L:XMLVAR_Airco) 0 == 
 			if{
 				1 (&gt;L:XMLVAR_Blower)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			} els{
 				0 (&gt;L:XMLVAR_Blower)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			}
 		</LEFT_SINGLE_CODE>
 	</UseTemplate>
 </Template>
 
 <Template Name = "G36_Vent_Blower">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
 	<UseTemplate Name = "G36_2way_switch_xml">
 		<ANIMTIP_0>Turn Vent Blower On</ANIMTIP_0>
 		<ANIMTIP_1>Turn Vent Blower Off</ANIMTIP_1>
@@ -45,8 +57,10 @@
 			(L:XMLVAR_Vent) 0 == 
 			if{
 				1 (&gt;L:XMLVAR_Vent)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			} els{
 				0 (&gt;L:XMLVAR_Vent)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			}
 		</LEFT_SINGLE_CODE>
 	</UseTemplate>
@@ -196,6 +210,4 @@ TARGET
 			</EMISSIVE_CODE>
 		</UseTemplate>
 	</Component>
-</Template>	
-
-	
+</Template>		

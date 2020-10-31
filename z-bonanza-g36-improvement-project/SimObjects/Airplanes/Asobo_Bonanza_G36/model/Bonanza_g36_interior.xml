@@ -22,8 +22,10 @@
 		<Component ID="G36X_Custom_Behavior">
 			<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
 			<UseTemplate Name="Voltage_Indication"></UseTemplate>
-			<UseTemplate Name="Drag_Components"></UseTemplate>	
-			<UseTemplate Name="Smooth_Indication"></UseTemplate>
+			<UseTemplate Name="Drag_Components"></UseTemplate>
+			<UseTemplate Name="Fuel_Pump_Logic"></UseTemplate>
+			<UseTemplate Name="Engine_Start_Logic"></UseTemplate>
+			<UseTemplate Name="Smooth_Indication"></UseTemplate>						
 		</Component>
 		<!-- End of G36X Modification -->
 		
@@ -110,7 +112,14 @@
 				<ARROW_TYPE>Curved</ARROW_TYPE>
 				<USE_STARTER/>
 				<ON_STARTER>
-					(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }
+					<!--(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }					
+					(L:XMLVAR_Engine_Condition) 50 &gt;= 
+					if{ 
+						(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) } 
+					} els{
+						(A:GENERAL ENG FUEL VALVE:1, Bool) if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }
+					}		
+						-->
 				</ON_STARTER>
 				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_OFF</ANIMTIP_0>
 				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.MAGNETO_START_SWITCH_R</ANIMTIP_1>
@@ -178,7 +187,7 @@
 				<ANIMTIP_2>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_LDG</ANIMTIP_2>
 				<ANIMTIP_2_ON_PERCENT>1</ANIMTIP_2_ON_PERCENT>
 			</UseTemplate>
-			<!--
+			<!-- REPLACED BY MOD!
 			<UseTemplate Name="ASOBO_HANDLING_Light_Flaps_Transit_Template">
 				<ID>1</ID>
 			</UseTemplate>
@@ -290,6 +299,7 @@
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Lever_Gear_Template">
 			<TOOLTIPID>%((A:GEAR HANDLE POSITION, percent) 50 &gt;)%{if}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_DN %{else}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_UP %{end}</TOOLTIPID>
 			</UseTemplate>
+			<!-- REPLACED BY MOD!
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Center_Template">
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Left_Template">
@@ -301,6 +311,7 @@
 				<CHECK_GEAR_LEFT_POSITION/>
 				<CHECK_GEAR_RIGHT_POSITION/>
 			</UseTemplate>
+			-->
 		</Component>
 		
 		<Component ID="LANDING_GEAR_ParkingBrake">
@@ -483,6 +494,7 @@
 			<UseTemplate Name="G36_Environment_Airco">
 				<NODE_ID>ELECTRICAl_Switch_AC</NODE_ID>
 				<ANIM_NAME>ELECTRICAl_Switch_AC</ANIM_NAME>
+				<CIRCUIT_ID>48</CIRCUIT_ID>
 			</UseTemplate>
 		</Component>
 		
@@ -490,6 +502,7 @@
 			<UseTemplate Name="G36_Environment_Blower">
 				<NODE_ID>switch_AC_blowerHI</NODE_ID>
 				<ANIM_NAME>switch_AC_blowerHI</ANIM_NAME>
+				<CIRCUIT_ID>49</CIRCUIT_ID>
 			</UseTemplate>
 		</Component>
 		
@@ -497,6 +510,7 @@
 			<UseTemplate Name="G36_Vent_Blower">
 				<NODE_ID>PASSENGER_Switch_CockpitAir</NODE_ID>
 				<ANIM_NAME>PASSENGER_Switch_CockpitAir</ANIM_NAME>
+				<CIRCUIT_ID>50</CIRCUIT_ID>
 			</UseTemplate>
 		</Component>
 		
@@ -529,14 +543,6 @@
 		
 		<!-- End of G36 Improvement Project interactive elements 
 		--------------------------------------------------------
-		-->
-		
-		<!--
-		<Component ID="TT_INOP">
-			<UseTemplate Name="ASOBO_GT_Interaction_Tooltip">
-				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
-			</UseTemplate>			
-		</Component>
 		-->
 		
 	</Behaviors>

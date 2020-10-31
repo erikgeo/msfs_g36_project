@@ -72,13 +72,13 @@
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
-      "size": 4107,
-      "date": 132471784715632815
+      "size": 9503,
+      "date": 132481905465488225
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
-      "size": 5662,
-      "date": 132472275134802222
+      "size": 6223,
+      "date": 132475313470520320
     },
     {
       "path": "ModelBehaviorDefs/G36X/Subtemplates/G36_Subtemplates.xml",
@@ -86,29 +86,34 @@
       "date": 132472278277280580
     },
     {
+      "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/ai.cfg",
+      "size": 805,
+      "date": 132475860222866035
+    },
+    {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/engines.cfg",
-      "size": 9495,
-      "date": 132471784949804116
+      "size": 9494,
+      "date": 132481380283418692
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/flight_model.cfg",
-      "size": 16191,
-      "date": 132473513680818760
+      "size": 16188,
+      "date": 132474130847945480
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/systems.cfg",
-      "size": 11390,
-      "date": 132468746896158813
+      "size": 11703,
+      "date": 132474143107972341
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/Checklist/Bonanza_G36_Checklist.xml",
-      "size": 142608,
-      "date": 132473081644377166
+      "size": 142612,
+      "date": 132474188282117041
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 22088,
-      "date": 132473080060627571
+      "size": 22426,
+      "date": 132478253647736760
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
@@ -117,13 +122,13 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.xml",
-      "size": 20177,
-      "date": 132459261841741645
+      "size": 20195,
+      "date": 132475257777932657
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/WTEngineDisplay.xml",
-      "size": 15874,
-      "date": 132471503360052881
+      "size": 15928,
+      "date": 132475243709843635
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/TEXTURE/BONANZA_COCKPIT_DECALS_02_ALBD.PNG.dds",

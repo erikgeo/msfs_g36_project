@@ -6,11 +6,21 @@
 <Macro Name="DiodesLeak_onlybat1"> @DiodesLeak_base (A:ELECTRICAL MAIN BUS VOLTAGE:1, volts) 24 / + </Macro>
 <Macro Name="DiodesLeak_alt2"> (A:GENERAL ENG MASTER ALTERNATOR:2, bool) if{ @DiodesLeak_base } els{ 0 } </Macro>
 
+<!-- Fuel System / Engine Start macro's -->
+<Macro Name="PumpScalar"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 / * </Macro>
+<Macro Name="PumpedFuelDecayScalar"> (L:XMLVAR_PUMPED_FUEL, gallons) 0 &gt;= if{ 0.00001 } els{ 0 } </Macro>
+<Macro Name="MaxPumpedFuel"> 0.06 </Macro>
+<Macro Name="MaxPumpedFuelStart"> 0.03 </Macro>
+<Macro Name="MinimumEngScore"> (A:AMBIENT TEMPERATURE, kelvin) 4 / </Macro>
+<Macro Name="MaximumEngScoreRough"> (A:AMBIENT TEMPERATURE, kelvin) 2.2 / </Macro>
+<Macro Name="FuelEvaporationFactor"> (A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) (A:AIRSPEED INDICATED, Knots) - 200 / 1 (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 / - * </Macro>
+
 <!-- Smooth indication macro's: The last number can be used to change indication adjustment time (lower is faster) -->
 <Macro Name="IndicateBus2"> (L:XMLVAR_BUS2_VOLT_TARGET, volts) (L:XMLVAR_BUS2_VOLT_INDICATED, volts) - 10 / </Macro>
 <Macro Name="IndicateBus1"> (L:XMLVAR_BUS1_VOLT_TARGET, volts) (L:XMLVAR_BUS1_VOLT_INDICATED, volts) - 10 / </Macro>
 <Macro Name="IndicateLoad2"> (L:XMLVAR_ALT2_LOAD_TARGET, amps) (L:XMLVAR_ALT2_LOAD_INDICATED, amps) - 5 / </Macro>
 <Macro Name="IndicateLoad1"> (L:XMLVAR_ALT1_LOAD_TARGET, amps) (L:XMLVAR_ALT1_LOAD_INDICATED, amps) - 5 / </Macro>
+<Macro Name="IndicateFflow"> (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) (L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) - 12 / </Macro>
 
 
 <!---------------------------------------------- DRAG COMPONENTS ---------------------------------------------->
@@ -22,10 +32,8 @@
 
 
 <!---------------------------------------------- ELECTRICAL SYSTEM ---------------------------------------------->
-<!-- Bus tie logic (Missing current condition that also applies. Not feasible with current elec system) -->
 <Template Name = "Bus_Tie_Logic">
-	<Update Frequency="2">
-	
+	<Update Frequency="2">	
 		(A:PROP RPM:1, rpm) 500 &gt;=
 		if{
 			(A:PROP RPM:1, rpm) 1800 &lt;=
@@ -45,12 +53,11 @@
 			1 (&gt;L:XMLVAR_BUSES_TIED, bool)
 			0 (&gt;L:XMLVAR_ALT2_LOAD_TARGET, amps)
 			0 (&gt;L:XMLVAR_ALT1_LOAD_TARGET, amps)
-		}
-		
+		}		
 	</Update>
 </Template>
 
-<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 -->
+<!-- Custom logic for voltage indications based on POH 7-41 and 7-42 & reference video by @JuiceBox7535 -->
 <Template Name = "Voltage_Indication">
 	<Update Frequency="2">	
 		(L:XMLVAR_BUSES_TIED, bool)
@@ -80,11 +87,127 @@
 	</Update>
 </Template>
 
+
+<!---------------------------------------------- FUEL SYSTEM ---------------------------------------------->
+<Template Name = "Fuel_Pump_Logic">
+	<Update Frequency="6">
+		(A:ENG COMBUSTION:1, bool) !
+		if{
+			(L:XMLVAR_FUEL_Pump1_High_ON) 1 ==
+			if{
+				0.9 17.3 @PumpScalar * + (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+				
+				(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuel &lt;
+				if{
+					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+				}
+			} 
+			(L:XMLVAR_FUEL_Pump1_High_ON) 0 ==
+			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) and
+			if{
+				0.3 2.8 @PumpScalar * + (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+				
+				(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuel &lt;
+				if{
+					(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+				}
+			} 
+			(A:GENERAL ENG FUEL PUMP SWITCH:1, bool) !
+			if{
+				0 (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+				(L:XMLVAR_PUMPED_FUEL, gallons) @PumpedFuelDecayScalar - (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+			}			
+		} els{
+			(A:ENG FUEL FLOW GPH:1, gallons per hour) (&gt;L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour)
+			(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuelStart 0.005 - &lt;
+			if{
+				(L:XMLVAR_PUMPED_FUEL, gallons) (L:XMLVAR_FUEL_FLOW_TARGET, gallons per hour) 21600 / + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)
+			}
+		}
+	</Update>
+</Template>
+
+
+<!---------------------------------------------- ENGINE START PARAMETERS ---------------------------------------------->
+
+<!-- Determine an engine start score, which can be used as threshold value for a good or bad engine start
+Factors:
+	Ambient Temperature: 			(E:AMBIENT TEMPERATURE, celsius)
+	Cylinder Head Temperature: 		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius)
+	Throttle position: 				(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+	Pumped fuel:					(L:XMLVAR_PUMPED_FUEL, gallons)
+	
+	Pumped fuel gives a positive contribution to the score up to 0.03 gallons pumped. Fuel pumped in excess of this amount causes score = 0 until fuel is cleared through the flooded engine start procedure.
+-->
+
+<Template Name = "Engine_Start_Logic">	
+	<Update Frequency="1">
+		<!-- Calculate and update Engine_Condition start score -->		
+		(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuelStart &gt;
+		if{
+			0 (&gt;L:XMLVAR_Engine_Condition)
+			
+			(A:GENERAL ENG STARTER ACTIVE:1, Bool)
+			if{
+				(L:XMLVAR_PUMPED_FUEL, gallons) @PumpScalar 1 - 0.003 * + (&gt;L:XMLVAR_PUMPED_FUEL, gallons)	
+			}
+		} els{
+			(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 30 &lt; if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 1.2 pow } els{ 60 } 1 *
+			(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius) 1.5 * +
+			(A:AMBIENT TEMPERATURE, celsius) 0.5 * +	
+			(L:XMLVAR_PUMPED_FUEL, gallons) @MaxPumpedFuelStart &lt;= if{ (L:XMLVAR_PUMPED_FUEL, gallons) 2500 * } els{ @MaxPumpedFuelStart 2500 * } +
+			(&gt;L:XMLVAR_Engine_Condition)
+		}		
+	</Update>
+	<Update Frequency="1">
+		<!-- Fuel evaporation. Fuel may evaporate if the CHT is high and there is little airflow. This  -->
+		@FuelEvaporationFactor 1 &gt;
+		if{
+			1 (&gt;L:XMLVAR_Fuel_Evaporating, Bool)
+		}	
+		@FuelEvaporationFactor 0.98 &lt;
+		if{
+			0 (&gt;L:XMLVAR_Fuel_Evaporating, Bool)
+		}
+	</Update>
+	<Update Frequency="1">
+		<!-- Open FUEL_VALVE if Engine_Condition is sufficient for a start, close if not to ensure bad start -->
+		(L:XMLVAR_Engine_Condition) @MinimumEngScore &gt;= 
+		(L:XMLVAR_Fuel_Evaporating, Bool) ! and
+		if{ 
+			(A:GENERAL ENG FUEL VALVE:1, Bool) ! if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) } 
+		} 
+		(L:XMLVAR_Engine_Condition) @MinimumEngScore &lt;
+		(L:XMLVAR_Fuel_Evaporating, Bool) or
+		if{
+			(A:GENERAL ENG FUEL VALVE:1, Bool) if{ (&gt;K:TOGGLE_FUEL_VALVE_ENG1) }
+		}		
+	</Update>	
+</Template>
+
+
+<!---------------------------------------------- INDICATIONS ---------------------------------------------->
 <Template Name = "Smooth_Indication">
 	<Update Frequency="24">	
 		(L:XMLVAR_BUS2_VOLT_INDICATED, volts) @IndicateBus2 + (&gt;L:XMLVAR_BUS2_VOLT_INDICATED, volts)
 		(L:XMLVAR_BUS1_VOLT_INDICATED, volts) @IndicateBus1 + (&gt;L:XMLVAR_BUS1_VOLT_INDICATED, volts)
 		(L:XMLVAR_ALT2_LOAD_INDICATED, amps) @IndicateLoad2 + (&gt;L:XMLVAR_ALT2_LOAD_INDICATED, amps)
 		(L:XMLVAR_ALT1_LOAD_INDICATED, amps) @IndicateLoad1 + (&gt;L:XMLVAR_ALT1_LOAD_INDICATED, amps)
+		(L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour) @IndicateFflow + (&gt;L:XMLVAR_FUEL_FLOW_INDICATED, gallons per hour)		
 	</Update>
 </Template>
+
+
+<!--
+<Template Name = "Fuel_Since_Start">
+	<Update Frequency="1">	
+		(A:ENG COMBUSTION:1, bool) !
+		if{
+			0 (&gt;L:XMLVAR_Fuel_Used_Since_Start)
+			(A:FUEL TOTAL QUANTITY:1, gallons) (&gt;L:XMLVAR_Initial_Fuel_Before_Start)
+		} els{
+			(L:XMLVAR_Initial_Fuel_Before_Start) (A:FUEL TOTAL QUANTITY:1, gallons) - (&gt;L:XMLVAR_Fuel_Used_Since_Start)
+		}		
+	</Update>
+</Template>
+-->

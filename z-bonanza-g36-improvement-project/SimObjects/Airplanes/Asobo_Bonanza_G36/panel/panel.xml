@@ -57,7 +57,7 @@
 			<Text>FUEL FLOW HI</Text>
 			<Condition>			
 				<Greater>
-					<Simvar name="ENG FUEL FLOW GPH:1" unit="gph"/>
+					<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gph"/>
 					<Constant>27.4</Constant>
 				</Greater>
 			</Condition>
@@ -645,7 +645,7 @@
 		<Minimum>0</Minimum>
 		<Maximum>30</Maximum>
 		<Value>
-			<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+			<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 		</Value>
 		<ColorZone>
 			<Color>green</Color>

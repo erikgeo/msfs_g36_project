@@ -2330,7 +2330,7 @@
 <!-- Cowl Flaps -->
         <Checkpoint Id="CLIMB_COWL_FLAPS">
           <Clue name="Set the Cowl Flaps as required" />
-          <CheckpointDesc SubjectTT="Cowl Flaps As Requred" ExpectationTT="Set" />
+          <CheckpointDesc SubjectTT="Cowl Flaps As Required" ExpectationTT="Set" />
         </Checkpoint>
 <!-- Airspeed -->
         <Checkpoint Id="CLIMB_100_KIAS">
@@ -2619,7 +2619,7 @@
         <Checkpoint Id="BEFORE_LANDING_COWL_FLAPS">
           <ForceCamera name="Pilot" />
           <Clue name="Set the Cowl Flaps as required" />
-          <CheckpointDesc SubjectTT="Cowl Flaps As Requred" ExpectationTT="Set" />
+          <CheckpointDesc SubjectTT="Cowl Flaps As Required" ExpectationTT="Set" />
         </Checkpoint>
 <!-- Fuel Mixture - Check this -->
         <Checkpoint Id="BEFORE_LANDING_MIXTURE">
@@ -2651,7 +2651,7 @@
 <!-- Landing Lights -->
         <Checkpoint Id="BEFORE_LANDING_LIGHTS">
           <Clue name="Set the Landing Lights as required" />
-          <CheckpointDesc SubjectTT="Landing Lights As Requred" ExpectationTT="Set" />
+          <CheckpointDesc SubjectTT="Landing Lights As Required" ExpectationTT="Set" />
         </Checkpoint>
 <!-- Propeller High RPM	-->
         <Checkpoint Id="BEFORE_LANDING_PROP_HIGH">
@@ -2802,7 +2802,7 @@
 <!-- Landing Lights etc  -->
         <Checkpoint Id="AFTER_LANDING_LIGHTS">
           <Clue name="Set the Landing, Taxi and Strobe Lights as required" />
-          <CheckpointDesc SubjectTT="Landing, Taxi and Strobe Lights As Requred" ExpectationTT="Set" />
+          <CheckpointDesc SubjectTT="Landing, Taxi and Strobe Lights As Required" ExpectationTT="Set" />
         </Checkpoint>
 <!-- Check elevator trim is in neutral position	-->
         <Checkpoint Id="PREFLIGHT_ELEVATOR_TRIM">
