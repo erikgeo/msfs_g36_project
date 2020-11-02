@@ -1118,6 +1118,134 @@
         </Checkpoint>
 <!-- End of ENGINE START CHECKLIST -->
       </Page>
+<!-- START OF FLOODED ENGINE -->
+      <Page SubjectTT="Flooded Engine">
+        <!-- Mixture cut off	-->
+        <Checkpoint Id="ENGINE_START_FLOODED_MIXTURE_OFF">
+          <ForceCamera name="Pedestal"/>
+          <Clue name="Ensure Mixture is set to off"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Cut Off"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="EQUAL">
+                <Val SimVarName="GENERAL ENG MIXTURE LEVER POSITION:1" Units="percent"/>
+                <Val Value="0" />
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="MIXTURE1_SET" EventParam="0"/>
+            <Instrument Id="FUEL_Mixture"/>
+          </Test>
+        </Checkpoint>
+        <!-- Propeller High RPM	-->
+        <Checkpoint Id="ENGINE_START_FLOODED_PROP_HIGH">
+          <ForceCamera name="Pedestal"/>
+          <Clue name="Ensure Prop set to High RPM"/>
+          <CheckpointDesc SubjectTT="Propeller" ExpectationTT="High RPM"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="GREATER_OR_EQUAL">
+                <Val SimVarName="GENERAL ENG PROPELLER LEVER POSITION:1" Units="percent" />
+                <Val Value="99" />
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="AXIS_PROPELLER_SET" />
+            <Instrument Id="ENGINE_Lever_Propeller"/>
+          </Test>
+        </Checkpoint>
+        <!-- Throttle 50	-->
+        <Checkpoint Id="ENGINE_START_FLOODED_THROTTLE_HALF">
+          <ForceCamera name="Pedestal" />
+          <Clue name="Ensure throttle is closed" />
+          <CheckpointDesc SubjectTT="Throttle" ExpectationTT="Half Open" />
+          <Test>
+            <TestValue>
+              <Operator OpType="BETWEEN">
+                <Val SimVarName="GENERAL ENG THROTTLE LEVER POSITION:1" Units="percent" />
+                <Val Value="45" />
+                <Val Value="55" />
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="THROTTLE_SET" EventParam="0" />
+            <Instrument Id="ENGINE_Lever_Throttle" />
+          </Test>
+        </Checkpoint>
+        <!-- Start Engine finally ;-) -->
+        <Checkpoint Id="ENGINE_START_FLOODED_ENGINE_START_START">
+          <ForceCamera name="Switches" />
+          <Clue name="As engine starts set throttle and mixture as appropriate "/>
+          <CheckpointDesc SubjectTT="Magneto/Start Switch" ExpectationTT="Start"/>
+          <Sequence SeqType="Unordered">
+            <Test>
+              <TestValue>
+                <Operator OpType="AND">
+                  <Val SimVarName="RECIP ENG LEFT MAGNETO:1" Units="Boolean"/>
+                  <Val SimVarName="RECIP ENG RIGHT MAGNETO:1" Units="Boolean"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="MAGNETO_START"/>
+              <Instrument Id="ENGINE_Switch_Master"/>
+              <Instrument Id="ENGINE_Switch_Master1"/>
+            </Test>
+            <Test>
+              <TestValue>
+                <Operator optype ="EQUAL">
+                  <Val SimVarName="GENERAL ENG STARTER:1" Units="Boolean"/>
+                  <Val Value="1"/>
+                </Operator>
+              </TestValue>
+              <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="MAGNETO_START"/>
+            </Test>
+          </Sequence>
+        </Checkpoint>
+        <!-- Set RPM to between 1000 and 1200 -->
+        <Checkpoint Id="ENGINE_START_FLOODED_SET_RPM_AGAIN">
+          <ForceCamera name="PFD" />
+          <Clue name="Set the throttle to between 1000 and 1200 RPM" />
+          <CheckpointDesc SubjectTT="Throttle to idle" ExpectationTT="Set" />
+          <Test>
+            <TestValue>
+              <Operator OpType="BETWEEN">
+                <Val SimVarName="GENERAL ENG RPM:1" Units="rpm"/>
+    						<Val Value="900"/>
+    						<Val Value="1000"/>
+              </Operator>
+            </TestValue>
+            <Duration Value="5" Cumulative="False"/>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="THROTTLE_SET" EventParam="2000"/>
+    				<Instrument Id="ENGINE_Lever_Throttle"/>
+          </Test>
+        </Checkpoint>
+        <!-- Mixture full rich	-->
+        <Checkpoint Id="ENGINE_START_FLOODED_SET_MIXTURE_HIGH">
+          <ForceCamera name="Pedestal"/>
+          <Clue name="Ensure Mixture set to Full Rich"/>
+          <CheckpointDesc SubjectTT="Mixture" ExpectationTT="Full Rich"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="EQUAL">
+                <Val SimVarName="GENERAL ENG MIXTURE LEVER POSITION:1" Units="percent"/>
+                <Val Value="100" />
+              </Operator>
+            </TestValue>
+            <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="MIXTURE1_SET" EventParam="16383"/>
+            <Instrument Id="FUEL_Mixture"/>
+          </Test>
+        </Checkpoint>
+        <!-- Checklist Complete -->
+        <Checkpoint Id="ENGINE_START_FLOODED_COMPLETE">
+          <Clue name="Before Engine Start Checklist Completed"/>
+          <CheckpointDesc SubjectTT="Flooded Engine Checklist" ExpectationTT="Complete"/>
+          <Test>
+            <TestValue>
+              <Operator OpType="EQUAL">
+                <Val SimVarName="ELECTRICAL MASTER BATTERY:1" Units="Bool" />
+                <Val Value="1"/>
+              </Operator>
+            </TestValue>
+          </Test>
+        </Checkpoint>
+      </Page>
+      <!-- End OF FLOODED ENGINE -->
     </Step>
     <Step ChecklistStepId="PREFLIGHT_TAXI_OUT">
       <Page SubjectTT="Before Taxi">
