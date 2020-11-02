@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "de-DE",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Am Ende des Zweiten Weltkriegs brachte die Beech Aircraft Company die erste Beechcraft Bonanza auf den nachkriegszeitlichen US-amerikanischen Markt für die zivile Luftfahrt. Zu einer Zeit, als die meisten Kleinflugzeuge noch immer aus Holz und Gewebe hergestellt wurden, war die vollständig aus Metall bestehende Model 35 Bonanza ein relativ schneller Tiefdecker für eine Person, der wie ein Kriegsflugzeug konzipiert worden war – mit einem leicht zu handhabenden, horizontal entgegengesetzten Sechszylinder-Motor, einer schnittig designten Form, einem einziehbaren Fahrgestell und einer Niedrigflügel-Konfiguration.<\/br><\/br>Seit dem Erscheinen des ersten Prototyps Model 35 in 1945 wurden bis zum Erscheinen der jüngsten G36 mehr als 18.000 Bonanzas gefertigt. Auch wenn dieses Flugzeug nicht den Rekord für das am meisten produzierte Kleinflugzeug aller Zeiten hält, blickt das Zugpferd von Beechcraft auf eine längere Entwicklungsgeschichte als jedes andere Flugzeug zurück.<\/br><\/br>Als das G36 2006 Teil des Familienstammbaums wurde, führte der Sechssitzer mit einem Triebwerk ein Erbe fort, das für seine verlässliche Leistung, seine Hochbelastungskonstruktion sowie für sein ausgewöhnliches Handling und Kontrollgefühl bekannt war – gleichwohl hat auch dieses Modell vom Propellerspinner bis zum Heck von Dekaden der Produktion und konstanten Verbesserung profitiert.<\/br><\/br>Am auffälligsten ist hierbei ein überarbeitetes Avionik-Paket der G36 im Vergleich zum Vorgänger, der A36, das sich in einer integrierten Flachbildschirm-Avionik in Form des Garmin G1000 NXi niederschlägt, was dazu führt, dass es noch nie so einfach war, das Flugdeck zu verwalten. Hinzu kommt ein verbesserter Innenraum mit jeder Menge Komfort-Upgrades. Außerdem bietet die G36 Bonanza BizJet-Level, was Passform und Verarbeitung in einer robusten Form anbelangt – eine mächtige Kombination und ein Zeugnis der kontinuierlichen Attraktivität dieser Serie.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "pl-PL",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Pod koniec II Wojny Światowej firma Beech Aircraft Company wprowadziła na rynek samolotów cywilnych pierwszy model z serii Beechcraft Bonanza. W czasach gdy większość samolotów lekkich wciąż była produkowana z drewna i płótna lotniczego, zbudowany w całości z metalu Model 35 Bonanza był stosunkowo szybkim dolnopłatem inspirowanym rozwiązaniami stosowanymi w myśliwcach wojskowych. Wyposażony był w prosty w obsłudze silnik o sześciu przeciwległych cylindrach i charakteryzował się zawadiacko aerodynamicznym kształtem, chowanym podwoziem oraz płatem nośnym umocowanym u dołu kadłuba.<\/br><\/br>Od momentu premiery pierwszego prototypu Modelu 35 w 1945 roku aż do wprowadzenia na rynek najnowszego modelu G36 zbudowano ponad 18 000 egzemplarzy tych maszyn. Nie jest to może rekord w zakresie liczby wyprodukowanych samolotów lekkich, ale modele Beechcraft znajdują się w ciągłej produkcji dłużej niż jakikolwiek inny samolot w historii.<\/br><\/br>W 2006 roku do rodziny dołączył sześcioosobowy model G36 z jednym silnikiem, kontynuujący tradycję maszyn projektowanych z myślą o znakomitych osiągach, solidnej konstrukcji oraz wyśmienitym i precyzyjnym sterowaniu. Od nosa po sam ogon, maszyna ta została zaprojektowana w oparciu o lata doświadczeń w zakresie produkcji i opracowywania różnorakich usprawnień.<\/br><\/br>Do jej najważniejszych zalet należy cały zestaw elementów technologicznych ulepszonych względem jej poprzednika – modelu A36. Ze zintegrowanym, płaskim panelem układu awioniki Garmin G1000 NXi zarządzanie kabiną załogi jest tak proste, jak jeszcze nigdy wcześniej. Do tego ulepszone wnętrze z całą gamą udogodnień sprawia, że model G36 Bonanza to znakomite połączenie wygody i elementów wykończeniowych typowych dla samolotów biznesowych z wytrzymałą formą użytkową – prawdziwe świadectwo atrakcyjności całej marki.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}

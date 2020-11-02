@@ -1,0 +1,112 @@
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+/* FONT CHANGES */
+.display {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.text-abnormal {
+  color: #ff8700 !important;
+}
+
+a.text-abnormal:hover, a.text-abnormal:focus {
+  color: #cc6c00 !important;
+}
+
+.item-header {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.text-info {
+  font-size: 1.1rem;
+}
+
+.active {
+  border-bottom: 2px solid #dc3545;
+}
+
+/* IMAGES */
+.beech-logo {
+  max-height: 180px;
+}
+
+.tab {
+  position:absolute;
+  bottom:0;
+  left: 0;
+  margin-left: 15px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 7.2;
+  width: 250px;
+  text-align: center;
+  height: 110px;
+  border-bottom: 40px solid #dc3545;
+  border-right: 30px solid transparent;
+}
+
+.tabs {
+  position:absolute;
+  bottom:0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.tab-item {
+  display: block;
+  padding: .5rem 1rem;
+  font-size: 0.8rem;
+  margin-right: 15px;
+}
+
+.tab-item-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.b-3 {
+  border-width:3px !important;
+}
+
+.anchor-hack {
+  padding-top: 70px;
+  margin-top: -70px!important;
+}
+
+.anchor-hack-section {
+  padding-top: 25px;
+  margin-top: -25px;
+}
+
+/*Sticky */
+#sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  background: #e9ecef;
+  top: 72px;
+  margin-left: 15px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  color: #fff;
+  float: left;
+}
+
+/* Tables */
+
+.td-list {
+  text-align:center;
+  vertical-align:middle!important;
+}
