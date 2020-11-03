@@ -3,6 +3,15 @@ body {
 }
 
 /* FONT CHANGES */
+hr {
+  border-top: 1px solid #dc3545;
+}
+
+dd {
+  border-bottom: 1px dashed #b8b8b8;
+}
+
+
 .display {
   font-size: 2rem;
   font-weight: 300;
@@ -35,6 +44,11 @@ a.text-abnormal:hover, a.text-abnormal:focus {
   max-height: 180px;
 }
 
+.header-over-carousel {
+  position: relative;
+  z-index: 10!important;
+}
+
 .tab {
   position:absolute;
   bottom:0;
@@ -54,7 +68,7 @@ a.text-abnormal:hover, a.text-abnormal:focus {
 
 .tabs {
   position:absolute;
-  bottom:0;
+  bottom:2px;
   right: 0;
   display: flex;
   flex-wrap: wrap;
