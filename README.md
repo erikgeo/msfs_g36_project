@@ -1,11 +1,11 @@
-# MSFS G36 Project version 0.6
+# MSFS G36 Project version 0.62
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6
+Current version: 0.62
 
 This updates adds an all-new engine start simulation to the G36, a working electric fuel pump, more activated and functional switches, updated flight dynamics, system improvements and better lighting effects.
 
