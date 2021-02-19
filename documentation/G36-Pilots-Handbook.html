@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
+    <meta name="description" content="G36 Docs">
+    <meta name="author" content="Matt Barraud (CaptMatto)">
     <title>G36 Bonanza Improvement Project - Documentation</title>
     <!-- Bootstrap & Fontawesome core CSS & JS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -22,95 +21,323 @@
     <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
-
   </head>
   <body data-spy="scroll" data-target="#toc">
   <header>
-
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/1.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/3.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/4.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/5.png" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <div class="header-over-carousel">
+        <div class="tab">
+          Bonanza G36
+        </div>
+        <div class="">
+          <ul class="tabs">
+            <li class="tab-item bg-dark text-light">
+            <i class="fal fa-route fa-2x my-2"></i><br />
+            Maximum Range<br />
+            <span class="tab-item-number">920nm</span>
+            </li>
+            <li class="tab-item bg-dark text-light">
+            <i class="fal fa-tachometer-alt-fast fa-2x my-2"></i><br />
+            Maximum Speed<br />
+            <span class="tab-item-number">176ktas</span>
+            </li>
+            <li class="tab-item bg-dark text-light">
+            <i class="fal fa-plane-departure fa-2x my-2"></i><br />
+            Service Ceiling<br />
+            <span class="tab-item-number">18,500ft</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
-
 <main role="main">
-  <section id="header" style="position:relative" class="jumbotron mb-0 text-center border-bottom b-3 border-danger rounded-0">
+  <nav id="toc" class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#welcome">Take Flight</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#general">General</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#limitations">Limitations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-danger" href="#emergencies">Emergencies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#abnormals">Abnormals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#normals">Normals</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  <section id="welcome" class="border-bottom border-bottom b-3 border-danger rounded-0 anchor-hack-section">
     <div class="container">
-      <img src="img/Beechcraft_logo.svg.png" class="img-fluid beech-logo" height="180"/>
-      <h1 class="mt-3"><b>Model G36 Bonanza</b></h1>
-      <p class="lead"><b>Pilot's Operating Handbook<br />and<br />Approved Airplane Flight Manual<br /></b><span class="text-danger">Microsoft Flight Simulator use only</span></p>
-      <img src="img/bonanza_flying.jpg" alt="..." class="img-thumbnail">
-      <p class="lead text-justify mt-3">
-        This pilots operating handbook is designed for use with the Bonanza G36 Improvement Project mod for Microsoft Flight Simulator. The modificatiom mainly focuses on
-        flight performance fixes, checklists and tweaks to the base aircraft. This was made possible with the help of the community consisting of both enthusiasts and G/A36 pilots.
-      </p>
-      <p class="lead text-justify mt-3">
-        Checklists are abridged from the real aircraft POH as some systems are not modelled in sim. We have developed printable checklists and documents to accompany this manual - these are identified with the <i class="fad fa-file-pdf"></i> icon
-      </p>
-      <p class="lead text-justify mt-3">
-        You can download the latest version of this mod at our Github repository, <a target="_blank" href="https://github.com/TheFrett/msfs_g36_project">https://github.com/TheFrett/msfs_g36_project</a> or can join our
-        community and discuss the mod on the official MSFS forum <a target="_blank" href="https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094">https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094</a>.
-      </p>
-      <p class="lead text-justify">
-        Thanks to you all!
-      </p>
-      <p class="lead text-justify">
-        The G36 Mod Team<br />
-        <span class="text-secondary font-italic"><small>FrettFS, CaptMatto, Coppersens, Uwajimaya, Dciskey, Matchrocket, JuiceBox7535, Jonasbeaver, Exp232 & nickc95</small></span>
-      </p>
+      <div class="row mt-5">
+        <div class="col">
+          <div class="display mb-3">
+            BUILT FOR ADVENTURE
+          </div>
+          <p>
+            The Bonanza® G36 is the aspiration of any pilot who desires unmatched craftsmanship. This piston-engine powerhouse is
+            designed and built to be certified in the rugged utility category. With first-class technology and comfort and world-class quality,
+            your Bonanza G36 is ready for any adventure.
+          </p>
+          <p>
+            Thanks for downloading the Beechcraft Bonanza G36 Improvement Mod. This improvement project has been crafted for the Microsoft Flight Simulator default G36 Bonanza.
+            At this moment, the modificatiom mainly focuses on flight performance fixes, checklists and improved documentation to make the G36 as true to life as we can get it.
+            This was made possible with the help of the community consisting of both enthusiasts and G/A36 pilots.
+          </p>
+          <p>
+            You can download the latest version of this mod at our Github repository, <a target="_blank" href="https://github.com/TheFrett/msfs_g36_project">https://github.com/TheFrett/msfs_g36_project</a> and please do
+            join our community and discuss the mod on the official MSFS forum <a target="_blank" href="https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094">https://forums.flightsimulator.com/t/g36-fixes-and-improvements-update-12-09/216094</a>.
+          </p>
+          <p>
+            Thanks to you all!
+          </p>
+          <p>
+            The G36 Mod Team<br />
+            <span class="text-secondary font-italic"><small>FrettFS, CaptMatto, Coppersens, Uwajimaya, Dciskey, Matchrocket, JuiceBox7535, Jonasbeaver, Exp232 & nickc95</small></span>
+          </p>
+          <p>
 
-    </div>
-    <div class="tab">
-      Bonanza G36
-    </div>
-    <div class="">
-      <ul class="tabs">
-        <li class="tab-item bg-dark text-light">
-        <i class="fal fa-route fa-2x my-2"></i><br />
-        Maximum Range<br />
-        <span class="tab-item-number">920nm</span>
-        </li>
-        <li class="tab-item bg-dark text-light">
-        <i class="fal fa-tachometer-alt-fast fa-2x my-2"></i><br />
-        Maximum Speed<br />
-        <span class="tab-item-number">176ktas</span>
-        </li>
-        <li class="tab-item bg-dark text-light">
-        <i class="fal fa-plane-departure fa-2x my-2"></i><br />
-        Service Ceiling<br />
-        <span class="tab-item-number">18,500ft</span>
-        </li>
-      </ul>
+          </p>
+          <hr />
+          <p class="mt-5 mb-0 item-header  anchor-hack" id="features">
+            <i class="fas fa-angle-right text-danger mr-2"></i> <b>Features</b>
+          </p>
+          <p>
+            Current Version <span class="badge badge-danger">0.6</span><br />
+          </p>
+          <p>
+            This update adds an all-new engine start simulation to the G36, a working electric fuel pump, more activated and functional switches, updated flight dynamics, system improvements and better lighting effects.
+          </p>
+          <p>
+
+          </p>
+          <p>
+            <b><span class="text-info">Flight dynamics/performance</span></b>
+            <ul>
+              <li>
+                Adjusted climb and cruise performance to match the Bonanza G36 POH charts.
+              </li>
+              <li>
+                Adjusted flap and gear drag
+              </li>
+              <li>
+                Slightly reduced pitch effect due to elevator deflection + propwash
+              </li>
+              <li>
+                Slightly increased nosewheel steering angle
+              </li>
+              <li>
+                Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
+              </li>
+              <li>
+                Decreased yaw sensitivity by lowering deflection rate as a function of speed
+              </li>
+              <li>
+                Increased overall stability: less ‘twitchy’ feeling
+              </li>
+            </ul>
+            <b><span class="text-info">Engine & Fuel system</span></b>
+            <ul>
+              <li>
+                Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
+              </li>
+              <li>
+                Simulation of the electric fuel pump
+              </li>
+              <li>
+                More advanced simulation of engine startup:
+              </li>
+              <ul>
+                <li>
+                  Cold starts: correct use of the fuel pump, throttle and mixture required depending on engine and ambient temperature
+                </li>
+                <li>
+                  Under some conditions, idling the engine too soon after start may cause it to quit.
+                </li>
+                <li>
+                  Flooded engine: pumping too much fuel to the engine may cause it to ignite slower or not at all.
+                </li>
+                <li>
+                  Flooded engine start procedure (mixture low/cut, throttle halfway) may resolve this.
+                </li>
+                <li>
+                  A hot engine running idle with little airflow may quit because the fuel evaporates. (Hotstarts WIP)
+                </li>
+              </ul>
+            </ul>
+            <b><span class="text-info">Systems</span></b>
+            <ul>
+              <li>
+                Added new working systems and switches:
+              </li>
+              <ul>
+                <li>
+                  Airco (has a negative effect on engine performance, you will see a few kts lower cruise speed)
+                </li>
+                <li>
+                  Airco and ventilator switches are functioning and part of the electrical system
+                </li>
+                <li>
+                  Annunciator test
+                </li>
+              </ul>
+              <li>
+                Electrical system overhaul:
+              </li>
+              <ul>
+                <li>
+                  Completely revised electrical buses: all individual systems hooked up to the correct bus
+                </li>
+                <li>
+                  Bus tie logic added
+                </li>
+                <li>
+                  Correct voltage indications of BUS2 due to reverse current blocking diodes
+                </li>
+                <li>
+                  Correct alternator loads
+                </li>
+                <li>
+                  Made all indications smooth, rather than instant jumps to a new value
+                </li>
+              </ul>
+              <li>
+                Autopilot tweaks
+              </li>
+                <ul>
+                  <li>
+                    Fixed holding the wrong altitude at non-standard atmospheric pressures
+                  </li>
+                  <li>
+                    Max pitch and bank angles adjusted for smoother AP behaviour
+                  </li>
+                  <li>
+                    Added maximum and minimum IAS_ref speeds for FLC mode
+                  </li>
+                  <li>
+                    Adjusted autopilot PIDs
+                  </li>
+                </ul>
+              <li>
+                Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
+              </li>
+              <li>
+                Completely redone G1000 annunciators: all annunciators of the real G36 were implemented (except for door open warnings)
+              </li>
+              <li>
+                Corrected fuel gauge scale
+              </li>
+            </ul>
+            <b><span class="text-info">Textures & Effects</span></b>
+            <ul>
+              <li>
+                Including the latest version of Uwajimaya’s lighting mod
+              </li>
+              <li>
+                Corrected decals (e.g. shoulder hardness -> harness)
+              </li>
+            </ul>
+            <b><span class="text-info">Checklists</span></b>
+            <ul>
+              <li>
+                Interactive checklists for every stage of your flight that follow the POH
+              </li>
+            </ul>
+          </p>
+          <hr />
+          <p class="mt-5 mb-0 item-header  anchor-hack" id="install">
+            <i class="fas fa-angle-right text-danger mr-2"></i> <b>How to Install</b>
+          </p>
+          <p>
+            <ol>
+              <li>
+                Download and install the latest version of the Working Title G1000 mod
+              </li>
+              <li>
+                Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
+              </li>
+              <li>
+                <span class="badge badge-danger">IMPORTANT</span> make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have ‘z-’ at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
+              </li>
+            </ol>
+          </p>
+          <p>
+            Your Mod Folder should look like this:
+          </p>
+          <img class="shadow-sm mb-3" src="img/loadorder.png" />
+          <hr />
+          <p class="mt-5 mb-0 item-header  anchor-hack" id="faq">
+            <i class="fas fa-angle-right text-danger mr-2 mb-3"></i> <b>FAQ's</b>
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: I am not seeing the engine pages in the G1000?</span><br />
+            A: Make sure to download the Working Title G1000 mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: The manifold pressure shows ‘NaN’?</span><br />
+            A: Make sure to download the Working Title G1000 mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: The mod isn’t working?</span><br />
+            A: First make sure the load order is correct as per installation instructions. If the problem persists, it is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: The engine won’t start!</span><br />
+            A: Since v0.6, the engine start is modelled. Fuel must be pumped to the engines, cold engines need to warm up and overuse of the fuel pump and throttle prior to engine start may cause it to flood. If you correctly follow the start procedures, the engine should almost always start on the first try, unless under extreme conditions. If your engine is flooded, setting the mixture low (~20%) and the throttle about halfway to clear the excess amount of fuel efficiently. Note in reality the mixture is cut for this procedure, but the sim is hardcoded not to start with the mixture at 0%
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: My engine quits after landing!</span><br />
+            A: Fuel may evaporate in a hot engine at low speeds and idle throttle. This could occur on a very hot day when coming to a stop after landing. Use of the cowl flaps on approach and landing is advised under these conditions.
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: My engine quits right away when starting on the runway!</span><br />
+            A: This mod is designed for cold and dark starts. The sim initializes the CHT as equal to the ambient temperature. Furthermore, the amount of fuel pumped to the engine initializes as 0. Hence, the engine start/run conditions are not met and the engine will shut down. Follow the start-up procedure to restart the engine.
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: The annunciator test button is stuck?!</span><br />
+            A: This happens when you left click outside the clickbox and then hover your mouse over the button and release. Do the same thing to resolve the problem.
+          </p>
+          <p>
+            <span class="font-weight-bold">Q: The annunciator test button is stuck?!</span><br />
+            A: Unfortunately there is something wrong with the animation. We have to wait for Asobo to fix this, but since this button was (inop.) by default don’t hold your breath. If you click it, it does actually work. You can see it increases the electrical BUS1 load slightly.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
-    <nav id="toc" class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a data-id="section-1" class="nav-link text-white" href="#general">1 / General</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#limitations">2 / Limitations</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-danger" href="#emergencies">3 / Emergencies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#abnormals">3a / Abnormals</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#normals">4 / Normals</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
   <section id="general" class="border-bottom border-bottom b-3 border-danger rounded-0 anchor-hack-section">
     <div class="py-5 bg-light">
       <div id="sticky" class="shadow-sm border d-none d-lg-block">
         <p class="text-secondary mb-0">
-          <b>SECTION 1 - GENERAL</b>
+          <b>POH SECTION 1 - GENERAL</b>
         </p>
         <ul class="list-unstyled mt-0">
-          <li>
-            <a href="#intro">Introduction & Installation of the mod</a>
-          </li>
           <li>
             <a href="#3view">Airplane Plan</a>
           </li>
@@ -163,174 +390,6 @@
             <div class="display mb-3">
               SECTION 1 - GENERAL
             </div>
-            <p class="mt-5 mb-0 item-header anchor-hack" id="intro">
-              <i class="fas fa-angle-right text-danger mr-2"></i><b>Introduction</b>
-            </p>
-            <p>
-              Thanks for downloading the Beechcraft Bonanza G36 Improvement Mod. This improvement project is for the MSFS default G36. At this moment, the modificatiom mainly
-              focuses on flight performance fixes, checklists and improved documentation to make the G36 as true to life as we can get it. This was made possible with the help of the
-              community consisting of both enthusiasts and G/A36 (ex-)pilots.
-            </p>
-            <p>
-              Current features of the mod are:<br />
-              <span class="badge badge-info">Mod Version 0.5</span>
-            </p>
-            <p>
-              <b><span class="text-info">Flight dynamics/performance</span></b>
-              <ul>
-                <li>
-                  Adjusted climb and cruise performance to match the Bonanza G36 POH charts.
-                </li>
-                <li>
-                  Adjusted flap and gear drag
-                </li>
-                <li>
-                  Slightly reduced pitch effect due to elevator deflection + propwash
-                </li>
-                <li>
-                  Slightly increased nosewheel steering angle
-                </li>
-                <li>
-                  Added drag due to cowl flap. This causes a 3-4 kts cruise speed loss.
-                </li>
-                <li>
-                  Decreased yaw sensitivity by lowering deflection rate as a function of speed
-                </li>
-              </ul>
-              <b><span class="text-info">Engine</span></b>
-              <ul>
-                <li>
-                  Completely overhauled engine parameters: realistic fuel flow, mixture-EGT interaction, engine performance at all pressure altitudes.
-                </li>
-                <li>
-                  Fixed erroneous engine efficiency increase around 2000 rpm
-                </li>
-                <li>
-                  Adjusted idle RPM to ~600-700. This prevents the unexpected shutdown of a warm engine when idle
-                </li>
-              </ul>
-              <b><span class="text-info">Systems</span></b>
-              <ul>
-                <li>
-                  Electrical system overhaul:
-                </li>
-                  <ul>
-                    <li>
-                      Completely revised electrical buses: all individual systems hooked up to the correct bus
-                    </li>
-                    <li>
-                      Bus tie logic added
-                    </li>
-                    <li>
-                      Correct voltage indications of BUS2 due to reverse current blocking diodes
-                    </li>
-                    <li>
-                      Corrected alternator load indications
-                    </li>
-                    <li>
-                      Made all indications smooth, rather than instant jumps to a new value
-                    </li>
-                  </ul>
-                <li>
-                  Autopilot tweaks
-                </li>
-                  <ul>
-                    <li>
-                      Fixed holding the wrong altitude at non-standard atmospheric pressures
-                    </li>
-                    <li>
-                      Max pitch and bank angles adjusted for smoother AP behaviour
-                    </li>
-                    <li>
-                      Added maximum and minimum IAS_ref speeds for FLC mode
-                    </li>
-                  </ul>
-                <li>
-                  Integration with the Working Title G1000 mod, with customized DLFT, LEAN and SYSTEM pages.
-                </li>
-                <li>
-                  Replaced/removed default annunciators
-                </li>
-                  <ul>
-                    <li>
-                      Removed PITOT HEAT caution
-                    </li>
-                    <li>
-                      Replaced LOW VOLT caution by BUS1 VOLT LO and BUS2 VOLT LO
-                    </li>
-                  </ul>
-                <li>
-                  Added many new annunciators based on the G36 POH:
-                </li>
-                  <ul>
-                    <li>
-                      BUSES TIED (Advisory)
-                    </li>
-                    <li>
-                      FUEL QTY LOW (Warning/Caution)
-                    </li>
-                    <li>
-                      FUEL FLOW HI (Warning)
-                    </li>
-                    <li>
-                      OIL PRES HI/LO (Warning/Caution)
-                    </li>
-                    <li>
-                      OIL TEMP HI (Warning)
-                    </li>
-                    <li>
-                      CHT HI (Warning)
-                    </li>
-                    <li>
-                      ALT INOP (Alt 1, 2 or both, Warning)
-                    </li>
-                    <li>
-                      BUS1/2 VOLT HI (Caution)
-                    </li>
-                    <li>
-                      ALT 1/2 LOAD (Caution)
-                    </li>
-                  </ul>
-                <li>
-                  Corrected fuel gauge indications
-                </li>
-                <li>
-                  Airco switch activated (Other switches WIP)
-                </li>
-              </ul>
-              <b><span class="text-info">Textures & Effects</span></b>
-              <ul>
-                <li>
-                  Fixed taxi, landing and strobe lights for better visibility from cockpit views
-                </li>
-                <li>
-                  Corrected decals (e.g. shoulder hardness -> harness)
-                </li>
-              </ul>
-              <b><span class="text-info">Checklists</span></b>
-              <ul>
-                <li>
-                  New interactive checklists for every stage of your flight that follow the POH
-                </li>
-              </ul>
-            </p>
-            <p class="mt-4 mb-0 item-header">
-              <b>How to Install</b>
-            </p>
-            <p>
-              <ol>
-                <li>
-                  Unzip and put the folder 'bonanza-g36-improvement-project' in your MSFS Community folder
-                </li>
-                <li>
-                  Download and install the Working Title G1000 v0.3 mod (...)
-                </li>
-                <li>
-                  <span class="badge badge-danger">IMPORTANT</span> Make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order.
-                </li>
-              </ol>
-            </p>
-            <hr />
             <p class="mt-5 mb-0 item-header  anchor-hack" id="3view">
               <i class="fas fa-angle-right text-danger mr-2"></i> <b>Aircraft Plan</b>
             </p>
@@ -389,6 +448,7 @@
               <dd class="col-sm-4">Service Ceiling</dd>
               <dd class="col-sm-8">18,500 ft</dd>
             </dl>
+            <hr />
             <p class="mt-5 mb-0 item-header  anchor-hack" id="symbols">
               <i class="fas fa-angle-right text-danger mr-2"></i> <b>Symbols, Abbreviations and Terminology</b>
             </p>
@@ -905,7 +965,7 @@
               The airspeed pointer will turn red when the airspeed or airspeed trend vector reaches 205 KIAS.
             </p>
             <p>
-              An airspeed trend vector is displayed on the right side of the color-coded speed range strip during accelerations and decelerations.
+              An airspeed trend vector is displayed on the right side of the color-coded speed range strip during accelerations and Declarations.
               The end of the trend vector indicates the airspeed that will be reached in 6 seconds if the current rate of acceleration is maintained.
               The trend vector is not displayed if the airspeed is constant.
             </p>
@@ -1220,7 +1280,7 @@
                     Stall (Except Whip)
                   </td>
                   <td colspan="2" class="td-list">
-                    Use Slow Deceleration
+                    Use Slow Declaration
                   </td>
                 </tr>
               </tbody>
@@ -1371,6 +1431,18 @@
           </li>
           <li>
             <a href="#emergencies_Alt12failure">Alternator 1 & 2 Failure [ALT 1-2 INOP]</a>
+          </li>
+          <li>
+            <a href="#emergencies_Alt1failure">Alternator 1 Failure [ALT 1 INOP]</a>
+          </li>
+          <li>
+            <a href="#emergencies_Alt1failure">Alternator 2 Failure [ALT 2 INOP]</a>
+          </li>
+          <li>
+            <a href="#emergencies_Alt2andBusfailure">Alternator 2 & Bus Tie Failure [ALT 2 INOP]</a>
+          </li>
+          <li>
+            <a href="#emergencies_electricalLoadShed">Electrical Load Shedding</a>
           </li>
         </ul>
       </div>
@@ -1660,7 +1732,7 @@
               <dd class="col-sm-4 text-right">85 KIAS Minimum</dd>
               <dd class="col-sm-8">Alternator 1 & 2</dd>
               <dd class="col-sm-4 text-right">Off</dd>
-              <dd class="col-sm-8">When laning is assured and PFD is not required:</dd>
+              <dd class="col-sm-8 font-weight-bold">When laning is assured and PFD is not required:</dd>
               <dd class="col-sm-4 text-right"></dd>
               <dd class="col-sm-8">Battery 1 & 2</dd>
               <dd class="col-sm-4 text-right">Off</dd>
@@ -1681,7 +1753,7 @@
               throttle is in a position corresponding to approximately 17 in. Hg manifold pressure
               or above.
             </p>
-            <p class="mt-3">
+            <p class="mt-3 font-weight-bold">
               When landing is assured:
             </p>
             <dl class="row mt-3 mb-2">
@@ -1714,12 +1786,12 @@
               <dd class="col-sm-8">If Alt Load 1 & 2 indicate a load, a false warning is indicated.</dd>
               <dd class="col-sm-4 text-right"></dd>
               <dd class="col-sm-12">Continue to use Alternator 1 & 2.</dd>
-              <dd class="col-sm-12">If Alt Load 1 & 2 show no load and the Bus Volts 1 & 2 gradually drop below 25 volts, alternator 1 & 2 are inoperative. Attempt to reset the alternators as follows:</dd>
+              <dd class="col-sm-12">If Alt Load 1 & 2 show no load and the Bus Volts 1 & 2 gradually drop below 25 volts, alternator 1 & 2 are inoperative. <br /><span class="font-weight-bold">Attempt to reset the alternators as follows:</span></dd>
               <dd class="col-sm-8">Alternator 1 & 2</dd>
               <dd class="col-sm-4 text-right">Off Momentarily, Then On</dd>
               <dd class="col-sm-12">If [ALT 1-2 INOP] Extinguishes</dd>
               <dd class="col-sm-12">Continue to use Alternator 1 & 2.</dd>
-              <dd class="col-sm-12">If Aft Load 1 & 2 continue to show no load and Bus Volts 1 & 2 continue to indicate below 25 volts:</dd>
+              <dd class="col-sm-12 font-weight-bold">If Aft Load 1 & 2 continue to show no load and Bus Volts 1 & 2 continue to indicate below 25 volts:</dd>
               <dd class="col-sm-8">Alternator 1 & 2 Switches</dd>
               <dd class="col-sm-4 text-right">Off</dd>
               <dd class="col-sm-8">Autopilot and FLight Director</dd>
@@ -1739,6 +1811,155 @@
                 </li>
               </ol>
             </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_Alt1failure">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Alternator 1 Failure [ALT 1 INOP]</b>
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Alternator 1 Switch</dd>
+              <dd class="col-sm-4 text-right">Verfiy On</dd>
+              <dd class="col-sm-8">Alt Load 1</dd>
+              <dd class="col-sm-4 text-right">Check</dd>
+              <dd class="col-sm-9">Bus Volts 1</dd>
+              <dd class="col-sm-3 text-right">Check</dd>
+              <dd class="col-sm-8">If Alt Load 1 indicate a load, a false warning is indicated.</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-12">Continue to use Alternator 1</dd>
+              <dd class="col-sm-12">If Alt Load 1 shows no load and Bus 1 gradually drops below 25 volts, alternator 1 is inoperative. <br /><span class="font-weight-bold">Attempt to reset the alternators as follows:</span></dd>
+              <dd class="col-sm-8">Alternator 1</dd>
+              <dd class="col-sm-4 text-right">Off Momentarily, Then On</dd>
+              <dd class="col-sm-12">If [ALT 1 INOP] Extinguishes</dd>
+              <dd class="col-sm-12">Continue to use Alternator 1</dd>
+              <dd class="col-sm-12 font-weight-bold">If Alt Load 1 & 2 continue to show no load and Bus Volts 1 & 2 continue to indicate below 25 volts:</dd>
+              <dd class="col-sm-8">Alternator 1 Switch</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Bus 1</dd>
+              <dd class="col-sm-4 text-right">Load Shed as Required*</dd>
+              <dd class="col-sm-8">Land</dd>
+              <dd class="col-sm-4 text-right">As soon as possible</dd>
+            </dl>
+            <p>
+              *See ELECTRICAL LOAD SHEDDING procedures:
+              <ol>
+                <li>
+                  <a href="#emergencies_loadShed">ELECTRICAL LOAD SHEDDING</a>
+                </li>
+              </ol>
+            </p>
+            <p>
+              <span class="badge badge-warning">CAUTION</span> The landing gear may have to be extended manually at
+              the destination depending on the condition of Battery 1.
+            </p>
+            <p>
+              See following procedures in this section, as required:
+              <ol>
+                <li>
+                  <a href="#abnormal_manualGear">LANDING GEAR MANUAL EXTENSION</a>
+                </li>
+              </ol>
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_Alt2failure">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Alternator 2 Failure [ALT 2 INOP] & [BUSES TIED]</b>
+            </p>
+            <p class="mt-3">
+              <span class="badge badge-warning">CAUTION</span> During ground operations, a failure of alternator
+              2 can only be detected at RPMs above 2000.
+            </p>
+            <p>
+              <span class="badge badge-info">NOTE</span> It is normal for the [BUSES TIED] to be displayed
+              when engine RPM is < 2000 RPM, such as during ground operations and during landings.
+              An inoperative Alternator 2 will allow the bus tie relay to close. Battery 2 and BUS 2
+              will receive power from Bus 1.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Alternator 2 Switch</dd>
+              <dd class="col-sm-4 text-right">Verfiy On</dd>
+              <dd class="col-sm-8">Alt Load 2</dd>
+              <dd class="col-sm-4 text-right">Check</dd>
+              <dd class="col-sm-9">Bus Volts 2</dd>
+              <dd class="col-sm-3 text-right">Check</dd>
+              <dd class="col-sm-8">If Alt Load 2 indicate a load and Bus Volts 2 is 27.5 to 29.0 volts, a false caution alert is indicated.</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-12">Continue to use Alternator 2</dd>
+              <dd class="col-sm-12">If Alt Load 2 shows no load and Bus Volts 2 gradually drops to approximately 2 volts below Bus Volts 1, Alternator 2 is inoperative.<br /><span class="font-weight-bold">Attempt to reset the alternators as follows:</span></dd>
+              <dd class="col-sm-8">Alternator 2</dd>
+              <dd class="col-sm-4 text-right">Off Momentarily, Then On</dd>
+              <dd class="col-sm-12">If [ALT 2 INOP] & [BUSES TIED] Extinguishes</dd>
+              <dd class="col-sm-12">Continue to use Alternator 2</dd>
+              <dd class="col-sm-12 font-weight-bold">If Alt Load 2 continue to show no load and the [ALT 2 INOP] and [BUSES TIED] remain illuminated:</dd>
+              <dd class="col-sm-8">Alternator 2 Switch</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Alt Laod 1</dd>
+              <dd class="col-sm-4 text-right">Monitor</dd>
+              <dd class="col-sm-8">Bus 1</dd>
+              <dd class="col-sm-4 text-right">Load Shed as Required*</dd>
+              <dd class="col-sm-8">Land</dd>
+              <dd class="col-sm-4 text-right">As soon as possible</dd>
+            </dl>
+            <p>
+              *See ELECTRICAL LOAD SHEDDING procedures:
+              <ol>
+                <li>
+                  <a href="#emergencies_loadShed">ELECTRICAL LOAD SHEDDING</a>
+                </li>
+              </ol>
+            </p>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_Alt2andBusfailure">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Alternator 2 Failure and Bus Tie Failure [ALT 2 INOP]</b>
+            </p>
+            <p class="mt-3">
+              Illumination of the [ALT 2 INOP] without the Illumination of the
+              [BUSES TIED] indicates that the Bus Tie Contactor has failed
+              to close. Thus, Bus 2 will be powered only by Battery 2.
+            </p>
+            <dl class="row mt-3 mb-2">
+              <dd class="col-sm-8">Alternator 2 Switch</dd>
+              <dd class="col-sm-4 text-right">Verfiy On</dd>
+              <dd class="col-sm-8">Alt Load 2</dd>
+              <dd class="col-sm-4 text-right">Check</dd>
+              <dd class="col-sm-9">Bus Volts 2</dd>
+              <dd class="col-sm-3 text-right">Check</dd>
+              <dd class="col-sm-8">If Alt Load 2 indicate a load and Bus Volts 2 is 27.5 to 29.0 volts, a false caution alert is indicated.</dd>
+              <dd class="col-sm-4 text-right"></dd>
+              <dd class="col-sm-12">Continue to use Alternator 2</dd>
+              <dd class="col-sm-12">If Alt Load 2 shows no load and Bus Volts 2 is zero, Alternator 2 is inoperative and the bus tie did not close.<br /><span class="font-weight-bold">Attempt to reset the alternators as follows:</span></dd>
+              <dd class="col-sm-8">Alternator 2</dd>
+              <dd class="col-sm-4 text-right">Off Momentarily, Then On</dd>
+              <dd class="col-sm-12">If [ALT 2 INOP] Extinguishes</dd>
+              <dd class="col-sm-12">Continue to use Alternator 2</dd>
+              <dd class="col-sm-12">If Alt Load 2 continues to show no load and the [ALT 2 INOP] remains illuminated:<br /><span class="font-weight-bold">Attempt to reset the alternators as follows:</span></dd>
+              <dd class="col-sm-8">Alternator 2 Switch</dd>
+              <dd class="col-sm-4 text-right">Off</dd>
+              <dd class="col-sm-8">Alt Laod 1</dd>
+              <dd class="col-sm-4 text-right">Monitor</dd>
+              <dd class="col-sm-8">Bus 2 will be powered only by Battery 2</dd>
+              <dd class="col-sm-4 text-right">Load Shed as Required*</dd>
+              <dd class="col-sm-8">Land</dd>
+              <dd class="col-sm-4 text-right">As soon as possible</dd>
+            </dl>
+            <hr />
+            <p class="mt-3 mb-0 item-header anchor-hack" id="emergencies_electricalLoadShed">
+              <i class="fas fa-angle-right text-danger mr-2"></i> <b>Electrical Load Shedding</b>
+            </p>
+            <p class="mt-3">
+              LOSS OF ALTERNATOR 1 OR ALTERNATOR 1 AND 2
+            </p>
+            <p>
+              The following items are powered only by Battery 1 and Alternator
+              1. These items are candidates for load shedding if Alternator
+              1 fails or if Alternator 1 and 2 fail. This can be accomplished
+              by turning switches off, pulling circuit breakers, or refraining
+              from using the system. Items to be shed are at the discretion of
+              the pilot and should be chosen based on the flight conditions;
+              however, for a dual alternator failure those items with an *
+              must be shed in order to conserve battery power.
+            </p>
+            <p>
+              ITEMS LOCATED ON BUS 1
+            </p>
+
           </div>
         </div>
       </div>
