@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ModelInfo>
+	<LODS>
+		<!-- Highest LOD -->
+		<!-- minimum display size in % (should be bounding sphere vertical screen size, sphere will often be slightly larger than you expect) -->
+		<!-- default minSize is 0 -->
+		<LOD minSize="90" ModelFile="Bonanza_g36_LOD00.gltf"/>
+		<LOD minSize="70" ModelFile="Bonanza_g36_LOD01.gltf"/>
+		<LOD minSize="40" ModelFile="Bonanza_g36_LOD02.gltf"/>
+		<LOD minSize="25" ModelFile="Bonanza_g36_LOD03.gltf"/>
+		<LOD minSize="10" ModelFile="Bonanza_g36_LOD04.gltf"/>
+		<LOD minSize="5" ModelFile="Bonanza_g36_LOD05.gltf"/>
+		<LOD minSize="1" ModelFile="Bonanza_g36_LOD06.gltf"/>
+	</LODS>
+	<Behaviors>
+		<!-- Includes ###################################### -->
+		<Include ModelBehaviorFile="Asobo\Common.xml"/>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+		<!-- ###################################### -->
+		<Component ID="HANDLING">
+			<UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+				<ANIM_NAME>elevator_percent_key</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Elevator_Template">
+				<TRIM_ONLY>True</TRIM_ONLY>
+				<ANIM_NAME_TRIM>trimtab_elevator_key</ANIM_NAME_TRIM>
+				<INVERT_ANIM>True</INVERT_ANIM>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Aileron_Template">
+				<ANIM_NAME_LEFT>l_aileron_percent_key</ANIM_NAME_LEFT>
+				<ANIM_NAME_RIGHT>r_aileron_percent_key</ANIM_NAME_RIGHT>
+				<USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Rudder_Template">
+				<USE_INTEGRATED_TRIM>True</USE_INTEGRATED_TRIM>
+				<ANIM_NAME>rudder_percent_key</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_HANDLING_Flaps_Template">
+				<ANIM_NAME_LEFT>l_flap_percent_key</ANIM_NAME_LEFT>
+				<ANIM_NAME_RIGHT>r_flap_percent_key</ANIM_NAME_RIGHT>
+			</UseTemplate>
+		</Component>
+		<Component ID="ENGINE">
+			<UseTemplate Name="ASOBO_ENGINE_Propeller_Template">
+				<ID>1</ID>
+				<ANIM_NODE_ID>Prop1</ANIM_NODE_ID>
+				<ANIM_NAME>prop_anim</ANIM_NAME>
+				<STILL_NODE_ID>nose_cone_still</STILL_NODE_ID>
+				<SLOW_NODE_ID>nose_cone_slow</SLOW_NODE_ID>
+				<PROP_BLURRED_NODE_ID>prop1_blurred</PROP_BLURRED_NODE_ID>
+				<CONE_BLURRED_NODE_ID>nose_cone_blurred</CONE_BLURRED_NODE_ID>
+				<PROP_SIDE_BLURRED_NODE_ID>PROP_SIDE_BLUR</PROP_SIDE_BLURRED_NODE_ID>
+				<FROSTED_STILL_NODE_ID>LOW_PROP_STILL_FROST</FROSTED_STILL_NODE_ID>
+				<FROSTED_SLOW_NODE_ID>LOW_PROP_SLOW_FROST</FROSTED_SLOW_NODE_ID>
+				<FROSTED_BLURRED_NODE_ID>LOW_PROP_BLURRED_FROST</FROSTED_BLURRED_NODE_ID>
+				<!-- prop blades -->
+				<BLADE_COUNT>3</BLADE_COUNT>
+				<PREFIX_BLADE_NODE_ID>prop1_blade</PREFIX_BLADE_NODE_ID>
+				<!-- prop beta -->
+				<USE_BLADE_ROTATION>True</USE_BLADE_ROTATION>
+				<ROTATION_ANIM_NAME>prop1_blades</ROTATION_ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_CowlFlaps_Template">
+				<ANIM_NAME>cowl_flap1_percent_key</ANIM_NAME>
+			</UseTemplate>
+		</Component>
+		<Component ID="GEARS">
+			<UseTemplate Name="ASOBO_GEAR_Center_Template">
+				<ANIM_NAME>c_gear</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>l_gear</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Right_Template">
+				<ANIM_NAME>r_gear</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+				<ANIM_NAME>c_tire_anim</ANIM_NAME>
+				<NODE_ID_STILL>CENTRAL_WHEEL</NODE_ID_STILL>
+				<NODE_ID_BLURRED>CENTRAL_WHEEL_BLURRED</NODE_ID_BLURRED>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Left_Tire_Template">
+				<ANIM_NAME>l_tire_anim</ANIM_NAME>
+				<NODE_ID_STILL>LEFT_WHEEL</NODE_ID_STILL>
+				<NODE_ID_BLURRED>LEFT_WHEEL_BLURRED</NODE_ID_BLURRED>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Right_Tire_Template">
+				<ANIM_NAME>r_tire_anim</ANIM_NAME>
+				<NODE_ID_STILL>RIGHT_WHEEL</NODE_ID_STILL>
+				<NODE_ID_BLURRED>RIGHT_WHEEL_BLURRED</NODE_ID_BLURRED>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Steering_Template">
+				<ANIM_NAME>c_wheel</ANIM_NAME>
+			</UseTemplate>
+		</Component>
+	</Behaviors>
+</ModelInfo>
