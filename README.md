@@ -71,9 +71,9 @@ Installation:
 
 Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have ‘z-’ at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
 
-https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.2
+https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.5
 
-https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6
+https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6.2
 
 -------------------------------------
 -------------------------------------
