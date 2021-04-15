@@ -5,7 +5,7 @@ This is the improvement project for the MSFS default G36. It all started as a si
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6
+Current version: 0.6.2
 
 This updates adds an all-new engine start simulation to the G36, a working electric fuel pump, more activated and functional switches, updated flight dynamics, system improvements and better lighting effects.
 
@@ -15,12 +15,12 @@ This updates adds an all-new engine start simulation to the G36, a working elect
 Features:
 
 **Flight dynamics/performance**
-* Adjusted climb and cruise performance to match the Bonanza G36 POH charts. 
+* Adjusted climb and cruise performance to match the Bonanza G36 POH charts.
 * Adjusted flap and gear drag
 * Slightly reduced pitch effect due to elevator deflection + propwash
-* Slightly increased nosewheel steering angle 
+* Slightly increased nosewheel steering angle
 * Added drag due to cowl flaps. This causes a 3-4 kts cruise speed loss.
-* Decreased yaw sensitivity by lowering deflection rate as a function of speed 
+* Decreased yaw sensitivity by lowering deflection rate as a function of speed
 * Increased overall stability: less 'twitchy' feeling
 
 **Engine & Fuel system**
@@ -38,7 +38,7 @@ Features:
   - Airco (has a negative effect on engine performance, you will see a few kts lower cruise speed)
   - Airco and ventilator switches are functioning and part of the electrical system
   - Annunciator test
-* Electrical system overhaul: 
+* Electrical system overhaul:
   - Completely revised electrical buses: all individual systems hooked up to the correct bus
   - Bus tie logic added
   - Correct voltage indications of BUS2 due to reverse current blocking diodes
@@ -48,7 +48,7 @@ Features:
   - Fixed holding the wrong altitude at non-standard atmospheric pressures
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
-  - Adjusted autopilot PIDs 
+  - Adjusted autopilot PIDs
 * Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
 * Completely redone G1000 annunciators: all annunciators of the real G36 were implemented (except for door open warnings)
 * Corrected fuel gauge scale
@@ -58,14 +58,14 @@ Features:
 * Corrected decals (e.g. shoulder hardness -> harness)
 
 **Checklists**
-* Interactive checklists for every stage of your flight that follow the POH 
+* Interactive checklists for every stage of your flight that follow the POH
 
 -------------------------------------
 -------------------------------------
 
 Installation:
 
-1: Download and install the Working Title G1000 v0.3.2 mod
+1: Download and install the Working Title G1000 v0.3.5 mod
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
 
