@@ -1,0 +1,213 @@
+<Include RelativeFile="Subtemplates\\G36_Subtemplates.xml"/>
+
+<Template Name = "G36_Environment_Airco">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
+	<UseTemplate Name = "G36_2way_switch_xml">
+		<ANIMTIP_0>Turn Airco On</ANIMTIP_0>
+		<ANIMTIP_1>Turn Airco Off</ANIMTIP_1>
+		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
+		<LEFT_SINGLE_CODE>
+			(L:XMLVAR_Airco) 0 == 
+			if{
+				1 (&gt;L:XMLVAR_Airco)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			} els{
+				0 (&gt;L:XMLVAR_Airco)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			}
+		</LEFT_SINGLE_CODE>		
+	</UseTemplate>
+</Template>
+
+<Template Name = "G36_Environment_Blower">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
+	<UseTemplate Name = "G36_2way_switch_xml">
+		<ANIMTIP_0>AC Blower High</ANIMTIP_0>
+		<ANIMTIP_1>AC Blower Off</ANIMTIP_1>
+		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
+		<LEFT_SINGLE_CODE>
+			(L:XMLVAR_Airco) 0 == 
+			if{
+				1 (&gt;L:XMLVAR_Blower)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			} els{
+				0 (&gt;L:XMLVAR_Blower)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			}
+		</LEFT_SINGLE_CODE>
+	</UseTemplate>
+</Template>
+
+<Template Name = "G36_Vent_Blower">
+	<Update Once="True">
+		#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+	</Update>
+	<UseTemplate Name = "G36_2way_switch_xml">
+		<ANIMTIP_0>Turn Vent Blower On</ANIMTIP_0>
+		<ANIMTIP_1>Turn Vent Blower Off</ANIMTIP_1>
+		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
+		<LEFT_SINGLE_CODE>
+			(L:XMLVAR_Vent) 0 == 
+			if{
+				1 (&gt;L:XMLVAR_Vent)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			} els{
+				0 (&gt;L:XMLVAR_Vent)
+				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
+			}
+		</LEFT_SINGLE_CODE>
+	</UseTemplate>
+</Template>
+	
+<Template Name = "G36_Annun_Test">
+	<UseTemplate Name = "G36_pushbutton_xml">
+		<ANIMTIP_0>Test Annunciators</ANIMTIP_0>
+		<ANIMTIP_1>Test Annunciators</ANIMTIP_1>
+		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
+		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
+		<LEFT_SINGLE_CODE>
+			1 (&gt;L:XMLVAR_Test)
+		</LEFT_SINGLE_CODE>
+		<LEFT_LEAVE_CODE>
+			0 (&gt;L:XMLVAR_Test)
+		</LEFT_LEAVE_CODE>		
+	</UseTemplate>
+</Template>
+
+<Template Name="G36_AlternateAir_Template">
+	<UseTemplate Name="G36_AlternateAir_SubTemplate">
+		<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
+		<ANIM_NAME>ENGINE_Lever_AlternateAir</ANIM_NAME>
+		<ID>1</ID>
+	</UseTemplate>
+</Template>	
+
+<!--
+Custom Gear indicator light logic that in addition to the Asobo templates 
+allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)
+
+Required parameters:
+
+SIMVAR (GEAR CENTER/LEFT/RIGHT POSITION)
+NODE_ID
+-->
+
+<Template Name = "G36_Gear_Indicator_Lights">
+	<Component ID="#NODE_ID#" Node="#NODE_ID#">
+		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<PART_ID>#NODE_ID#</PART_ID>
+			<EMISSIVE_CODE>
+				(*CONDITION 1*)
+				(L:XMLVAR_Test) 1 ==
+				
+				(*CONDITION 2*)
+				(A:#SIMVAR#, Percent) 100 == or
+			</EMISSIVE_CODE>
+		</UseTemplate>
+	</Component>
+</Template>
+	
+<Template Name="G36_LANDING_GEAR_Light_Center_Template">
+	<UseTemplate Name="G36_Gear_Indicator_Lights">
+		<SIMVAR>GEAR CENTER POSITION</SIMVAR>
+		<NODE_ID>LANDING_GEAR_Light_Center</NODE_ID>
+	</UseTemplate>
+</Template>
+<Template Name="G36_LANDING_GEAR_Light_Left_Template">
+	<UseTemplate Name="G36_Gear_Indicator_Lights">
+		<SIMVAR>GEAR LEFT POSITION</SIMVAR>
+		<NODE_ID>LANDING_GEAR_Light_Left</NODE_ID>
+	</UseTemplate>
+</Template>
+<Template Name="G36_LANDING_GEAR_Light_Right_Template">
+	<UseTemplate Name="G36_Gear_Indicator_Lights">
+		<SIMVAR>GEAR RIGHT POSITION</SIMVAR>
+		<NODE_ID>LANDING_GEAR_Light_Right</NODE_ID>
+	</UseTemplate>
+</Template>	
+
+<Template Name = "G36_Gear_Unsafe_Light">
+	<Component ID="LANDING_GEAR_Light_Unsafe" Node="LANDING_GEAR_Light_Unsafe">
+		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<PART_ID>LANDING_GEAR_Light_Unsafe</PART_ID>
+			<EMISSIVE_CODE>
+				(*CONDITION 1*)
+				(L:XMLVAR_Test) 1 ==
+				
+				(*CONDITION 2*)
+				(A:CIRCUIT GEAR MOTOR ON, Bool) or
+				
+				(*CONDITION 3*)
+				(A:GEAR RIGHT POSITION, Percent) 0 &gt;
+				(A:GEAR RIGHT POSITION, Percent) 100 &lt; and
+				(A:GEAR CENTER POSITION, Percent) 0 &gt; or
+				(A:GEAR CENTER POSITION, Percent) 100 &lt; and
+				(A:GEAR LEFT POSITION, Percent) 0 &gt; or
+				(A:GEAR LEFT POSITION, Percent) 100 &lt; and or
+			</EMISSIVE_CODE>
+		</UseTemplate>
+	</Component>
+</Template>
+
+<!--
+Custom Flaps indicator light logic that in addition to the Asobo templates 
+allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)
+
+Required parameters:
+
+ID
+TARGET
+-->
+<Template Name="G36_Flaps_Position">
+	<DefaultTemplateParameters>
+		<NODE_ID>HANDLING_Light_Flaps_#ID#</NODE_ID>
+		<TARGET>0</TARGET>
+	</DefaultTemplateParameters>	
+	<Component ID="#NODE_ID#" Node="#NODE_ID#">
+		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<EMISSIVE_CODE>
+			(*CONDITION 1*)
+			(L:XMLVAR_Test) 1 ==
+			
+			(*CONDITION 2*)
+			(A:TRAILING EDGE FLAPS LEFT ANGLE, degrees) #TARGET# - abs 0.1 &lt;
+			(A:TRAILING EDGE FLAPS RIGHT ANGLE, degrees) #TARGET# - abs 0.1 &lt; and or
+			</EMISSIVE_CODE>
+		</UseTemplate>
+	</Component>
+</Template>	
+
+<Template Name="G36_Flaps_Aph_Position">
+	<UseTemplate Name="G36_Flaps_Position">
+		<ID>2</ID>
+		<TARGET>12</TARGET>
+	</UseTemplate>
+</Template>	
+
+<Template Name="G36_Flaps_Dn_Position">
+	<UseTemplate Name="G36_Flaps_Position">
+		<ID>3</ID>
+		<TARGET>30</TARGET>
+	</UseTemplate>
+</Template>	
+
+<Template Name="G36_Flaps_Transit">
+	<Component ID="HANDLING_Light_Flaps_1" Node="HANDLING_Light_Flaps_1">
+		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+			<EMISSIVE_CODE>
+			(*CONDITION 1*)
+			(L:XMLVAR_Test) 1 ==
+			
+			(*CONDITION 2*)
+			(A:CIRCUIT FLAP MOTOR ON, Bool) or			
+			</EMISSIVE_CODE>
+		</UseTemplate>
+	</Component>
+</Template>		
