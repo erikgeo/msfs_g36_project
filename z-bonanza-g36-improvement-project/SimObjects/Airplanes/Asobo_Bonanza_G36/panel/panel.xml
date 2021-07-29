@@ -573,7 +573,6 @@
 		<Minimum>10</Minimum>
 		<Maximum>35</Maximum>
 		<Style>
-			<TextIncrement>0.1</TextIncrement>
 			<ForceTextColor>white</ForceTextColor>
 			<ValuePrecision>1</ValuePrecision>
 			<Graduations>15,20,25,30</Graduations>
@@ -635,7 +634,6 @@
 		<Type>Horizontal</Type>
 		<Style>
 			<ValuePos>End</ValuePos>
-			<TextIncrement>0.1</TextIncrement>
 			<ValuePrecision>1</ValuePrecision>
 			<ForceTextColor>white</ForceTextColor>
 		</Style>
