@@ -5,7 +5,8 @@ This is the improvement project for the MSFS default G36. It all started as a si
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.3
+Current version: 0.6.4
+
 Compatibility update for MSFS version 1.18.3.0 (SimUpdate 5).
 
 -------------------------------------
