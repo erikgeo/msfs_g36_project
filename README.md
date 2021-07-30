@@ -1,13 +1,13 @@
-# MSFS G36 Project version 0.6
+# MSFS G36 Project version 0.6.3
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.2
+Current version: 0.6.4
 
-This updates adds an all-new engine start simulation to the G36, a working electric fuel pump, more activated and functional switches, updated flight dynamics, system improvements and better lighting effects.
+Compatibility update for MSFS version 1.18.3.0 (SimUpdate 5).
 
 -------------------------------------
 -------------------------------------
@@ -65,15 +65,15 @@ Features:
 
 Installation:
 
-1: Download and install the Working Title G1000 v0.3.5 mod
+1: Download and install the Working Title G1000 v0.4.0 mod
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
 
 Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have ‘z-’ at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
 
-https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.3.5
+https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.4.0
 
-https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6.2
+https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6.3
 
 -------------------------------------
 -------------------------------------
