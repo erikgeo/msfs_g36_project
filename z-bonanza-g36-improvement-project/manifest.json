@@ -3,10 +3,6 @@
     {
       "name": "asobo-aircraft-bonanza-g36",
       "package_version": "0.1.75"
-    },
-    {
-      "name": "fs-base-aircraft-common",
-      "package_version": "0.1.106"
     }
   ],
   "content_type": "AIRCRAFT",
