@@ -7,7 +7,7 @@ This is the improvement project for the MSFS default G36. It all started as a si
 
 Current version: 0.6.4
 
-* Compatibility update for MSFS version 1.18.3.0 (SimUpdate 5).
+* Compatibility update for MSFS version 1.18.3.0 (SimUpdate 5) & now World Update 6
 * Compatible with G1000 legacy v0.4.0 mod.
 * Compatible with G1000 NXi mod, but some issues are to be expected (e.g. engine pages are not available, manifold pressure gauge misaligned, fuel flow not shown as text).
 
