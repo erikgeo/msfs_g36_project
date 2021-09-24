@@ -1,15 +1,14 @@
-# MSFS G36 Project version 0.6.4
+# MSFS G36 Project version 0.6.5
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.4
+Current version: 0.6.5
 
-* Compatibility update for MSFS version 1.18.3.0 (SimUpdate 5) & now World Update 6
-* Compatible with G1000 legacy v0.4.0 mod.
-* Compatible with G1000 NXi mod, but some issues are to be expected (e.g. engine pages are not available, manifold pressure gauge misaligned, fuel flow not shown as text).
+* Compatibility update for MSFS version 1.19.9.0 (World Update 6)
+* Compatible with G1000 NXi mod
 
 -------------------------------------
 -------------------------------------
@@ -51,7 +50,7 @@ Features:
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
   - Adjusted autopilot PIDs
-* Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
+* Integration with the Working Title NXi mod, with customized ENGINE, LEAN and SYSTEM pages.
 * Completely redone G1000 annunciators: all annunciators of the real G36 were implemented (except for door open warnings)
 * Corrected fuel gauge scale
 
@@ -67,15 +66,9 @@ Features:
 
 Installation:
 
-1: Download and install the Working Title G1000 v0.4.0 mod
+1: Download and install the Working Title NXi
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
-
-Important note: make sure that the mod is loaded AFTER the G1000 mod. Mods are loaded in alphabetical order. The release versions therefore have ‘z-’ at the beginning of the folder name to automatically ensure a correct loading order. For contributors: if you have installed the mod from your fork or local clone you have to manually ensure the loading order is correct.
-
-https://github.com/Working-Title-MSFS-Mods/fspackages/releases/tag/g1000-v0.4.0
-
-https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6.3
 
 -------------------------------------
 -------------------------------------
@@ -83,15 +76,11 @@ https://github.com/TheFrett/msfs_g36_project/releases/tag/0.6.3
 
 **Q: I am not seeing the engine pages in the G1000?**
 
-*A: Make sure to download the Working Title G1000 mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions*
-
-**Q: The manifold pressure shows 'NaN'?**
-
-*A: Make sure to download the Working Title G1000 mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions*
+*A: Make sure to install the Working Title NXi (from the Marketplace). Also ensure a good load order as explained under installation instructions*
 
 **Q: The mod isn't working?***
 
-*A: First make sure the load order is correct as per installation instructions. If the problem persists, it is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.*
+*A: This is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.*
 
 **Q: The engine won't start?**
 
