@@ -50,7 +50,7 @@ Features:
   - Max pitch and bank angles adjusted for smoother AP behaviour
   - Added maximum and minimum IAS_ref speeds for FLC mode
   - Adjusted autopilot PIDs
-* Integration with the Working Title G1000 mod, with customized ENGINE, LEAN and SYSTEM pages.
+* Integration with the Working Title NXi mod, with customized ENGINE, LEAN and SYSTEM pages.
 * Completely redone G1000 annunciators: all annunciators of the real G36 were implemented (except for door open warnings)
 * Corrected fuel gauge scale
 
@@ -76,15 +76,11 @@ Installation:
 
 **Q: I am not seeing the engine pages in the G1000?**
 
-*A: Make sure to install the Working Title NXi mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions*
-
-**Q: The manifold pressure shows 'NaN'?**
-
-*A: Make sure to download the Working Title G1000 mod (download link on main page in the description). Also ensure a good load order as explained under installation instructions*
+*A: Make sure to install the Working Title NXi (from the Marketplace). Also ensure a good load order as explained under installation instructions*
 
 **Q: The mod isn't working?***
 
-*A: First make sure the load order is correct as per installation instructions. If the problem persists, it is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.*
+*A: This is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.*
 
 **Q: The engine won't start?**
 
