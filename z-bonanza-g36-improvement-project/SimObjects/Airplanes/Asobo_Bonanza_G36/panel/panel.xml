@@ -816,7 +816,7 @@
 			<Gauge>
 				<Type>Circular</Type>
 				<ID>MANIN_Gauge</ID>
-				<Title>MAN IN</Title>
+				<Title>MAN IN HG</Title>
 				<Minimum>10</Minimum>
 				<Maximum>35</Maximum>
 				<Value>
@@ -900,8 +900,8 @@
 				<Unit>°C</Unit>
 				<Rows>13</Rows>
 				<Columns>6</Columns>
-				<Minimum>900</Minimum>
-				<Maximum>1300</Maximum>
+				<Minimum>482</Minimum>
+				<Maximum>850</Maximum>
 				<TempOrder>1,4,2,5,3,6</TempOrder>
 				<Value>
 					<Simvar name="GENERAL ENG EXHAUST GAS TEMPERATURE:1" unit="celsius"/>
@@ -933,8 +933,8 @@
 				<Unit>°C</Unit>
 				<Rows>13</Rows>
 				<Columns>6</Columns>
-				<Minimum>200</Minimum>
-				<Maximum>500</Maximum>
+				<Minimum>90</Minimum>
+				<Maximum>250</Maximum>
 				<TempOrder>1,4,2,5,3,6</TempOrder>
 				<Value>
 					<Simvar name="ENG CYLINDER HEAD TEMPERATURE:1" unit="celsius"/>
@@ -952,9 +952,9 @@
 			<Gauge>
 				<Type>Circular</Type>
 				<ID>MANIN_Gauge</ID>
-				<Title>MAN IN</Title>
-				<Minimum>0</Minimum>
-				<Maximum>40</Maximum>
+				<Title>MAN IN HG</Title>
+				<Minimum>10</Minimum>
+				<Maximum>35</Maximum>
 				<Value>
 					<Simvar name="RECIP ENG MANIFOLD PRESSURE:1" unit="inHG"/>
 				</Value>
