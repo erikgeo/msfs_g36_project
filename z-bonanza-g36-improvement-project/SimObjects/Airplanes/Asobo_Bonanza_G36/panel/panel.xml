@@ -31,12 +31,29 @@
 			<Condition>
 				<And>
 					<Lower>
-						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
+						<Simvar name="FUEL RIGHT QUANTITY" unit="gallon"/>
 						<Constant>13</Constant>
 					</Lower>
 					<Greater>
-						<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
-						<Constant>3.1</Constant>
+						<Simvar name="FUEL RIGHT QUANTITY" unit="gallon"/>
+						<Constant>0.1</Constant>
+					</Greater>
+				</And>
+			</Condition>
+		</Annunciation>
+
+		<Annunciation>
+			<Type>Caution</Type>
+			<Text>FUEL QTY LO</Text>
+			<Condition>
+				<And>
+					<Lower>
+						<Simvar name="FUEL LEFT QUANTITY" unit="gallon"/>
+						<Constant>13</Constant>
+					</Lower>
+					<Greater>
+						<Simvar name="FUEL LEFT QUANTITY" unit="gallon"/>
+						<Constant>0.1</Constant>
 					</Greater>
 				</And>
 			</Condition>
@@ -47,8 +64,19 @@
 			<Text>FUEL QTY LO</Text>
 			<Condition>
 				<LowerEqual>
-					<Simvar name="FUEL SELECTED QUANTITY" unit="gallon"/>
-					<Constant>3.1</Constant>
+					<Simvar name="FUEL LEFT QUANTITY" unit="gallon"/>
+					<Constant>0.1</Constant>
+				</LowerEqual>
+			</Condition>
+		</Annunciation>
+
+		<Annunciation>
+			<Type>Warning</Type>
+			<Text>FUEL QTY LO</Text>
+			<Condition>
+				<LowerEqual>
+					<Simvar name="FUEL RIGHT QUANTITY" unit="gallon"/>
+					<Constant>0.1</Constant>
 				</LowerEqual>
 			</Condition>
 		</Annunciation>
@@ -793,11 +821,11 @@
 				<ColorZone>
 					<Color>red</Color>
 					<Begin>0</Begin>
-					<End>3</End>
+					<End>1</End>
 				</ColorZone>
 				<ColorZone>
 					<Color>yellow</Color>
-					<Begin>3</Begin>
+					<Begin>1</Begin>
 					<End>13</End>
 				</ColorZone>
 				<ColorZone>
@@ -805,7 +833,7 @@
 					<Begin>13</Begin>
 					<End>37</End>
 				</ColorZone>
-				<GraduationLength text="True">10</GraduationLength>
+				<GraduationLength text="false">9.25</GraduationLength>
 				<EndText>F</EndText>
 		  </Gauge>
 
