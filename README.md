@@ -61,6 +61,12 @@ Features:
 **Checklists**
 * Interactive checklists for every stage of your flight that follow the POH
 
+**ATC**
+* You are now referenced as Bonanza > Your Callsign in in game ATC
+
+**SOUNDS**
+* Excessive undercarriage wind noise reduced
+
 -------------------------------------
 -------------------------------------
 
