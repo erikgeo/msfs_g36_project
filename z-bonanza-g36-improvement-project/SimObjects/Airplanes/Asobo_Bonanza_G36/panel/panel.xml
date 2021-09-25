@@ -1124,7 +1124,7 @@
 					<If>
 						<Condition>
 							<Greater>
-								<Simvar name="ENG FUEL FLOW GPH:1" unit="gallons per hour"/>
+								<Simvar name="L:XMLVAR_FUEL_FLOW_INDICATED" unit="gallons per hour"/>
 								<Constant>0.1</Constant>
 							</Greater>
 						</Condition>
@@ -1168,12 +1168,12 @@
 			<Text>
 				<Left>
 					<ToFixed precision="0">
-						<Simvar name="ELECTRICAL GENALT BUS AMPS:1" unit="amps"/>
+						<Simvar name="L:XMLVAR_ALT1_LOAD_INDICATED" unit="amps"/>
 					</ToFixed>
 				</Left>
 				<Right>
 					<ToFixed precision="0">
-						<Simvar name="ELECTRICAL GENALT BUS AMPS:2" unit="amps"/>
+						<Simvar name="L:XMLVAR_ALT2_LOAD_INDICATED" unit="amps"/>
 					</ToFixed>
 				</Right>
 			</Text>
@@ -1187,12 +1187,12 @@
 			<Text>
 				<Left>
 					<ToFixed precision="1">
-						<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:1" unit="volts"/>
+						<Simvar name="L:XMLVAR_BUS1_VOLT_INDICATED" unit="volts"/>
 					</ToFixed>
 				</Left>
 				<Right>
 					<ToFixed precision="1">
-						<Simvar name="ELECTRICAL MAIN BUS VOLTAGE:2" unit="volts"/>
+						<Simvar name="L:XMLVAR_BUS2_VOLT_INDICATED" unit="volts"/>
 					</ToFixed>
 				</Right>
 			</Text>
