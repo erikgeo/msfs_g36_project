@@ -4,7 +4,9 @@
     "Strings": {
       "AIRCRAFT.DESCRIPTION": "No fim da 2ª Guerra Mundial, a Beech Aircraft Company introduziu o primeiro Beechcraft Bonanza no mercado de aviação civil pós-guerra. Na época em que a maioria das aeronaves leves ainda eram feitas de madeira e tecido, o Modelo 35 Bonanza todo metálico era um monoplano relativamente rápido de asa baixa projetado como os caças de guerra – com um motor de seis cilindros fácil de gerenciar, oposto horizontalmente, uma forma simplificada, trem de aterrissagem retrátil e configuração de asa baixa.<\/br><\/br>Desde o primeiro protótipo do Modelo 35 em 1945, até o recente G36, mais de 18.000 Bonanzas foram construídos – e ainda que não seja o detentor do recorde de avião leve mais produzido de todos os tempos, a capacidade de trabalho herdada do Beechcraft tem estado em produção contínua por mais tempo do que qualquer outro avião na história.<\/br><\/br>Quando o G36 juntou-se à linha da família em 2006, a aeronave de motor único e seis assentos deu continuidade a um legado de design conhecido pelo desempenho e construção confiáveis, bem como um manuseio e sensação de controle excepcionais. Da hélice à cauda, o modelo também se beneficia de décadas de produção e melhoras constantes.<\/br><\/br>Mais notável entre seus avanços, o G36 atualiza o pacote de tecnologia de seu predecessor, o A36. Com aviônica de painel plano integrado na forma do Garmin G1000 NXi, o gerenciamento de voo nunca foi tão fácil. Adicione a isso um interior atualizado, com muitos recursos de conforto, e o G36 Bonanza oferece níveis de jatos comerciais de ajuste e acabamento em uma forma de avião utilitário robusto – uma combinação poderosa e um testamento do encanto duradouro da linha.",
       "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
-      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36",
+      "ATCCOM.ATC_NAME BONANZA.0.text": "BONANZA",
+      "ATCCOM.ATC_NAME BONANZA.0.tts": "BONANZA",
     }
   }
 }
