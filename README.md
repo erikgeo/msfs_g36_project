@@ -8,7 +8,7 @@ This is the improvement project for the MSFS default G36. It all started as a si
 Current version: 0.6.5
 
 * Compatibility update for MSFS version 1.19.9.0 (World Update 6)
-* Compatible with G1000 NXi mod
+* Compatible with Working Title G1000 NXi v 0.7.0
 
 -------------------------------------
 -------------------------------------
@@ -72,7 +72,7 @@ Features:
 
 Installation:
 
-1: Download and install the Working Title NXi
+1: Download and install the Working Title NXi from the store Marketplace
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
 
@@ -82,7 +82,7 @@ Installation:
 
 **Q: I am not seeing the engine pages in the G1000?**
 
-*A: Make sure to install the Working Title NXi (from the Marketplace). Also ensure a good load order as explained under installation instructions*
+*A: Make sure to install the Working Title NXi (from the Marketplace). Ensure that the old G1000 Working Title mod is no longer installed, we have moved compatabilty to the NXi available from the marketplace.
 
 **Q: The mod isn't working?***
 
