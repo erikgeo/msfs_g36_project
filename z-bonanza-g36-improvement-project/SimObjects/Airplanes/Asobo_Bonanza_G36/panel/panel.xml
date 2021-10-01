@@ -630,7 +630,7 @@
 					<Begin>27.4</Begin>
 					<End>30</End>
 				</ColorZone>
-				<GraduationLength></GraduationLength>
+				<GraduationLength text="false">3.33</GraduationLength>
 				<GraduationTextLength></GraduationTextLength>
 		  </Gauge>
 
@@ -808,15 +808,15 @@
 				<ID>Piston_FuelGauge</ID>
 				<Title>FUEL QTY</Title>
 				<Unit>GAL</Unit>
-				<CursorText>R</CursorText>
-				<CursorText2>L</CursorText2>
+				<CursorText>L</CursorText>
+				<CursorText2>R</CursorText2>
 				<Minimum>0</Minimum>
 				<Maximum>37</Maximum>
 				<Value>
-					<Simvar name="FUEL RIGHT QUANTITY" unit="gallons"/>
+					<Simvar name="FUEL LEFT QUANTITY" unit="gallons"/>
 				</Value>
 				<Value2>
-					<Simvar name="FUEL LEFT QUANTITY" unit="gallons"/>
+					<Simvar name="FUEL RIGHT QUANTITY" unit="gallons"/>
 				</Value2>
 				<ColorZone>
 					<Color>red</Color>
