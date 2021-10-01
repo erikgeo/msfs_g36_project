@@ -67,6 +67,9 @@ Features:
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
 
+**MISC**
+* Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
+
 -------------------------------------
 -------------------------------------
 
