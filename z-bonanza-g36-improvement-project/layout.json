@@ -116,19 +116,34 @@
       "date": 132777521570966063
     },
     {
+      "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/AS1000/PFD/AS1000_PFD.html",
+      "size": 244,
+      "date": 132778400785868481
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/G36XG1000/PFD/G36XG1000_PFD.html",
+      "size": 188,
+      "date": 132778411823715985
+    },
+    {
+      "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/G36XG1000/PFD/G36X_Utils.js",
+      "size": 0,
+      "date": 132778411978290696
+    },
+    {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
-      "size": 9503,
-      "date": 132777521570995984
+      "size": 9290,
+      "date": 132777539703629078
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
-      "size": 6223,
-      "date": 132777521570995984
+      "size": 6011,
+      "date": 132777539703758758
     },
     {
       "path": "ModelBehaviorDefs/G36X/Subtemplates/G36_Subtemplates.xml",
-      "size": 3561,
-      "date": 132777521571035876
+      "size": 3473,
+      "date": 132777539703450040
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/ai.cfg",
@@ -162,8 +177,8 @@
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/model/Bonanza_g36_interior.xml",
-      "size": 23276,
-      "date": 132777542422384402
+      "size": 23486,
+      "date": 132777521571135611
     },
     {
       "path": "SimObjects/Airplanes/Asobo_Bonanza_G36/panel/panel.cfg",
