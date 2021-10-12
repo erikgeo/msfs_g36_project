@@ -67,9 +67,12 @@ Features:
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
 
+**STATE SAVING / MAKING THE PLANE 'REAL'**
+* Aircraft fuel state is saved between flights (WIP)
+
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
-* Aircraft fuel state is saved between flights (WIP)
+
 
 -------------------------------------
 -------------------------------------
