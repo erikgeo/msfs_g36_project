@@ -8,6 +8,7 @@ class G36XIP extends BaseInstrument {
   get templateID() { return 'G36XIP'; }
 
   connectedCallback() {
+    //Runs as the sim is loading
 
     super.connectedCallback();
     //load the left fuel tank from the dataStore or set full and record in dataStore
@@ -32,6 +33,7 @@ class G36XIP extends BaseInstrument {
 
     // - - - - - - - - - - - - - - - - - - - WHEN SIM RUNNING - - - - - - - - - - - - - - - - - - - - -
 
+    //move this into update section
     var timerMilSecs = 30000;
     var timer = window.setInterval(checkG36State, timerMilSecs);
 
@@ -43,6 +45,37 @@ class G36XIP extends BaseInstrument {
         SetStoredData('G36XIP_RIGHT_FUEL', righttank.toString());
       }
     }
+
+  }
+
+  onFlightStart() {
+    //Runs once the flight is loaded
+    super.onFlightStart();
+
+    //load the battery 1 switch state
+    var initBat1 = GetStoredData('G36XIP_BAT1');
+    if (initBat1) {
+      SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:1", "number", 1);
+    } else {
+      SetStoredData('G36XIP_BAT1', '0');
+    }
+
+    //load the battery 2 switch state
+    var initBat2 = GetStoredData('G36XIP_BAT2');
+    if (initBat2) {
+      SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:2", "number", 1);
+    } else {
+      SetStoredData('G36XIP_BAT2', '0');
+    }
+
+    //Sadly we can't set the alternator switches
+    //GENERAL ENG MASTER ALTERNATOR
+    //Not settable
+
+    
+
+
+
 
   }
 
