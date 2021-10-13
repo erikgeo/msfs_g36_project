@@ -67,8 +67,9 @@ Features:
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
 
-**STATE SAVING / MAKING THE PLANE 'REAL'**
-* Aircraft fuel state is saved between flights (WIP)
+**AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
+* Aircraft fuel state is saved between flights
+* Battery 1 & 2 switch state is loaded on flight start
 
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
