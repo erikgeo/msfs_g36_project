@@ -1,4 +1,4 @@
-# MSFS G36 Project version 0.6.5
+# MSFS G36 Project version 0.6.5.1
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
@@ -67,8 +67,12 @@ Features:
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
 
+**STATE SAVING / MAKING THE PLANE 'REAL'**
+* Aircraft fuel state is saved between flights (WIP)
+
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
+
 
 -------------------------------------
 -------------------------------------
