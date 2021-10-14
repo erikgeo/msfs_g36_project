@@ -1,14 +1,16 @@
-# MSFS G36 Project version 0.6.5.1
+# MSFS G36 Improvement Project
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.5
+Current version: 0.6.5.1
 
 * Compatibility update for MSFS version 1.19.9.0 (World Update 6)
 * Compatible with Working Title G1000 NXi v 0.7.0
+* Fix to aircraft getting stuck on taxi
+* New aircraft persitence feature (WIP) - Aircraft saves fuel / switches between flights and sim uses
 
 -------------------------------------
 -------------------------------------
@@ -69,7 +71,7 @@ Features:
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
 * Aircraft fuel state is saved between flights
-* Battery 1 & 2 switch state is loaded on flight start
+* Battery 1 & 2 switch state is saved between flights
 
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
