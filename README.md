@@ -92,6 +92,10 @@ Installation:
 
 *A: Make sure to install the Working Title NXi (from the Marketplace). Ensure that the old G1000 Working Title mod is no longer installed, we have moved compatabilty to the NXi available from the marketplace.
 
+Please Note: Current version of Working Title NXi 0.7.1 does not have a working reversionary mode and the engine pages are listed on the MFD only. We believe this will change in the future.
+
+There have also been reports of the GNS750 causing issues with the NXi / Our mod.
+
 **Q: The mod isn't working?***
 
 *A: This is usually due to a conflict with another mod in the community folder. The best thing is to remove all other mods and slowly add them to see what causes the conflict. Aircraft, gauge and lighting mods are the prime suspects.*
