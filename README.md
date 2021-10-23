@@ -68,8 +68,11 @@ Features:
 * Excessive undercarriage wind noise reduced
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
-* Aircraft fuel state is saved between flights
-* Battery 1 & 2 switch state is loaded on flight start
+* Your aircraft now remembers how you left it!
+* On first flight load, your aircraft is set cold & dark with 64 gallons of fuel. 
+* After turning on Battery 1 & starting the engine, the aircraft will record the fuel level every second. 
+* Once you shut down and turn off Battery 1, the aircraft will take a snapshot of all switch states and tank levels and save this. 
+* When you next climb into your aircraft you will find it just as you left it!
 
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
