@@ -10,7 +10,7 @@
 		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
 		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
 		<LEFT_SINGLE_CODE>
-			(L:XMLVAR_Airco) 0 == 
+			(L:XMLVAR_Airco) 0 ==
 			if{
 				1 (&gt;L:XMLVAR_Airco)
 				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
@@ -18,7 +18,7 @@
 				0 (&gt;L:XMLVAR_Airco)
 				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
 			}
-		</LEFT_SINGLE_CODE>		
+		</LEFT_SINGLE_CODE>
 	</UseTemplate>
 </Template>
 
@@ -32,7 +32,7 @@
 		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
 		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
 		<LEFT_SINGLE_CODE>
-			(L:XMLVAR_Airco) 0 == 
+			(L:XMLVAR_Blower) 0 ==
 			if{
 				1 (&gt;L:XMLVAR_Blower)
 				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
@@ -54,7 +54,7 @@
 		<WWISE_EVENT_1>avionic_switch_on</WWISE_EVENT_1>
 		<WWISE_EVENT_2>avionic_switch_off</WWISE_EVENT_2>
 		<LEFT_SINGLE_CODE>
-			(L:XMLVAR_Vent) 0 == 
+			(L:XMLVAR_Vent) 0 ==
 			if{
 				1 (&gt;L:XMLVAR_Vent)
 				#CIRCUIT_ID# (&gt;K:ELECTRICAL_CIRCUIT_TOGGLE)
@@ -65,7 +65,7 @@
 		</LEFT_SINGLE_CODE>
 	</UseTemplate>
 </Template>
-	
+
 <Template Name = "G36_Annun_Test">
 	<UseTemplate Name = "G36_pushbutton_xml">
 		<ANIMTIP_0>Test Annunciators</ANIMTIP_0>
@@ -77,7 +77,7 @@
 		</LEFT_SINGLE_CODE>
 		<LEFT_LEAVE_CODE>
 			0 (&gt;L:XMLVAR_Test)
-		</LEFT_LEAVE_CODE>		
+		</LEFT_LEAVE_CODE>
 	</UseTemplate>
 </Template>
 
@@ -87,10 +87,10 @@
 		<ANIM_NAME>ENGINE_Lever_AlternateAir</ANIM_NAME>
 		<ID>1</ID>
 	</UseTemplate>
-</Template>	
+</Template>
 
 <!--
-Custom Gear indicator light logic that in addition to the Asobo templates 
+Custom Gear indicator light logic that in addition to the Asobo templates
 allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)
 
 Required parameters:
@@ -106,14 +106,14 @@ NODE_ID
 			<EMISSIVE_CODE>
 				(*CONDITION 1*)
 				(L:XMLVAR_Test) 1 ==
-				
+
 				(*CONDITION 2*)
 				(A:#SIMVAR#, Percent) 100 == or
 			</EMISSIVE_CODE>
 		</UseTemplate>
 	</Component>
 </Template>
-	
+
 <Template Name="G36_LANDING_GEAR_Light_Center_Template">
 	<UseTemplate Name="G36_Gear_Indicator_Lights">
 		<SIMVAR>GEAR CENTER POSITION</SIMVAR>
@@ -131,7 +131,7 @@ NODE_ID
 		<SIMVAR>GEAR RIGHT POSITION</SIMVAR>
 		<NODE_ID>LANDING_GEAR_Light_Right</NODE_ID>
 	</UseTemplate>
-</Template>	
+</Template>
 
 <Template Name = "G36_Gear_Unsafe_Light">
 	<Component ID="LANDING_GEAR_Light_Unsafe" Node="LANDING_GEAR_Light_Unsafe">
@@ -140,10 +140,10 @@ NODE_ID
 			<EMISSIVE_CODE>
 				(*CONDITION 1*)
 				(L:XMLVAR_Test) 1 ==
-				
+
 				(*CONDITION 2*)
 				(A:CIRCUIT GEAR MOTOR ON, Bool) or
-				
+
 				(*CONDITION 3*)
 				(A:GEAR RIGHT POSITION, Percent) 0 &gt;
 				(A:GEAR RIGHT POSITION, Percent) 100 &lt; and
@@ -157,7 +157,7 @@ NODE_ID
 </Template>
 
 <!--
-Custom Flaps indicator light logic that in addition to the Asobo templates 
+Custom Flaps indicator light logic that in addition to the Asobo templates
 allows the annunciator to light up when test button is pushed (using local simvar XMLVAR_Test)
 
 Required parameters:
@@ -169,34 +169,34 @@ TARGET
 	<DefaultTemplateParameters>
 		<NODE_ID>HANDLING_Light_Flaps_#ID#</NODE_ID>
 		<TARGET>0</TARGET>
-	</DefaultTemplateParameters>	
+	</DefaultTemplateParameters>
 	<Component ID="#NODE_ID#" Node="#NODE_ID#">
 		<UseTemplate Name="ASOBO_GT_Emissive_Gauge">
 			<EMISSIVE_CODE>
 			(*CONDITION 1*)
 			(L:XMLVAR_Test) 1 ==
-			
+
 			(*CONDITION 2*)
 			(A:TRAILING EDGE FLAPS LEFT ANGLE, degrees) #TARGET# - abs 0.1 &lt;
 			(A:TRAILING EDGE FLAPS RIGHT ANGLE, degrees) #TARGET# - abs 0.1 &lt; and or
 			</EMISSIVE_CODE>
 		</UseTemplate>
 	</Component>
-</Template>	
+</Template>
 
 <Template Name="G36_Flaps_Aph_Position">
 	<UseTemplate Name="G36_Flaps_Position">
 		<ID>2</ID>
 		<TARGET>12</TARGET>
 	</UseTemplate>
-</Template>	
+</Template>
 
 <Template Name="G36_Flaps_Dn_Position">
 	<UseTemplate Name="G36_Flaps_Position">
 		<ID>3</ID>
 		<TARGET>30</TARGET>
 	</UseTemplate>
-</Template>	
+</Template>
 
 <Template Name="G36_Flaps_Transit">
 	<Component ID="HANDLING_Light_Flaps_1" Node="HANDLING_Light_Flaps_1">
@@ -204,10 +204,10 @@ TARGET
 			<EMISSIVE_CODE>
 			(*CONDITION 1*)
 			(L:XMLVAR_Test) 1 ==
-			
+
 			(*CONDITION 2*)
-			(A:CIRCUIT FLAP MOTOR ON, Bool) or			
+			(A:CIRCUIT FLAP MOTOR ON, Bool) or
 			</EMISSIVE_CODE>
 		</UseTemplate>
 	</Component>
-</Template>		
+</Template>
