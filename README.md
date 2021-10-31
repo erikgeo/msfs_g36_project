@@ -5,10 +5,10 @@ This is the improvement project for the MSFS default G36. It all started as a si
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.5
+Current version: 0.6.6
 
-* Compatibility update for MSFS version 1.19.9.0 (World Update 6)
-* Compatible with Working Title G1000 NXi v 0.7.0
+* New! Aircraft Persistence
+* Fixed: NXi Engine System Page spacing
 
 -------------------------------------
 -------------------------------------
@@ -69,9 +69,39 @@ Features:
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
 * Your aircraft now remembers how you left it!
-* On first flight load, your aircraft is set cold & dark with 64 gallons of fuel. 
-* After turning on Battery 1 & starting the engine, the aircraft will record the fuel level every second. 
-* Once you shut down and turn off Battery 1, the aircraft will take a snapshot of all switch states and tank levels and save this. 
+* On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel. 
+* The aircraft now saves the following tank levels, switches and levers every minute.
+    * Left & Right Fuel Tank Level
+    * Battery 1 & 2 switch
+    * Alternator 1 & 2 Switch
+    * Parking Brake lever
+    * Avionics Switch
+    * Airconditioning Switch
+    * Blower switch
+    * Vent Blower switch
+    * Aux Fuel Pump Switch
+    * Magneto Switch
+    * Pitot Heat Switch
+    * Prop De-Ice Switch
+    * Strobe Switch
+    * Beacon Switch
+    * Nav Light Switch
+    * Flood Light Switch
+    * Panel Light Switch
+    * Taxi Light Switch
+    * Landing Light Switch
+    * Fuel Selector Position
+    * Defrost switch
+    * Throttle Position
+    * Proppeller Position
+    * Mixture Position
+    * Cowl Flap Position
+    * Flaps Switch
+    * Flaps Physical Position
+    * Pitch Trim Position
+    * Aileron Trim Position
+    * Floodlight Brightness
+    * Pilot & Passenger Yoke Visibility
 * When you next climb into your aircraft you will find it just as you left it!
 
 **MISC**
