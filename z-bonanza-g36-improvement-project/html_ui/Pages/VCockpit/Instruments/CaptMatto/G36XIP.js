@@ -39,7 +39,8 @@ class G36XIP extends BaseInstrument {
     this.blower = GetStoredData('G36XIP_BLOWER') ? GetStoredData('G36XIP_BLOWER') : 0;
     this.ventBlower = GetStoredData('G36XIP_VENT_BLOWER') ? GetStoredData('G36XIP_VENT_BLOWER') : 0;
     this.auxFuelPump = GetStoredData('G36XIP_AUX_FUEL_PUMP') ? GetStoredData('G36XIP_AUX_FUEL_PUMP') : 0;
-    this.magento = GetStoredData('G36XIP_MAGNETO') ? GetStoredData('G36XIP_MAGNETO') : 0;
+    this.magnetoLeft = GetStoredData('G36XIP_MAGNETOL') ? GetStoredData('G36XIP_MAGNETOL') : 0;
+    this.magnetoRight = GetStoredData('G36XIP_MAGNETOR') ? GetStoredData('G36XIP_MAGNETOR') : 0;
     this.pitotHeat = GetStoredData('G36XIP_PITOT') ? GetStoredData('G36XIP_PITOT') : 1;
     this.propDeIce = GetStoredData('G36XIP_PROP_DEICE') ? GetStoredData('G36XIP_PROP_DEICE') : 1;
     this.strobe = GetStoredData('G36XIP_STROBE') ? GetStoredData('G36XIP_STROBE') : 1;
@@ -49,24 +50,33 @@ class G36XIP extends BaseInstrument {
     this.panelLight = GetStoredData('G36XIP_PANEL_LIGHT') ? GetStoredData('G36XIP_PANEL_LIGHT') : 1;
     this.taxiLight = GetStoredData('G36XIP_TAXI_LIGHT') ? GetStoredData('G36XIP_TAXI_LIGHT') : 1;
     this.landingLight = GetStoredData('G36XIP_LANDING_LIGHT') ? GetStoredData('G36XIP_LANDING_LIGHT') : 1;
+    this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT') ? GetStoredData('G36XIP_FUEL_SELECT') : 'off';
+    this.defrost = GetStoredData('G36XIP_DEFROST') ? GetStoredData('G36XIP_DEFROST') : 0;
 
     //LEAVERS IN PERCENT %
-    this.throttle = GetStoredData('G36XIP_THROTTLE') ? GetStoredData('G36XIP_THROTTLE') : 50;
-    this.prop = GetStoredData('G36XIP_PROP') ? GetStoredData('G36XIP_PROP') : 50;
-    this.mixture = GetStoredData('G36XIP_MIXTURE') ? GetStoredData('G36XIP_MIXTURE') : 50;
+    this.throttle = GetStoredData('G36XIP_THROTTLE') ? GetStoredData('G36XIP_THROTTLE') : 0;
+    this.prop = GetStoredData('G36XIP_PROP') ? GetStoredData('G36XIP_PROP') : 0;
+    this.mixture = GetStoredData('G36XIP_MIXTURE') ? GetStoredData('G36XIP_MIXTURE') : 0;
     this.cowl = GetStoredData('G36XIP_COWL') ? GetStoredData('G36XIP_COWL') : 0;
 
     //FLIGHT CONTROLS
-    this.flapsSwitch = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 1; // 0=UP, 1=APPR, 2=FULL DOWN
-    this.flapsLeft = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 40; // UP=0, APPR=40, DOWN=100
-    this.flapsRight = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 40; // UP=0, APPR=40, DOWN=100
+    this.flapsSwitch = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 0; // 0=UP, 1=APPR, 2=FULL DOWN
+    this.flapsLeft = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 0; // UP=0, APPR=40, DOWN=100
+    this.flapsRight = GetStoredData('G36XIP_FLAPS') ? GetStoredData('G36XIP_FLAPS') : 0; // UP=0, APPR=40, DOWN=100
 
     this.pitchTrim = GetStoredData('G36XIP_PITCH_TRIM') ? GetStoredData('G36XIP_PITCH_TRIM') : 0;
     this.aileronTrim = GetStoredData('G36XIP_AILERON_TRIM') ? GetStoredData('G36XIP_AILERON_TRIM') : 0;
 
-    //ENGINE
-    this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT') ? GetStoredData('G36XIP_FUEL_SELECT') : 'off';
-    this.engHasRun = false; //so we can check if the engine has run
+    //KNOBS
+    this.floodBrightness = GetStoredData('G36XIP_FLOOD_BRIGHTNESS') ? GetStoredData('G36XIP_FLOOD_BRIGHTNESS') : 0;
+
+    //MISC
+    this.yokeLeft = GetStoredData('G36XIP_YOKE_LEFT') ? GetStoredData('G36XIP_YOKE_LEFT') : 0;
+  	this.yoke2Right = GetStoredData('G36XIP_YOKE_RIGHT') ? GetStoredData('G36XIP_YOKE_RIGHT') : 0;
+
+
+    //MODELLING STUFF
+    his.engHasRun = false; //so we can check if the engine has run
     this.engHours = GetStoredData('G36XIP_ENG_HOURS') ? GetStoredData('G36XIP_ENG_HOURS') : 0;
     this.engHobbsRunning = false;
     this.engHobbsTimerStart = '';
@@ -92,8 +102,49 @@ class G36XIP extends BaseInstrument {
     function resetState() {
       DeleteStoredData('G36XIP_LEFT_FUEL');
       DeleteStoredData('G36XIP_RIGHT_FUEL');
+      DeleteStoredData('G36XIP_PILOT_WEIGHT');
+      DeleteStoredData('G36XIP_COPILOT_WEIGHT');
+      DeleteStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT');
+      DeleteStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT');
+      DeleteStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT');
+      DeleteStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT');
+      DeleteStoredData('G36XIP_BAGGAGE_WEIGHT');
       DeleteStoredData('G36XIP_BAT1');
       DeleteStoredData('G36XIP_BAT2');
+      DeleteStoredData('G36XIP_ALT1');
+      DeleteStoredData('G36XIP_ALT2');
+      DeleteStoredData('G36XIP_PBRAKE');
+      DeleteStoredData('G36XIP_AVIONICS');
+      DeleteStoredData('G36XIP_AIRCO');
+      DeleteStoredData('G36XIP_BLOWER');
+      DeleteStoredData('G36XIP_VENT_BLOWER');
+      DeleteStoredData('G36XIP_AUX_FUEL_PUMP');
+      DeleteStoredData('G36XIP_MAGNETOL');
+      DeleteStoredData('G36XIP_MAGNETOR');
+      DeleteStoredData('G36XIP_PITOT');
+      DeleteStoredData('G36XIP_PROP_DEICE');
+      DeleteStoredData('G36XIP_STROBE');
+      DeleteStoredData('G36XIP_BEACON');
+      DeleteStoredData('G36XIP_NAV_LIGHT');
+      DeleteStoredData('G36XIP_FLOOD_LIGHT');
+      DeleteStoredData('G36XIP_PANEL_LIGHT');
+      DeleteStoredData('G36XIP_TAXI_LIGHT');
+      DeleteStoredData('G36XIP_LANDING_LIGHT');
+      DeleteStoredData('G36XIP_FUEL_SELECT');
+      DeleteStoredData('G36XIP_THROTTLE');
+      DeleteStoredData('G36XIP_PROP');
+      DeleteStoredData('G36XIP_MIXTURE');
+      DeleteStoredData('G36XIP_COWL');
+      DeleteStoredData('G36XIP_FLAPS');
+      DeleteStoredData('G36XIP_FLAPS');
+      DeleteStoredData('G36XIP_FLAPS');
+      DeleteStoredData('G36XIP_PITCH_TRIM');
+      DeleteStoredData('G36XIP_AILERON_TRIM');
+      DeleteStoredData('G36XIP_FLOOD_BRIGHTNESS');
+      DeleteStoredData('G36XIP_YOKE_LEFT');
+      DeleteStoredData('G36XIP_YOKE_RIGHT');
+      DeleteStoredData('G36XIP_ENG_HOURS');
+      DeleteStoredData('G36XIP_DEFROST');
     }
 
   } //end connectedCallback
@@ -101,6 +152,29 @@ class G36XIP extends BaseInstrument {
   //Runs once the flight is loaded
   onFlightStart() {
     super.onFlightStart();
+
+    //FLIGHT STATES ON LOAD
+
+    //Parked
+    if (SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 1) {
+      //The aircraft is on the ground and parked, we can load all the variables
+    }
+
+    //On Ground but not in a parking space, probably on the runway
+    if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 0) {
+      //The aircraft is on the ground AND not in a parking spot, so most probably on the runway, we want to check if the engine is running
+      if (SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 1) {
+        //engine is running set basic
+      } else {
+        //engine off set everything
+      }
+    }
+
+    //In the Air
+    if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 0) {
+      //We're in the air, don't set anything or we'll plumet to the ground
+    }
+
 
     //set the variables that need to wait for the flight to load as other things will override them
 
@@ -114,12 +188,12 @@ class G36XIP extends BaseInstrument {
     SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:2", "number", Number(this.bat2));
 
     //Alternator 1
-    if (this.alt1) {
+    if (this.alt1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool") == 0) {
       SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR1", "number", 1); //Works
     }
 
     //Alternator 2
-    if (this.alt2) {
+    if (this.alt2 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool") == 0) {
       SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR2", "number", 1); //Works
     }
 
@@ -127,27 +201,27 @@ class G36XIP extends BaseInstrument {
     SimVar.SetSimVarValue("K:AVIONICS_MASTER_SET", "number", Number(this.avionics));
 
     //Airconditioning
-
+    SimVar.SetSimVarValue("L:XMLVAR_Airco", "number", Number(this.aircon));
 
     //Blower
+    SimVar.SetSimVarValue("L:XMLVAR_Blower", "number", Number(this.blower));
 
     //Vent Blower
+    SimVar.SetSimVarValue("L:XMLVAR_Vent", "number", Number(this.ventBlower));
 
     //Fuel Pump Switch
-    SimVar.SetSimVarValue("A:GENERAL ENG FUEL PUMP SWITCH:1", "bool", 1); //Doesnt work
+    SimVar.SetSimVarValue("K:ELECT_FUEL_PUMP1_SET", "bool", Number(this.auxFuelPump));
 
-    //Engine start switch
+    //Magnetos
+  	SimVar.SetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool", Number(this.magnetoL));
+    SimVar.SetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool", Number(this.magnetoR));
 
     //Pitot Heat
-    if (this.pitotHeat) {
-      SimVar.SetSimVarValue("K:PITOT_HEAT_ON", "number", 1); //Works
-    } else {
-      SimVar.SetSimVarValue("K:PITOT_HEAT_OFF", "number", 1); //Works
-    }
+    SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
 
     //Prop De-Ice
-    if (this.propDeIce) {
-      SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1); //Works
+    if (GetStoredData('G36XIP_PROP_DEICE') == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
+      SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1);
     }
 
     //Strobe
@@ -172,13 +246,7 @@ class G36XIP extends BaseInstrument {
     SimVar.SetSimVarValue("LIGHT LANDING", "bool", Number(this.landingLight)); //Works
 
     //Fuel Selector
-    if (this.fuelSelector == 'left') {
-      SimVar.SetSimVarValue("K:FUEL_SELECTOR_LEFT", "number", 1); //Works
-    } else if (this.fuelSelector == 'right') {
-      SimVar.SetSimVarValue("K:FUEL_SELECTOR_RIGHT", "number", 1); //Works
-    } else if (this.fuelSelector == 'off') {
-      SimVar.SetSimVarValue("K:FUEL_SELECTOR_OFF", "number", 1); //Works
-    }
+    SimVar.SetSimVarValue("K:FUEL_SELECTOR_SET", "number", Number(this.fuelSelector));
 
     //Throttle
     SimVar.SetSimVarValue("GENERAL ENG THROTTLE LEVER POSITION:1", "percent", Number(this.throttle)); //Works
@@ -195,30 +263,59 @@ class G36XIP extends BaseInstrument {
   	SimVar.SetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent", Number(this.flapsRight)); //Works
 
     //Avionics Brightness
+      //pot14
 
     //floodlight brightness
+      //pot5
 
     //Panel light brightness
+      //pot3
 
     //Sub Panel Lighting brightness
+      //pot2
+
+    //Defrost
+  	SimVar.SetSimVarValue("K:ANTI_ICE_GRADUAL_SET_ENG1", "position 16k", Number(this.defrost));
 
     //Alieron Trim
+    SimVar.SetSimVarValue("AILERON TRIM PCT", "Percent Over 100", Number(this.aileronTrim));
 
     //Cowl Flaps
+    SimVar.SetSimVarValue("RECIP ENG COWL FLAP POSITION:1", "percent", Number(this.cowl)); //Works
 
     //Pitch trim
+    SimVar.SetSimVarValue("ELEVATOR TRIM POSITION", "radians", Number(this.pitchTrim));
+
+    //Yoke visibility
+    SimVar.SetSimVarValue("L:XMLVAR_YokeHidden1", "number", Number(this.yoke1));
+    SimVar.SetSimVarValue("L:XMLVAR_YokeHidden2", "number", Number(this.yoke2));
 
 
 
-    // I don't think we need to run this every frame so just run it on a timer here
-    // Also there might be a performance hit if we try to do that...
-    //
-    // @TODO NEED TO SET TO 60000 ONCE DEV COMPLETE
-    //
-    var timerMilSecs = 1000; //this is set so we can change it if needed
+
+
+
+
+    var timerMilSecs = 60000; //this is set so we can change it if needed
     var timer = window.setInterval(checkG36State, timerMilSecs);
 
     function checkG36State() {
+
+      //FUEL IN GALLONS AND WEIGHTS IN KG
+      let lefttank = SimVar.GetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "gallons");
+      let righttank = SimVar.GetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "gallons");
+      SetStoredData('G36XIP_LEFT_FUEL', lefttank.toString());
+      SetStoredData('G36XIP_RIGHT_FUEL', righttank.toString());
+      //SWITCHES
+      //LEAVERS IN PERCENT %
+      //FLIGHT CONTROLS
+      //KNOBS
+      //MISC
+      //MODELLING STUFF
+
+
+
+
 
       //if the battery master IS on and the engine is running keep the fuel updated
       if (SimVar.GetSimVarValue("ELECTRICAL MASTER BATTERY:1", "bool") && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool")) {
@@ -257,16 +354,17 @@ class G36XIP extends BaseInstrument {
   Update() {
     super.Update();
 
-    if (this.engHasRun == true && this.engHobbsRunning == false) {
-      this.engHobbsRunning = true;
-      var today = new Date();
-      this.engHobbsTimerStart = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    }
+//
+//    if (this.engHasRun == true && this.engHobbsRunning == false) {
+//      this.engHobbsRunning = true;
+//      var today = new Date();
+//      this.engHobbsTimerStart = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//    }
 
-    if (this.engHasRun == false && this.engHobbsRunning == true) {
-      this.engHobbsRunning = false;
-      var today = new Date();
-      this.engHobbsTimerEnd = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//    if (this.engHasRun == false && this.engHobbsRunning == true) {
+//      this.engHobbsRunning = false;
+//      var today = new Date();
+//      this.engHobbsTimerEnd = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
       //run the time difference here - to set the hobbs timer
 
