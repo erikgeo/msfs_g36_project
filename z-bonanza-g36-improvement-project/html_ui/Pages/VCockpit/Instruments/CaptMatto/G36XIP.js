@@ -342,7 +342,7 @@ class G36XIP extends BaseInstrument {
     }
 
 
-    var timerMilSecs = 60000;
+    var timerMilSecs = 10000;
     var timer = window.setInterval(checkG36State, timerMilSecs);
 
     function checkG36State() {
