@@ -1,4 +1,4 @@
-# MSFS G36 Project version 0.6.5.1
+# MSFS G36 Project version 0.6.6
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
@@ -103,7 +103,12 @@ Features:
     * Floodlight Brightness
     * Pilot & Passenger Yoke Visibility
 * When you next climb into your aircraft you will find it just as you left it!
-* NOTE: The aircraft state is only loaded if you are on the ground in a parking spot or on the ground and your engine is off. This allows the aircraft to load in flight and on the runway without messing with the aircraft load. It WILL however, still record switch states and tank levels etc.
+
+NOTE: The aircraft state is only loaded if:
+* You are on the ground in a parking spot or
+* You are on the ground somewhere else and your engine is off. 
+
+This allows the aircraft to load in flight or ready at the end of the runway without messing with the aircraft load. It WILL however, still record switch states and tank levels etc.
 
 **MISC**
 * Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
