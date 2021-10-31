@@ -211,3 +211,139 @@ TARGET
 		</UseTemplate>
 	</Component>
 </Template>
+
+
+
+<!--####################### ADDED BY WEPT ####################################-->
+
+	<Template Name="G36_PASSENGER_Lever_Cabin_Heat_Template">
+		<UseTemplate Name="G36_PASSENGER_Cabin_Heat_Template">
+			<INTERACTION_TYPE>Lever</INTERACTION_TYPE>
+		</UseTemplate>
+	</Template>
+	<Template Name="G36_PASSENGER_Cabin_Heat_Template">
+		<Parameters Type="Default">
+			<ID>1</ID>
+		</Parameters>
+		<UseTemplate Name="ASOBO_GT_Helper_Suffix_ID_Appender">
+			<TEMPLATE_TO_CALL>G36_PASSENGER_Cabin_Heat_SubTemplate</TEMPLATE_TO_CALL>
+		</UseTemplate>
+	</Template>
+	<Template Name="G36_PASSENGER_Cabin_Heat_SubTemplate">
+		<Parameters Type="Default">
+			<WWISE_PREFIX>cabin_heat</WWISE_PREFIX>
+			<NODE_ID>PASSENGER_#INTERACTION_TYPE#_Cabin_Heat#SUFFIX_ID#</NODE_ID>
+			<ANIM_NAME>PASSENGER_#INTERACTION_TYPE#_Cabin_Heat#SUFFIX_ID#</ANIM_NAME>
+			<TOOLTIP_TITLE>@TT_Package.CABIN_HOT_AIR_TITLE</TOOLTIP_TITLE>
+			<TT_DESCRIPTION_ID>@TT_Package.CABIN_HOT_AIR_ACTION_SET</TT_DESCRIPTION_ID>
+		</Parameters>
+		<UseTemplate Name="G36_PASSENGER_Cabin_Base_Template">
+			<IE_ID>Cabin_Heat#SUFFIX_ID#</IE_ID>
+		</UseTemplate>
+	</Template>
+	
+	<!--################# CABIN AIR LEVER ###################-->
+	<Template Name="G36_PASSENGER_Lever_Cabin_Air_Template">
+		<UseTemplate Name="G36_PASSENGER_Cabin_Air_Template">
+			<INTERACTION_TYPE>Lever</INTERACTION_TYPE>
+		</UseTemplate>
+	</Template>
+	<Template Name="G36_PASSENGER_Cabin_Air_Template">
+		<Parameters Type="Default">
+			<ID>1</ID>
+		</Parameters>
+		<UseTemplate Name="ASOBO_GT_Helper_Suffix_ID_Appender">
+			<TEMPLATE_TO_CALL>G36_PASSENGER_Cabin_Air_SubTemplate</TEMPLATE_TO_CALL>
+		</UseTemplate>
+	</Template>
+	<Template Name="G36_PASSENGER_Cabin_Air_SubTemplate">
+		<Parameters Type="Default">
+			<WWISE_PREFIX>cabin_heat</WWISE_PREFIX>
+			<NODE_ID>PASSENGER_#INTERACTION_TYPE#_Cabin_Air#SUFFIX_ID#</NODE_ID>
+			<ANIM_NAME>PASSENGER_#INTERACTION_TYPE#_Cabin_Air#SUFFIX_ID#</ANIM_NAME>
+			<TOOLTIP_TITLE>@TT_Package.CABIN_AIR_FLOW_TITLE</TOOLTIP_TITLE>
+			<TT_DESCRIPTION_ID>@TT_Package.CABIN_AIR_FLOW_ACTION</TT_DESCRIPTION_ID>
+		</Parameters>
+		<UseTemplate Name="G36_PASSENGER_Cabin_Base_Template">
+			<IE_ID>Cabin_Air#SUFFIX_ID#</IE_ID>
+		</UseTemplate>
+	</Template>
+	
+	<!--################# PASSENGER BASE TEMPLATE ###################-->	
+	<Template Name="G36_PASSENGER_Cabin_Base_Template">
+		<Parameters Type="Default">
+			<INPUT_EVENT_ID_SOURCE>PASSENGER</INPUT_EVENT_ID_SOURCE>
+			<USE_INPUT_EVENT_ID>PASSENGER</USE_INPUT_EVENT_ID>
+		</Parameters>
+		<Parameters Type="Default">
+			<TOOLTIP_ENTRY_0>#INPUT_EVENT_ID_SOURCE#_#IE_ID#</TOOLTIP_ENTRY_0>
+			<ANIM_LENGTH>100</ANIM_LENGTH>
+			<Switch Param="INTERACTION_TYPE">
+				<Case Value="Lever">
+					<AXIS_INCREMENT>5</AXIS_INCREMENT>
+					<AXIS>Y</AXIS>
+					<WWISE_EVENT_1_LEVER>#WWISE_PREFIX#_lever_on</WWISE_EVENT_1_LEVER>
+					<WWISE_EVENT_2_LEVER>#WWISE_PREFIX#_lever_off</WWISE_EVENT_2_LEVER>
+					<LEVER_ANIM_VAR>XMLVAR_#IE_ID#_Position</LEVER_ANIM_VAR>
+					<LEVER_ANIM_SCOPE>L</LEVER_ANIM_SCOPE>    <!-- ############## DEFAULT WAS AN O ############### -->
+				</Case>
+			</Switch>
+		</Parameters>
+		<Parameters Type="Override">
+			<Switch Param="INTERACTION_TYPE">
+				<Case Value="Lever">
+					<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
+				</Case>
+			</Switch>
+		</Parameters>
+		<Component ID="#NODE_ID#" Node="#NODE_ID#">
+			<Switch Param="INTERACTION_TYPE">
+				<Case Value="Lever">
+					<UseInputEvent ID="#USE_INPUT_EVENT_ID#">
+						<LEVER_ID>#IE_ID#</LEVER_ID>
+						<SET_STATE_EXTERNAL>(&gt;#LEVER_ANIM_SCOPE#:#LEVER_ANIM_VAR#)</SET_STATE_EXTERNAL>
+						<GET_STATE_EXTERNAL>(#LEVER_ANIM_SCOPE#:#LEVER_ANIM_VAR#)</GET_STATE_EXTERNAL>
+						<MAX_VALUE>#ANIM_LENGTH#</MAX_VALUE>
+						<NO_ANIM_VAR_UPDATE>True</NO_ANIM_VAR_UPDATE>
+						<INC_PARAM_0>#AXIS_INCREMENT# p0 *</INC_PARAM_0>
+						<INC_PARAM_0_IS_DYNAMIC>True</INC_PARAM_0_IS_DYNAMIC>
+						<DEC_PARAM_0>#AXIS_INCREMENT# p0 *</DEC_PARAM_0>
+						<DEC_PARAM_0_IS_DYNAMIC>True</DEC_PARAM_0_IS_DYNAMIC>
+					</UseInputEvent>
+					<UseTemplate Name="ASOBO_GT_Lever_DraggingWheelLeftDrag_Axis">
+						<ANIM_CODE>(#LEVER_ANIM_SCOPE#:#LEVER_ANIM_VAR#)</ANIM_CODE>
+						<POSITIVE_AXIS_CODE>1 (&gt;B:#INPUT_EVENT_ID_SOURCE#_#IE_ID#_Inc)</POSITIVE_AXIS_CODE>
+						<NEGATIVE_AXIS_CODE>1 (&gt;B:#INPUT_EVENT_ID_SOURCE#_#IE_ID#_Dec)</NEGATIVE_AXIS_CODE>
+						<DRAG_CODE>#ANIM_LENGTH# (M:DragPercent) * (&gt;B:#INPUT_EVENT_ID_SOURCE#_#IE_ID#_Set)</DRAG_CODE>
+						<NO_ARROWS/>
+						<CURSOR>Grab</CURSOR>
+						<WWISE_EVENT_1>#WWISE_EVENT_1_LEVER#</WWISE_EVENT_1>
+						<WWISE_EVENT_2>#WWISE_EVENT_2_LEVER#</WWISE_EVENT_2>
+					</UseTemplate>
+				</Case>
+			</Switch>
+		</Component>
+		<Condition Check="HIGHLIGHT_NODE_ID">
+			<UseTemplate Name="ASOBO_GT_ComponentWith_PART_ID">
+				<NODE_ID>#HIGHLIGHT_NODE_ID#</NODE_ID>
+			</UseTemplate>
+		</Condition>
+		<UseTemplate Name="ASOBO_GT_Update">
+			<UPDATE_CODE>
+			<UPDATE_ONCE/>
+				(L:XMLVAR_CABIN_HEAT_1_POSITION, enum) (&gt;B:PASSENGER_Cabin_Heat#SUFFIX_ID#_Set) 
+			</UPDATE_CODE>
+		</UseTemplate>
+		<Update Frequency="1">
+			(B:PASSENGER_Cabin_Heat_1_Set) 20 &gt;= (A:ENG OIL TEMPERATURE:1, celsius) 45 &gt;= and
+			(A:ELECTRICAL MASTER BATTERY:1, bool) 1 == (A:ELECTRICAL MASTER BATTERY:2, bool) 1 == or and
+				if{
+					1 (&gt;K:WINDSHIELD_DEICE_ON, Bool)
+				}
+			(B:PASSENGER_Cabin_Heat_1_Set) 20 &lt; (A:ENG OIL TEMPERATURE:1, celsius) 45 &lt; or
+			(A:ELECTRICAL MASTER BATTERY:1, bool) 0 == (A:ELECTRICAL MASTER BATTERY:2, bool) 0 == and or
+				if{
+					1 (&gt;K:WINDSHIELD_DEICE_OFF, Bool)
+				}	
+		</Update>
+	</Template>

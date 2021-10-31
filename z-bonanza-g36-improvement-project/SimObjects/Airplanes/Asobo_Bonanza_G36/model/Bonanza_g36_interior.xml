@@ -469,27 +469,36 @@
 				<INVERT_INTERACTION>True</INVERT_INTERACTION>
 				<INVERT_IM_DRAG_INPUT_SCALAR>True</INVERT_IM_DRAG_INPUT_SCALAR>
 			</Parameters>
-			<UseTemplate Name="ASOBO_DEICE_Lever_Engine_Template">
+			<!--<UseTemplate Name="ASOBO_DEICE_Lever_Engine_Template">
 				<DRAG_AXIS_SCALE>600</DRAG_AXIS_SCALE>
 				<ANIM_NAME>PASSENGER_Switch_Cabin_Air_1</ANIM_NAME>
 				<NODE_ID>PASSENGER_Switch_Cabin_Air_1</NODE_ID>
 				<USE_TRAJECTORY_DRAG_MODE>True</USE_TRAJECTORY_DRAG_MODE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_PASSENGER_Lever_Cabin_Heat_Template">
+			</UseTemplate>-->
+			<!--DEFROST LEVER-->
+			<UseTemplate Name="G36_PASSENGER_Lever_Cabin_Heat_Template">
+				<NODE_ID>PASSENGER_Switch_Cabin_Air_1</NODE_ID>
+				<ANIM_NAME>PASSENGER_Switch_Cabin_Air_1</ANIM_NAME>
 				<ID>1</ID>
-				<NODE_ID>PASSENGER_Switch_Cabin_Heat_1</NODE_ID>
-				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_1</ANIM_NAME>
 			</UseTemplate>
-			<UseTemplate Name="ASOBO_PASSENGER_Lever_Cabin_Heat_Template">
-				<ID>2</ID>
-				<NODE_ID>PASSENGER_Switch_Cabin_Heat_2</NODE_ID>
-				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_2</ANIM_NAME>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_PASSENGER_Lever_Cabin_Heat_Template">
+			
+			<!--  reordered L-R  -->
+			<UseTemplate Name="G36_PASSENGER_Lever_Cabin_Air_Template">
 				<ID>3</ID>
 				<NODE_ID>PASSENGER_Switch_Cabin_Heat_3</NODE_ID>
 				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_3</ANIM_NAME>
 			</UseTemplate>
+			<UseTemplate Name="G36_PASSENGER_Lever_Cabin_Air_Template">
+				<ID>1</ID>
+				<NODE_ID>PASSENGER_Switch_Cabin_Heat_1</NODE_ID>
+				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_1</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="G36_PASSENGER_Lever_Cabin_Air_Template">
+				<ID>2</ID>
+				<NODE_ID>PASSENGER_Switch_Cabin_Heat_2</NODE_ID>
+				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_2</ANIM_NAME>
+			</UseTemplate>
+			
 		</Component>
 
 		<!-- HTML GAUGES TEMP ###################################-->
@@ -515,7 +524,7 @@
 
 		<Component ID="AC_BLOWER">
 			<UseTemplate Name="G36_Environment_Blower">
-				<NODE_ID>switch_AC_blowerHI</NODE_ID>
+				<NODE_ID>switch_AC_blowerHI</NODE_ID>switch_AC_blowerHI
 				<ANIM_NAME>switch_AC_blowerHI</ANIM_NAME>
 				<CIRCUIT_ID>49</CIRCUIT_ID>
 			</UseTemplate>
@@ -553,7 +562,12 @@
 		</Component>
 
 		<Component ID="ALTERNATE_AIR">
-			<UseTemplate Name="G36_AlternateAir_Template"></UseTemplate>
+			<UseTemplate Name="ASOBO_ENGINE_Lever_AlternateAir_Template">
+				<NODE_ID>ENGINE_Lever_AlternateAir</NODE_ID>
+				<ANIM_NAME>ENGINE_Lever_AlternateAir</ANIM_NAME>
+				<WWISE_EVENT_1>deice_engine_lever_on</WWISE_EVENT_1>
+				<WWISE_EVENT_2>deice_engine_lever_off</WWISE_EVENT_2>
+			</UseTemplate>
 		</Component>
 
 		<!-- End of G36 Improvement Project interactive elements
