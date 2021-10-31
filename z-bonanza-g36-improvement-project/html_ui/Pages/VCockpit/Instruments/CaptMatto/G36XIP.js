@@ -349,117 +349,119 @@ class G36XIP extends BaseInstrument {
 
       console.log('Saved State');
 
-      //FUEL IN GALLONS AND WEIGHTS IN KG
-        let lefttank = SimVar.GetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "gallons");
-        let righttank = SimVar.GetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "gallons");
-        SetStoredData('G36XIP_LEFT_FUEL', lefttank.toString());
-        SetStoredData('G36XIP_RIGHT_FUEL', righttank.toString());
-      //SWITCHES
-        //Battery switches
-        var bat1 = SimVar.GetSimVarValue("ELECTRICAL MASTER BATTERY:1", "bool");
-        var bat2 = SimVar.GetSimVarValue("ELECTRICAL MASTER BATTERY:2", "bool");
-        SetStoredData('G36XIP_BAT1', bat1.toString());
-        SetStoredData('G36XIP_BAT2', bat2.toString());
-        //Alternator switches
-        var alt1 = SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool");
-        var alt2 = SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool");
-    		SetStoredData('G36XIP_ALT1', alt1.toString());
-    		SetStoredData('G36XIP_ALT2', alt2.toString());
-        //Parking Brake
-        var pBrake = SimVar.GetSimVarValue("BRAKE PARKING INDICATOR", "bool");
-        SetStoredData('G36XIP_PBRAKE', pBrake.toString());
-        //Avionics
-        var avionics = SimVar.GetSimVarValue("AVIONICS MASTER SWITCH", "bool");
-        SetStoredData('G36XIP_AVIONICS', avionics.toString());
-        //Aircon
-        var aircon = SimVar.GetSimVarValue("L:XMLVAR_Airco", "number");
-        SetStoredData('G36XIP_AIRCON', aircon.toString());
-        //Blower
-        var blower = SimVar.GetSimVarValue("L:XMLVAR_Blower", "number");
-        SetStoredData('G36XIP_BLOWER', blower.toString());
-        //Vent Blower
-        var ventBlower = SimVar.GetSimVarValue("L:XMLVAR_Vent", "number");
-        SetStoredData('G36XIP_VENT_BLOWER', ventBlower.toString());
-        //Aux Fuel Pump
-        var auxFuelPump = SimVar.GetSimVarValue("GENERAL ENG FUEL PUMP SWITCH:1", "bool");
-        SetStoredData('G36XIP_AUX_FUEL_PUMP', auxFuelPump.toString());
-        //Left Mag
-        var magnetoL = SimVar.GetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool");
-    		SetStoredData('G36XIP_MAGNETO_LEFT', magnetoL.toString());
-        //Right Mag
-        var magnetoR = SimVar.GetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool");
-        SetStoredData('G36XIP_MAGNETO_RIGHT', magnetoR.toString());
-        //Pitot Heat
-        var pitotHeat = SimVar.GetSimVarValue("L:DEICE_Pitot_1", "number");
-    		SetStoredData('G36XIP_PITOT', pitotHeat.toString());
-        //Prop De-Ice
-        var propDeIce = SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool");
-    		SetStoredData('G36XIP_PROP_DEICE', propDeIce.toString());
-        //Strobe
-        var strobe = SimVar.GetSimVarValue("LIGHT STROBE", "bool");
-        SetStoredData('G36XIP_STROBE', strobe.toString());
-        //Beacon
-        var beacon = SimVar.GetSimVarValue("LIGHT BEACON", "bool");
-        SetStoredData('G36XIP_BEACON', beacon.toString());
-        //NavLight
-        var navLight = SimVar.GetSimVarValue("LIGHT NAV", "bool");
-        SetStoredData('G36XIP_NAV_LIGHT', navLight.toString());
-        //Flood Light
-        var floodLight = SimVar.GetSimVarValue("LIGHT GLARESHIELD", "bool");
-        SetStoredData('G36XIP_FLOOD_LIGHT', floodLight.toString());
-        //Panel Light
-        var panelLight = SimVar.GetSimVarValue("LIGHT PANEL", "bool");
-    		SetStoredData('G36XIP_PANEL_LIGHT', panelLight.toString());
-        //Taxi Light
-        var taxiLight = SimVar.GetSimVarValue("LIGHT TAXI", "bool");
-        SetStoredData('G36XIP_TAXI_LIGHT', taxiLight.toString());
-        //Landing Light
-        var landingLight = SimVar.GetSimVarValue("LIGHT LANDING", "bool");
-        SetStoredData('G36XIP_LANDING_LIGHT', landingLight.toString());
-        //Fuel Selector
-        var fuelSelector = SimVar.GetSimVarValue("RECIP ENG FUEL TANK SELECTOR:1", "Enum");
-        SetStoredData('G36XIP_FUEL_SELECT', fuelSelector.toString());
-        //Defrost
-        var defrost = SimVar.GetSimVarValue("A:GENERAL ENG ANTI ICE POSITION:1", "position 16k");
-        SetStoredData('G36XIP_DEFROST', defrost.toString());
+      if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 0) {
+        //FUEL IN GALLONS AND WEIGHTS IN KG
+          let lefttank = SimVar.GetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "gallons");
+          let righttank = SimVar.GetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "gallons");
+          SetStoredData('G36XIP_LEFT_FUEL', lefttank.toString());
+          SetStoredData('G36XIP_RIGHT_FUEL', righttank.toString());
+        //SWITCHES
+          //Battery switches
+          var bat1 = SimVar.GetSimVarValue("ELECTRICAL MASTER BATTERY:1", "bool");
+          var bat2 = SimVar.GetSimVarValue("ELECTRICAL MASTER BATTERY:2", "bool");
+          SetStoredData('G36XIP_BAT1', bat1.toString());
+          SetStoredData('G36XIP_BAT2', bat2.toString());
+          //Alternator switches
+          var alt1 = SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool");
+          var alt2 = SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool");
+      		SetStoredData('G36XIP_ALT1', alt1.toString());
+      		SetStoredData('G36XIP_ALT2', alt2.toString());
+          //Parking Brake
+          var pBrake = SimVar.GetSimVarValue("BRAKE PARKING INDICATOR", "bool");
+          SetStoredData('G36XIP_PBRAKE', pBrake.toString());
+          //Avionics
+          var avionics = SimVar.GetSimVarValue("AVIONICS MASTER SWITCH", "bool");
+          SetStoredData('G36XIP_AVIONICS', avionics.toString());
+          //Aircon
+          var aircon = SimVar.GetSimVarValue("L:XMLVAR_Airco", "number");
+          SetStoredData('G36XIP_AIRCON', aircon.toString());
+          //Blower
+          var blower = SimVar.GetSimVarValue("L:XMLVAR_Blower", "number");
+          SetStoredData('G36XIP_BLOWER', blower.toString());
+          //Vent Blower
+          var ventBlower = SimVar.GetSimVarValue("L:XMLVAR_Vent", "number");
+          SetStoredData('G36XIP_VENT_BLOWER', ventBlower.toString());
+          //Aux Fuel Pump
+          var auxFuelPump = SimVar.GetSimVarValue("GENERAL ENG FUEL PUMP SWITCH:1", "bool");
+          SetStoredData('G36XIP_AUX_FUEL_PUMP', auxFuelPump.toString());
+          //Left Mag
+          var magnetoL = SimVar.GetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool");
+      		SetStoredData('G36XIP_MAGNETO_LEFT', magnetoL.toString());
+          //Right Mag
+          var magnetoR = SimVar.GetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool");
+          SetStoredData('G36XIP_MAGNETO_RIGHT', magnetoR.toString());
+          //Pitot Heat
+          var pitotHeat = SimVar.GetSimVarValue("L:DEICE_Pitot_1", "number");
+      		SetStoredData('G36XIP_PITOT', pitotHeat.toString());
+          //Prop De-Ice
+          var propDeIce = SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool");
+      		SetStoredData('G36XIP_PROP_DEICE', propDeIce.toString());
+          //Strobe
+          var strobe = SimVar.GetSimVarValue("LIGHT STROBE", "bool");
+          SetStoredData('G36XIP_STROBE', strobe.toString());
+          //Beacon
+          var beacon = SimVar.GetSimVarValue("LIGHT BEACON", "bool");
+          SetStoredData('G36XIP_BEACON', beacon.toString());
+          //NavLight
+          var navLight = SimVar.GetSimVarValue("LIGHT NAV", "bool");
+          SetStoredData('G36XIP_NAV_LIGHT', navLight.toString());
+          //Flood Light
+          var floodLight = SimVar.GetSimVarValue("LIGHT GLARESHIELD", "bool");
+          SetStoredData('G36XIP_FLOOD_LIGHT', floodLight.toString());
+          //Panel Light
+          var panelLight = SimVar.GetSimVarValue("LIGHT PANEL", "bool");
+      		SetStoredData('G36XIP_PANEL_LIGHT', panelLight.toString());
+          //Taxi Light
+          var taxiLight = SimVar.GetSimVarValue("LIGHT TAXI", "bool");
+          SetStoredData('G36XIP_TAXI_LIGHT', taxiLight.toString());
+          //Landing Light
+          var landingLight = SimVar.GetSimVarValue("LIGHT LANDING", "bool");
+          SetStoredData('G36XIP_LANDING_LIGHT', landingLight.toString());
+          //Fuel Selector
+          var fuelSelector = SimVar.GetSimVarValue("RECIP ENG FUEL TANK SELECTOR:1", "Enum");
+          SetStoredData('G36XIP_FUEL_SELECT', fuelSelector.toString());
+          //Defrost
+          var defrost = SimVar.GetSimVarValue("A:GENERAL ENG ANTI ICE POSITION:1", "position 16k");
+          SetStoredData('G36XIP_DEFROST', defrost.toString());
 
-      //LEAVERS IN PERCENT %
+        //LEAVERS IN PERCENT %
 
-        //Throttle
-        var throttle = SimVar.GetSimVarValue("GENERAL ENG THROTTLE LEVER POSITION:1", "percent");
-        SetStoredData('G36XIP_THROTTLE', throttle.toString());
-        //Propeller
-        var prop = SimVar.GetSimVarValue("GENERAL ENG PROPELLER LEVER POSITION:1", "percent");
-        SetStoredData('G36XIP_PROP', prop.toString());
-        //Mixture
-        var mixture = SimVar.GetSimVarValue("GENERAL ENG MIXTURE LEVER POSITION:1", "percent");
-        SetStoredData('G36XIP_MIXTURE', mixture.toString());
-        //Cowl Flaps
-        var cowl = SimVar.GetSimVarValue("RECIP ENG COWL FLAP POSITION:1", "percent");
-        SetStoredData('G36XIP_COWL', cowl.toString());
+          //Throttle
+          var throttle = SimVar.GetSimVarValue("GENERAL ENG THROTTLE LEVER POSITION:1", "percent");
+          SetStoredData('G36XIP_THROTTLE', throttle.toString());
+          //Propeller
+          var prop = SimVar.GetSimVarValue("GENERAL ENG PROPELLER LEVER POSITION:1", "percent");
+          SetStoredData('G36XIP_PROP', prop.toString());
+          //Mixture
+          var mixture = SimVar.GetSimVarValue("GENERAL ENG MIXTURE LEVER POSITION:1", "percent");
+          SetStoredData('G36XIP_MIXTURE', mixture.toString());
+          //Cowl Flaps
+          var cowl = SimVar.GetSimVarValue("RECIP ENG COWL FLAP POSITION:1", "percent");
+          SetStoredData('G36XIP_COWL', cowl.toString());
 
-      //FLIGHT CONTROLS
+        //FLIGHT CONTROLS
 
-        //Flaps Switch
-        var flaps = SimVar.GetSimVarValue("FLAPS HANDLE INDEX", "number");
-        SetStoredData('G36XIP_FLAPS_SWITCH', flaps.toString());
-        var flapsLeft = SimVar.GetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent");
-        SetStoredData('G36XIP_FLAPS_LEFT', flapsLeft.toString());
-        var flapsRight = SimVar.GetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent");
-        SetStoredData('G36XIP_FLAPS_RIGHT', flapsRight.toString());
+          //Flaps Switch
+          var flaps = SimVar.GetSimVarValue("FLAPS HANDLE INDEX", "number");
+          SetStoredData('G36XIP_FLAPS_SWITCH', flaps.toString());
+          var flapsLeft = SimVar.GetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent");
+          SetStoredData('G36XIP_FLAPS_LEFT', flapsLeft.toString());
+          var flapsRight = SimVar.GetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent");
+          SetStoredData('G36XIP_FLAPS_RIGHT', flapsRight.toString());
 
-      //KNOBS
+        //KNOBS
 
-        //Flood Brightness
-        var floodBrightness = SimVar.GetSimVarValue("LIGHT POTENTIOMETER:5", "percent");
-        SetStoredData('G36XIP_FLOOD_BRIGHTNESS', floodBrightness.toString());
+          //Flood Brightness
+          var floodBrightness = SimVar.GetSimVarValue("LIGHT POTENTIOMETER:5", "percent");
+          SetStoredData('G36XIP_FLOOD_BRIGHTNESS', floodBrightness.toString());
 
-      //MISC
+        //MISC
 
-        var yoke1 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden1", "number");
-        SetStoredData('G36XIP_YOKE1', yoke1.toString());
-        var yoke2 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden2", "number");
-        SetStoredData('G36XIP_YOKE2', yoke2.toString());
+          var yoke1 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden1", "number");
+          SetStoredData('G36XIP_YOKE1', yoke1.toString());
+          var yoke2 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden2", "number");
+          SetStoredData('G36XIP_YOKE2', yoke2.toString());
+      }
 
       //MODELLING STUFF
 
