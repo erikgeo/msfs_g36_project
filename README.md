@@ -8,6 +8,7 @@ This is the improvement project for the MSFS default G36. It all started as a si
 Current version: 0.6.6
 
 * New! Aircraft Persistence
+* Fixed: NXi Engine System Page spacing
 
 -------------------------------------
 -------------------------------------
