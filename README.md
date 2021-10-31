@@ -70,7 +70,7 @@ Features:
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
 * Your aircraft now remembers how you left it!
 * On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel. 
-* The aircraft now saves the following tank levels, switches and levers every minute.
+* The aircraft now saves the following tank levels, switches and levers when you are on the ground and engine is off - this is checked every 10 seconds.
     * Left & Right Fuel Tank Level
     * Battery 1 & 2 switch
     * Alternator 1 & 2 Switch
