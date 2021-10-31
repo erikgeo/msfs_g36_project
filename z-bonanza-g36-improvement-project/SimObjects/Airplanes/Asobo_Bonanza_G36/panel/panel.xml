@@ -536,7 +536,7 @@
 	<!-- Engine Display -->
 
 
-  <EngineDisplay>
+  <EngineDisplay override="true">
 
 		<EnginePage>
 
@@ -1048,13 +1048,6 @@
 			</Text>
 
 			<Text>
-				<Center>
-					<Content>-</Content>
-					<Color>black</Color>
-				</Center>
-			</Text>
-
-			<Text>
 				<Left>OIL °C</Left>
 				<Right>
 					<ToFixed precision="0">
@@ -1072,23 +1065,9 @@
 			</Text>
 
 			<Text>
-				<Center>
-					<Content>-</Content>
-					<Color>black</Color>
-				</Center>
-			</Text>
-
-			<Text>
 				<Left>--------</Left>
 				<Center>Fuel Calc</Center>
 				<Right>--------</Right>
-			</Text>
-
-			<Text>
-				<Center>
-					<Content>-</Content>
-					<Color>black</Color>
-				</Center>
 			</Text>
 
 			<Text>
@@ -1172,13 +1151,6 @@
 						</Else>
 					</If>
 				</Right>
-			</Text>
-
-			<Text>
-				<Center>
-					<Content>-</Content>
-					<Color>black</Color>
-				</Center>
 			</Text>
 
 			<Text>
