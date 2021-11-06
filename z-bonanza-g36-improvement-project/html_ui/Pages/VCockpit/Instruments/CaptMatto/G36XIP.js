@@ -9,7 +9,7 @@ class G36XIP extends BaseInstrument {
     super();
     //Set our variables and read from the DataStore whilst the sim is loading the flight
     this.atcId = SimVar.GetSimVarValue("ATC ID", "string");
-    console.log(this.atcId);
+    console.log(SimVar.GetSimVarValue("GENERAL ENG HOBBS ELAPSED TIME:1", "Seconds"));
 
     //FUEL IN GALLONS AND WEIGHTS IN KG
     this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) : 32; // See JuiceBox7535 post #1825 in main forum
@@ -146,7 +146,7 @@ class G36XIP extends BaseInstrument {
     //Parked
     if (SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 1) {
       //The aircraft is on the ground and parked, we can load all the variables
-
+console.log(this.leftFuel);
       //load fuel
       SimVar.SetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "number", Number(this.leftFuel));
       SimVar.SetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "number", Number(this.rightFuel));
@@ -345,7 +345,7 @@ class G36XIP extends BaseInstrument {
     }
 
 
-    var timerMilSecs = 1000;
+    var timerMilSecs = 5000;
     var timer = window.setInterval(checkG36State, timerMilSecs);
 
     function checkG36State() {
@@ -353,7 +353,8 @@ class G36XIP extends BaseInstrument {
       console.log('Saved State');
       var planeId = SimVar.GetSimVarValue("ATC ID", "string");
 
-      if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 0) {
+      //if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 0) {
+
         //FUEL IN GALLONS AND WEIGHTS IN KG
           let lefttank = SimVar.GetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "gallons");
           let righttank = SimVar.GetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "gallons");
@@ -428,7 +429,6 @@ class G36XIP extends BaseInstrument {
           var defrost = SimVar.GetSimVarValue("A:GENERAL ENG ANTI ICE POSITION:1", "position 16k");
           SetStoredData('G36XIP_DEFROST_'+planeId, defrost.toString());
 
-          console.log('G36XIP_LANDING_LIGHT_'+planeId);
 
         //LEAVERS IN PERCENT %
 
@@ -466,7 +466,7 @@ class G36XIP extends BaseInstrument {
           SetStoredData('G36XIP_YOKE1_'+planeId, yoke1.toString());
           var yoke2 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden2", "number");
           SetStoredData('G36XIP_YOKE2_'+planeId, yoke2.toString());
-      }
+      //}
 
       //MODELLING STUFF
 
