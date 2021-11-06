@@ -1,4 +1,4 @@
-# MSFS G36 Project version 0.6.6 Beta Test
+# MSFS G36 Project version 0.6.6 Beta 2
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
@@ -68,9 +68,10 @@ Features:
 * Excessive undercarriage wind noise reduced
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
-* Your aircraft now remembers how you left it!
+* Your aircraft now remembers how you left it! 
+* States are saved per Aircraft Regsitration, so you can multiple 'living' Aircraft
 * On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel. 
-* The aircraft now saves the following tank levels, switches and levers when you are on the ground and engine is off - this is checked every 10 seconds.
+* The aircraft now saves the following tank levels, switches and levers every 5 seconds.
     * Left & Right Fuel Tank Level
     * Battery 1 & 2 switch
     * Alternator 1 & 2 Switch
@@ -102,6 +103,7 @@ Features:
     * Aileron Trim Position
     * Floodlight Brightness
     * Pilot & Passenger Yoke Visibility
+ 
 * When you next climb into your aircraft you will find it just as you left it!
 
 NOTE: The aircraft state is only loaded if:

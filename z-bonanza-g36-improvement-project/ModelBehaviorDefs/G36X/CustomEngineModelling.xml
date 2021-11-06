@@ -1,0 +1,17 @@
+
+<Macro Name="MaxOilQty"> 3 </Macro> <!-- POH 12 US Quarts or 3 US Gallons -->
+<Macro Name="OilBurnRate"> 0.0001 </Macro>
+<Macro Name="StartOilQty"> x </Macro>
+
+<Macro Name="MaxPsiDrop"> 6 </Macro>
+<Macro Name="PsiScaler"> (L:JPL152_ELAPSED_TIME) 0.01 * 0.29 - </Macro>
+
+<Macro Name="ThrottleScaler2"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 95 &lt;= if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 - -1 * 100 / } els{ 0.10 } </Macro>
+
+<Macro Name="ThrottleScalerA"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 1 + </Macro>
+<Macro Name="ThrottleScalerB"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 105 - -1 * </Macro>
+<Macro Name="ThrottleScalerC"> @ThrottleScalerA @ThrottleScalerB log </Macro>
+<Macro Name="ThrottleScalerD"> @ThrottleScalerC 2.7 * </Macro>
+
+<Macro Name="MixtureScalerA"> (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 - -1 * 100 / </Macro>
+<Macro Name="MixtureScalerB"> @MixtureScalerA 3 * </Macro>
