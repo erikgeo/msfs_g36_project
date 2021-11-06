@@ -123,7 +123,9 @@ Installation:
 
 1: Download and install the Working Title NXi from the store Marketplace
 
-2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in your MSFS Community folder
+2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
+
+3: Download and unzip the folder 'g36ip-hanger-module' in to your MSFS Community folder
 
 -------------------------------------
 -------------------------------------
