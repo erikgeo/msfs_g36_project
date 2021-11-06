@@ -9,11 +9,13 @@ class G36XIP extends BaseInstrument {
     super();
     //Set our variables and read from the DataStore whilst the sim is loading the flight
     this.atcId = SimVar.GetSimVarValue("ATC ID", "string");
-    console.log(SimVar.GetSimVarValue("GENERAL ENG HOBBS ELAPSED TIME:1", "Seconds"));
+    this.timer = SimVar.GetSimVarValue("GENERAL ENG ELAPSED TIME:1", "hours");
+    SetStoredData('G36XIP_HOBBS_START_VALUE_'+this.atcId, this.timer.toString());
+    this.hobbs = GetStoredData('G36XIP_HOBBS_'+this.atcId) ? GetStoredData('G36XIP_HOBBS_'+this.atcId) : 1.25; //Brand new Aircraft that has had a 45min acceptance flight & 30 minute flight checks prior to ownership
+
 
     //FUEL IN GALLONS AND WEIGHTS IN KG
     this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) : 32; // See JuiceBox7535 post #1825 in main forum
-    console.log(this.leftFuel);
     this.rightFuel = GetStoredData('G36XIP_RIGHT_FUEL_'+this.atcId) ? GetStoredData('G36XIP_RIGHT_FUEL_'+this.atcId) : 32;
     this.pilotWeight = GetStoredData('G36XIP_PILOT_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_PILOT_WEIGHT_'+this.atcId) : 89; //Average male weight
     this.coPilotWeight = GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.atcId) : 89; //Average male weight
@@ -146,7 +148,7 @@ class G36XIP extends BaseInstrument {
     //Parked
     if (SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 1) {
       //The aircraft is on the ground and parked, we can load all the variables
-console.log(this.leftFuel);
+
       //load fuel
       SimVar.SetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "number", Number(this.leftFuel));
       SimVar.SetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "number", Number(this.rightFuel));
@@ -350,7 +352,6 @@ console.log(this.leftFuel);
 
     function checkG36State() {
 
-      console.log('Saved State');
       var planeId = SimVar.GetSimVarValue("ATC ID", "string");
 
       //if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 0) {
@@ -466,6 +467,12 @@ console.log(this.leftFuel);
           SetStoredData('G36XIP_YOKE1_'+planeId, yoke1.toString());
           var yoke2 = SimVar.GetSimVarValue("L:XMLVAR_YokeHidden2", "number");
           SetStoredData('G36XIP_YOKE2_'+planeId, yoke2.toString());
+
+        //HOBBS
+          var now = SimVar.GetSimVarValue("GENERAL ENG ELAPSED TIME:1", "hours");
+          var then = GetStoredData('G36XIP_HOBBS_START_VALUE_'+planeId);
+          var elapsed = now - then;
+          SetStoredData('G36XIP_HOBBS_'+planeId, yoke2.toString());
       //}
 
       //MODELLING STUFF
