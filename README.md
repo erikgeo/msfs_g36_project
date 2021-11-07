@@ -7,7 +7,8 @@ This is the improvement project for the MSFS default G36. It all started as a si
 
 Current version: 0.6.6
 
-* New! Aircraft Persistence
+* New! Aircraft Persistence (Beta 1)
+* New! Aircraft Persistence saves for different liveries
 * Fixed: NXi Engine System Page spacing
 
 -------------------------------------
@@ -69,7 +70,7 @@ Features:
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
 * Your aircraft now remembers how you left it! 
-* States are saved per Aircraft Regsitration, so you can multiple 'living' Aircraft
+* States are saved for each aircraft livery, so you can multiple 'living' Aircraft
 * On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel. 
 * The aircraft now saves the following tank levels, switches and levers every 5 seconds.
     * Left & Right Fuel Tank Level
