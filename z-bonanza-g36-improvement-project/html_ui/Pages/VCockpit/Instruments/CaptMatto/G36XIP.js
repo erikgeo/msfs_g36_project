@@ -7,69 +7,74 @@ class G36XIP extends BaseInstrument {
 
   constructor() {
     super();
+
+
     //Set our variables and read from the DataStore whilst the sim is loading the flight
-    this.atcId = SimVar.GetSimVarValue("ATC ID", "string");
+    var title = SimVar.GetSimVarValue("TITLE", "string");
+    this.livery = title.replace(/\s+/g, '_');
     this.timer = SimVar.GetSimVarValue("GENERAL ENG ELAPSED TIME:1", "hours");
-    SetStoredData('G36XIP_HOBBS_START_VALUE_'+this.atcId, this.timer.toString());
-    this.hobbs = GetStoredData('G36XIP_HOBBS_'+this.atcId) ? GetStoredData('G36XIP_HOBBS_'+this.atcId) : 1.25; //Brand new Aircraft that has had a 45min acceptance flight & 30 minute flight checks prior to ownership
+    SetStoredData('G36XIP_HOBBS_START_VALUE_'+this.livery, this.timer.toString());
+    this.hobbs = GetStoredData('G36XIP_HOBBS_'+this.livery) ? GetStoredData('G36XIP_HOBBS_'+this.livery) : 1.25; //Brand new Aircraft that has had a 45min acceptance flight & 30 minute flight checks prior to ownership
+
+
 
 
     //FUEL IN GALLONS AND WEIGHTS IN KG
-    this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.atcId) : 32; // See JuiceBox7535 post #1825 in main forum
-    this.rightFuel = GetStoredData('G36XIP_RIGHT_FUEL_'+this.atcId) ? GetStoredData('G36XIP_RIGHT_FUEL_'+this.atcId) : 32;
-    this.pilotWeight = GetStoredData('G36XIP_PILOT_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_PILOT_WEIGHT_'+this.atcId) : 89; //Average male weight
-    this.coPilotWeight = GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.atcId) : 89; //Average male weight
-    this.frontPaxLeft = GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.atcId) : 0;
-    this.frontPaxRight = GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.atcId) : 0;
-    this.rearPaxLeft = GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.atcId) : 0;
-    this.rearPaxRight = GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.atcId) : 0;
-    this.baggage = GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.atcId) ? GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.atcId) : 0;
+    this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) : 32; // See JuiceBox7535 post #1825 in main forum
+    this.rightFuel = GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) ? GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) : 32;
+    this.pilotWeight = GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) : 89; //Average male weight
+    this.coPilotWeight = GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) : 89; //Average male weight
+    this.frontPaxLeft = GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) : 0;
+    this.frontPaxRight = GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
+    this.rearPaxLeft = GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) : 0;
+    this.rearPaxRight = GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
+    this.baggage = GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) : 0;
 
     //SWITCHES
-    this.bat1 = GetStoredData('G36XIP_BAT1_'+this.atcId) ? GetStoredData('G36XIP_BAT1_'+this.atcId) : 0;
-    this.bat2 = GetStoredData('G36XIP_BAT2_'+this.atcId) ? GetStoredData('G36XIP_BAT2_'+this.atcId) : 0;
-    this.alt1 = GetStoredData('G36XIP_ALT1_'+this.atcId) ? GetStoredData('G36XIP_ALT1_'+this.atcId) : 0;
-    this.alt2 = GetStoredData('G36XIP_ALT2_'+this.atcId) ? GetStoredData('G36XIP_ALT2_'+this.atcId) : 0;
-    this.pBrake = GetStoredData('G36XIP_PBRAKE_'+this.atcId) ? GetStoredData('G36XIP_PBRAKE_'+this.atcId) : 1; //Because you should always have your parking brake set
-    this.avionics = GetStoredData('G36XIP_AVIONICS_'+this.atcId) ? GetStoredData('G36XIP_AVIONICS_'+this.atcId) : 0;
-    this.aircon = GetStoredData('G36XIP_AIRCO_'+this.atcId) ? GetStoredData('G36XIP_AIRCO_'+this.atcId) : 0;
-    this.blower = GetStoredData('G36XIP_BLOWER_'+this.atcId) ? GetStoredData('G36XIP_BLOWER_'+this.atcId) : 0;
-    this.ventBlower = GetStoredData('G36XIP_VENT_BLOWER_'+this.atcId) ? GetStoredData('G36XIP_VENT_BLOWER_'+this.atcId) : 0;
-    this.auxFuelPump = GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.atcId) ? GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.atcId) : 0;
-    this.magnetoLeft = GetStoredData('G36XIP_MAGNETO_LEFT_'+this.atcId) ? GetStoredData('G36XIP_MAGNETO_LEFT_'+this.atcId) : 0;
-    this.magnetoRight = GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.atcId) ? GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.atcId) : 0;
-    this.pitotHeat = GetStoredData('G36XIP_PITOT_'+this.atcId) ? GetStoredData('G36XIP_PITOT_'+this.atcId) : 0;
-    this.propDeIce = GetStoredData('G36XIP_PROP_DEICE_'+this.atcId) ? GetStoredData('G36XIP_PROP_DEICE_'+this.atcId) : 0;
-    this.strobe = GetStoredData('G36XIP_STROBE_'+this.atcId) ? GetStoredData('G36XIP_STROBE_'+this.atcId) : 0;
-    this.beacon = GetStoredData('G36XIP_BEACON_'+this.atcId) ? GetStoredData('G36XIP_BEACON_'+this.atcId) : 0;
-    this.navLight = GetStoredData('G36XIP_NAV_LIGHT_'+this.atcId) ? GetStoredData('G36XIP_NAV_LIGHT_'+this.atcId) : 0;
-    this.floodLight = GetStoredData('G36XIP_FLOOD_LIGHT_'+this.atcId) ? GetStoredData('G36XIP_FLOOD_LIGHT_'+this.atcId) : 0;
-    this.panelLight = GetStoredData('G36XIP_PANEL_LIGHT_'+this.atcId) ? GetStoredData('G36XIP_PANEL_LIGHT_'+this.atcId) : 0;
-    this.taxiLight = GetStoredData('G36XIP_TAXI_LIGHT_'+this.atcId) ? GetStoredData('G36XIP_TAXI_LIGHT_'+this.atcId) : 0;
-    this.landingLight = GetStoredData('G36XIP_LANDING_LIGHT_'+this.atcId) ? GetStoredData('G36XIP_LANDING_LIGHT_'+this.atcId) : 0;
-    this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT_'+this.atcId) ? GetStoredData('G36XIP_FUEL_SELECT_'+this.atcId) : 0; //0=OFF, 2=LEFT TANK, 3=RIGHT TANK
-    this.defrost = GetStoredData('G36XIP_DEFROST_'+this.atcId) ? GetStoredData('G36XIP_DEFROST_'+this.atcId) : 0;
+    this.bat1 = GetStoredData('G36XIP_BAT1_'+this.livery) ? GetStoredData('G36XIP_BAT1_'+this.livery) : 0;
+    this.bat2 = GetStoredData('G36XIP_BAT2_'+this.livery) ? GetStoredData('G36XIP_BAT2_'+this.livery) : 0;
+    this.alt1 = GetStoredData('G36XIP_ALT1_'+this.livery) ? GetStoredData('G36XIP_ALT1_'+this.livery) : 0;
+    this.alt2 = GetStoredData('G36XIP_ALT2_'+this.livery) ? GetStoredData('G36XIP_ALT2_'+this.livery) : 0;
+    this.pBrake = GetStoredData('G36XIP_PBRAKE_'+this.livery) ? GetStoredData('G36XIP_PBRAKE_'+this.livery) : 1; //Because you should always have your parking brake set
+    this.avionics = GetStoredData('G36XIP_AVIONICS_'+this.livery) ? GetStoredData('G36XIP_AVIONICS_'+this.livery) : 0;
+    this.aircon = GetStoredData('G36XIP_AIRCO_'+this.livery) ? GetStoredData('G36XIP_AIRCO_'+this.livery) : 0;
+    this.blower = GetStoredData('G36XIP_BLOWER_'+this.livery) ? GetStoredData('G36XIP_BLOWER_'+this.livery) : 0;
+    this.ventBlower = GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) ? GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) : 0;
+    this.auxFuelPump = GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) ? GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) : 0;
+    this.magnetoLeft = GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) : 0;
+    this.magnetoRight = GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) : 0;
+    this.pitotHeat = GetStoredData('G36XIP_PITOT_'+this.livery) ? GetStoredData('G36XIP_PITOT_'+this.livery) : 0;
+    this.propDeIce = GetStoredData('G36XIP_PROP_DEICE_'+this.livery) ? GetStoredData('G36XIP_PROP_DEICE_'+this.livery) : 0;
+    this.strobe = GetStoredData('G36XIP_STROBE_'+this.livery) ? GetStoredData('G36XIP_STROBE_'+this.livery) : 0;
+    this.beacon = GetStoredData('G36XIP_BEACON_'+this.livery) ? GetStoredData('G36XIP_BEACON_'+this.livery) : 0;
+    this.navLight = GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) ? GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) : 0;
+    this.floodLight = GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) ? GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) : 0;
+    this.panelLight = GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) ? GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) : 0;
+    this.taxiLight = GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) ? GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) : 0;
+    this.landingLight = GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) ? GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) : 0;
+    this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) ? GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) : 0; //0=OFF, 2=LEFT TANK, 3=RIGHT TANK
+    this.defrost = GetStoredData('G36XIP_DEFROST_'+this.livery) ? GetStoredData('G36XIP_DEFROST_'+this.livery) : 0;
 
     //LEAVERS IN PERCENT %
-    this.throttle = GetStoredData('G36XIP_THROTTLE_'+this.atcId) ? GetStoredData('G36XIP_THROTTLE_'+this.atcId) : 0;
-    this.prop = GetStoredData('G36XIP_PROP_'+this.atcId) ? GetStoredData('G36XIP_PROP_'+this.atcId) : 0;
-    this.mixture = GetStoredData('G36XIP_MIXTURE_'+this.atcId) ? GetStoredData('G36XIP_MIXTURE_'+this.atcId) : 0;
-    this.cowl = GetStoredData('G36XIP_COWL_'+this.atcId) ? GetStoredData('G36XIP_COWL_'+this.atcId) : 0;
+    this.throttle = GetStoredData('G36XIP_THROTTLE_'+this.livery) ? GetStoredData('G36XIP_THROTTLE_'+this.livery) : 0;
+    this.prop = GetStoredData('G36XIP_PROP_'+this.livery) ? GetStoredData('G36XIP_PROP_'+this.livery) : 0;
+    this.mixture = GetStoredData('G36XIP_MIXTURE_'+this.livery) ? GetStoredData('G36XIP_MIXTURE_'+this.livery) : 0;
+    this.cowl = GetStoredData('G36XIP_COWL_'+this.livery) ? GetStoredData('G36XIP_COWL_'+this.livery) : 0;
 
     //FLIGHT CONTROLS
-    this.flapsSwitch = GetStoredData('G36XIP_FLAPS_SWITCH_'+this.atcId) ? GetStoredData('G36XIP_FLAPS_SWITCH_'+this.atcId) : 0; // 0=UP, 1=APPR, 2=FULL DOWN
-    this.flapsLeft = GetStoredData('G36XIP_FLAPS_LEFT_'+this.atcId) ? GetStoredData('G36XIP_FLAPS_LEFT_'+this.atcId) : 0; // UP=0, APPR=40, DOWN=100
-    this.flapsRight = GetStoredData('G36XIP_FLAPS_RIGHT_'+this.atcId) ? GetStoredData('G36XIP_FLAPS_RIGHT'+this.atcId) : 0; // UP=0, APPR=40, DOWN=100
+    this.flapsSwitch = GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) ? GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) : 0; // 0=UP, 1=APPR, 2=FULL DOWN
+    this.flapsLeft = GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
+    this.flapsRight = GetStoredData('G36XIP_FLAPS_RIGHT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_RIGHT'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
 
-    this.pitchTrim = GetStoredData('G36XIP_PITCH_TRIM_'+this.atcId) ? GetStoredData('G36XIP_PITCH_TRIM_'+this.atcId) : 0;
-    this.aileronTrim = GetStoredData('G36XIP_AILERON_TRIM_'+this.atcId) ? GetStoredData('G36XIP_AILERON_TRIM_'+this.atcId) : 0;
+    this.pitchTrim = GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) ? GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) : 0;
+    this.aileronTrim = GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) ? GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) : 0;
 
     //KNOBS
-    this.floodBrightness = GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.atcId) ? GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.atcId) : 0;
+    this.floodBrightness = GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) ? GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) : 0;
 
     //MISC
-    this.yokeLeft = GetStoredData('G36XIP_YOKE_LEFT_'+this.atcId) ? GetStoredData('G36XIP_YOKE_LEFT_'+this.atcId) : 0;
-  	this.yoke2Right = GetStoredData('G36XIP_YOKE_RIGHT_'+this.atcId) ? GetStoredData('G36XIP_YOKE_RIGHT_'+this.atcId) : 0;
+    this.yokeLeft = GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) ? GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) : 0;
+  	this.yoke2Right = GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) ? GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) : 0;
 
     //MODELLING STUFF
 
@@ -91,50 +96,50 @@ class G36XIP extends BaseInstrument {
     //To reset the aircraft uncomment the line below
     //var reset = resetState();
     function resetState() {
-      DeleteStoredData('G36XIP_LEFT_FUEL_'+this.atcId);
-      DeleteStoredData('G36XIP_RIGHT_FUEL_'+this.atcId);
-      DeleteStoredData('G36XIP_PILOT_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_COPILOT_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_BAT1_'+this.atcId);
-      DeleteStoredData('G36XIP_BAT2_'+this.atcId);
-      DeleteStoredData('G36XIP_ALT1_'+this.atcId);
-      DeleteStoredData('G36XIP_ALT2_'+this.atcId);
-      DeleteStoredData('G36XIP_PBRAKE_'+this.atcId);
-      DeleteStoredData('G36XIP_AVIONICS_'+this.atcId);
-      DeleteStoredData('G36XIP_AIRCO_'+this.atcId);
-      DeleteStoredData('G36XIP_BLOWER_'+this.atcId);
-      DeleteStoredData('G36XIP_VENT_BLOWER_'+this.atcId);
-      DeleteStoredData('G36XIP_AUX_FUEL_PUMP_'+this.atcId);
-      DeleteStoredData('G36XIP_MAGNETOL_'+this.atcId);
-      DeleteStoredData('G36XIP_MAGNETOR_'+this.atcId);
-      DeleteStoredData('G36XIP_PITOT_'+this.atcId);
-      DeleteStoredData('G36XIP_PROP_DEICE_'+this.atcId);
-      DeleteStoredData('G36XIP_STROBE_'+this.atcId);
-      DeleteStoredData('G36XIP_BEACON_'+this.atcId);
-      DeleteStoredData('G36XIP_NAV_LIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_FLOOD_LIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_PANEL_LIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_TAXI_LIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_LANDING_LIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_FUEL_SELECT_'+this.atcId);
-      DeleteStoredData('G36XIP_THROTTLE_'+this.atcId);
-      DeleteStoredData('G36XIP_PROP_'+this.atcId);
-      DeleteStoredData('G36XIP_MIXTURE_'+this.atcId);
-      DeleteStoredData('G36XIP_COWL_'+this.atcId);
-      DeleteStoredData('G36XIP_FLAPS_SWITCH_'+this.atcId);
-      DeleteStoredData('G36XIP_FLAPS_LEFT_'+this.atcId);
-      DeleteStoredData('G36XIP_FLAPS_RIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_PITCH_TRIM_'+this.atcId);
-      DeleteStoredData('G36XIP_AILERON_TRIM_'+this.atcId);
-      DeleteStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.atcId);
-      DeleteStoredData('G36XIP_YOKE_LEFT_'+this.atcId);
-      DeleteStoredData('G36XIP_YOKE_RIGHT_'+this.atcId);
-      DeleteStoredData('G36XIP_DEFROST_'+this.atcId);
+      DeleteStoredData('G36XIP_LEFT_FUEL_'+this.livery);
+      DeleteStoredData('G36XIP_RIGHT_FUEL_'+this.livery);
+      DeleteStoredData('G36XIP_PILOT_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_BAT1_'+this.livery);
+      DeleteStoredData('G36XIP_BAT2_'+this.livery);
+      DeleteStoredData('G36XIP_ALT1_'+this.livery);
+      DeleteStoredData('G36XIP_ALT2_'+this.livery);
+      DeleteStoredData('G36XIP_PBRAKE_'+this.livery);
+      DeleteStoredData('G36XIP_AVIONICS_'+this.livery);
+      DeleteStoredData('G36XIP_AIRCO_'+this.livery);
+      DeleteStoredData('G36XIP_BLOWER_'+this.livery);
+      DeleteStoredData('G36XIP_VENT_BLOWER_'+this.livery);
+      DeleteStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery);
+      DeleteStoredData('G36XIP_MAGNETOL_'+this.livery);
+      DeleteStoredData('G36XIP_MAGNETOR_'+this.livery);
+      DeleteStoredData('G36XIP_PITOT_'+this.livery);
+      DeleteStoredData('G36XIP_PROP_DEICE_'+this.livery);
+      DeleteStoredData('G36XIP_STROBE_'+this.livery);
+      DeleteStoredData('G36XIP_BEACON_'+this.livery);
+      DeleteStoredData('G36XIP_NAV_LIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_FLOOD_LIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_PANEL_LIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_TAXI_LIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_LANDING_LIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_FUEL_SELECT_'+this.livery);
+      DeleteStoredData('G36XIP_THROTTLE_'+this.livery);
+      DeleteStoredData('G36XIP_PROP_'+this.livery);
+      DeleteStoredData('G36XIP_MIXTURE_'+this.livery);
+      DeleteStoredData('G36XIP_COWL_'+this.livery);
+      DeleteStoredData('G36XIP_FLAPS_SWITCH_'+this.livery);
+      DeleteStoredData('G36XIP_FLAPS_LEFT_'+this.livery);
+      DeleteStoredData('G36XIP_FLAPS_RIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_PITCH_TRIM_'+this.livery);
+      DeleteStoredData('G36XIP_AILERON_TRIM_'+this.livery);
+      DeleteStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery);
+      DeleteStoredData('G36XIP_YOKE_LEFT_'+this.livery);
+      DeleteStoredData('G36XIP_YOKE_RIGHT_'+this.livery);
+      DeleteStoredData('G36XIP_DEFROST_'+this.livery);
     }
 
   } //end connectedCallback
@@ -184,7 +189,7 @@ class G36XIP extends BaseInstrument {
       //Pitot Heat
       SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
       //Prop De-Ice
-      if (GetStoredData('G36XIP_PROP_DEICE_'+this.atcId) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
+      if (GetStoredData('G36XIP_PROP_DEICE_'+this.livery) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
         SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1);
       }
       //Strobe
@@ -284,7 +289,7 @@ class G36XIP extends BaseInstrument {
         //Pitot Heat
         SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
         //Prop De-Ice
-        if (GetStoredData('G36XIP_PROP_DEICE_'+this.atcId) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
+        if (GetStoredData('G36XIP_PROP_DEICE_'+this.livery) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
           SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1);
         }
         //Strobe
@@ -352,7 +357,8 @@ class G36XIP extends BaseInstrument {
 
     function checkG36State() {
 
-      var planeId = SimVar.GetSimVarValue("ATC ID", "string");
+      var title = SimVar.GetSimVarValue("TITLE", "string");
+      var planeId = title.replace(/\s+/g, '_');
 
       //if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 0) {
 
