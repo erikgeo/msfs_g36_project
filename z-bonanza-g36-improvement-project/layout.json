@@ -41,6 +41,11 @@
       "date": 132801517215050876
     },
     {
+      "path": "ContentInfo/captmatto-panel-bonanza/Thumbnail.jpg",
+      "size": 17056,
+      "date": 132772348919784166
+    },
+    {
       "path": "Effects/LIGHT_G36_BeaconTop.fx",
       "size": 3501,
       "date": 132801517215180532
@@ -116,19 +121,49 @@
       "date": 132801517216357379
     },
     {
+      "path": "html_ui/icons/toolbar/ICON_TOOLBAR_BONANZA.svg",
+      "size": 949,
+      "date": 132807573647105744
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.css",
+      "size": 13,
+      "date": 132808561363192887
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.html",
+      "size": 1387,
+      "date": 132808720422655608
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.js",
+      "size": 492,
+      "date": 132808719641603532
+    },
+    {
       "path": "html_ui/Pages/VCockpit/Instruments/CaptMatto/G36XIP.html",
       "size": 367,
       "date": 132801636586482641
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/CaptMatto/G36XIP.js",
-      "size": 24621,
-      "date": 132801742006417614
+      "size": 27538,
+      "date": 132808719697096339
+    },
+    {
+      "path": "html_ui/Textures/Menu/toolbar/ICON_TOOLBAR_BONANZA.svg",
+      "size": 949,
+      "date": 132807573647105744
+    },
+    {
+      "path": "InGamePanels/captmatto-panel-bonanza.spb",
+      "size": 674,
+      "date": 132808559656193993
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomEngineModelling.xml",
-      "size": 0,
-      "date": 132801747118633308
+      "size": 977,
+      "date": 132801892171393968
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",

@@ -7,14 +7,6 @@
     {
       "name": "fs-base-ui",
       "package_version": "0.1.10"
-    },
-    {
-      "name": "asobo-vcockpits-core",
-      "package_version": "0.1.12"
-    },
-    {
-      "name": "asobo-aircraft-bonanza-g36",
-      "package_version": "0.1.75"
     }
   ],
   "content_type": "MISC",
