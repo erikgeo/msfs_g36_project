@@ -1,14 +1,14 @@
 {
   "dependencies": [
     {
-      "name": "asobo-aircraft-bonanza-g36",
-      "package_version": "0.1.75"
+      "name": "fs-base-propdefs",
+      "package_version": "0.1.2"
     }
   ],
   "content_type": "AIRCRAFT",
   "title": "Beechcraft Bonanza G36",
   "manufacturer": "Textron Aviation",
-  "creator": "The MSFS Community",
+  "creator": "Beechcraft G36 Improvement Project",
   "package_version": "0.6.5",
   "minimum_game_version": "1.18.11",
   "release_notes": {
@@ -17,5 +17,5 @@
       "OlderHistory": ""
     }
   },
-  "total_package_size": "00000000000001963731"
+  "total_package_size": "00000000000349159768"
 }

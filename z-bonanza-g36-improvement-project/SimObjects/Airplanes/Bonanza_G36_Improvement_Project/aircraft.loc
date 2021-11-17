@@ -1,0 +1,166 @@
+{
+  "LocalisationFile": {
+    "Version": 2,
+    "UUID": "d0748055-e904-4896-9107-be8351df41ae",
+    "Languages": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "it-IT",
+      "pl-PL",
+      "pt-BR",
+      "ru-RU",
+      "ja-JP",
+      "nl-NL",
+      "nb-NO",
+      "sv-SE",
+      "fi-FI"
+    ],
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": {
+        "UUID": "73b5aaf4-69d3-442e-97b1-141aa06b83ec",
+        "LastModifiedBy": "jreynaud",
+        "LastModifiedDate": "2021-04-30 16:44:52",
+        "LocalizationStatus": "TranslationNeeded",
+        "Languages": {
+          "en-US": {
+            "Text": "At the end of World War II, Beech Aircraft Company introduced the first Beechcraft Bonanza into the postwar civil-aviation market. At a time when most light aircraft were still made of wood and fabric, the all-metal Model 35 Bonanza was a relatively fast, low-wing monoplane designed like war-time fighters -- with an easy-to-manage, horizontally opposed, six-cylinder engine, a rakishly streamlined shape, retractable undercarriage and low-wing configuration.</br></br>Since the first prototype Model 35 in 1945, continuing to the recent G36, more than 18,000 Bonanzas have been built -- and while it may not hold the record for most-produced light airplane of all time, the Beechcraft legacy workhorse has been in continuous production longer than any other plane in history.</br></br>When the G36 joined the family line in 2006, the six-seater single-engine craft carried forward a legacy of design known for reliable performance and heavy-duty construction, as well as exceptional handling and control feel. But from spinner to tail, the model also benefits from decades of production and constant improvement.</br></br>Most notable amongst its advances, the G36 updates the technology suite of its predecessor, the A36. With integrated flat-panel avionics in the form of the Garmin G1000 NXi, managing the flight deck has never been easier. Add to that an upgraded interior, with a host of creature comforts, and the G36 Bonanza offers bizjet levels of fit and finish in a rugged utility craft form -- a powerful combination, and a testament to the line's enduring appeal."
+          },
+          "fr-FR": {
+            "Text": "À la fin de la Deuxième Guerre mondiale, Beech Aircraft Company a lancé le premier Beechcraft Bonanza sur le marché de l'aviation civile d'après-guerre. À une époque où la plupart des avions légers étaient entièrement en bois et tissu, le Model 35 Bonanza tout en métal faisait figure de monoplan à ailes basses relativement rapide à la conception rappelant celle des chasseurs -- avec un moteur 6 cylindres horizontaux opposés, une forme épurée et racée, un train d'atterrissage rétractable et une configuration en ailes basses.</br></br>Depuis le premier prototype de Model 35 en 1945, jusqu'au récent G36, plus de 18 000 Bonanzas ont été construits -- et s'il ne détient pas le record de l'avion léger le plus produit de tous les temps, l'utilitaire Beechcraft est bien l'avion dont la production continue est la plus longue de l'histoire.</br></br>Lorsque le G36 a rejoint la gamme en 2006, l'aéroplane six places et monomoteur a porté un hérité de conception connu pour ses performances fiables et sa construction robuste, ainsi que sa maniabilité exceptionnelle et sa sensation de contrôle. Mais de la casserole à l'empennage, le modèle bénéficie également de décennies de production d'amélioration continue.</br></br>Parmi ses avancées les plus notables, le G36 dépoussière la suite de technologies de son prédécesseur, le A36. Avec son avionique à panneau plat sous la forme du Garmin G1000 NXi, il n'a jamais été aussi facile de gérer le poste de pilotage. Ajoutez à cela un intérieur remis au goût du jour, avec une palanquée de prestations de confort, et le G36 Bonanza offre des niveaux de finition dignes d'un avion d'affaires dans l'écrin d'un avion utilitaire robuste -- une puissante combinaison, et un témoignage de l'attrait persistent de la gamme."
+          },
+          "es-ES": {
+            "Text": "Al final de la Segunda Guerra Mundial, la Beech Aircraft Company presentó el primer Beechcraft Bonanza en el mercado de la aviación civil de la posguerra. En una época en la que la mayoría de las aeronaves ligeras todavía estaban hechas de madera y tela, el Model 35 Bonanza, totalmente metálico, era un monoplano de ala baja relativamente rápido, diseñado como los cazas de guerra, con un motor de seis cilindros en disposición horizontal opuesta y fácil de pilotar, con una forma aerodinámica muy estilizada, un tren de aterrizaje retráctil y una configuración de ala baja.</br></br>Desde el primer prototipo del Model 35 en 1945, continuando hasta el reciente G36, se han construido más de 18000 Bonanzas y, aunque puede que no tenga el récord de la aeronave ligera más producida de todos los tiempos, el caballo de batalla del legado de Beechcraft ha seguido en producción continua más tiempo que cualquier otro avión en la historia.</br></br>Cuando el G36 se unió a la línea familiar en 2006, la aeronave monomotor de seis plazas contaba con un diseño conocido por su rendimiento fiable y construcción resistente, así como por su excepcional manejo y sensación de control. Pero desde la hélice hasta la cola, el modelo también está plagado de décadas de producción y mejora constante.</br></br>Entre sus avances más notables, el G36 actualiza la tecnología de su predecesor, el A36. Con la aviónica de panel plano integrada del Garmin G1000 NXi, la gestión de la cabina de vuelo nunca ha sido más fácil. Además, el G36 posee un interior mejorado, con una gran cantidad de comodidades y niveles de ajuste y acabados en una robusta forma de utilitario: una poderosa combinación y una prueba de la atractiva duración de la línea."
+          },
+          "de-DE": {
+            "Text": "Am Ende des Zweiten Weltkriegs brachte die Beech Aircraft Company die erste Beechcraft Bonanza auf den nachkriegszeitlichen US-amerikanischen Markt für die zivile Luftfahrt. Zu einer Zeit, als die meisten Kleinflugzeuge noch immer aus Holz und Gewebe hergestellt wurden, war die vollständig aus Metall bestehende Model 35 Bonanza ein relativ schneller Tiefdecker für eine Person, der wie ein Kriegsflugzeug konzipiert worden war – mit einem leicht zu handhabenden, horizontal entgegengesetzten Sechszylinder-Motor, einer schnittig designten Form, einem einziehbaren Fahrgestell und einer Niedrigflügel-Konfiguration.</br></br>Seit dem Erscheinen des ersten Prototyps Model 35 in 1945 wurden bis zum Erscheinen der jüngsten G36 mehr als 18.000 Bonanzas gefertigt. Auch wenn dieses Flugzeug nicht den Rekord für das am meisten produzierte Kleinflugzeug aller Zeiten hält, blickt das Zugpferd von Beechcraft auf eine längere Entwicklungsgeschichte als jedes andere Flugzeug zurück.</br></br>Als das G36 2006 Teil des Familienstammbaums wurde, führte der Sechssitzer mit einem Triebwerk ein Erbe fort, das für seine verlässliche Leistung, seine Hochbelastungskonstruktion sowie für sein ausgewöhnliches Handling und Kontrollgefühl bekannt war – gleichwohl hat auch dieses Modell vom Propellerspinner bis zum Heck von Dekaden der Produktion und konstanten Verbesserung profitiert.</br></br>Am auffälligsten ist hierbei ein überarbeitetes Avionik-Paket der G36 im Vergleich zum Vorgänger, der A36, das sich in einer integrierten Flachbildschirm-Avionik in Form des Garmin G1000 NXi niederschlägt, was dazu führt, dass es noch nie so einfach war, das Flugdeck zu verwalten. Hinzu kommt ein verbesserter Innenraum mit jeder Menge Komfort-Upgrades. Außerdem bietet die G36 Bonanza BizJet-Level, was Passform und Verarbeitung in einer robusten Form anbelangt – eine mächtige Kombination und ein Zeugnis der kontinuierlichen Attraktivität dieser Serie."
+          },
+          "it-IT": {
+            "Text": "Alla fine della Seconda Guerra Mondiale, la Beech Aircraft Company introduce il primo Beechcraft Bonanza nel mercato dell'aviazione civile del dopoguerra. In un'epoca in cui la maggior parte degli aeromobili leggeri sono ancora realizzati con un telaio in legno e tessuto, il Model 35 Bonanza in metallo si afferma come un monoplano ad ala bassa relativamente veloce, progettato come gli aerei da guerra e dotato di un motore a sei cilindri contrapposto orizzontalmente di semplice gestione, una forma aerodinamica, un carrello retrattile e una configurazione ad ala bassa.</br></br>Dal prototipo di Model 35 del 1945, fino al recente G36, sono stati assemblati oltre 18.000 Bonanza e, sebbene questa linea non detenga il record per il maggior numero di esemplari prodotti, l'erede del Beechcraft vanta la più lunga produzione ininterrotta della storia.</br></br>Quando il G36 è entrato a far parte della famiglia nel 2006, l'aeromobile monomotore a sei posti ha continuato una tradizione di design apprezzata per le prestazioni affidabili e l'elevata resistenza, oltre a una maneggevolezza e un controllo straordinari. Il modello, dal muso alla coda, trae beneficio anche da decenni di produzione e di miglioramento costante.</br></br>Tra i progressi compiuti, risalta l'aggiornamento da parte del G36 dell'equipaggiamento tecnologico del suo predecessore, l'A36. Grazie all'avionica a schermo piatto integrata Garmin G1000 NXi, gestire la cabina di volo non è mai stato così semplice. Il G36 Bonanza aggiunge inoltre interni potenziati, con una serie di dotazioni di comfort e livelli di adattamento e finitura di un aeromobile commerciale racchiusi in una robusta struttura artigianale, dando vita a una combinazione potente e una testimonianza del fascino duraturo della linea."
+          },
+          "pl-PL": {
+            "Text": "Pod koniec II Wojny Światowej firma Beech Aircraft Company wprowadziła na rynek samolotów cywilnych pierwszy model z serii Beechcraft Bonanza. W czasach gdy większość samolotów lekkich wciąż była produkowana z drewna i płótna lotniczego, zbudowany w całości z metalu Model 35 Bonanza był stosunkowo szybkim dolnopłatem inspirowanym rozwiązaniami stosowanymi w myśliwcach wojskowych. Wyposażony był w prosty w obsłudze silnik o sześciu przeciwległych cylindrach i charakteryzował się zawadiacko aerodynamicznym kształtem, chowanym podwoziem oraz płatem nośnym umocowanym u dołu kadłuba.</br></br>Od momentu premiery pierwszego prototypu Modelu 35 w 1945 roku aż do wprowadzenia na rynek najnowszego modelu G36 zbudowano ponad 18 000 egzemplarzy tych maszyn. Nie jest to może rekord w zakresie liczby wyprodukowanych samolotów lekkich, ale modele Beechcraft znajdują się w ciągłej produkcji dłużej niż jakikolwiek inny samolot w historii.</br></br>W 2006 roku do rodziny dołączył sześcioosobowy model G36 z jednym silnikiem, kontynuujący tradycję maszyn projektowanych z myślą o znakomitych osiągach, solidnej konstrukcji oraz wyśmienitym i precyzyjnym sterowaniu. Od nosa po sam ogon, maszyna ta została zaprojektowana w oparciu o lata doświadczeń w zakresie produkcji i opracowywania różnorakich usprawnień.</br></br>Do jej najważniejszych zalet należy cały zestaw elementów technologicznych ulepszonych względem jej poprzednika – modelu A36. Ze zintegrowanym, płaskim panelem układu awioniki Garmin G1000 NXi zarządzanie kabiną załogi jest tak proste, jak jeszcze nigdy wcześniej. Do tego ulepszone wnętrze z całą gamą udogodnień sprawia, że model G36 Bonanza to znakomite połączenie wygody i elementów wykończeniowych typowych dla samolotów biznesowych z wytrzymałą formą użytkową – prawdziwe świadectwo atrakcyjności całej marki."
+          },
+          "pt-BR": {
+            "Text": "No fim da 2ª Guerra Mundial, a Beech Aircraft Company introduziu o primeiro Beechcraft Bonanza no mercado de aviação civil pós-guerra. Na época em que a maioria das aeronaves leves ainda eram feitas de madeira e tecido, o Modelo 35 Bonanza todo metálico era um monoplano relativamente rápido de asa baixa projetado como os caças de guerra – com um motor de seis cilindros fácil de gerenciar, oposto horizontalmente, uma forma simplificada, trem de aterrissagem retrátil e configuração de asa baixa.</br></br>Desde o primeiro protótipo do Modelo 35 em 1945, até o recente G36, mais de 18.000 Bonanzas foram construídos – e ainda que não seja o detentor do recorde de avião leve mais produzido de todos os tempos, a capacidade de trabalho herdada do Beechcraft tem estado em produção contínua por mais tempo do que qualquer outro avião na história.</br></br>Quando o G36 juntou-se à linha da família em 2006, a aeronave de motor único e seis assentos deu continuidade a um legado de design conhecido pelo desempenho e construção confiáveis, bem como um manuseio e sensação de controle excepcionais. Da hélice à cauda, o modelo também se beneficia de décadas de produção e melhoras constantes.</br></br>Mais notável entre seus avanços, o G36 atualiza o pacote de tecnologia de seu predecessor, o A36. Com aviônica de painel plano integrado na forma do Garmin G1000 NXi, o gerenciamento de voo nunca foi tão fácil. Adicione a isso um interior atualizado, com muitos recursos de conforto, e o G36 Bonanza oferece níveis de jatos comerciais de ajuste e acabamento em uma forma de avião utilitário robusto – uma combinação poderosa e um testamento do encanto duradouro da linha."
+          },
+          "ru-RU": {
+            "Text": "Буквально через несколько месяцев после окончания Второй мировой войны компания Beech Aircraft Company начала продавать модель Beechcraft Bonanza. В те времена, когда большинство лёгких самолётов всё ещё изготавливалось из ткани и древесины, Model 35 Bonanza здорово выделялся: цельнометаллический скоростной низкоплан с простым в обслуживании оппозитным шестицилиндровым мотором, стремительными обводами фюзеляжа и убирающимися шасси больше напоминал истребители только что завершившейся войны.</br></br>Начиная с первого прототипа Model 35, изготовленного в 1945 году, и заканчивая современным G36, компания построила более 18 000 самолётов Bonanza. И пусть по количеству экземпляров это не рекорд, легендарной «рабочей лошадке» Beechcraft всё же есть чем похвастаться: этот самолёт стоит на конвейере дольше любых других воздушных судов в истории авиации.</br></br>G36, примкнувший к семейству Bonanza в 2006 году, был создан с полным соблюдением традиций линейки: это шестиместный однодвигательный самолёт, который может похвастаться невероятной надёжностью, неплохими лётными характеристиками и простотой в управлении. Однако десятилетия эволюции не прошли даром.</br></br>Превосходство модели G36 над её предшественником A36 заметнее всего в кабине. Благодаря современному комплексу авионики Garmin G1000 NXi пилот никогда не запутается в показаниях приборов. Кроме того, доработан и интерьер: он стал ещё удобнее и приблизился к салонам бизнес-джетов, благодаря чему надёжный и неприхотливый Bonanza G36 стал ещё более привлекательным и универсальным."
+          },
+          "ja-JP": {
+            "Text": "第二次世界大戦の終結時、ビーチ・エアクラフト・カンパニーは戦後の民間航空市場に最初のビーチクラフト ボナンザを送り出した。ほとんどの軽航空機が木と布で作られていた時代に、総金属製のモデル 35 ボナンザは、戦時中の戦闘機と同じように設計された、比較的高速かつ低翼の単葉機だった。運用しやすい水平対向 6 気筒エンジン、すっきりと合理化された形状、格納式の降着装置と低翼構成を特徴としている。</br></br>1945 年に送り出された最初のプロトタイプであるモデル 35 から最新の G36 に至るまで、18,000 機以上のボナンザが製造された。このビーチクラフトの伝統的な航空機は、史上最も多く生産された軽飛行機というわけではないものの、史上最も長く生産された航空機という記録を保持している。</br></br>2006 年にファミリーに加わった G36 は、6 人乗りの単発機であり、信頼性の高い性能と頑丈な構造、卓越した操作性と操縦感で知られる設計を更に進歩させた。​しかし、このモデルは、スピナーからテールまで、数十年間に及ぶ生産と絶え間ない改善の恩恵を受けてもいる。</br></br>その進歩の中でも最も知られているのが、G36 が従来型の A36 の技術全体を一新したことである。​ガーミン G1000 NXi の統合フラット パネル型のアビオニクスにより、フライト デッキの管理がこれまでにないほど簡単になった。それに加えて、快適さを考慮して内装も改善されている。G36 ボナンザは、頑丈な汎用機でありながらビジネス ジェット並のフィット感と仕上がりを実現しており、その強力な組み合わせはこの系列の不朽の魅力を証明している。"
+          },
+          "nl-NL": {
+            "Text": "Na de Tweede Wereldoorlog introduceerde Beech Aircraft Company de eerste Beechcraft Bonanza op de naoorlogse markt voor de burgerluchtvaart. In een tijd waarin de meeste lichte vliegtuigen nog van hout en textiel werden gemaakt, bestond de Model 35 Bonanza volledig uit metaal. Deze relatief snelle eendekker met lage vleugel was ontworpen als gevechtsvliegtuig en beschikte over een goed aanstuurbare zescilinder boxermotor, een zwierige, gestroomlijnde vorm en een intrekbaar onderstel.</br></br>Van het eerste prototype Model 35 in 1945 tot de recente G36 zijn er meer dan 18.000 Bonanza's gebouwd. Ook al is het misschien niet het meest gebouwde lichte vliegtuig aller tijden, is het aloude Beechcraft-werkpaard langer in productie geweest dan enig ander vliegtuig in de geschiedenis.</br></br>Toen de serie in 2006 werd uitgebreid met de eenmotorige G36 voor zes passagiers werd een traditie voortgezet van betrouwbare prestaties, een robuuste constructie en een buitengewone handling en controle. Maar van spinner tot staart profiteert het model ook van tientallen jaren productie-ervaring en doorlopende verbeteringen.</br></br>De opvallendste vooruitgang van de G36 ten opzichte van zijn voorganger de A36 is zichtbaar in het technologische systeem. Dankzij de geïntegreerde flatpanelavionica van de Garmin G1000 NXi is de cockpit gebruiksvriendelijker dan ooit. Daarbij komt nog een verbeterd interieur met allerlei comfortabele voorzieningen, zodat de G36 Bonanza als robuust multifunctioneel vliegtuig ook geschikt is voor zakenvluchten. Deze combinatie verklaart de blijvende aantrekkingskracht van de serie."
+          },
+          "nb-NO": {
+            "Text": "På slutten av andre verdenskrig introduserte Beech Aircraft Company det første Beechcraft Bonanza-flyet i etterkrigstidens sivilluftfartsmarked. I en tid da de fleste lette fly fortsatt var laget av tre og stoff, var Model 35 Bonanza laget av metall og et relativt raskt, lavvinget monoplan designet som krigstidens jagere – med en lett håndterbar, horisontalt motstående sekssylindret motor, en rakishly-strømlinjeformet form, understell som kunne trekkes inn, og en lavvinget konfigurasjon.</br></br>Siden den første prototypen, Model 35, kom i 1945, og helt frem til den nylige G36, har mer enn 18 000 Bonanza-fly blitt bygget. Selv om det ikke holder til rekorden for flest produserte småfly gjennom tidene, har Beechcrafts arbeidshest vært i kontinuerlig produksjon lengre enn noe annet fly i historien.</br></br>Da G36 ble en del av familien i 2006, videreførte dette seksseters flyet med én motor en designarv kjent for pålitelig ytelse og solid konstruksjon samt eksepsjonell håndtering og kontroll. Fra spinner til hale drar modellen nytte av tiår med produksjon og konstant forbedring.</br></br>Mest bemerkelsesverdig blant fremskrittene er den nye teknologipakken G36 har. Med integrert avionikk og flatskjerm i form av Garmin G1000 NXi, har det aldri vært enklere å sitte i cockpiten. I tillegg er interiøret oppgradert på en rekke punkter for bedre komfort. G36 Bonanza tilbyr tilpasning og finish du ofte bare finner på privatfly, i et robust fly som kan takle det meste – en kraftig kombinasjon og et testament til seriens varige appell."
+          },
+          "sv-SE": {
+            "Text": "I slutet av andra världskriget introducerade Beech Aircraft Company den första Beechcraft Bonanza på efterkrigstidens marknad för civilflyg. I en tid då de flesta lätta flygplanen fortfarande var gjorda av trä och tyg, var Model 35 Bonanza ett relativt snabbt, lågvingat monoplan helt i metall och utformat som krigstidens stridsplan – med en lätthanterlig, horisontellt motstående sexcylindrig motor, en skarp strömlinjeform, infällbart underrede och lågvingekonfiguration.</br></br>Sedan den första prototypen Model 35 redan 1945 och fram till den senaste G36 har mer än 18 000 stycken Bonanza byggts – och även om det kanske inte innehar rekordet för det mest producerade lätta flygplanet genom tiderna så har Beechcrafts arbetshäst varit i kontinuerlig produktion längre än något annat plan i historien.</br></br>När G36 tog sin plats i släktlinjen 2006 fick det sexsitsiga enmotoriga flygplanet bära vidare ett designarv som blivit känt för tillförlitlig prestanda, en tålig konstruktion, exceptionell styrning och kontrollkänsla. Modellen utnyttjar också årtionden av produktion och ständiga förbättringar, från propeller till stjärt.</br></br>De mest anmärkningsvärda av framstegen är G36:ans uppdatering av föregångaren A36:ans teknikuppsättning. Med integrerad plattskärmsavionik i form av Garmin G1000 NXi har det aldrig varit enklare att hantera flygdäcket. Lägg där till en uppgraderad interiör med en mängd bekvämligheter, så erbjuder G36 Bonanza en nivå av passform och finish från ett affärsjet med formen av ett robust nyttoflygplan – en kraftfull kombination och ett bevis på seriens bestående attraktion."
+          },
+          "fi-FI": {
+            "Text": "Toisen maailmansodan lopussa Beech Aircraft Company toi ensimmäisen Beechcraft Bonanzan sodanjälkeisille siviili-ilmailumarkkinoille. Aikana, jolloin suurin osa kevyistä lentokoneista oli vielä puusta ja kankaasta valmistettuja, kokonaan metallinen Model 35 Bonanza oli suhteellisen nopea, matalasiipinen yksitaso, joka oli suunniteltu kuten sota-ajan hävittä - helposti hallittava, vaakasuuntaisesti vastakkainen kuusisylinterinen moottori, virtaviivainen muotoilu, sisään vedettävä laskuteline ja matalasiipinen rakenne.</br></br>Ensimmäisestä Model 35 -prototyypistä vuodelta 1945 lähtien ja ulottuen nykyaikaiseen G36-malliin on tähän mennessä rakennettu yli 18 000 Bonanzaa - ja vaikka se ei ehkä pidä hallussaan kaikkien aikojen eniten valmistetun kevyen lentokoneen ennätystä, Beechcraftin vanha työhevonen on ollut jatkuvassa tuotannossa pidempään kuin mikään muu kone historiassa.</br></br>Kun G36 liitettiin perheeseen vuonna 2006, tämä kuusipaikkainen yksimoottorinen alus vei eteenpäin muotoilun perintöä, joka tunnetaan luotettavasta suorituskyvystä ja raskaan kuorman kestävästä rakenteesta sekä poikkeuksellisesta käsittelystä ja ohjaustuntumasta. Mutta koko kone potkurista aina perään asti hyötyy vuosikymmenten tuotannosta ja jatkuvasta parantamiseta.</br></br>Merkittävimpänä edistysaskeleena G36 päivittää edeltäjänsä A36:n teknologiapaketin. Garmin G1000 NXi:n integroidulla litteällä avioniikalla ohjaamon hallinta ei ole koskaan ollut helpompaa. Kun tähän kaikkeen lisätään päivitetty sisustus, jossa on paljon mukavuuksia, G36 Bonanza tarjoaa yksityiskoneen viimeistelyä karussa hyötykoneen muodossa - vahva yhdistelmä ja osoitus linjan kestävästä vetovoimasta."
+          }
+        }
+      },
+      "AIRCRAFT.UI_MANUFACTURER": {
+        "UUID": "f4cbe3de-c171-4933-9146-a8284070ae3e",
+        "LastModifiedBy": "jreynaud",
+        "LastModifiedDate": "2021-04-30 16:44:52",
+        "LocalizationStatus": "TranslationNeeded",
+        "Languages": {
+          "en-US": {
+            "Text": "Textron Aviation",
+            "LocalizationStatus": "TranslationNeeded"
+          },
+          "fr-FR": {
+            "Text": "Textron Aviation"
+          },
+          "es-ES": {
+            "Text": "Textron Aviation"
+          },
+          "de-DE": {
+            "Text": "Textron Aviation"
+          },
+          "it-IT": {
+            "Text": "Textron Aviation"
+          },
+          "pl-PL": {
+            "Text": "Textron Aviation"
+          },
+          "pt-BR": {
+            "Text": "Textron Aviation"
+          },
+          "ru-RU": {
+            "Text": "Textron Aviation"
+          },
+          "ja-JP": {
+            "Text": "テキストロン・アビエーション"
+          },
+          "nl-NL": {
+            "Text": "Textron Aviation"
+          },
+          "nb-NO": {
+            "Text": "Textron Aviation"
+          },
+          "sv-SE": {
+            "Text": "Textron Aviation"
+          },
+          "fi-FI": {
+            "Text": "Textron Aviation"
+          }
+        }
+      },
+      "AIRCRAFT.UI_MODEL": {
+        "UUID": "b9abfb7b-6d7f-4865-b8a0-8824cc9fbd30",
+        "LastModifiedBy": "jreynaud",
+        "LastModifiedDate": "2021-04-30 16:44:52",
+        "LocalizationStatus": "TranslationNeeded",
+        "Languages": {
+          "en-US": {
+            "Text": "Beechcraft Bonanza G36",
+            "LocalizationStatus": "TranslationNeeded"
+          },
+          "fr-FR": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "es-ES": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "de-DE": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "it-IT": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "pl-PL": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "pt-BR": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "ru-RU": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "ja-JP": {
+            "Text": "ビーチクラフト ボナンザ G36"
+          },
+          "nl-NL": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "nb-NO": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "sv-SE": {
+            "Text": "Beechcraft Bonanza G36"
+          },
+          "fi-FI": {
+            "Text": "Beechcraft Bonanza G36"
+          }
+        }
+      }
+    }
+  }
+}

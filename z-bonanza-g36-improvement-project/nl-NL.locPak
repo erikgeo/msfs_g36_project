@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "nl-NL",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Na de Tweede Wereldoorlog introduceerde Beech Aircraft Company de eerste Beechcraft Bonanza op de naoorlogse markt voor de burgerluchtvaart. In een tijd waarin de meeste lichte vliegtuigen nog van hout en textiel werden gemaakt, bestond de Model 35 Bonanza volledig uit metaal. Deze relatief snelle eendekker met lage vleugel was ontworpen als gevechtsvliegtuig en beschikte over een goed aanstuurbare zescilinder boxermotor, een zwierige, gestroomlijnde vorm en een intrekbaar onderstel.<\/br><\/br>Van het eerste prototype Model 35 in 1945 tot de recente G36 zijn er meer dan 18.000 Bonanza's gebouwd. Ook al is het misschien niet het meest gebouwde lichte vliegtuig aller tijden, is het aloude Beechcraft-werkpaard langer in productie geweest dan enig ander vliegtuig in de geschiedenis.<\/br><\/br>Toen de serie in 2006 werd uitgebreid met de eenmotorige G36 voor zes passagiers werd een traditie voortgezet van betrouwbare prestaties, een robuuste constructie en een buitengewone handling en controle. Maar van spinner tot staart profiteert het model ook van tientallen jaren productie-ervaring en doorlopende verbeteringen.<\/br><\/br>De opvallendste vooruitgang van de G36 ten opzichte van zijn voorganger de A36 is zichtbaar in het technologische systeem. Dankzij de geïntegreerde flatpanelavionica van de Garmin G1000 NXi is de cockpit gebruiksvriendelijker dan ooit. Daarbij komt nog een verbeterd interieur met allerlei comfortabele voorzieningen, zodat de G36 Bonanza als robuust multifunctioneel vliegtuig ook geschikt is voor zakenvluchten. Deze combinatie verklaart de blijvende aantrekkingskracht van de serie.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Asobo Studio, All rights reserved. www.asobostudio.com -->
+
+<SoundInfo Version="0.1">
+
+	<WwisePackages>
+		<MainPackage Name="Asobo_Bonanza_G36_AI"/>
+	</WwisePackages>
+  
+  <EngineSoundPresets>
+    <Sound WwiseEvent="Combustion" ConeHeading="180" FadeOutType="2" FadeOutTime="0.2" RPMMin="550" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="Starter" FadeOutType="2" FadeOutTime="0.1" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="CombustionStart" ConeHeading="180" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="CombustionStart" CustomSuffix="Propeller" ConeHeading="0" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="Shutdown" CustomSuffix="Left" ConeHeading="180" RPMMin="550" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="Shutdown" CustomSuffix="Propeller" ConeHeading="0" RPMMin="550" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+    <Sound WwiseEvent="Propeller" ConeHeading="0" FadeOutType="2" FadeOutTime="0.2" RPMMin="550" WwiseData="true" EngineIndex="1" >
+		<WwiseRTPC SimVar="GENERAL ENG COMBUSTION SOUND PERCENT" Units="PERCENT OVER 100" RTPCReleaseTime="0.5" Index="1" RTPCName="SIMVAR_GENERAL_ENG_COMBUSTION_SOUND_PERCENT" />
+	</Sound>
+  </EngineSoundPresets>
+  
+  <GroundSounds>
+    <Sound WwiseEvent="CENTER_TOUCHDOWN" FadeOutType="2" FadeOutTime="0.5" WwiseData="true" />
+	<Sound WwiseEvent="LEFT_TOUCHDOWN" FadeOutType="2" FadeOutTime="0.5" WwiseData="true" />  
+    <Sound WwiseEvent="RIGHT_TOUCHDOWN" FadeOutType="2" FadeOutTime="0.5" WwiseData="true" />
+  </GroundSounds>
+
+
+</SoundInfo>

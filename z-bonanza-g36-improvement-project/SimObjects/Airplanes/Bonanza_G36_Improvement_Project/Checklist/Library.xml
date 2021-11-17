@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<SimBase.Document Type="CheckpointLibrary" version="1,0">
+	<Checklist.CheckpointLibrary>
+		<!-- Comment communications -->
+
+
+		<Checkpoint Id="FUEL_BOOST_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF"> <!-- A MIGRER G36 --> 
+			<Clue name="TT:CLUE.FUEL_BOOST_PUMP_ON_UNTIL_FLOW_PEAKS_THEN_OFF"/>
+			<Feedback name="TT:FEEDBACK.FUEL_PUMP_PEAK"/>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_BOOST_PUMP" ExpectationTT="TT:GAME.CHECKLIST_ON_UNTIL_FLOW_PEAKS_THEN_OFF"/>
+			<Sequence SeqType="Ordered">
+				<Test>
+					<TestValue>
+						<Val SimVarName="ELECTRICAL MASTER BATTERY" Units="Boolean"/>
+					</TestValue>
+					<Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_MASTER_BATTERY"/>
+				</Test>
+				<Sequence SeqType="PARALLEL">
+					<Test>
+						<Once>TRUE</Once>
+						<Duration Value="1.5" Cumulative="True"/>
+						<TestValue>
+							<Operator OpType="AND">
+								<Val Code="(A:ELECTRICAL MASTER BATTERY, Boolean)"/>
+								<Operator Optype="AND">
+									<Val Code="(A:GENERAL ENG FUEL PUMP SWITCH EX1:1, Enum)"/>
+									<Val Code="(B:FUEL_Pump_1) 0 =="/>
+								</Operator> 
+							</Operator>
+						</TestValue>
+						<Action Copilot="True" Condition="TestValueFalse" Once="true" Code="1 (&gt;B:FUEL_Pump_1_High)"/> 
+						<Instrument Id="FUEL_Switch_Pump1"/>
+						<Instrument Id="HTML:AS1000_PFD:Piston_FFlowGauge"/>
+					</Test>
+				</Sequence>
+				<Test>
+				  <TestValue>
+					<Operator OpType="NOT">
+					  <Val SimVarName="GENERAL ENG FUEL PUMP SWITCH:1" Units="Boolean"/>
+					</Operator>
+				  </TestValue>
+				  <Action Copilot="True" Condition="TestValueFalse" Once="true" Code="1 (&gt;B:FUEL_Pump_1_Off)"/>
+				  <Instrument Id="FUEL_Switch_Pump1"/>
+				</Test>
+			</Sequence>
+		</Checkpoint>
+
+
+		<Checkpoint Id="FUEL_BOOST_PUMP_OFF"> <!-- A MIGRER G36 --> 
+			<Clue name="TT:CLUE.FUEL_BOOST_OFF"/>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_BOOST_PUMP" ExpectationTT="TT:GAME.CHECKLIST_CHECK_OFF"/>
+			<Test>
+			  <TestValue>
+				<Operator OpType="NOT">
+				  <Val SimVarName="GENERAL ENG FUEL PUMP SWITCH:1" Units="Boolean"/>
+				</Operator>
+			  </TestValue>
+			  <Action Copilot="True" Condition="TestValueFalse" Once="true" Code="0 (&gt;L:XMLVAR_FUEL_Pump1_High_ON) (&gt;K:TOGGLE_ELECT_FUEL_PUMP1)"/>
+			  <Instrument Id="FUEL_Switch_Pump1"/>
+			</Test>
+		</Checkpoint>	
+
+		<Checkpoint Id="LIGHTS_AS_REQUIRED_G36">
+			<Clue name="TT:CLUE.LIGHTS_AS_REQUIRED"/>
+			<CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_LIGHTS" ExpectationTT="TT:GAME.CHECKLIST_AS_REQUIRED"/>
+			  <Sequence SeqType="Ordered">
+				<Test>
+				  <TestValue>
+					<Operator OpType="AND">
+					  <Val SimVarName="LIGHT STROBE" Units="Boolean"/>
+					  <Val SimVarName="LIGHT STROBE ON" Units="Boolean"/>
+					</Operator>
+				  </TestValue>
+				  <Instrument Id="LIGHTING_Switch_Light_Strobe"/>
+				  <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="STROBES_TOGGLE"/>
+				</Test>
+				<Test>
+				  <TestValue>
+					<Val SimVarName="LIGHT NAV" Units="Boolean"/>
+				  </TestValue>
+				  <Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_NAV_LIGHTS"/>
+				  <Instrument Id="LIGHTING_Switch_Light_Navigation"/>
+				</Test>
+			  <Sequence SeqType="Unordered">
+				<Test>
+					<!-- here we sum booleans : 2 means Day and light off; 1 means day XOR light off; 0 means not day and light on. We then return 1 if sum is different from 1-->
+					<TestValue>
+						<Val Code="(E:TIME OF DAY, enum) 1 == (A:LIGHT TAXI ON, Bool) (A:LIGHT TAXI, Bool) + 2 &lt; + 1 !="/>
+					</TestValue>
+					<Instrument Id="LIGHTING_Switch_Light_Taxi"/>
+					<Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="TOGGLE_TAXI_LIGHTS"/>
+				</Test>
+				<Test>
+					<TestValue>
+						<Val Code="(E:TIME OF DAY, enum) 1 == (A:LIGHT LANDING ON, Bool) (A:LIGHT LANDING, Bool) + 2 &lt; + 1 !="/>
+					</TestValue>
+					<Instrument Id="LIGHTING_Switch_Light_Landing"/>
+					<Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="LANDING_LIGHTS_TOGGLE"/>
+				</Test>      
+			</Sequence>
+      </Sequence>
+		</Checkpoint>
+
+
+
+    <Checkpoint Id="FUEL_SELECTOR_FULLEST_TANK_G36">
+      <CheckpointDesc SubjectTT="TT:GAME.CHECKLIST_FUEL_SELECTOR" ExpectationTT="TT:GAME.CHECKLIST_FULLEST_TANK"/>
+     <Clue name="TT:CLUE.FULL_SELECTOR_FULLEST_TANK"/>
+
+      <Sequence SeqType="Parallel">
+        <Test>
+          <TestValue>
+            <Operator OpType="OR">
+			<!-- <Val ReadVar="ISLEFTFULLEST"/> -->
+			<Operator OpType="GREATER_OR_EQUAL"> <!-- is left fullest ?-->
+				<Val SimVarName="FUEL TANK LEFT MAIN QUANTITY" Units="gallons"/>
+				<Val SimVarName="FUEL TANK RIGHT MAIN QUANTITY" Units="gallons"/>
+			</Operator>
+              <Operator OpType="EQUAL">
+                <Val SimVarName="FUEL TANK SELECTOR:1" Units="ENUM"/>
+                <Val Value="0"/>
+              </Operator>
+            </Operator>
+          </TestValue>
+          <Instrument Id="FUEL_Selector"/>
+          <Instrument Id="FUEL_Selector_1"/>
+			<Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="FUEL_SELECTOR_SET" EventParam="0"/>
+        </Test>
+        <Test>
+			<TestValue>
+				<Operator OpType="OR">
+				<Operator OpType="LESS"> <!-- is left not fullest ?-->
+					<Val SimVarName="FUEL TANK LEFT MAIN QUANTITY" Units="gallons"/>
+					<Val SimVarName="FUEL TANK RIGHT MAIN QUANTITY" Units="gallons"/>
+				</Operator>
+				  <Operator OpType="EQUAL">
+					<Val SimVarName="FUEL TANK SELECTOR:1" Units="ENUM"/>
+					<Val Value="2"/>
+				  </Operator>
+				</Operator>
+			</TestValue>
+			<Instrument Id="FUEL_Selector"/>
+			<Instrument Id="FUEL_Selector_1"/>
+			<Action Copilot="True" Condition="TestValueFalse" Once="true" EventID="FUEL_SELECTOR_SET" EventParam="2"/>
+        </Test>
+      </Sequence>
+    </Checkpoint>
+
+	</Checklist.CheckpointLibrary>
+</SimBase.Document>

@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "sv-SE",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "I slutet av andra världskriget introducerade Beech Aircraft Company den första Beechcraft Bonanza på efterkrigstidens marknad för civilflyg. I en tid då de flesta lätta flygplanen fortfarande var gjorda av trä och tyg, var Model 35 Bonanza ett relativt snabbt, lågvingat monoplan helt i metall och utformat som krigstidens stridsplan – med en lätthanterlig, horisontellt motstående sexcylindrig motor, en skarp strömlinjeform, infällbart underrede och lågvingekonfiguration.<\/br><\/br>Sedan den första prototypen Model 35 redan 1945 och fram till den senaste G36 har mer än 18 000 stycken Bonanza byggts – och även om det kanske inte innehar rekordet för det mest producerade lätta flygplanet genom tiderna så har Beechcrafts arbetshäst varit i kontinuerlig produktion längre än något annat plan i historien.<\/br><\/br>När G36 tog sin plats i släktlinjen 2006 fick det sexsitsiga enmotoriga flygplanet bära vidare ett designarv som blivit känt för tillförlitlig prestanda, en tålig konstruktion, exceptionell styrning och kontrollkänsla. Modellen utnyttjar också årtionden av produktion och ständiga förbättringar, från propeller till stjärt.<\/br><\/br>De mest anmärkningsvärda av framstegen är G36:ans uppdatering av föregångaren A36:ans teknikuppsättning. Med integrerad plattskärmsavionik i form av Garmin G1000 NXi har det aldrig varit enklare att hantera flygdäcket. Lägg där till en uppgraderad interiör med en mängd bekvämligheter, så erbjuder G36 Bonanza en nivå av passform och finish från ett affärsjet med formen av ett robust nyttoflygplan – en kraftfull kombination och ett bevis på seriens bestående attraktion.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}
