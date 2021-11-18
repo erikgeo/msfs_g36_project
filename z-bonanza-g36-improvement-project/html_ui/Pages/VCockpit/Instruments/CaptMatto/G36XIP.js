@@ -8,7 +8,6 @@ class G36XIP extends BaseInstrument {
   constructor() {
     super();
 
-
     //Set our variables and read from the DataStore whilst the sim is loading the flight
     var title = SimVar.GetSimVarValue("TITLE", "string");
     this.livery = title.replace(/\s+/g, '_');

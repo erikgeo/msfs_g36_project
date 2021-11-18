@@ -1,0 +1,10 @@
+{
+  "LocalisationPackage": {
+    "Language": "fi-FI",
+    "Strings": {
+      "AIRCRAFT.DESCRIPTION": "Toisen maailmansodan lopussa Beech Aircraft Company toi ensimmäisen Beechcraft Bonanzan sodanjälkeisille siviili-ilmailumarkkinoille. Aikana, jolloin suurin osa kevyistä lentokoneista oli vielä puusta ja kankaasta valmistettuja, kokonaan metallinen Model 35 Bonanza oli suhteellisen nopea, matalasiipinen yksitaso, joka oli suunniteltu kuten sota-ajan hävittä - helposti hallittava, vaakasuuntaisesti vastakkainen kuusisylinterinen moottori, virtaviivainen muotoilu, sisään vedettävä laskuteline ja matalasiipinen rakenne.<\/br><\/br>Ensimmäisestä Model 35 -prototyypistä vuodelta 1945 lähtien ja ulottuen nykyaikaiseen G36-malliin on tähän mennessä rakennettu yli 18 000 Bonanzaa - ja vaikka se ei ehkä pidä hallussaan kaikkien aikojen eniten valmistetun kevyen lentokoneen ennätystä, Beechcraftin vanha työhevonen on ollut jatkuvassa tuotannossa pidempään kuin mikään muu kone historiassa.<\/br><\/br>Kun G36 liitettiin perheeseen vuonna 2006, tämä kuusipaikkainen yksimoottorinen alus vei eteenpäin muotoilun perintöä, joka tunnetaan luotettavasta suorituskyvystä ja raskaan kuorman kestävästä rakenteesta sekä poikkeuksellisesta käsittelystä ja ohjaustuntumasta. Mutta koko kone potkurista aina perään asti hyötyy vuosikymmenten tuotannosta ja jatkuvasta parantamiseta.<\/br><\/br>Merkittävimpänä edistysaskeleena G36 päivittää edeltäjänsä A36:n teknologiapaketin. Garmin G1000 NXi:n integroidulla litteällä avioniikalla ohjaamon hallinta ei ole koskaan ollut helpompaa. Kun tähän kaikkeen lisätään päivitetty sisustus, jossa on paljon mukavuuksia, G36 Bonanza tarjoaa yksityiskoneen viimeistelyä karussa hyötykoneen muodossa - vahva yhdistelmä ja osoitus linjan kestävästä vetovoimasta.",
+      "AIRCRAFT.UI_MANUFACTURER": "Textron Aviation",
+      "AIRCRAFT.UI_MODEL": "Beechcraft Bonanza G36"
+    }
+  }
+}

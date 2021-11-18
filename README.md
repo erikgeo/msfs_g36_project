@@ -1,15 +1,22 @@
-# MSFS G36 Project version 0.6.6 Beta 2.1
+# MSFS G36 Project version 0.6.6 Beta 3
 
 This is the improvement project for the MSFS default G36. It all started as a simple edit of some configuration files but it has since grown into a fully-fledged modification that improves all aspects of the default G36 and introduces new features. This was made possible with the help of the community consisting of both enthusiasts and G36 pilots (for a list of contributors, see the end of this readme).
 
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.6
+Current version: 0.6.6 Beta 3 (Sim Update 7 Compatible)
 
-* New! Aircraft Persistence (Beta 1)
-* New! Aircraft Persistence saves for different liveries
+* New! The Bonanza G36 Improvement Project is now listed as it's own aircraft in the menu rather than overwriting the default aircraft (please see livery note)
+* New! Aircraft Persistence, all switches and fuel tanks are saved between flights
+* New! Aircraft Persistence, saves for different liveries - have multiple Bonanzas in your fleet all with different personalities
+* New! Beginnings of the Bonanza Hangar; currently an empty panel window, but basis for next beta release. You will manage your aircraft here, check for spark fouling, oil changes and more.
+* Reworked Engine performance figures: after more than 30hrs of testing and tweaking, the engine performance figures match the POH as close as we can get them and have been verified by real Bonanza pilots. TAS is within 0.22kts on average across the altitude spectrum and fuel flow within 1g/h.
 * Fixed: NXi Engine System Page spacing
+* Fixed: Aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect, thanks to Synoxys787 for his help and research
+* Fixed: Missing registration and ASI error, thanks to Bert Pieke on Avsim.
+
+Note regarding Liveries: We have split out the files from modifying the default Bonanza to becoming its own aircraft. This is so we can complete further 3d model changes, and work on the hangar module and deeper systems modelling. Liveries will need to be amended to reflect this new aircraft to work. We will create a guide shortly on how to do this.
 
 -------------------------------------
 -------------------------------------
@@ -33,7 +40,7 @@ Features:
   - Under some conditions, idling the engine too soon after start may cause it to quit.
   - Flooded engine: pumping too much fuel to the engine may cause it to ignite slower or not at all.
   - Flooded engine start procedure (mixture low/cut, throttle halfway) may resolve this.
-  - A hot engine running idle with little airflow may quit because the fuel evaporates. (Hotstarts WIP)
+  - A hot engine running idle with little airflow may quit because the fuel evaporates.
 
 **Systems**
 * Added new working systems and switches:
@@ -63,15 +70,15 @@ Features:
 * Interactive checklists for every stage of your flight that follow the POH
 
 **ATC**
-* You are now referenced as Bonanza > Your Callsign in in game ATC
+* You are now referenced as Bonanza > Your Callsign in the game ATC
 
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
 
 **AIRCRAFT PERSISTENCE / STATE SAVING / MAKING THE PLANE 'REAL' (WORK IN PROGRESS)**
-* Your aircraft now remembers how you left it! 
+* Your aircraft now remembers how you left it!
 * States are saved for each aircraft livery, so you can multiple 'living' Aircraft
-* On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel. 
+* On first flight load of the new 0.6.6, your aircraft is set cold & dark with 64 gallons of fuel.
 * The aircraft now saves the following tank levels, switches and levers every 5 seconds.
     * Left & Right Fuel Tank Level
     * Battery 1 & 2 switch
@@ -95,7 +102,7 @@ Features:
     * Fuel Selector Position
     * Defrost switch
     * Throttle Position
-    * Proppeller Position
+    * Propeller Position
     * Mixture Position
     * Cowl Flap Position
     * Flaps Switch
@@ -104,17 +111,14 @@ Features:
     * Aileron Trim Position
     * Floodlight Brightness
     * Pilot & Passenger Yoke Visibility
- 
+
 * When you next climb into your aircraft you will find it just as you left it!
 
 NOTE: The aircraft state is only loaded if:
 * You are on the ground in a parking spot or
-* You are on the ground somewhere else and your engine is off. 
+* You are on the ground somewhere else and your engine is off.
 
 This allows the aircraft to load in flight or ready at the end of the runway without messing with the aircraft load. It WILL however, still record switch states and tank levels etc.
-
-**MISC**
-* Possible fix to aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
 
 
 -------------------------------------
@@ -125,8 +129,6 @@ Installation:
 1: Download and install the Working Title NXi from the store Marketplace
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
-
-3: Download and unzip the folder 'g36ip-hanger-module' in to your MSFS Community folder
 
 -------------------------------------
 -------------------------------------
