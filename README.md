@@ -5,18 +5,18 @@ This is the improvement project for the MSFS default G36. It all started as a si
 -------------------------------------
 -------------------------------------
 
-Current version: 0.6.6
+Current version: 0.6.6 Beta 3 (Sim Update 7 Compatible)
 
-* New! Aircraft now displays as it's own aircraft in the aircraft select menu (see livery note)
-* New! Aircraft Persistence
-* New! Aircraft Persistence saves for different liveries
-* New! Bonanza Hangar, currently empty panel window, but basis for next beta release
+* New! The Bonanza G36 Improvement Project is now listed as it's own aircraft in the menu rather than overwriting the default aircraft (please see livery note)
+* New! Aircraft Persistence, all switches and fuel tanks are saved between flights
+* New! Aircraft Persistence, saves for different liveries - have multiple Bonanzas in your fleet all with different personalities
+* New! Beginnings of the Bonanza Hangar; currently an empty panel window, but basis for next beta release. You will manage your aircraft here, check for spark fouling, oil changes and more.
+* Reworked Engine performance figures: after more than 30hrs of testing and tweaking, the engine performance figures match the POH as close as we can get them and have been verified by real Bonanza pilots. TAS is within 0.22kts on average across the altitude spectrum and fuel flow within 1g/h.
 * Fixed: NXi Engine System Page spacing
-* Fixed: Aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect
+* Fixed: Aircraft getting stuck on the ground. Changed nose height on gear to reflect reference pictures, increased nose gear damping affect, thanks to Synoxys787 for his help and research
+* Fixed: Missing registration and ASI error, thanks to Bert Pieke on Avsim.
 
 Note regarding Liveries: We have split out the files from modifying the default Bonanza to becoming its own aircraft. This is so we can complete further 3d model changes, and work on the hangar module and deeper systems modelling. Liveries will need to be amended to reflect this new aircraft to work. We will create a guide shortly on how to do this.
-
-
 
 -------------------------------------
 -------------------------------------
@@ -40,7 +40,7 @@ Features:
   - Under some conditions, idling the engine too soon after start may cause it to quit.
   - Flooded engine: pumping too much fuel to the engine may cause it to ignite slower or not at all.
   - Flooded engine start procedure (mixture low/cut, throttle halfway) may resolve this.
-  - A hot engine running idle with little airflow may quit because the fuel evaporates. (Hotstarts WIP)
+  - A hot engine running idle with little airflow may quit because the fuel evaporates.
 
 **Systems**
 * Added new working systems and switches:
@@ -70,7 +70,7 @@ Features:
 * Interactive checklists for every stage of your flight that follow the POH
 
 **ATC**
-* You are now referenced as Bonanza > Your Callsign in in game ATC
+* You are now referenced as Bonanza > Your Callsign in the game ATC
 
 **SOUNDS**
 * Excessive undercarriage wind noise reduced
