@@ -5,6 +5,15 @@ This is the improvement project for the MSFS default G36. It all started as a si
 -------------------------------------
 -------------------------------------
 
+Installation:
+
+1: Download and install the Working Title NXi from the store Marketplace
+
+2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
+
+-------------------------------------
+-------------------------------------
+
 Current version: 0.6.6 Beta 3 (Sim Update 7 Compatible)
 
 * New! The Bonanza G36 Improvement Project is now listed as it's own aircraft in the menu rather than overwriting the default aircraft (please see livery note)
@@ -120,15 +129,6 @@ NOTE: The aircraft state is only loaded if:
 
 This allows the aircraft to load in flight or ready at the end of the runway without messing with the aircraft load. It WILL however, still record switch states and tank levels etc.
 
-
--------------------------------------
--------------------------------------
-
-Installation:
-
-1: Download and install the Working Title NXi from the store Marketplace
-
-2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
 
 -------------------------------------
 -------------------------------------
