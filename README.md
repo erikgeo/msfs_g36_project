@@ -11,8 +11,6 @@ Installation:
 
 2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
 
-3: Download and 
-
 -------------------------------------
 -------------------------------------
 
