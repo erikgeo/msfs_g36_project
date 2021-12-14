@@ -3,18 +3,9 @@
   (A:RECIP MIXTURE RATIO:1, ratio)
 </Macro>
 
-<Macro Name="Throttle Scalar">
-  (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-</Macro>
-
-<!-- Max allowable drop to rpm @TODO add some randomness -->
-<Macro Name="MaxDrop">
-  1
-</Macro>
-
-<!-- random number times 30 equals a number between 0 and 30. Then adding 30 makes it between 30 and 60. -->
+<!-- random number times 60 equals a number between 0 and 60. Then adding 60 makes it between 30 and 60. -->
 <Macro Name="RandomTimer">
-  rand 30 * 30 +
+  rand 60 * 60 +
 </Macro>
 
 <!-- ### TRIGGER ### -->
@@ -51,14 +42,18 @@
           (A:SIM ON GROUND, bool) 1 == and
           if{
             @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (&gt;L:G36XIP_BADNESS_SCALE)
-          } els{
-            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+
+          (L:G36XIP_ELAPSED_TIME) @RandomTimer &gt;
+          (A:SIM ON GROUND, bool) 0 == and
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 150 / (&gt;L:G36XIP_BADNESS_SCALE)
           }
         </UPDATE_CODE>
     </UseTemplate>
   </Component>
 
-  <!-- ### FOULING EFFECT, SCALED BY THE TIMING MECHANISM ### -->
+  <!-- ### FOULING EFFECT, SCALED BY THE AFFECT SCALE ### -->
   <Component ID="UpdateLoop3">
     <UseTemplate Name="ASOBO_GT_Update">
       <FREQUENCY>30</FREQUENCY>
