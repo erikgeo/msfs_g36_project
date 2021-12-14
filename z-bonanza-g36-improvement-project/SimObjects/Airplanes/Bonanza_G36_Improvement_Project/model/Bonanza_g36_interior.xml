@@ -19,6 +19,7 @@
 		<!-- G36X Modification -->
 		<Include Path="G36X\CustomTemplates.xml"/>
 		<Include Path="G36X\CustomLogic.xml"/>
+		<Include Path="G36X\CustomEngineModelling.xml"/>
 
 		<Component ID="G36X_Custom_Behavior">
 			<UseTemplate Name="Bus_Tie_Logic"></UseTemplate>
@@ -27,6 +28,7 @@
 			<UseTemplate Name="Fuel_Pump_Logic"></UseTemplate>
 			<UseTemplate Name="Engine_Start_Logic"></UseTemplate>
 			<UseTemplate Name="Smooth_Indication"></UseTemplate>
+			<UseTemplate Name="Spark_Fouling"></UseTemplate>
 		</Component>
 		<!-- End of G36X Modification -->
 
@@ -178,19 +180,6 @@
 				<ANIMTIP_2>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_LDG</ANIMTIP_2>
 				<ANIMTIP_2_ON_PERCENT>1</ANIMTIP_2_ON_PERCENT>
 			</UseTemplate>
-			<!-- REPLACED BY MOD!
-			<UseTemplate Name="ASOBO_HANDLING_Light_Flaps_Transit_Template">
-				<ID>1</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Light_Flaps_Template">
-				<ID>2</ID>
-				<TARGET_ANGLE_DEGREE>12</TARGET_ANGLE_DEGREE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Light_Flaps_Template">
-				<ID>3</ID>
-				<TARGET_ANGLE_DEGREE>30</TARGET_ANGLE_DEGREE>
-			</UseTemplate>
-			-->
 		</Component>
 
 		<Component ID="HANDLING_Trims">
@@ -293,19 +282,6 @@
 			<UseTemplate Name="ASOBO_LANDING_GEAR_Lever_Gear_Template">
 			<TOOLTIPID>%((A:GEAR HANDLE POSITION, percent) 50 &gt;)%{if}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_DN %{else}TT:COCKPIT.TOOLTIPS.LANDING_GEAR_UP %{end}</TOOLTIPID>
 			</UseTemplate>
-			<!-- REPLACED BY MOD!
-			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Center_Template">
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Left_Template">
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Right_Template">
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LANDING_GEAR_Light_Unsafe_Template">
-				<CHECK_GEAR_CENTER_POSITION/>
-				<CHECK_GEAR_LEFT_POSITION/>
-				<CHECK_GEAR_RIGHT_POSITION/>
-			</UseTemplate>
-			-->
 		</Component>
 
 		<Component ID="LANDING_GEAR_ParkingBrake">
@@ -481,7 +457,7 @@
 				<ANIM_NAME>PASSENGER_Switch_Cabin_Air_1</ANIM_NAME>
 				<ID>1</ID>
 			</UseTemplate>
-			
+
 			<!--  reordered L-R  -->
 			<UseTemplate Name="G36_PASSENGER_Lever_Cabin_Air_Template">
 				<ID>3</ID>
@@ -498,7 +474,7 @@
 				<NODE_ID>PASSENGER_Switch_Cabin_Heat_2</NODE_ID>
 				<ANIM_NAME>PASSENGER_Switch_Cabin_Heat_2</ANIM_NAME>
 			</UseTemplate>
-			
+
 		</Component>
 
 		<!-- HTML GAUGES TEMP ###################################-->

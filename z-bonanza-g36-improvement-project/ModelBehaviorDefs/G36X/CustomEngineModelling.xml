@@ -1,17 +1,86 @@
+<!-- Mixture Ratio -->
+<Macro Name="MixtureRatio">
+  (A:RECIP MIXTURE RATIO:1, ratio)
+</Macro>
 
-<Macro Name="MaxOilQty"> 3 </Macro> <!-- POH 12 US Quarts or 3 US Gallons -->
-<Macro Name="OilBurnRate"> 0.0001 </Macro>
-<Macro Name="StartOilQty"> x </Macro>
+<!-- Max allowable drop to rpm @TODO add some randomness -->
+<Macro Name="MaxDrop">
+  1
+</Macro>
 
-<Macro Name="MaxPsiDrop"> 6 </Macro>
-<Macro Name="PsiScaler"> (L:JPL152_ELAPSED_TIME) 0.01 * 0.29 - </Macro>
+<!-- random number times 30 equals a number between 0 and 30. Then adding 30 makes it between 30 and 60. -->
+<Macro Name="RandomTimer">
+  rand 30 * 30 +
+</Macro>
 
-<Macro Name="ThrottleScaler2"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 95 &lt;= if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 100 - -1 * 100 / } els{ 0.10 } </Macro>
+<!-- ### TRIGGER ### -->
+<Component ID="Call_Spark_Fouling">
+  <UseTemplate Name="Spark_Fouling">
+  </UseTemplate>
+</Component>
 
-<Macro Name="ThrottleScalerA"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 1 + </Macro>
-<Macro Name="ThrottleScalerB"> (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 105 - -1 * </Macro>
-<Macro Name="ThrottleScalerC"> @ThrottleScalerA @ThrottleScalerB log </Macro>
-<Macro Name="ThrottleScalerD"> @ThrottleScalerC 2.7 * </Macro>
+<Template Name="Spark_Fouling">
+  <Component ID="UpdateLoop1">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          (A:ENG COMBUSTION:1, bool) 1 ==
+            @MixtureRatio 0.07 &gt; and
+            if{
+              (L:G36XIP_ELAPSED_TIME) 1 + (&gt;L:G36XIP_ELAPSED_TIME)
+            } els{
+              0 (&gt;L:G36XIP_ELAPSED_TIME)
+              0 (&gt;L:G36XIP_FOUL, bool)
+              0 (&gt;L:G36XIP_BADNESS_SCALE)
+            }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
 
-<Macro Name="MixtureScalerA"> (A:GENERAL ENG MIXTURE LEVER POSITION:1, percent) 100 - -1 * 100 / </Macro>
-<Macro Name="MixtureScalerB"> @MixtureScalerA 3 * </Macro>
+  <!-- ### TIMING MECHANISM ### -->
+  <Component ID="UpdateLoop2">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          (L:G36XIP_ELAPSED_TIME) @RandomTimer &gt;
+          if{
+            1 (&gt;L:G36XIP_FOUL, bool)
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+  <!-- ### FOULING EFFECT, SCALED BY THE TIMING MECHANISM ### -->
+  <Component ID="UpdateLoop3">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>30</FREQUENCY>
+        <UPDATE_CODE>
+          (L:G36XIP_FOUL, bool) 1 ==
+          if{
+            (A:RECIP ENG MANIFOLD PRESSURE:1, psi) (L:G36XIP_BADNESS_SCALE) - (&gt;A:RECIP ENG MANIFOLD PRESSURE:1, psi)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+  <!-- ### EXTRA MAG DROP EFFECT WHEN FOULED ### -->
+  <Component ID="UpdateLoop4">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>3</FREQUENCY>
+        <UPDATE_CODE>
+          (A:RECIP ENG LEFT MAGNETO:1, bool) 0 ==
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 25 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+
+          (A:RECIP ENG RIGHT MAGNETO:1, bool) 0 ==
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 25 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+
+</Template>

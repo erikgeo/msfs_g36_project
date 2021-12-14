@@ -11,73 +11,78 @@ class G36XIP extends BaseInstrument {
     //Set our variables and read from the DataStore whilst the sim is loading the flight
     var title = SimVar.GetSimVarValue("TITLE", "string");
     this.livery = title.replace(/\s+/g, '_');
-    this.timer = SimVar.GetSimVarValue("GENERAL ENG ELAPSED TIME:1", "hours");
-    SetStoredData('G36XIP_HOBBS_START_VALUE_'+this.livery, this.timer.toString());
-    this.hobbs = GetStoredData('G36XIP_HOBBS_'+this.livery) ? GetStoredData('G36XIP_HOBBS_'+this.livery) : 1.25; //Brand new Aircraft that has had a 45min acceptance flight & 30 minute flight checks prior to ownership
+    console.log(GetStoredData('G36XIP_STATE_ACTIVE_'+this.livery));
 
+    if (GetStoredData('G36XIP_STATE_ACTIVE_'+this.livery) == 1) {
+      console.log('State Saving Enabled');
 
+      this.timer = SimVar.GetSimVarValue("GENERAL ENG ELAPSED TIME:1", "hours");
+      SetStoredData('G36XIP_HOBBS_START_VALUE_'+this.livery, this.timer.toString());
+      this.hobbs = GetStoredData('G36XIP_HOBBS_'+this.livery) ? GetStoredData('G36XIP_HOBBS_'+this.livery) : 1.25; //Brand new Aircraft that has had a 45min acceptance flight & 30 minute flight checks prior to ownership
 
+      //FUEL IN GALLONS AND WEIGHTS IN KG
+      this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) : 32; // See JuiceBox7535 post #1825 in main forum
+      this.rightFuel = GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) ? GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) : 32;
+      this.pilotWeight = GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) : 89; //Average male weight
+      this.coPilotWeight = GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) : 89; //Average male weight
+      this.frontPaxLeft = GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) : 0;
+      this.frontPaxRight = GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
+      this.rearPaxLeft = GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) : 0;
+      this.rearPaxRight = GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
+      this.baggage = GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) : 0;
 
-    //FUEL IN GALLONS AND WEIGHTS IN KG
-    this.leftFuel = GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) ? GetStoredData('G36XIP_LEFT_FUEL_'+this.livery) : 32; // See JuiceBox7535 post #1825 in main forum
-    this.rightFuel = GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) ? GetStoredData('G36XIP_RIGHT_FUEL_'+this.livery) : 32;
-    this.pilotWeight = GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_PILOT_WEIGHT_'+this.livery) : 89; //Average male weight
-    this.coPilotWeight = GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_COPILOT_WEIGHT_'+this.livery) : 89; //Average male weight
-    this.frontPaxLeft = GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_LEFT_PAX_WEIGHT_'+this.livery) : 0;
-    this.frontPaxRight = GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_FRONT_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
-    this.rearPaxLeft = GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_LEFT_PAX_WEIGHT_'+this.livery) : 0;
-    this.rearPaxRight = GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_REAR_RIGHT_PAX_WEIGHT_'+this.livery) : 0;
-    this.baggage = GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) ? GetStoredData('G36XIP_BAGGAGE_WEIGHT_'+this.livery) : 0;
+      //SWITCHES
+      this.bat1 = GetStoredData('G36XIP_BAT1_'+this.livery) ? GetStoredData('G36XIP_BAT1_'+this.livery) : 0;
+      this.bat2 = GetStoredData('G36XIP_BAT2_'+this.livery) ? GetStoredData('G36XIP_BAT2_'+this.livery) : 0;
+      this.alt1 = GetStoredData('G36XIP_ALT1_'+this.livery) ? GetStoredData('G36XIP_ALT1_'+this.livery) : 0;
+      this.alt2 = GetStoredData('G36XIP_ALT2_'+this.livery) ? GetStoredData('G36XIP_ALT2_'+this.livery) : 0;
+      this.pBrake = GetStoredData('G36XIP_PBRAKE_'+this.livery) ? GetStoredData('G36XIP_PBRAKE_'+this.livery) : 1; //Because you should always have your parking brake set
+      this.avionics = GetStoredData('G36XIP_AVIONICS_'+this.livery) ? GetStoredData('G36XIP_AVIONICS_'+this.livery) : 0;
+      this.aircon = GetStoredData('G36XIP_AIRCO_'+this.livery) ? GetStoredData('G36XIP_AIRCO_'+this.livery) : 0;
+      this.blower = GetStoredData('G36XIP_BLOWER_'+this.livery) ? GetStoredData('G36XIP_BLOWER_'+this.livery) : 0;
+      this.ventBlower = GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) ? GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) : 0;
+      this.auxFuelPump = GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) ? GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) : 0;
+      this.magnetoLeft = GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) : 0;
+      this.magnetoRight = GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) : 0;
+      this.pitotHeat = GetStoredData('G36XIP_PITOT_'+this.livery) ? GetStoredData('G36XIP_PITOT_'+this.livery) : 0;
+      this.propDeIce = GetStoredData('G36XIP_PROP_DEICE_'+this.livery) ? GetStoredData('G36XIP_PROP_DEICE_'+this.livery) : 0;
+      this.strobe = GetStoredData('G36XIP_STROBE_'+this.livery) ? GetStoredData('G36XIP_STROBE_'+this.livery) : 0;
+      this.beacon = GetStoredData('G36XIP_BEACON_'+this.livery) ? GetStoredData('G36XIP_BEACON_'+this.livery) : 0;
+      this.navLight = GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) ? GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) : 0;
+      this.floodLight = GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) ? GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) : 0;
+      this.panelLight = GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) ? GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) : 0;
+      this.taxiLight = GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) ? GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) : 0;
+      this.landingLight = GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) ? GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) : 0;
+      this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) ? GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) : 0; //0=OFF, 2=LEFT TANK, 3=RIGHT TANK
+      this.defrost = GetStoredData('G36XIP_DEFROST_'+this.livery) ? GetStoredData('G36XIP_DEFROST_'+this.livery) : 0;
 
-    //SWITCHES
-    this.bat1 = GetStoredData('G36XIP_BAT1_'+this.livery) ? GetStoredData('G36XIP_BAT1_'+this.livery) : 0;
-    this.bat2 = GetStoredData('G36XIP_BAT2_'+this.livery) ? GetStoredData('G36XIP_BAT2_'+this.livery) : 0;
-    this.alt1 = GetStoredData('G36XIP_ALT1_'+this.livery) ? GetStoredData('G36XIP_ALT1_'+this.livery) : 0;
-    this.alt2 = GetStoredData('G36XIP_ALT2_'+this.livery) ? GetStoredData('G36XIP_ALT2_'+this.livery) : 0;
-    this.pBrake = GetStoredData('G36XIP_PBRAKE_'+this.livery) ? GetStoredData('G36XIP_PBRAKE_'+this.livery) : 1; //Because you should always have your parking brake set
-    this.avionics = GetStoredData('G36XIP_AVIONICS_'+this.livery) ? GetStoredData('G36XIP_AVIONICS_'+this.livery) : 0;
-    this.aircon = GetStoredData('G36XIP_AIRCO_'+this.livery) ? GetStoredData('G36XIP_AIRCO_'+this.livery) : 0;
-    this.blower = GetStoredData('G36XIP_BLOWER_'+this.livery) ? GetStoredData('G36XIP_BLOWER_'+this.livery) : 0;
-    this.ventBlower = GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) ? GetStoredData('G36XIP_VENT_BLOWER_'+this.livery) : 0;
-    this.auxFuelPump = GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) ? GetStoredData('G36XIP_AUX_FUEL_PUMP_'+this.livery) : 0;
-    this.magnetoLeft = GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_LEFT_'+this.livery) : 0;
-    this.magnetoRight = GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) ? GetStoredData('G36XIP_MAGNETO_RIGHT_'+this.livery) : 0;
-    this.pitotHeat = GetStoredData('G36XIP_PITOT_'+this.livery) ? GetStoredData('G36XIP_PITOT_'+this.livery) : 0;
-    this.propDeIce = GetStoredData('G36XIP_PROP_DEICE_'+this.livery) ? GetStoredData('G36XIP_PROP_DEICE_'+this.livery) : 0;
-    this.strobe = GetStoredData('G36XIP_STROBE_'+this.livery) ? GetStoredData('G36XIP_STROBE_'+this.livery) : 0;
-    this.beacon = GetStoredData('G36XIP_BEACON_'+this.livery) ? GetStoredData('G36XIP_BEACON_'+this.livery) : 0;
-    this.navLight = GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) ? GetStoredData('G36XIP_NAV_LIGHT_'+this.livery) : 0;
-    this.floodLight = GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) ? GetStoredData('G36XIP_FLOOD_LIGHT_'+this.livery) : 0;
-    this.panelLight = GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) ? GetStoredData('G36XIP_PANEL_LIGHT_'+this.livery) : 0;
-    this.taxiLight = GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) ? GetStoredData('G36XIP_TAXI_LIGHT_'+this.livery) : 0;
-    this.landingLight = GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) ? GetStoredData('G36XIP_LANDING_LIGHT_'+this.livery) : 0;
-    this.fuelSelector = GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) ? GetStoredData('G36XIP_FUEL_SELECT_'+this.livery) : 0; //0=OFF, 2=LEFT TANK, 3=RIGHT TANK
-    this.defrost = GetStoredData('G36XIP_DEFROST_'+this.livery) ? GetStoredData('G36XIP_DEFROST_'+this.livery) : 0;
+      //LEAVERS IN PERCENT %
+      this.throttle = GetStoredData('G36XIP_THROTTLE_'+this.livery) ? GetStoredData('G36XIP_THROTTLE_'+this.livery) : 0;
+      this.prop = GetStoredData('G36XIP_PROP_'+this.livery) ? GetStoredData('G36XIP_PROP_'+this.livery) : 0;
+      this.mixture = GetStoredData('G36XIP_MIXTURE_'+this.livery) ? GetStoredData('G36XIP_MIXTURE_'+this.livery) : 0;
+      this.cowl = GetStoredData('G36XIP_COWL_'+this.livery) ? GetStoredData('G36XIP_COWL_'+this.livery) : 0;
 
-    //LEAVERS IN PERCENT %
-    this.throttle = GetStoredData('G36XIP_THROTTLE_'+this.livery) ? GetStoredData('G36XIP_THROTTLE_'+this.livery) : 0;
-    this.prop = GetStoredData('G36XIP_PROP_'+this.livery) ? GetStoredData('G36XIP_PROP_'+this.livery) : 0;
-    this.mixture = GetStoredData('G36XIP_MIXTURE_'+this.livery) ? GetStoredData('G36XIP_MIXTURE_'+this.livery) : 0;
-    this.cowl = GetStoredData('G36XIP_COWL_'+this.livery) ? GetStoredData('G36XIP_COWL_'+this.livery) : 0;
+      //FLIGHT CONTROLS
+      this.flapsSwitch = GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) ? GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) : 0; // 0=UP, 1=APPR, 2=FULL DOWN
+      this.flapsLeft = GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
+      this.flapsRight = GetStoredData('G36XIP_FLAPS_RIGHT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_RIGHT'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
 
-    //FLIGHT CONTROLS
-    this.flapsSwitch = GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) ? GetStoredData('G36XIP_FLAPS_SWITCH_'+this.livery) : 0; // 0=UP, 1=APPR, 2=FULL DOWN
-    this.flapsLeft = GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_LEFT_'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
-    this.flapsRight = GetStoredData('G36XIP_FLAPS_RIGHT_'+this.livery) ? GetStoredData('G36XIP_FLAPS_RIGHT'+this.livery) : 0; // UP=0, APPR=40, DOWN=100
+      this.pitchTrim = GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) ? GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) : 0;
+      this.aileronTrim = GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) ? GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) : 0;
 
-    this.pitchTrim = GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) ? GetStoredData('G36XIP_PITCH_TRIM_'+this.livery) : 0;
-    this.aileronTrim = GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) ? GetStoredData('G36XIP_AILERON_TRIM_'+this.livery) : 0;
+      //KNOBS
+      this.floodBrightness = GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) ? GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) : 0;
 
-    //KNOBS
-    this.floodBrightness = GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) ? GetStoredData('G36XIP_FLOOD_BRIGHTNESS_'+this.livery) : 0;
+      //MISC
+      this.yokeLeft = GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) ? GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) : 0;
+      this.yoke2Right = GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) ? GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) : 0;
 
-    //MISC
-    this.yokeLeft = GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) ? GetStoredData('G36XIP_YOKE_LEFT_'+this.livery) : 0;
-  	this.yoke2Right = GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) ? GetStoredData('G36XIP_YOKE_RIGHT_'+this.livery) : 0;
+      //MODELLING STUFF
 
-    //MODELLING STUFF
+        //Nothing Here yet, come back soon
 
-      //Nothing Here yet, come back soon
+    }
+
 
   }
 
@@ -147,111 +152,14 @@ class G36XIP extends BaseInstrument {
   onFlightStart() {
     super.onFlightStart();
 
-    //FLIGHT STATES ON LOAD
 
-    //Parked
-    if (SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 1) {
-      //The aircraft is on the ground and parked, we can load all the variables
+    if (GetStoredData('G36XIP_STATE_ACTIVE_'+this.livery) == 1) {
 
-      //load fuel
-      SimVar.SetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "number", Number(this.leftFuel));
-      SimVar.SetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "number", Number(this.rightFuel));
-      //Fuel Selector
-      SimVar.SetSimVarValue("K:FUEL_SELECTOR_SET", "number", Number(this.fuelSelector));
-      //Parking Brake
-      SimVar.SetSimVarValue("K:PARKING_BRAKES", "number", Number(this.pBrake));
-      //Battery 1
-      SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:1", "number", Number(this.bat1));
-      //Battery 2
-      SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:2", "number", Number(this.bat2));
-      //Alternator 1
-      if (this.alt1 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool") == 0) {
-        SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR1", "number", 1);
-      }
-      //Alternator 2
-      if (this.alt2 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool") == 0) {
-        SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR2", "number", 1); //Works
-      }
-      //Avionics Switch
-      SimVar.SetSimVarValue("K:AVIONICS_MASTER_SET", "number", Number(this.avionics));
-      //Airconditioning
-      SimVar.SetSimVarValue("L:XMLVAR_Airco", "number", Number(this.aircon));
-      //Blower
-      SimVar.SetSimVarValue("L:XMLVAR_Blower", "number", Number(this.blower));
-      //Vent Blower
-      SimVar.SetSimVarValue("L:XMLVAR_Vent", "number", Number(this.ventBlower));
-      //Fuel Pump Switch
-      SimVar.SetSimVarValue("K:ELECT_FUEL_PUMP1_SET", "bool", Number(this.auxFuelPump));
-      //Magnetos
-    	SimVar.SetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool", Number(this.magnetoLeft));
-      SimVar.SetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool", Number(this.magnetoRight));
-      //Pitot Heat
-      SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
-      //Prop De-Ice
-      if (GetStoredData('G36XIP_PROP_DEICE_'+this.livery) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
-        SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1);
-      }
-      //Strobe
-      SimVar.SetSimVarValue("LIGHT STROBE", "bool", Number(this.strobe)); //Works
-      //Beacon
-      SimVar.SetSimVarValue("LIGHT BEACON", "bool", Number(this.beacon)); //Works
-      //Nav
-      SimVar.SetSimVarValue("LIGHT NAV", "bool", Number(this.navLight)); //Works
-      //Panel FLood
-      SimVar.SetSimVarValue("LIGHT GLARESHIELD", "bool", Number(this.floodLight)); //Works
-      //Panel Light
-      SimVar.SetSimVarValue("LIGHT PANEL", "bool", Number(this.panelLight)); //Works
-      //Taxi Light
-      SimVar.SetSimVarValue("LIGHT TAXI", "bool", Number(this.taxiLight)); //Works
-      //Landing Light
-      SimVar.SetSimVarValue("LIGHT LANDING", "bool", Number(this.landingLight)); //Works
-      //Throttle
-      SimVar.SetSimVarValue("GENERAL ENG THROTTLE LEVER POSITION:1", "percent", Number(this.throttle)); //Works
-      //Prop
-      SimVar.SetSimVarValue("GENERAL ENG PROPELLER LEVER POSITION:1", "percent", Number(this.throttle)); //Works
-      //Mixture
-      SimVar.SetSimVarValue("GENERAL ENG MIXTURE LEVER POSITION:1", "percent", Number(this.mixture)); //Works
-      //Flaps
-      SimVar.SetSimVarValue("FLAPS HANDLE INDEX", "number", Number(this.flapsSwitch)); //Works
-    	SimVar.SetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent", Number(this.flapsLeft)); //Works
-    	SimVar.SetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent", Number(this.flapsRight)); //Works
-      //Avionics Brightness
-        //pot14
+      //FLIGHT STATES ON LOAD
 
-      //floodlight brightness
-        //pot5
-
-      //Panel light brightness
-        //pot3
-
-      //Sub Panel Lighting brightness
-        //pot2
-
-      //Defrost
-    	SimVar.SetSimVarValue("K:ANTI_ICE_GRADUAL_SET_ENG1", "position 16k", Number(this.defrost));
-
-      //Alieron Trim
-      SimVar.SetSimVarValue("AILERON TRIM PCT", "Percent Over 100", Number(this.aileronTrim));
-
-      //Cowl Flaps
-      SimVar.SetSimVarValue("RECIP ENG COWL FLAP POSITION:1", "percent", Number(this.cowl)); //Works
-
-      //Pitch trim
-      SimVar.SetSimVarValue("ELEVATOR TRIM POSITION", "radians", Number(this.pitchTrim));
-
-      //Yoke visibility
-      SimVar.SetSimVarValue("L:XMLVAR_YokeHidden1", "number", Number(this.yoke1));
-      SimVar.SetSimVarValue("L:XMLVAR_YokeHidden2", "number", Number(this.yoke2));
-    }
-
-    //On Ground but not in a parking space, probably on the runway
-    if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 0) {
-      //The aircraft is on the ground AND not in a parking spot, so most probably on the runway, we want to check if the engine is running
-      if (SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 1) {
-        //engine is running don't override the sim settings
-
-      } else {
-        //engine off set everything
+      //Parked
+      if (SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 1) {
+        //The aircraft is on the ground and parked, we can load all the variables
 
         //load fuel
         SimVar.SetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "number", Number(this.leftFuel));
@@ -266,7 +174,7 @@ class G36XIP extends BaseInstrument {
         SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:2", "number", Number(this.bat2));
         //Alternator 1
         if (this.alt1 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool") == 0) {
-          SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR1", "number", 1); //Works
+          SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR1", "number", 1);
         }
         //Alternator 2
         if (this.alt2 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool") == 0) {
@@ -283,7 +191,7 @@ class G36XIP extends BaseInstrument {
         //Fuel Pump Switch
         SimVar.SetSimVarValue("K:ELECT_FUEL_PUMP1_SET", "bool", Number(this.auxFuelPump));
         //Magnetos
-      	SimVar.SetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool", Number(this.magnetoLeft));
+        SimVar.SetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool", Number(this.magnetoLeft));
         SimVar.SetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool", Number(this.magnetoRight));
         //Pitot Heat
         SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
@@ -313,8 +221,8 @@ class G36XIP extends BaseInstrument {
         SimVar.SetSimVarValue("GENERAL ENG MIXTURE LEVER POSITION:1", "percent", Number(this.mixture)); //Works
         //Flaps
         SimVar.SetSimVarValue("FLAPS HANDLE INDEX", "number", Number(this.flapsSwitch)); //Works
-      	SimVar.SetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent", Number(this.flapsLeft)); //Works
-      	SimVar.SetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent", Number(this.flapsRight)); //Works
+        SimVar.SetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent", Number(this.flapsLeft)); //Works
+        SimVar.SetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent", Number(this.flapsRight)); //Works
         //Avionics Brightness
           //pot14
 
@@ -328,7 +236,7 @@ class G36XIP extends BaseInstrument {
           //pot2
 
         //Defrost
-      	SimVar.SetSimVarValue("K:ANTI_ICE_GRADUAL_SET_ENG1", "position 16k", Number(this.defrost));
+        SimVar.SetSimVarValue("K:ANTI_ICE_GRADUAL_SET_ENG1", "position 16k", Number(this.defrost));
 
         //Alieron Trim
         SimVar.SetSimVarValue("AILERON TRIM PCT", "Percent Over 100", Number(this.aileronTrim));
@@ -343,16 +251,123 @@ class G36XIP extends BaseInstrument {
         SimVar.SetSimVarValue("L:XMLVAR_YokeHidden1", "number", Number(this.yoke1));
         SimVar.SetSimVarValue("L:XMLVAR_YokeHidden2", "number", Number(this.yoke2));
       }
+
+      //On Ground but not in a parking space, probably on the runway
+      if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 1 && SimVar.GetSimVarValue("ATC ON PARKING SPOT", "bool") == 0) {
+        //The aircraft is on the ground AND not in a parking spot, so most probably on the runway, we want to check if the engine is running
+        if (SimVar.GetSimVarValue("ENG COMBUSTION:1", "bool") == 1) {
+          //engine is running don't override the sim settings
+
+        } else {
+          //engine off set everything
+
+          //load fuel
+          SimVar.SetSimVarValue("FUEL TANK LEFT MAIN QUANTITY", "number", Number(this.leftFuel));
+          SimVar.SetSimVarValue("FUEL TANK RIGHT MAIN QUANTITY", "number", Number(this.rightFuel));
+          //Fuel Selector
+          SimVar.SetSimVarValue("K:FUEL_SELECTOR_SET", "number", Number(this.fuelSelector));
+          //Parking Brake
+          SimVar.SetSimVarValue("K:PARKING_BRAKES", "number", Number(this.pBrake));
+          //Battery 1
+          SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:1", "number", Number(this.bat1));
+          //Battery 2
+          SimVar.SetSimVarValue("ELECTRICAL MASTER BATTERY:2", "number", Number(this.bat2));
+          //Alternator 1
+          if (this.alt1 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:1", "bool") == 0) {
+            SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR1", "number", 1); //Works
+          }
+          //Alternator 2
+          if (this.alt2 == 1 && SimVar.GetSimVarValue("GENERAL ENG MASTER ALTERNATOR:2", "bool") == 0) {
+            SimVar.SetSimVarValue("K:TOGGLE_ALTERNATOR2", "number", 1); //Works
+          }
+          //Avionics Switch
+          SimVar.SetSimVarValue("K:AVIONICS_MASTER_SET", "number", Number(this.avionics));
+          //Airconditioning
+          SimVar.SetSimVarValue("L:XMLVAR_Airco", "number", Number(this.aircon));
+          //Blower
+          SimVar.SetSimVarValue("L:XMLVAR_Blower", "number", Number(this.blower));
+          //Vent Blower
+          SimVar.SetSimVarValue("L:XMLVAR_Vent", "number", Number(this.ventBlower));
+          //Fuel Pump Switch
+          SimVar.SetSimVarValue("K:ELECT_FUEL_PUMP1_SET", "bool", Number(this.auxFuelPump));
+          //Magnetos
+          SimVar.SetSimVarValue("RECIP ENG LEFT MAGNETO:1", "bool", Number(this.magnetoLeft));
+          SimVar.SetSimVarValue("RECIP ENG RIGHT MAGNETO:1", "bool", Number(this.magnetoRight));
+          //Pitot Heat
+          SimVar.SetSimVarValue("K:PITOT_HEAT_SET", "number", Number(this.pitotHeat));
+          //Prop De-Ice
+          if (GetStoredData('G36XIP_PROP_DEICE_'+this.livery) == 1 && SimVar.GetSimVarValue("PROP DEICE SWITCH:1", "bool") == 0) {
+            SimVar.SetSimVarValue("B:DEICE_Propeller_1_Toggle", "number", 1);
+          }
+          //Strobe
+          SimVar.SetSimVarValue("LIGHT STROBE", "bool", Number(this.strobe)); //Works
+          //Beacon
+          SimVar.SetSimVarValue("LIGHT BEACON", "bool", Number(this.beacon)); //Works
+          //Nav
+          SimVar.SetSimVarValue("LIGHT NAV", "bool", Number(this.navLight)); //Works
+          //Panel FLood
+          SimVar.SetSimVarValue("LIGHT GLARESHIELD", "bool", Number(this.floodLight)); //Works
+          //Panel Light
+          SimVar.SetSimVarValue("LIGHT PANEL", "bool", Number(this.panelLight)); //Works
+          //Taxi Light
+          SimVar.SetSimVarValue("LIGHT TAXI", "bool", Number(this.taxiLight)); //Works
+          //Landing Light
+          SimVar.SetSimVarValue("LIGHT LANDING", "bool", Number(this.landingLight)); //Works
+          //Throttle
+          SimVar.SetSimVarValue("GENERAL ENG THROTTLE LEVER POSITION:1", "percent", Number(this.throttle)); //Works
+          //Prop
+          SimVar.SetSimVarValue("GENERAL ENG PROPELLER LEVER POSITION:1", "percent", Number(this.throttle)); //Works
+          //Mixture
+          SimVar.SetSimVarValue("GENERAL ENG MIXTURE LEVER POSITION:1", "percent", Number(this.mixture)); //Works
+          //Flaps
+          SimVar.SetSimVarValue("FLAPS HANDLE INDEX", "number", Number(this.flapsSwitch)); //Works
+          SimVar.SetSimVarValue("TRAILING EDGE FLAPS LEFT PERCENT", "percent", Number(this.flapsLeft)); //Works
+          SimVar.SetSimVarValue("TRAILING EDGE FLAPS RIGHT PERCENT", "percent", Number(this.flapsRight)); //Works
+          //Avionics Brightness
+            //pot14
+
+          //floodlight brightness
+            //pot5
+
+          //Panel light brightness
+            //pot3
+
+          //Sub Panel Lighting brightness
+            //pot2
+
+          //Defrost
+          SimVar.SetSimVarValue("K:ANTI_ICE_GRADUAL_SET_ENG1", "position 16k", Number(this.defrost));
+
+          //Alieron Trim
+          SimVar.SetSimVarValue("AILERON TRIM PCT", "Percent Over 100", Number(this.aileronTrim));
+
+          //Cowl Flaps
+          SimVar.SetSimVarValue("RECIP ENG COWL FLAP POSITION:1", "percent", Number(this.cowl)); //Works
+
+          //Pitch trim
+          SimVar.SetSimVarValue("ELEVATOR TRIM POSITION", "radians", Number(this.pitchTrim));
+
+          //Yoke visibility
+          SimVar.SetSimVarValue("L:XMLVAR_YokeHidden1", "number", Number(this.yoke1));
+          SimVar.SetSimVarValue("L:XMLVAR_YokeHidden2", "number", Number(this.yoke2));
+        }
+      }
+
+      //In the Air
+      if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 0) {
+        //We're in the air, don't set anything or we'll plumet to the ground
+      }
+
     }
 
-    //In the Air
-    if (SimVar.GetSimVarValue("SIM ON GROUND", "bool") == 0) {
-      //We're in the air, don't set anything or we'll plumet to the ground
-    }
+
 
 
     var timerMilSecs = 5000;
-    var timer = window.setInterval(checkG36State, timerMilSecs);
+
+    if (GetStoredData('G36XIP_STATE_ACTIVE_'+this.livery) == 1) {
+      var timer = window.setInterval(checkG36State, timerMilSecs);
+    }
 
     function checkG36State() {
 
@@ -490,8 +505,6 @@ class G36XIP extends BaseInstrument {
   //Runs every frame
   Update() {
     super.Update();
-
-
   }
 }
 

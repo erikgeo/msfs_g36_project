@@ -152,18 +152,53 @@
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.css",
-      "size": 13,
-      "date": 132808561363192887
+      "size": 1219,
+      "date": 132823015221322183
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.html",
-      "size": 1387,
-      "date": 132808741160465698
+      "size": 6835,
+      "date": 132823017035757562
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.js",
-      "size": 514,
-      "date": 132809673599157601
+      "size": 2218,
+      "date": 132823015126594545
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/css/bootstrap.css",
+      "size": 197144,
+      "date": 132823017269275117
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/css/bootstrap.css.map",
+      "size": 504418,
+      "date": 132823016683145621
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/img/Beechcraft_logo_white.png",
+      "size": 37280,
+      "date": 132820648401301645
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/img/Bonanza_360_05.png",
+      "size": 294881,
+      "date": 132820690815451309
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/img/swish.svg",
+      "size": 54188,
+      "date": 132822125916826164
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/js/bootstrap.min.js",
+      "size": 60089,
+      "date": 132822473196188028
+    },
+    {
+      "path": "html_ui/InGamePanels/bonanza/js/bootstrap.min.js.map",
+      "size": 217084,
+      "date": 132822473196277792
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/CaptMatto/G36XIP.html",
@@ -172,8 +207,8 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/CaptMatto/G36XIP.js",
-      "size": 27538,
-      "date": 132808719697096339
+      "size": 28295,
+      "date": 132822499122223133
     },
     {
       "path": "html_ui/Textures/Menu/toolbar/ICON_TOOLBAR_BONANZA.svg",
@@ -213,7 +248,7 @@
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/aircraft.cfg",
       "size": 2994,
-      "date": 132816536491703136
+      "date": 132816590034764825
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/aircraft.loc",
@@ -317,13 +352,13 @@
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_interior_LOD00.bin",
-      "size": 12849544,
-      "date": 132810534011596634
+      "size": 12773908,
+      "date": 132816976970867894
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_interior_LOD00.gltf",
-      "size": 727962,
-      "date": 132810534011606571
+      "size": 723460,
+      "date": 132816976970997548
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_interior_LOD01.bin",
@@ -377,13 +412,13 @@
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_LOD00.bin",
-      "size": 10101612,
-      "date": 132810534012295003
+      "size": 10102332,
+      "date": 132816976971835306
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_LOD00.gltf",
-      "size": 195683,
-      "date": 132810534012304713
+      "size": 198176,
+      "date": 132816976971915093
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_LOD01.bin",

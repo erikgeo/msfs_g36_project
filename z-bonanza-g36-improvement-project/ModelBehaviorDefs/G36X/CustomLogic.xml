@@ -131,10 +131,10 @@
 
 <!-- Determine an engine start score, which can be used as threshold value for a good or bad engine start
 Factors:
-	Ambient Temperature: 			(E:AMBIENT TEMPERATURE, celsius)
+	Ambient Temperature: 					(E:AMBIENT TEMPERATURE, celsius)
 	Cylinder Head Temperature: 		(A:ENG CYLINDER HEAD TEMPERATURE:1, celsius)
-	Throttle position: 				(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
-	Pumped fuel:					(L:XMLVAR_PUMPED_FUEL, gallons)
+	Throttle position: 						(A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+	Pumped fuel:									(L:XMLVAR_PUMPED_FUEL, gallons)
 
 	Pumped fuel gives a positive contribution to the score up to 0.03 gallons pumped. Fuel pumped in excess of this amount causes score = 0 until fuel is cleared through the flooded engine start procedure.
 -->
