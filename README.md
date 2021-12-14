@@ -9,14 +9,16 @@ Installation:
 
 1: Download and install the Working Title NXi from the store Marketplace
 
-2: Download and unzip the folder ‘z-bonanza-g36-improvement-project’ in to your MSFS Community folder
+2: Download and unzip the folder ‘bonanza-g36-improvement-project’ in to your MSFS Community folder
+
+PLEASE NOTE - WE HAVE REMOVED THE 'Z' FROM THE FOLDER NAME, ENSURE YOU REMOVE THE OLD VERSION PRIOR TO USING THIS ONE!!
 
 -------------------------------------
 -------------------------------------
 
 Current version: 0.6.6 Beta 4 (Sim Update 7 Compatible)
 
-* NEW! Spark Plug Fouling - if you don't lean correctly your plugs will encounter spark fouling, loosing RPM and engine power.
+* NEW! Spark Plug Fouling - if you don't lean correctly both on the ground and in the air your plugs will encounter spark fouling, loosing RPM and engine power. If you leave the plugs fouled the engine will continue to loose power until finally shutting off.
 * New! The Bonanza G36 Improvement Project is now listed as it's own aircraft in the menu rather than overwriting the default aircraft (please see livery note)
 * New! Aircraft Persistence, all switches and fuel tanks are saved between flights
 * New! Aircraft Persistence, saves for different liveries - have multiple Bonanzas in your fleet all with different personalities
