@@ -152,18 +152,18 @@
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.css",
-      "size": 1219,
-      "date": 132823015221322183
+      "size": 1227,
+      "date": 132823018274173718
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.html",
-      "size": 6835,
-      "date": 132823017035757562
+      "size": 6775,
+      "date": 132823018395559124
     },
     {
       "path": "html_ui/InGamePanels/bonanza/bonanza-hangar.js",
-      "size": 2218,
-      "date": 132823015126594545
+      "size": 2396,
+      "date": 132825928394615068
     },
     {
       "path": "html_ui/InGamePanels/bonanza/css/bootstrap.css",
@@ -207,8 +207,8 @@
     },
     {
       "path": "html_ui/Pages/VCockpit/Instruments/CaptMatto/G36XIP.js",
-      "size": 28295,
-      "date": 132822499122223133
+      "size": 28364,
+      "date": 132825946435948494
     },
     {
       "path": "html_ui/Textures/Menu/toolbar/ICON_TOOLBAR_BONANZA.svg",
@@ -222,13 +222,13 @@
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomEngineModelling.xml",
-      "size": 977,
-      "date": 132801892171393968
+      "size": 2549,
+      "date": 132837801071407955
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomLogic.xml",
-      "size": 9244,
-      "date": 132801517217075455
+      "size": 9252,
+      "date": 132826755672327982
     },
     {
       "path": "ModelBehaviorDefs/G36X/CustomTemplates.xml",
@@ -347,8 +347,8 @@
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_interior.xml",
-      "size": 23354,
-      "date": 132801517218471733
+      "size": 22572,
+      "date": 132836538892156083
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/model/Bonanza_g36_interior_LOD00.bin",
@@ -493,7 +493,7 @@
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/panel/panel.xml",
       "size": 26566,
-      "date": 132801648426900635
+      "date": 132825995123361742
     },
     {
       "path": "SimObjects/Airplanes/Bonanza_G36_Improvement_Project/sound/Asobo_Bonanza_G36.PC.PCK",

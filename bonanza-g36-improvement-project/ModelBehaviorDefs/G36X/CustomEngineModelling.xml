@@ -3,6 +3,10 @@
   (A:RECIP MIXTURE RATIO:1, ratio)
 </Macro>
 
+<Macro Name="Throttle Scalar">
+  (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent)
+</Macro>
+
 <!-- Max allowable drop to rpm @TODO add some randomness -->
 <Macro Name="MaxDrop">
   1
@@ -27,6 +31,7 @@
           (A:ENG COMBUSTION:1, bool) 1 ==
             @MixtureRatio 0.07 &gt; and
             if{
+              1 (&gt;L:G36XIP_FOUL, bool)
               (L:G36XIP_ELAPSED_TIME) 1 + (&gt;L:G36XIP_ELAPSED_TIME)
             } els{
               0 (&gt;L:G36XIP_ELAPSED_TIME)
@@ -37,15 +42,17 @@
     </UseTemplate>
   </Component>
 
-  <!-- ### TIMING MECHANISM ### -->
+  <!-- ### AFFECT SCALE ### -->
   <Component ID="UpdateLoop2">
     <UseTemplate Name="ASOBO_GT_Update">
       <FREQUENCY>1</FREQUENCY>
         <UPDATE_CODE>
           (L:G36XIP_ELAPSED_TIME) @RandomTimer &gt;
+          (A:SIM ON GROUND, bool) 1 == and
           if{
-            1 (&gt;L:G36XIP_FOUL, bool)
             @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (&gt;L:G36XIP_BADNESS_SCALE)
+          } els{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) / (&gt;L:G36XIP_BADNESS_SCALE)
           }
         </UPDATE_CODE>
     </UseTemplate>
