@@ -497,7 +497,12 @@ class G36XIP extends BaseInstrument {
 
       //MODELLING STUFF
 
-        //Nothing Here yet, come back soon
+        if (SimVar.GetSimVarValue("L:G36XIP_FOUL", "bool")) {
+          console.log('fouling present');
+          var fouling = 1;
+          SetStoredData('G36XIP_PLUG_FOULING_'+planeId, fouling.toString());
+        }
+
 
     }
   } //End onFlightStart()
