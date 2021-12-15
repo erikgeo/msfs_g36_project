@@ -51,6 +51,18 @@ class BonanzaHangar extends HTMLElement {
       document.getElementById("aircraftLivery").innerHTML = title;
 
     }, delayInMilliseconds);
+
+    setInterval(function() {
+
+      //get the livery
+      var title = SimVar.GetSimVarValue("TITLE", "string");
+      this.livery = title.replace(/\s+/g, '_');
+
+      if (GetStoredData('G36XIP_PLUG_FOULING_'+this.livery)) {
+        document.getElementById("fouling").innerHTML = "<i class='fa-solid fa-octagon-exclamation fa-lg'></i> Some plugs have experienced fouling, try and lean during ground ops";
+      }
+    }, 10000);
+
   }
 
   disconnectedCallback() {
