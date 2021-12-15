@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/SCSS/common.css" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="bonanza-hangar.css" />
+
+    <script type="text/javascript" src="/JS/coherent.js"></script>
+    <script type="text/javascript" src="/JS/common.js"></script>
+    <script type="text/javascript" src="/JS/dataStorage.js"></script>
+    <script type="text/javascript" src="/JS/buttons.js"></script>
+    <script type="text/javascript" src="/JS/Services/ToolBarPanels.js"></script>
+
+    <script type="text/javascript" src="/JS/simvar.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d23d9e1bad.js" crossorigin="anonymous"></script>
+
+    <link rel="import" href="/templates/NewPushButton/NewPushButton.html" />
+    <link rel="import" href="/templates/ToggleButton/ToggleButton.html" />
+    <link rel="import" href="/templates/ingameUi/ingameUi.html" />
+    <link rel="import" href="/templates/ingameUiHeader/ingameUiHeader.html" />
+
+  </head>
+  <body class="border-box">
+    <bonanza-hangar>
+      <ingame-ui id="bonanza_frame" panel-id="G36_Panel" class="ingameUiFrame" title="Bonanza Hangar" content-fit="true" min-width="860" min-height="900">
+        <section id="MainDisplay">
+          <div class="container-fluid swish">
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <img src="img/Beechcraft_logo_white.png" height="30px" />
+                <h1>BONANZA G36 IMPROVEMENT PROJECT</h1>
+              </div>
+            </div>
+            <div class="row my-5">
+              <div class="col text-center connected-deck">
+                Connected Flight Deck <i class="fa-thin fa-screencast"></i>
+              </div>
+            </div>
+            <div class="row blue-border semi-dark-background">
+              <div class="col-5 offset-sm-1 my-3">
+                <span class="text-secondary">AFM Revision: </span><span class="text-offwhite">619D6B96</span><br />
+                <span class="text-secondary">Supplement: </span><span class="text-offwhite">619D6B96-S1</span><br />
+              </div>
+              <div class="col-5 text-right my-3">
+                <span class="text-secondary">Registration: </span><span id="aircraftReg" class="text-offwhite">placeholder</span><br />
+                <span class="text-secondary">Aircraft: </span><span id="aircraftLivery" class="text-offwhite">placeholder</span><br />
+              </div>
+              <div class="row dark-background w-100">
+                <div class="col text-center ">
+                  <img class="mt-3" src="img/Bonanza_360_05.png" height="110px" />
+                  <p class="text-white mt-n1">
+                    Bonanza G36 / Garmin NXi
+                  </p>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-5 offset-sm-1 my-3">
+                  <div class="custom-control custom-switch text-offwhite">
+                    <input type="checkbox" class="custom-control-input" id="stateSaving" onclick="stateChange" >
+                    <label class="custom-control-label" for="stateSaving">Enable / Disable State Saving for this aircraft</label>
+                  </div>
+                  <div class="custom-control custom-switch text-offwhite">
+                    <input type="checkbox" class="custom-control-input" id="resetStateSaving" onclick="resetStateSaving" >
+                    <label class="custom-control-label" for="resetStateSaving">Reset state on next load</label>
+                  </div>
+                  <div id="aircraftStateChange" class="row d-none">
+                    <div class="col text-yellow">
+                      <p>
+                        <i class="fa-solid fa-circle-exclamation"></i> Changes above will only be reflected on next flight load
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5 my-3">
+                  <p class="text-offwhite">
+                    <b>Live Aircraft Data</b>
+                  </p>
+                  <dl class="row">
+                    <dt class="col-sm-6">
+                      Engine Hours
+                    </dt>
+                    <dd id="aircraftEngineHours" class="col-sm-6 text-offwhite">
+                      placeholder
+                    </dd>
+                    <dt class="col-sm-6">
+                      Engine
+                    </dt>
+                    <dd id="aircraftEngineType" class="col-sm-6 text-offwhite">
+                      Continental IO-550-B
+                    </dd>
+                    <dt class="col-sm-6">
+                      Hours until next service
+                    </dt>
+                    <dd id="aircraftHoursToService" class="col-sm-6 text-offwhite">
+                      placeholder
+                    </dd>
+                    <dt class="col-sm-6">
+                      Battery 1 Voltage
+                    </dt>
+                    <dd id="aircraftBatt1Volts" class="col-sm-6 text-offwhite">
+                      placeholder
+                    </dd>
+                    <dt class="col-sm-6">
+                      Battery 2 Voltage
+                    </dt>
+                    <dd id="aircraftBatt2Volts" class="col-sm-6 text-offwhite">
+                      placeholder
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ingame-ui>
+    </bonanza-hangar>
+    <script type="text/javascript" src="bonanza-hangar.js"></script>
+    <script>
+    function stateChange()
+    {
+      if (document.getElementById('stateSaving').checked) {
+        var state = 1;
+        SetStoredData('G36XIP_STATE_ACTIVE_'+this.livery, state.toString());
+      } else {
+        var state = 0;
+        SetStoredData('G36XIP_STATE_ACTIVE_'+this.livery, state.toString());
+      }
+    }
+    </script>
+  </body>
+</html>

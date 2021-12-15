@@ -1,0 +1,72 @@
+#MainDisplay {
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(#272C2F, #393E41);
+  background-repeat: no-repeat;
+  font-size: 0.9rem;
+}
+
+.swish {
+  background-image: url( 'img/swish.svg' );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  color: #F7B801;
+  font-size: 1rem;
+}
+
+dt {
+  color: #9D9D9D;
+  font-weight: normal;
+}
+
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+
+.text-offwhite {
+  color: #e6e6e6;
+}
+
+.text-grey {
+  color: #9D9D9D;
+}
+
+.text-yellow {
+  color: #F7B801;
+}
+
+.connected-deck {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight:300;
+}
+
+.blue-border {
+  border-top: 1px solid #0077C7;
+  border-bottom: 1px solid #0077C7;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.semi-dark-background {
+  background: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
+}
+
+.dark-background {
+  background: rgba(0, 0, 0, 0.45);
+  mix-blend-mode: normal;
+}
+
+.custom-control-label:before {
+  background-color: white;
+  border-color: #467CAE;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color: #467CAE!important;
+  border-color: #467CAE;
+}

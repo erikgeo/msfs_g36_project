@@ -1,0 +1,88 @@
+<!-- Mixture Ratio -->
+<Macro Name="MixtureRatio">
+  (A:RECIP MIXTURE RATIO:1, ratio)
+</Macro>
+
+<!-- random number times 60 equals a number between 0 and 60. Then adding 60 makes it between 30 and 60. -->
+<Macro Name="RandomTimer">
+  rand 60 * 60 +
+</Macro>
+
+<!-- ### TRIGGER ### -->
+<Component ID="Call_Spark_Fouling">
+  <UseTemplate Name="Spark_Fouling">
+  </UseTemplate>
+</Component>
+
+<Template Name="Spark_Fouling">
+  <Component ID="UpdateLoop1">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          (A:ENG COMBUSTION:1, bool) 1 ==
+            @MixtureRatio 0.08 &gt; and
+            if{
+              1 (&gt;L:G36XIP_FOUL, bool)
+              (L:G36XIP_ELAPSED_TIME) 1 + (&gt;L:G36XIP_ELAPSED_TIME)
+            } els{
+              0 (&gt;L:G36XIP_ELAPSED_TIME)
+              0 (&gt;L:G36XIP_FOUL, bool)
+              0 (&gt;L:G36XIP_BADNESS_SCALE)
+            }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+  <!-- ### AFFECT SCALE ### -->
+  <Component ID="UpdateLoop2">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>1</FREQUENCY>
+        <UPDATE_CODE>
+          (L:G36XIP_ELAPSED_TIME) @RandomTimer &gt;
+          (A:SIM ON GROUND, bool) 1 == and
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 75 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+
+          (L:G36XIP_ELAPSED_TIME) @RandomTimer &gt;
+          (A:SIM ON GROUND, bool) 0 == and
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 150 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+  <!-- ### FOULING EFFECT, SCALED BY THE AFFECT SCALE ### -->
+  <Component ID="UpdateLoop3">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>30</FREQUENCY>
+        <UPDATE_CODE>
+          (L:G36XIP_FOUL, bool) 1 ==
+          if{
+            (A:RECIP ENG MANIFOLD PRESSURE:1, psi) (L:G36XIP_BADNESS_SCALE) - (&gt;A:RECIP ENG MANIFOLD PRESSURE:1, psi)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+  <!-- ### EXTRA MAG DROP EFFECT WHEN FOULED ### -->
+  <Component ID="UpdateLoop4">
+    <UseTemplate Name="ASOBO_GT_Update">
+      <FREQUENCY>3</FREQUENCY>
+        <UPDATE_CODE>
+          (A:RECIP ENG LEFT MAGNETO:1, bool) 0 ==
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 25 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+
+          (A:RECIP ENG RIGHT MAGNETO:1, bool) 0 ==
+          if{
+            @MixtureRatio (L:G36XIP_ELAPSED_TIME) * 25 / (&gt;L:G36XIP_BADNESS_SCALE)
+          }
+        </UPDATE_CODE>
+    </UseTemplate>
+  </Component>
+
+
+</Template>
